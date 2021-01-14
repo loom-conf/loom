@@ -1,4 +1,4 @@
-import { reactive } from '@nuxtjs/composition-api'
+import { reactive, toRefs } from '@nuxtjs/composition-api'
 import { WebHID } from '@/utils/webhid'
 import { QMK } from '~/utils/qmk'
 
@@ -16,7 +16,7 @@ interface KeyboardState {
   layerCount: number
 }
 
-export default function useHidKeyboard() {
+export default function useKeyboardHID() {
   const protocol = new WebHID()
 
   const state = reactive<KeyboardState>({
@@ -36,7 +36,6 @@ export default function useHidKeyboard() {
       protocol.send(QMK.makeCommand(command))
     })
 
-  // methods
   const connect = async () => {
     if (state.isConnected) disconnect()
     try {
@@ -78,5 +77,5 @@ export default function useHidKeyboard() {
     state.keycodes = []
   }
 
-  return { state, connect, disconnect }
+  return { ...toRefs(state), connect, disconnect }
 }

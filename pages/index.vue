@@ -11,19 +11,23 @@
       LOOM
     </v-navigation-drawer>
     <div class="container">
-      <div class="keyboard">
+      <div class="keyboardEditor">
         <div class="upper">
           <div class="pb-6">
-            <v-text-field label="json"></v-text-field>
-            <v-btn>load JSON</v-btn>
-            <v-btn :disabled="keyboardState.isConnected" @click="connect"
+            <v-text-field v-model="jsonURL" label="json"></v-text-field>
+            <v-btn @click="loadJSON">load JSON</v-btn>
+            <v-btn
+              :disabled="keyboard.isConnected.value"
+              @click="keyboard.connect"
               >connect</v-btn
             >
-            <v-btn :disabled="!keyboardState.isConnected" @click="disconnect"
+            <v-btn
+              :disabled="!keyboard.isConnected.value"
+              @click="keyboard.disconnect"
               >disconnect</v-btn
             >
           </div>
-          <h1>{{ keyboardState.name }}</h1>
+          <h1>{{ keyboard.name.value }}</h1>
         </div>
         <div class="bottom"></div>
       </div>
@@ -45,7 +49,7 @@ $navigation-drawer-width: 100px;
   margin-left: 30px;
 }
 
-.keyboard {
+.keyboardEditor {
   overflow-x: hidden;
   .upper {
     margin-top: 10px;
@@ -58,13 +62,23 @@ $navigation-drawer-width: 100px;
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import useHidKeyboard from '@/composables/useHidKeyboard'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+
+import useKeyboardHID from '@/composables/useKeyboardHID'
+import useKeyboardConfig from '@/composables/useKeyboardConfig'
 
 export default defineComponent({
   setup() {
-    const { state: keyboardState, connect, disconnect } = useHidKeyboard()
-    return { keyboardState, connect, disconnect }
+    const keyboard = useKeyboardHID()
+    const keyboardConfig = useKeyboardConfig()
+
+    const jsonURL = ref<string>(
+      'https://gist.githubusercontent.com/hsgw/c57055b3fddb58bdc58dddaba5c087e4/raw/15da4f3b5e5b54761f33ec5c45b24e2950040677/meishi2.json'
+    )
+    const loadJSON = async () => {
+      await keyboardConfig.loadJSONFromURL(jsonURL.value)
+    }
+    return { loadJSON, jsonURL, keyboard, keyboardConfig }
   },
 })
 </script>
