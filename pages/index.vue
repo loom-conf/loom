@@ -11,26 +11,7 @@
       LOOM
     </v-navigation-drawer>
     <div class="container">
-      <div class="keyboardEditor">
-        <div class="upper">
-          <div class="pb-6">
-            <v-text-field v-model="jsonURL" label="json"></v-text-field>
-            <v-btn @click="loadJSON">load JSON</v-btn>
-            <v-btn
-              :disabled="keyboard.isConnected.value"
-              @click="keyboard.connect"
-              >connect</v-btn
-            >
-            <v-btn
-              :disabled="!keyboard.isConnected.value"
-              @click="keyboard.disconnect"
-              >disconnect</v-btn
-            >
-          </div>
-          <h1>{{ keyboard.name.value }}</h1>
-        </div>
-        <div class="bottom"></div>
-      </div>
+      <KeyboardEditor class="keyboardEditor" />
     </div>
   </div>
 </template>
@@ -62,23 +43,16 @@ $navigation-drawer-width: 100px;
 </style>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
-import useKeyboardHID from '@/composables/useKeyboardHID'
-import useKeyboardConfig from '@/composables/useKeyboardConfig'
+import { provideKeyboard } from '@/stores/useKeyboard'
+import KeyboardEditor from '~/components/KeyboardEditor.vue'
 
 export default defineComponent({
+  components: { KeyboardEditor },
   setup() {
-    const keyboard = useKeyboardHID()
-    const keyboardConfig = useKeyboardConfig()
-
-    const jsonURL = ref<string>(
-      'https://gist.githubusercontent.com/hsgw/c57055b3fddb58bdc58dddaba5c087e4/raw/15da4f3b5e5b54761f33ec5c45b24e2950040677/meishi2.json'
-    )
-    const loadJSON = async () => {
-      await keyboardConfig.loadJSONFromURL(jsonURL.value)
-    }
-    return { loadJSON, jsonURL, keyboard, keyboardConfig }
+    provideKeyboard()
+    return {}
   },
 })
 </script>

@@ -1,0 +1,2053 @@
+[
+  {
+    "qmk": "KC_A",
+    "raw": 4,
+    "legend": "A",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_B",
+    "raw": 5,
+    "legend": "B",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_C",
+    "raw": 6,
+    "legend": "C",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_D",
+    "raw": 7,
+    "legend": "D",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_E",
+    "raw": 8,
+    "legend": "E",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F",
+    "raw": 9,
+    "legend": "F",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_G",
+    "raw": 10,
+    "legend": "G",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_H",
+    "raw": 11,
+    "legend": "H",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_I",
+    "raw": 12,
+    "legend": "I",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_J",
+    "raw": 13,
+    "legend": "J",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_K",
+    "raw": 14,
+    "legend": "K",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_L",
+    "raw": 15,
+    "legend": "L",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_M",
+    "raw": 16,
+    "legend": "M",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_N",
+    "raw": 17,
+    "legend": "N",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_O",
+    "raw": 18,
+    "legend": "O",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_P",
+    "raw": 19,
+    "legend": "P",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_Q",
+    "raw": 20,
+    "legend": "Q",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_R",
+    "raw": 21,
+    "legend": "R",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_S",
+    "raw": 22,
+    "legend": "S",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_T",
+    "raw": 23,
+    "legend": "T",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_U",
+    "raw": 24,
+    "legend": "U",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_V",
+    "raw": 25,
+    "legend": "V",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_W",
+    "raw": 26,
+    "legend": "W",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_X",
+    "raw": 27,
+    "legend": "X",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_Y",
+    "raw": 28,
+    "legend": "Y",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_Z",
+    "raw": 29,
+    "legend": "Z",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_1",
+    "raw": 30,
+    "legend": "1",
+    "altLegend": "!",
+    "type": ""
+  },
+  {
+    "qmk": "KC_2",
+    "raw": 31,
+    "legend": "2",
+    "altLegend": "@",
+    "type": ""
+  },
+  {
+    "qmk": "KC_3",
+    "raw": 32,
+    "legend": "3",
+    "altLegend": "#",
+    "type": ""
+  },
+  {
+    "qmk": "KC_4",
+    "raw": 33,
+    "legend": "4",
+    "altLegend": "$",
+    "type": ""
+  },
+  {
+    "qmk": "KC_5",
+    "raw": 34,
+    "legend": "5",
+    "altLegend": "%",
+    "type": ""
+  },
+  {
+    "qmk": "KC_6",
+    "raw": 35,
+    "legend": "6",
+    "altLegend": "^",
+    "type": ""
+  },
+  {
+    "qmk": "KC_7",
+    "raw": 36,
+    "legend": "7",
+    "altLegend": "&",
+    "type": ""
+  },
+  {
+    "qmk": "KC_8",
+    "raw": 37,
+    "legend": "8",
+    "altLegend": "*",
+    "type": ""
+  },
+  {
+    "qmk": "KC_9",
+    "raw": 38,
+    "legend": "9",
+    "altLegend": "(",
+    "type": ""
+  },
+  {
+    "qmk": "KC_0",
+    "raw": 39,
+    "legend": "0",
+    "altLegend": ")",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F1",
+    "raw": 58,
+    "legend": "F1",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F2",
+    "raw": 59,
+    "legend": "F2",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F3",
+    "raw": 60,
+    "legend": "F3",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F4",
+    "raw": 61,
+    "legend": "F4",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F5",
+    "raw": 62,
+    "legend": "F5",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F6",
+    "raw": 63,
+    "legend": "F6",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F7",
+    "raw": 64,
+    "legend": "F7",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F8",
+    "raw": 65,
+    "legend": "F8",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F9",
+    "raw": 66,
+    "legend": "F9",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F10",
+    "raw": 67,
+    "legend": "F10",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F11",
+    "raw": 68,
+    "legend": "F11",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F12",
+    "raw": 69,
+    "legend": "F12",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F13",
+    "raw": 104,
+    "legend": "F13",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F14",
+    "raw": 105,
+    "legend": "F14",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F15",
+    "raw": 106,
+    "legend": "F15",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F16",
+    "raw": 107,
+    "legend": "F16",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F17",
+    "raw": 108,
+    "legend": "F17",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F18",
+    "raw": 109,
+    "legend": "F18",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F19",
+    "raw": 110,
+    "legend": "F19",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F20",
+    "raw": 111,
+    "legend": "F20",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F21",
+    "raw": 112,
+    "legend": "F21",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F22",
+    "raw": 113,
+    "legend": "F22",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F23",
+    "raw": 114,
+    "legend": "F23",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_F24",
+    "raw": 115,
+    "legend": "F24",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_ENT",
+    "raw": 40,
+    "legend": "Enter",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_ESC",
+    "raw": 41,
+    "legend": "ESC",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_BSPC",
+    "raw": 42,
+    "legend": "BS",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_TAB",
+    "raw": 43,
+    "legend": "Tab",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SPC",
+    "raw": 44,
+    "legend": "Space",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_MINS",
+    "raw": 45,
+    "legend": "-",
+    "altLegend": "_",
+    "type": ""
+  },
+  {
+    "qmk": "KC_EQL",
+    "raw": 46,
+    "legend": "=",
+    "altLegend": "+",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LBRC",
+    "raw": 47,
+    "legend": "[",
+    "altLegend": "{",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RBRC",
+    "raw": 48,
+    "legend": "]",
+    "altLegend": "}",
+    "type": ""
+  },
+  {
+    "qmk": "KC_BSLS",
+    "raw": 49,
+    "legend": "\\",
+    "altLegend": "\\",
+    "type": ""
+  },
+  {
+    "qmk": "KC_NUHS",
+    "raw": 50,
+    "legend": "#",
+    "altLegend": "~",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SCLN",
+    "raw": 51,
+    "legend": ";",
+    "altLegend": ":",
+    "type": ""
+  },
+  {
+    "qmk": "KC_QUOT",
+    "raw": 52,
+    "legend": "'",
+    "altLegend": ",",
+    "type": ""
+  },
+  {
+    "qmk": "KC_GRAVE",
+    "raw": 53,
+    "legend": "~",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_COMM",
+    "raw": 54,
+    "legend": ",",
+    "altLegend": "<",
+    "type": ""
+  },
+  {
+    "qmk": "KC_DOT",
+    "raw": 55,
+    "legend": ".",
+    "altLegend": ">",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SLSH",
+    "raw": 56,
+    "legend": "/",
+    "altLegend": "?",
+    "type": ""
+  },
+  {
+    "qmk": "KC_NUBS",
+    "raw": 100,
+    "legend": "Non-US \\",
+    "altLegend": "\\",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CAPS",
+    "raw": 57,
+    "legend": "Caps Lock",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SLCK",
+    "raw": 71,
+    "legend": "Scroll Lock",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_NLCK",
+    "raw": 83,
+    "legend": "Num Lock",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LCAP",
+    "raw": 130,
+    "legend": "LCAP",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LNUM",
+    "raw": 131,
+    "legend": "LNUM",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LSCR",
+    "raw": 132,
+    "legend": "LSCR",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LCTL",
+    "raw": 165,
+    "legend": "Ctrl",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LSFT",
+    "raw": 166,
+    "legend": "Shift",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LOPT",
+    "raw": 167,
+    "legend": "Alt",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LCMD",
+    "raw": 168,
+    "legend": "GUI",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RCTL",
+    "raw": 169,
+    "legend": "Ctrl",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RSFT",
+    "raw": 170,
+    "legend": "Shift",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RALT",
+    "raw": 171,
+    "legend": "Alt",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RGUI",
+    "raw": 172,
+    "legend": "GUI",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RO",
+    "raw": 135,
+    "legend": "\\",
+    "altLegend": "_",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_KANA",
+    "raw": 136,
+    "legend": "かな",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_JYEN",
+    "raw": 137,
+    "legend": "￥",
+    "altLegend": "\\",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_HENK",
+    "raw": 138,
+    "legend": "変換",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_MHEN",
+    "raw": 139,
+    "legend": "無変換",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_INT6",
+    "raw": 140,
+    "legend": "Numpad",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_INT7",
+    "raw": 141,
+    "legend": "Int7",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_INT8",
+    "raw": 142,
+    "legend": "Int8",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_INT9",
+    "raw": 143,
+    "legend": "Int9",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_HAEN",
+    "raw": 144,
+    "legend": "Hangul",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_HANJ",
+    "raw": 145,
+    "legend": "Hanja",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LANG3",
+    "raw": 146,
+    "legend": "カタカナ",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_LANG4",
+    "raw": 147,
+    "legend": "ひらがな",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_LANG5",
+    "raw": 148,
+    "legend": "全角半角",
+    "altLegend": "",
+    "type": "JIS"
+  },
+  {
+    "qmk": "KC_LANG6",
+    "raw": 149,
+    "legend": "Lang6",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LANG7",
+    "raw": 150,
+    "legend": "Lang7",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LANG8",
+    "raw": 151,
+    "legend": "Lang8",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LANG9",
+    "raw": 152,
+    "legend": "Lang9",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PSCR",
+    "raw": 70,
+    "legend": "PrtScrn",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PAUS",
+    "raw": 72,
+    "legend": "Pause",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_INS",
+    "raw": 73,
+    "legend": "Insert",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_HOME",
+    "raw": 74,
+    "legend": "Home",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PGUP",
+    "raw": 75,
+    "legend": "Page Up",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_DEL",
+    "raw": 76,
+    "legend": "Del",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_END",
+    "raw": 77,
+    "legend": "End",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PGDN",
+    "raw": 78,
+    "legend": "Page Down",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RGHT",
+    "raw": 79,
+    "legend": "→",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_LEFT",
+    "raw": 80,
+    "legend": "←",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_DOWN",
+    "raw": 81,
+    "legend": "↓",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_UP",
+    "raw": 82,
+    "legend": "↑",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_APP",
+    "raw": 101,
+    "legend": "App",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_POWER",
+    "raw": 102,
+    "legend": "Power",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_EXEC",
+    "raw": 116,
+    "legend": "Execute",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_HELP",
+    "raw": 117,
+    "legend": "Help",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_MENU",
+    "raw": 118,
+    "legend": "Menu",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SLCT",
+    "raw": 119,
+    "legend": "Select",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_STOP",
+    "raw": 120,
+    "legend": "Stop",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_AGIN",
+    "raw": 121,
+    "legend": "Again",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_UNDO",
+    "raw": 122,
+    "legend": "Undo",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CUT",
+    "raw": 123,
+    "legend": "Cut",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_COPY",
+    "raw": 124,
+    "legend": "Copy",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PSTE",
+    "raw": 125,
+    "legend": "Paste",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_FIND",
+    "raw": 126,
+    "legend": "Find",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC__MUTE",
+    "raw": 127,
+    "legend": "Mute",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC__VOLUP",
+    "raw": 128,
+    "legend": "Vol Up",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC__VOLDOWN",
+    "raw": 129,
+    "legend": "Vol Down",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_ERAS",
+    "raw": 153,
+    "legend": "Erase",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SYSREQ",
+    "raw": 154,
+    "legend": "SysReq",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CANCEL",
+    "raw": 155,
+    "legend": "Cancel",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CLR",
+    "raw": 156,
+    "legend": "Clear",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PRIOR",
+    "raw": 157,
+    "legend": "Prior",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_RETURN",
+    "raw": 158,
+    "legend": "Return",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_SEPARATOR",
+    "raw": 159,
+    "legend": "Separator",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_OUT",
+    "raw": 160,
+    "legend": "Out",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_OPER",
+    "raw": 161,
+    "legend": "Oper",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CLEAR_AGAIN",
+    "raw": 162,
+    "legend": "Clear/Again",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_CRSEL",
+    "raw": 163,
+    "legend": "CrSel/Props",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_EXSEL",
+    "raw": 164,
+    "legend": "ExSel",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "KC_PWR",
+    "raw": 173,
+    "legend": "Power",
+    "altLegend": "",
+    "type": "SYSTEM"
+  },
+  {
+    "qmk": "KC_SLEP",
+    "raw": 174,
+    "legend": "Sleep",
+    "altLegend": "",
+    "type": "SYSTEM"
+  },
+  {
+    "qmk": "KC_WAKE",
+    "raw": 175,
+    "legend": "Wake",
+    "altLegend": "",
+    "type": "SYSTEM"
+  },
+  {
+    "qmk": "KC_MUTE",
+    "raw": 176,
+    "legend": "Mute",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_VOLU",
+    "raw": 177,
+    "legend": "Volume Up",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_VOLD",
+    "raw": 178,
+    "legend": "Volume Down",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MNXT",
+    "raw": 179,
+    "legend": "Next",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MPRV",
+    "raw": 180,
+    "legend": "Prev",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MSTP",
+    "raw": 181,
+    "legend": "Stop",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MPLY",
+    "raw": 182,
+    "legend": "Play",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MSEL",
+    "raw": 183,
+    "legend": "Player",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_EJCT",
+    "raw": 184,
+    "legend": "Eject",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MAIL",
+    "raw": 185,
+    "legend": "Mail",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_CALC",
+    "raw": 186,
+    "legend": "Launch Calculator",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MYCM",
+    "raw": 187,
+    "legend": "Launch My Computer",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WSCH",
+    "raw": 188,
+    "legend": "Browser Search",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WHOM",
+    "raw": 189,
+    "legend": "Browser Home",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WBAK",
+    "raw": 190,
+    "legend": "Browser Back",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WFWD",
+    "raw": 191,
+    "legend": "Browser Forward",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WSTP",
+    "raw": 192,
+    "legend": "Browser Stop",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WREF",
+    "raw": 193,
+    "legend": "Browser Refresh",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_WFAV",
+    "raw": 194,
+    "legend": "Browser Favorites",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MFFD",
+    "raw": 195,
+    "legend": "Next",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_MRWD",
+    "raw": 196,
+    "legend": "Previous",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_BRIU",
+    "raw": 197,
+    "legend": "Brightness Up",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_BRID",
+    "raw": 198,
+    "legend": "Brightness Down",
+    "altLegend": "",
+    "type": "MEDIA"
+  },
+  {
+    "qmk": "KC_PSLS",
+    "raw": 84,
+    "legend": "/",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PAST",
+    "raw": 85,
+    "legend": "*",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PMNS",
+    "raw": 86,
+    "legend": "-",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PPLS",
+    "raw": 87,
+    "legend": "+",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PENT",
+    "raw": 88,
+    "legend": "Enter",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P1",
+    "raw": 89,
+    "legend": "1",
+    "altLegend": "End",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P2",
+    "raw": 90,
+    "legend": "2",
+    "altLegend": "↓",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P3",
+    "raw": 91,
+    "legend": "3",
+    "altLegend": "PgDown",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P4",
+    "raw": 92,
+    "legend": "4",
+    "altLegend": "←",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P5",
+    "raw": 93,
+    "legend": "5",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P6",
+    "raw": 94,
+    "legend": "6",
+    "altLegend": "→",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P7",
+    "raw": 95,
+    "legend": "7",
+    "altLegend": "Home",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P8",
+    "raw": 96,
+    "legend": "8",
+    "altLegend": "↑",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P9",
+    "raw": 97,
+    "legend": "9",
+    "altLegend": "PgUp",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_P0",
+    "raw": 98,
+    "legend": "0",
+    "altLegend": "Ins",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PDOT",
+    "raw": 99,
+    "legend": ".",
+    "altLegend": "Del",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PEQL",
+    "raw": 103,
+    "legend": "=",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_PCMM",
+    "raw": 133,
+    "legend": ",",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_KP_EQUAL_AS400",
+    "raw": 134,
+    "legend": "=(AS/400)",
+    "altLegend": "",
+    "type": "KEYPAD"
+  },
+  {
+    "qmk": "KC_TRNS",
+    "raw": 0,
+    "legend": "▽",
+    "altLegend": "",
+    "type": ""
+  },
+  {
+    "qmk": "RESET",
+    "raw": 23552,
+    "legend": "RESET",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DEBUG",
+    "raw": 23553,
+    "legend": "DEBUG",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "EEP_RST",
+    "raw": 23631,
+    "legend": "ROM RESET",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AU_ON",
+    "raw": 23581,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AU_OFF",
+    "raw": 23582,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AU_TOG",
+    "raw": 23583,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CK_TOGG",
+    "raw": 23584,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CK_UP",
+    "raw": 23587,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CK_DOWN",
+    "raw": 23588,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CK_RST",
+    "raw": 23589,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "MU_ON",
+    "raw": 23590,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "MU_OFF",
+    "raw": 23591,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "MU_TOG",
+    "raw": 23592,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "MU_MOD",
+    "raw": 23593,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_TOGG",
+    "raw": 23600,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_STEP",
+    "raw": 23601,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_ON",
+    "raw": 23596,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_OFF",
+    "raw": 23597,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_INC",
+    "raw": 23599,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_DEC",
+    "raw": 23598,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BL_BRTG",
+    "raw": 23602,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CL_SWAP",
+    "raw": 23554,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CL_NORM",
+    "raw": 23563,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CL_CTRL",
+    "raw": 23555,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CL_CAPS",
+    "raw": 23564,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "LCG_SWP",
+    "raw": 23659,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "LCG_NRM",
+    "raw": 23661,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "RCG_SWP",
+    "raw": 23660,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "RCG_NRM",
+    "raw": 23662,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CG_SWAP",
+    "raw": 23663,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CG_NORM",
+    "raw": 23664,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "CG_TOGG",
+    "raw": 23665,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "LAG_SWP",
+    "raw": 23556,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "LAG_NRM",
+    "raw": 23565,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "RAG_SWP",
+    "raw": 23557,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "RAG_NRM",
+    "raw": 23566,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AG_SWAP",
+    "raw": 23562,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AG_NORM",
+    "raw": 23571,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "AG_TOGG",
+    "raw": 23573,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "GUI_OFF",
+    "raw": 23558,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "GUI_ON",
+    "raw": 23567,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "GE_SWAP",
+    "raw": 23559,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "GE_NORM",
+    "raw": 23568,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BS_SWAP",
+    "raw": 23560,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "BS_NORM",
+    "raw": 23569,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "NK_ON",
+    "raw": 23561,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "NK_OFF",
+    "raw": 23570,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "NK_TOGG",
+    "raw": 23572,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "EH_LEFT",
+    "raw": 23666,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "EH_RGHT",
+    "raw": 23667,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DM_REC1",
+    "raw": 23668,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DM_REC2",
+    "raw": 23669,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DM_PLY1",
+    "raw": 23671,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DM_PLY2",
+    "raw": 23672,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "DM_RSTP",
+    "raw": 23670,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_GESC",
+    "raw": 23574,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_MS_U",
+    "raw": 231,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_MS_D",
+    "raw": 232,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_MS_L",
+    "raw": 233,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_MS_R",
+    "raw": 234,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_BTN1",
+    "raw": 235,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_BTN2",
+    "raw": 236,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_BTN3",
+    "raw": 237,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_BTN4",
+    "raw": 238,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_BTN5",
+    "raw": 239,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_WH_U",
+    "raw": 240,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_WH_D",
+    "raw": 241,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_WH_L",
+    "raw": 242,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_WH_R",
+    "raw": 243,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_ACL0",
+    "raw": 244,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_ACL1",
+    "raw": 245,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "KC_ACL2",
+    "raw": 246,
+    "legend": "",
+    "altLegend": "",
+    "type": "MOUSE"
+  },
+  {
+    "qmk": "RGB_TOG",
+    "raw": 23603,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_MOD",
+    "raw": 23604,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_RMOD",
+    "raw": 23605,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_HUI",
+    "raw": 23606,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_HUD",
+    "raw": 23607,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_SAI",
+    "raw": 23608,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_SAD",
+    "raw": 23609,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_VAI",
+    "raw": 23610,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_VAD",
+    "raw": 23611,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_P",
+    "raw": 23614,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_B",
+    "raw": 23615,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_R",
+    "raw": 23616,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_SW",
+    "raw": 23617,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_SN",
+    "raw": 23618,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_K",
+    "raw": 23619,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_X",
+    "raw": 23620,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_G",
+    "raw": 23621,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "RGB_M_T",
+    "raw": 23622,
+    "legend": "",
+    "altLegend": "",
+    "type": "LED"
+  },
+  {
+    "qmk": "KC_LCPO",
+    "raw": 23652,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_RCPC",
+    "raw": 23653,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_LSPO",
+    "raw": 23624,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_RSPC",
+    "raw": 23625,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_LAPO",
+    "raw": 23654,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_RAPC",
+    "raw": 23655,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  },
+  {
+    "qmk": "KC_SFTENT",
+    "raw": 23626,
+    "legend": "",
+    "altLegend": "",
+    "type": "QMK"
+  }
+]

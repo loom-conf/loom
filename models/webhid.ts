@@ -1,3 +1,5 @@
+import { DeviceProtocol, DeviceMessageHandler } from '~/models/deviceProtocol'
+
 export declare interface HIDDevice {
   opened: boolean
   vendorId: number
@@ -20,19 +22,25 @@ export declare const navigator: Navigator & {
   }
 }
 
-type WebHIDMessageHandler = (message: DataView) => void
-
-export class WebHID {
+export class WebHID implements DeviceProtocol {
   private device: HIDDevice | undefined
 
   async connect(): Promise<void> {
-    this.device = await navigator.hid
-      .requestDevice({
-        filters: [{ usagePage: 0xff60, usage: 0x61 }],
-      })
-      .then((ret) => ret[0])
-    await this.disconnect()
-    await this.device?.open()
+    try {
+      this.device = await navigator.hid
+        .requestDevice({
+          filters: [{ usagePage: 0xff60, usage: 0x61 }],
+        })
+        .then((ret) => ret[0])
+    } catch {
+      throw new Error("This browser doesn't support webhid feature")
+    }
+
+    if (this.device) {
+      // avoid reopen error
+      await this.disconnect()
+      await this.device.open()
+    }
   }
 
   async disconnect(): Promise<void> {
@@ -41,7 +49,7 @@ export class WebHID {
     }
   }
 
-  registerMessageHandler(handler: WebHIDMessageHandler): void {
+  registerMessageHandler(handler: DeviceMessageHandler): void {
     this.device?.addEventListener(
       'inputreport',
       (event) => {
@@ -51,10 +59,19 @@ export class WebHID {
     )
   }
 
-  async send(data: DataView): Promise<void> {
+  async send(buffer: ArrayBuffer): Promise<void> {
     if (this.isConnected()) {
-      await this.device?.sendReport(0, data.buffer)
+      await this.device?.sendReport(0, buffer)
     }
+  }
+
+  request(arrayBuffer: ArrayBuffer): Promise<DataView> {
+    return new Promise((resolve) => {
+      this.registerMessageHandler((recieved) => {
+        resolve(recieved)
+      })
+      this.send(arrayBuffer)
+    })
   }
 
   isConnected(): boolean {

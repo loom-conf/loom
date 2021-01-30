@@ -14,5 +14,5 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: { 'unicorn/number-literal-case': 'off' },
-  ignorePatterns: ['keyboardJSON.ts'],
+  ignorePatterns: ['configJSON.ts'],
 }

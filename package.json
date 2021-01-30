@@ -11,7 +11,8 @@
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:ts && npm run lint:style",
     "test": "jest",
-    "quicktype": "quicktype -l ts -o utils/keyboardJSON.ts SampleKeyboard.json --raw-type any"
+    "quicktype": "quicktype -l ts -o utils/configJSON.ts SampleKeyboard.json --raw-type any",
+    "keycodes": "python -3 tools/generate_keycodes/generate_keybodes.py"
   },
   "dependencies": {
     "@ijprest/kle-serial": "^0.15.1",
@@ -29,6 +30,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
+    "@types/jest": "^26.0.20",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
