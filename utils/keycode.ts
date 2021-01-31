@@ -47,10 +47,10 @@ export type OneshotModKeycode = Keycode & { mods: Array<ModKey> }
 export type TapDanceKeycode = Keycode & { tapdance: number }
 export type ModTapKeycode = Keycode & { tap: BaseKeycode; mods: Array<ModKey> }
 
-export class KeycodeBuilder {
-  private static list: Array<BaseKeycode> = require('@/utils/QMKKeycodes.json')
+export module KeycodeBuilder {
+  const list: Array<BaseKeycode> = require('@/utils/QMKKeycodes.json')
 
-  static BuildFromRAW(
+  export function BuildFromRAW(
     raw: number
   ):
     | BasicKeycode
@@ -63,7 +63,7 @@ export class KeycodeBuilder {
     | ModTapKeycode
     | undefined {
     const findBase = (code: number) =>
-      this.list.find((keycode) => keycode.raw === code)
+      list.find((keycode) => keycode.raw === code)
 
     const parseModsToArray = (mods: number): Array<ModKey> => {
       const parsed = []

@@ -12,11 +12,15 @@ export class KeyboardDevice {
   }
 
   request = (id: HIDCommandID, buffer?: ArrayBuffer): Promise<DataView> => {
-    if (!this.isConnected) throw new Error("Keyboard Device isn't connected")
     return new Promise((resolve) => {
-      this.device
-        ?.request(new HIDCommand(id, buffer).buffer)
-        .then((ret) => resolve(ret))
+      try {
+        this.device
+          .request(new HIDCommand(id, buffer).buffer)
+          .then((ret) => resolve(ret))
+      } catch (e) {
+        this.isConnected = false
+        throw e
+      }
     })
   }
 

@@ -11,8 +11,8 @@ export type LayoutKey = kle.Key & Matrix
 
 export type KeyboardLayout = LayoutKey[]
 
-export class KeyboardLayoutBuilder {
-  static BuildFromKLE(kleLayouts: any[]): KeyboardLayout {
+export module KeyboardLayoutBuilder {
+  export function BuildFromKLE(kleLayouts: any[]): KeyboardLayout {
     return kle.Serial.deserialize(kleLayouts).keys.map((key) => {
       const matrix = {
         row: parseInt(key.labels[0].split(',')[0]),
