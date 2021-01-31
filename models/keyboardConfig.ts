@@ -1,10 +1,10 @@
 import { ConfigJSON, Convert } from '@/utils/configJSON'
 
-interface fileSrc {
+interface FileSrc {
   fileSrc: string | undefined
 }
 
-export type KeyboardConfig = ConfigJSON & fileSrc
+export type KeyboardConfig = ConfigJSON & FileSrc
 
 export function buildKeyboardConfigFromJSON(json: any): KeyboardConfig {
   return {

@@ -1,6 +1,6 @@
 import { DeviceProtocol } from '@/models/deviceProtocol'
 import { DeviceConfig } from '@/models/deviceConfig'
-import { HIDCommandID, HIDCommand } from '@/utils/hidCommand'
+import { HIDCommandID, buildHIDCommand } from '@/utils/hidCommand'
 
 export class KeyboardDevice {
   private device: DeviceProtocol
@@ -15,7 +15,7 @@ export class KeyboardDevice {
     return new Promise((resolve) => {
       try {
         this.device
-          .request(new HIDCommand(id, buffer).buffer)
+          .request(buildHIDCommand(id, buffer).buffer)
           .then((ret) => resolve(ret))
       } catch (e) {
         this.isConnected = false

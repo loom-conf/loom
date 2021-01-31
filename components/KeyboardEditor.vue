@@ -9,7 +9,6 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 import EditorMain from '@/components/EditorMain.vue'
 import EditorBottom from '@/components/EditorBottom.vue'
-import { useKeyboard } from '@/stores/useKeyboard'
 
 export default defineComponent({
   components: {
@@ -18,7 +17,6 @@ export default defineComponent({
   },
 
   setup() {
-    const keyboard = useKeyboard()
     return {}
   },
 })

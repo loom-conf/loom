@@ -9,9 +9,9 @@ interface Matrix {
 
 export type LayoutKey = kle.Key & Matrix
 
-export type KeyboardLayout = LayoutKey[]
+export type KeyboardLayout = Array<LayoutKey>
 
-export function buildLayoutFromKLE(kleLayouts: any[]): KeyboardLayout {
+export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
   return kle.Serial.deserialize(kleLayouts).keys.map((key) => {
     const matrix = {
       row: parseInt(key.labels[0].split(',')[0]),

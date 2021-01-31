@@ -4,6 +4,7 @@ import {
   reactive,
   InjectionKey,
   inject,
+  shallowRef,
 } from '@nuxtjs/composition-api'
 
 import { WebHID } from '@/models/webhid'
@@ -13,6 +14,7 @@ import {
   KeyboardConfig,
   buildKeyboardConfigFromJSON,
 } from '@/models/KeyboardConfig'
+import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 
 type Config = {
   device: DeviceConfig | undefined
@@ -24,28 +26,37 @@ export const createKeyboard = () => {
 
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
+  const layout = shallowRef<KeyboardLayout>([])
 
-  const loadConfig = (json: any[], fileSrc: string) => {
+  function loadConfig(json: any[][], fileSrc: string) {
+    config.keyboard = undefined
     config.keyboard = { ...buildKeyboardConfigFromJSON(json) }
     config.keyboard.fileSrc = fileSrc
+    layout.value = buildLayoutFromKLE(config.keyboard.layouts.keymap)
   }
 
-  const connect = async () => {
+  async function connect() {
     await device.connect()
   }
 
   const isConnected = computed(() => device.isConnected)
 
-  return { config, connect, loadConfig, isConnected }
+  const hasConfig = computed(() => !!config.keyboard)
+
+  return { config, layout, connect, loadConfig, isConnected, hasConfig }
 }
 
 /* provide/inject */
 export const key: InjectionKey<ReturnType<typeof createKeyboard>> = Symbol(
-  'KeyboardDevice'
+  'Keyboard'
 )
 
 export const provideKeyboard = () => {
   provide(key, createKeyboard())
 }
 
-export const useKeyboard = () => inject(key)
+export const useKeyboard = () => {
+  const ret = inject(key)
+  if (ret === undefined) throw new Error('useKeyboard is not provided')
+  else return ret
+}
