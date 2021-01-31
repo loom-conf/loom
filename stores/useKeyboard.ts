@@ -9,7 +9,10 @@ import {
 import { WebHID } from '@/models/webhid'
 import { KeyboardDevice } from '@/models/keyboardDevice'
 import { DeviceConfig } from '@/models/deviceConfig'
-import { KeyboardConfig, KeyboardConfigBuilder } from '@/models/KeyboardConfig'
+import {
+  KeyboardConfig,
+  buildKeyboardConfigFromJSON,
+} from '@/models/KeyboardConfig'
 
 type Config = {
   device: DeviceConfig | undefined
@@ -22,8 +25,8 @@ export const createKeyboard = () => {
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
 
-  const loadConfig = (data: any[], fileSrc: string) => {
-    config.keyboard = { ...KeyboardConfigBuilder.BuildFromJSON(data) }
+  const loadConfig = (json: any[], fileSrc: string) => {
+    config.keyboard = { ...buildKeyboardConfigFromJSON(json) }
     config.keyboard.fileSrc = fileSrc
   }
 

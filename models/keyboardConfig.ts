@@ -6,11 +6,9 @@ interface fileSrc {
 
 export type KeyboardConfig = ConfigJSON & fileSrc
 
-export module KeyboardConfigBuilder {
-  export function BuildFromJSON(json: any): KeyboardConfig {
-    return {
-      ...Convert.toConfigJSON(json),
-      fileSrc: undefined,
-    } as const
-  }
+export function buildKeyboardConfigFromJSON(json: any): KeyboardConfig {
+  return {
+    ...Convert.toConfigJSON(json),
+    fileSrc: undefined,
+  } as const
 }

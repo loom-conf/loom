@@ -21,14 +21,19 @@ export enum HIDCommandID {
   unhandled = 0xff,
 }
 
-export class HIDCommand {
+export interface HIDCommand {
   buffer: ArrayBuffer
-  constructor(id: HIDCommandID, data?: ArrayBuffer) {
-    this.buffer = new ArrayBuffer(32)
-    const uint8Array = new Uint8Array(this.buffer)
-    uint8Array[0] = id
-    if (data) {
-      uint8Array.set(new Uint8Array(data), 1)
-    }
+}
+
+export function buildHIDCommand(
+  id: HIDCommandID,
+  data?: ArrayBuffer
+): HIDCommand {
+  const buffer = new ArrayBuffer(32)
+  const uint8Array = new Uint8Array(buffer)
+  uint8Array[0] = id
+  if (data) {
+    uint8Array.set(new Uint8Array(data), 1)
   }
+  return { buffer }
 }
