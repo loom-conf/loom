@@ -7,9 +7,9 @@ interface Matrix {
   }
 }
 
-export type LayoutKey = kle.Key & Matrix
+export type KeyLayout = kle.Key & Matrix
 
-export type KeyboardLayout = Array<LayoutKey>
+export type KeyboardLayout = Array<KeyLayout>
 
 export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
   return kle.Serial.deserialize(kleLayouts).keys.map((key) => {

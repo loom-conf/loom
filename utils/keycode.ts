@@ -9,6 +9,7 @@ type ModKey =
   | 'LGUI'
 
 type KeycodeType =
+  | 'UNKNOWN'
   | 'BASIC'
   | 'FUNCTION'
   | 'MACRO'
@@ -38,6 +39,7 @@ interface Keycode {
   raw: number
 }
 
+export type UnknownKeycode = { type: KeycodeType; raw: number }
 export type BasicKeycode = Keycode & { base: BaseKeycode; mods: Array<ModKey> }
 export type ActionKeycode = Keycode & { action: number }
 export type LayerKeycode = Keycode & { layer: number }
@@ -46,6 +48,17 @@ export type LayerModKeycode = Keycode & { layer: number; mods: Array<ModKey> }
 export type OneshotModKeycode = Keycode & { mods: Array<ModKey> }
 export type TapDanceKeycode = Keycode & { tapdance: number }
 export type ModTapKeycode = Keycode & { tap: BaseKeycode; mods: Array<ModKey> }
+
+export type KeycodeTypes =
+  | UnknownKeycode
+  | BaseKeycode
+  | ActionKeycode
+  | LayerKeycode
+  | LayerTapKeycode
+  | LayerModKeycode
+  | OneshotModKeycode
+  | TapDanceKeycode
+  | ModTapKeycode
 
 const list: Array<BaseKeycode> = require('@/utils/QMKKeycodes.json')
 
@@ -68,31 +81,23 @@ function joinModsArrayToString(array: Array<ModKey>): string {
   return array.map<string>((v) => `MOD_${v}`).join('|')
 }
 
-export function buildKeycodeFromRaw(
-  raw: number
-):
-  | BasicKeycode
-  | ActionKeycode
-  | LayerTapKeycode
-  | LayerKeycode
-  | OneshotModKeycode
-  | LayerModKeycode
-  | TapDanceKeycode
-  | ModTapKeycode
-  | undefined {
+export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
   if (raw <= 0x1fff) {
     // basic + mod
     const mods = parseModsToArray(raw >> 8)
     const base = findBase(raw & 0x00ff)
     return base
-      ? {
+      ? ({
           type: 'BASIC',
           qmk: mods.reduce((ret, v) => `${v}(${ret})`, base.qmk),
           raw,
           base,
           mods,
+        } as BasicKeycode) // why?
+      : {
+          type: 'UNKNOWN',
+          raw,
         }
-      : undefined
   } else if (raw <= 0x2fff) {
     // func
     return {
@@ -121,7 +126,10 @@ export function buildKeycodeFromRaw(
           tap: base,
           layer,
         }
-      : undefined
+      : {
+          type: 'UNKNOWN',
+          raw,
+        }
   } else if (raw <= 0x50ff) {
     // turn on layer
     const layer = raw & 0x00ff
@@ -177,7 +185,10 @@ export function buildKeycodeFromRaw(
       mods,
     }
   } else if (raw <= 0x56ff) {
-    return undefined
+    return {
+      type: 'UNKNOWN',
+      raw,
+    }
   } else if (raw <= 0x57ff) {
     const tapdance = raw & 0xff
     return {
@@ -207,7 +218,10 @@ export function buildKeycodeFromRaw(
       mods,
     }
   } else if (raw <= 0x5bff) {
-    return undefined
+    return {
+      type: 'UNKNOWN',
+      raw,
+    }
   } else if (raw <= 0x7fff) {
     // mod tap
     const mods = parseModsToArray((raw & 0x1f00) >> 8)
@@ -220,9 +234,15 @@ export function buildKeycodeFromRaw(
           tap,
           mods,
         }
-      : undefined
+      : {
+          type: 'UNKNOWN',
+          raw,
+        }
   }
-  return undefined
+  return {
+    type: 'UNKNOWN',
+    raw,
+  }
 }
 
 // no need to implement??????

@@ -13,10 +13,10 @@ import { useKeyboard } from '@/stores/useKeyboard'
 export default defineComponent({
   components: { KeymapViewer },
   setup() {
-    const { config, layout, hasConfig } = useKeyboard()
+    const { config, hasConfig } = useKeyboard()
 
     const getKeyboardName = computed(() => config.keyboard?.name)
-    return { layout, getKeyboardName, hasConfig }
+    return { getKeyboardName, hasConfig }
   },
 })
 </script>

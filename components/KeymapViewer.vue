@@ -1,10 +1,11 @@
 <template>
   <div class="keymapViewer" :style="keymapViewerStyle">
-    <div class="keymapWrapper">
+    <div class="keymapContainer">
       <ViewerKey
-        v-for="layoutKey in layout"
-        :key="layoutKey.labels[0]"
-        :layout-key="layoutKey"
+        v-for="keyLayout in layout"
+        :key="keyLayout.labels[0]"
+        :key-layout="keyLayout"
+        :keycode="getKeycode(keyLayout.matrix).value"
       />
     </div>
   </div>
@@ -13,9 +14,9 @@
 <style lang="scss" scoped>
 .keymapViewer {
   border: 1px solid grey;
-  padding: 10px;
+  padding: 5px;
 }
-.keymapWrapper {
+.keymapContainer {
   position: relative;
 }
 </style>
@@ -23,12 +24,16 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
+import { useEditor } from '@/stores/useEditor'
+
 import ViewerKey from '@/components/ViewerKey.vue'
 
 export default defineComponent({
   components: { ViewerKey },
-  setup(props, _context) {
-    const { layout } = useKeyboard()
+  setup(_props, _context) {
+    const { layout, config } = useKeyboard()
+    const { keymap } = useEditor()
+
     const keymapViewerStyle = computed(() => {
       const col = layout.value.reduce(
         (ret, v) => Math.max(ret, v.matrix.col),
@@ -39,11 +44,20 @@ export default defineComponent({
         0
       )
       return {
-        width: (col + 1) * 60 + 20 + 'px',
-        height: (row + 1) * 60 + 20 + 'px',
+        width: (col + 1) * 60 + 10 + 'px',
+        height: (row + 1) * 60 + 10 + 'px',
       }
     })
-    return { layout, keymapViewerStyle }
+
+    const getKeycode = ({ row, col }: { row: number; col: number }) => {
+      return computed(() => {
+        if (config.keyboard)
+          return keymap.value[row * config.keyboard.matrix.cols + col]
+        else return undefined
+      })
+    }
+
+    return { layout, keymapViewerStyle, getKeycode }
   },
 })
 </script>

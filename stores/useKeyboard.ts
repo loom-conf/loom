@@ -4,7 +4,6 @@ import {
   reactive,
   InjectionKey,
   inject,
-  shallowRef,
   ref,
 } from '@nuxtjs/composition-api'
 
@@ -16,10 +15,15 @@ import {
   buildKeyboardConfigFromJSON,
 } from '@/models/KeyboardConfig'
 import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
+import { DeviceSetting } from '@/models/deviceSetting'
 
 type Config = {
   device: DeviceConfig | undefined
   keyboard: KeyboardConfig | undefined
+}
+
+type Setting = {
+  device: DeviceSetting | undefined
 }
 
 export const createKeyboard = () => {
@@ -27,7 +31,8 @@ export const createKeyboard = () => {
 
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
-  const layout = shallowRef<KeyboardLayout>([])
+  const layout = ref<KeyboardLayout>([])
+  const setting = reactive<Setting>({ device: undefined })
 
   async function loadKeyboardConfig(json: any[][], fileSrc: string) {
     await disconnectDevice()
@@ -50,12 +55,27 @@ export const createKeyboard = () => {
       await disconnectDevice()
       throw new Error(`Incorrect combination ${str}`)
     }
+    await loadDeviceSetting()
   }
 
   async function disconnectDevice() {
     config.device = undefined
     if (device.isConnected) {
       await device.disconnect()
+    }
+  }
+
+  async function loadDeviceSetting() {
+    if (!device.isConnected) throw new Error('Device is not connected')
+    if (!config.keyboard || !config.device) throw new Error('config is missing')
+    const layoutOption = await device.getLayoutOption()
+    const keymap = await device.getKeymapAll(
+      config.device.layerCount,
+      config.keyboard.matrix
+    )
+    setting.device = {
+      layoutOption,
+      keymap,
     }
   }
 
@@ -70,7 +90,9 @@ export const createKeyboard = () => {
   return {
     config,
     layout,
+    setting,
     connectDevice,
+    loadDeviceSetting,
     loadKeyboardConfig,
     isConnected,
     hasConfig,

@@ -45,13 +45,11 @@ $navigation-drawer-width: 100px;
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 
-import { provideKeyboard } from '@/stores/useKeyboard'
 import KeyboardEditor from '~/components/KeyboardEditor.vue'
 
 export default defineComponent({
   components: { KeyboardEditor },
   setup() {
-    provideKeyboard()
     return {}
   },
 })

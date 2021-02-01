@@ -11,7 +11,7 @@
       <v-btn :disabled="!hasConfig || isConnected" @click="connectButtonClicked"
         >connect</v-btn
       >
-      <h3 v-show="isConnected">Connected - {{ deviceName }}</h3>
+      <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@ import {
 } from '@nuxtjs/composition-api'
 
 import { useKeyboard } from '@/stores/useKeyboard'
+import { useEditor } from '@/stores/useEditor'
 
 interface State {
   jsonURL: string
@@ -46,7 +47,10 @@ export default defineComponent({
       hasConfig,
       isConnected,
       config,
+      setting,
     } = useKeyboard()
+
+    const { setDeviceSetting } = useEditor()
 
     const jsonButtonClicked = async () => {
       try {
@@ -64,6 +68,7 @@ export default defineComponent({
     const connectButtonClicked = async () => {
       try {
         await connectDevice()
+        setDeviceSetting(setting.device)
       } catch (e) {
         console.error(e)
       }

@@ -1,11 +1,11 @@
 <template>
-  <div class="layoutKeyWrapper" :style="boxPosStyle">
-    {{ layoutKey.labels[0] }}
+  <div class="keyLayoutWrapper" :style="boxPosStyle">
+    {{ getLabel }}
   </div>
 </template>
 
 <style lang="scss" scoped>
-.layoutKeyWrapper {
+.keyLayoutWrapper {
   z-index: 10;
   position: absolute;
   overflow: hidden;
@@ -19,23 +19,34 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 
-import { LayoutKey } from '@/models/keyboardLayout'
+import { KeyLayout } from '@/models/keyboardLayout'
+import { KeycodeTypes } from '~/utils/keycode'
 
 export default defineComponent({
   props: {
-    layoutKey: {
-      type: Object as PropType<LayoutKey>,
+    keyLayout: {
+      type: Object as PropType<KeyLayout>,
       required: true,
     },
+    keycode: {
+      type: Object as PropType<KeycodeTypes> | undefined,
+      default: undefined,
+    },
   },
+
   setup(props, _context) {
-    const boxPosStyle = computed(() => {
-      return {
-        top: props.layoutKey.y * 60 + 'px',
-        left: props.layoutKey.x * 60 + 'px',
-      }
+    const boxPosStyle = computed(() => ({
+      top: props.keyLayout.y * 60 + 'px',
+      left: props.keyLayout.x * 60 + 'px',
+    }))
+
+    const getLabel = computed(() => {
+      console.log(props.keycode)
+      if (props.keycode === undefined) return props.keyLayout.labels[0]
+      return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })
-    return { boxPosStyle }
+
+    return { boxPosStyle, getLabel }
   },
 })
 </script>
