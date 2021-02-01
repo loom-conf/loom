@@ -5,6 +5,7 @@ import {
   InjectionKey,
   inject,
   shallowRef,
+  ref,
 } from '@nuxtjs/composition-api'
 
 import { WebHID } from '@/models/webhid'
@@ -28,22 +29,53 @@ export const createKeyboard = () => {
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
   const layout = shallowRef<KeyboardLayout>([])
 
-  function loadConfig(json: any[][], fileSrc: string) {
+  async function loadKeyboardConfig(json: any[][], fileSrc: string) {
+    await disconnectDevice()
     config.keyboard = undefined
     config.keyboard = { ...buildKeyboardConfigFromJSON(json) }
     config.keyboard.fileSrc = fileSrc
     layout.value = buildLayoutFromKLE(config.keyboard.layouts.keymap)
   }
 
-  async function connect() {
+  async function connectDevice() {
+    if (config.keyboard === undefined)
+      throw new Error('load keyboard config before connect device')
+
+    config.device = undefined
     await device.connect()
+    config.device = await device.getDeviceConfig()
+
+    if (config.device.name !== config.keyboard.name) {
+      const str = `config:${config.keyboard.name}, device:${config.device.name}`
+      await disconnectDevice()
+      throw new Error(`Incorrect combination ${str}`)
+    }
+  }
+
+  async function disconnectDevice() {
+    config.device = undefined
+    if (device.isConnected) {
+      await device.disconnect()
+    }
   }
 
   const isConnected = computed(() => device.isConnected)
 
   const hasConfig = computed(() => !!config.keyboard)
 
-  return { config, layout, connect, loadConfig, isConnected, hasConfig }
+  const isValid = computed(
+    () => config.keyboard !== undefined && config.device !== undefined
+  )
+
+  return {
+    config,
+    layout,
+    connectDevice,
+    loadKeyboardConfig,
+    isConnected,
+    hasConfig,
+    isValid,
+  }
 }
 
 /* provide/inject */

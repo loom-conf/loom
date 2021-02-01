@@ -1,17 +1,30 @@
 <template>
   <div>
-    <div>
-      <h2>LOAD JSON FIRST</h2>
+    <div class="mt-4">
+      <h2>1.Load keyboard config</h2>
       <v-text-field v-model="jsonURL" label="JSON URL"></v-text-field>
       <v-btn :disabled="isLoading" @click="jsonButtonClicked">load</v-btn>
+      <h3 v-if="hasConfig">Loaded - {{ configName }}</h3>
+    </div>
+    <div class="mt-4">
+      <h2>2.Connect USB device</h2>
+      <v-btn :disabled="!hasConfig || isConnected" @click="connectButtonClicked"
+        >connect</v-btn
+      >
+      <h3 v-show="isConnected">Connected - {{ deviceName }}</h3>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import axios from 'axios'
+import {
+  computed,
+  defineComponent,
+  reactive,
+  toRefs,
+} from '@nuxtjs/composition-api'
 
-import { defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 
 interface State {
@@ -27,22 +40,47 @@ export default defineComponent({
       isLoading: false,
     })
 
-    const { loadConfig, config } = useKeyboard()
+    const {
+      connectDevice,
+      loadKeyboardConfig,
+      hasConfig,
+      isConnected,
+      config,
+    } = useKeyboard()
 
     const jsonButtonClicked = async () => {
       try {
         state.isLoading = true
-        config.keyboard = undefined
         const url = new URL(state.jsonURL)
         const res = await axios.get(url.toString())
-        loadConfig(res.data, state.jsonURL)
+        loadKeyboardConfig(res.data, state.jsonURL)
       } catch (e) {
         console.error(e)
       } finally {
         state.isLoading = false
       }
     }
-    return { ...toRefs(state), jsonButtonClicked }
+
+    const connectButtonClicked = async () => {
+      try {
+        await connectDevice()
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    const configName = computed(() => config.keyboard?.name)
+    const deviceName = computed(() => config.device?.name)
+
+    return {
+      ...toRefs(state),
+      hasConfig,
+      isConnected,
+      jsonButtonClicked,
+      connectButtonClicked,
+      configName,
+      deviceName,
+    }
   },
 })
 </script>
