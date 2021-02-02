@@ -1,5 +1,4 @@
 // Device should be big endian
-
 export function convertDeviceToNative(array: ArrayBuffer): Uint16Array {
   const view = new DataView(array)
   const dist = new Uint16Array(view.byteLength / 2)

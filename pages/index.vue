@@ -10,8 +10,12 @@
     >
       LOOM
     </v-navigation-drawer>
-    <div class="container">
-      <KeyboardEditor class="keyboardEditor" />
+    <div class="editorContainer">
+      <KeyboardEditor
+        id="keyboardEditor"
+        :default-json-url="jsonURL"
+        :default-keyboard-name="keyboardName"
+      />
     </div>
   </div>
 </template>
@@ -19,38 +23,30 @@
 <style lang="scss" scoped>
 $navigation-drawer-width: 100px;
 
-.container {
-  display: flex;
-  flex-direction: column;
+.editorContainer {
+  margin-left: $navigation-drawer-width;
+}
+
+#keyboardEditor {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  padding-top: 0;
-  padding-left: $navigation-drawer-width;
-  margin-left: 30px;
-}
-
-.keyboardEditor {
-  overflow-x: hidden;
-  .upper {
-    margin-top: 10px;
-  }
-  .bottom {
-    flex: 1;
-    min-height: 200px;
-  }
 }
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, computed } from '@nuxtjs/composition-api'
 
 import KeyboardEditor from '~/components/KeyboardEditor.vue'
 
 export default defineComponent({
   components: { KeyboardEditor },
-  setup() {
-    return {}
+  setup(_props) {
+    const { route } = useContext()
+    const keyboardName = computed(() => route.value.params.keyboard ?? '')
+    const jsonURL = computed(() => route.value.query.config ?? '')
+
+    return { keyboardName, jsonURL }
   },
 })
 </script>

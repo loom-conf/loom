@@ -54,7 +54,7 @@ export class KeyboardDevice {
     this.request(
       HIDCommandID.getKeyboardValue,
       new Uint8Array([0x2]).buffer
-    ).then((ret) => ret.getInt16(2, false))
+    ).then((ret) => ret.getUint32(2, false))
 
   getKeymapAll = async (
     layerCount: number,

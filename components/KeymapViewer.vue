@@ -14,8 +14,9 @@
 <style lang="scss" scoped>
 .keymapViewer {
   border: 1px solid grey;
-  padding: 5px;
+  padding: auto;
 }
+
 .keymapContainer {
   position: relative;
 }
@@ -35,17 +36,11 @@ export default defineComponent({
     const { keymap } = useEditor()
 
     const keymapViewerStyle = computed(() => {
-      const col = layout.value.reduce(
-        (ret, v) => Math.max(ret, v.matrix.col),
-        0
-      )
-      const row = layout.value.reduce(
-        (ret, v) => Math.max(ret, v.matrix.row),
-        0
-      )
+      const col = layout.value.reduce((ret, v) => Math.max(ret, v.x), 0)
+      const row = layout.value.reduce((ret, v) => Math.max(ret, v.y), 0)
       return {
-        width: (col + 1) * 60 + 10 + 'px',
-        height: (row + 1) * 60 + 10 + 'px',
+        width: (col + 1) * 55 + 5 + 'px',
+        height: (row + 1) * 55 + 5 + 'px',
       }
     })
 

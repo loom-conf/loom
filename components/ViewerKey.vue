@@ -9,10 +9,10 @@
   z-index: 10;
   position: absolute;
   overflow: hidden;
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border: 1px solid grey;
-  margin: 2px;
+  margin: 4px;
 }
 </style>
 
@@ -36,12 +36,11 @@ export default defineComponent({
 
   setup(props, _context) {
     const boxPosStyle = computed(() => ({
-      top: props.keyLayout.y * 60 + 'px',
-      left: props.keyLayout.x * 60 + 'px',
+      top: props.keyLayout.y * 55 + 'px',
+      left: props.keyLayout.x * 55 + 'px',
     }))
 
     const getLabel = computed(() => {
-      console.log(props.keycode)
       if (props.keycode === undefined) return props.keyLayout.labels[0]
       return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })

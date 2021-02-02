@@ -50,16 +50,17 @@ export const createKeyboard = () => {
     await device.connect()
     config.device = await device.getDeviceConfig()
 
-    if (config.device.name !== config.keyboard.name) {
-      const str = `config:${config.keyboard.name}, device:${config.device.name}`
-      await disconnectDevice()
-      throw new Error(`Incorrect combination ${str}`)
-    }
+    // if (config.device.name !== config.keyboard.name) {
+    //   const str = `config:${config.keyboard.name}, device:${config.device.name}`
+    //   await disconnectDevice()
+    //   throw new Error(`Incorrect combination ${str}`)
+    // }
     await loadDeviceSetting()
   }
 
   async function disconnectDevice() {
     config.device = undefined
+    setting.device = undefined
     if (device.isConnected) {
       await device.disconnect()
     }
@@ -73,6 +74,7 @@ export const createKeyboard = () => {
       config.device.layerCount,
       config.keyboard.matrix
     )
+    console.log(layoutOption)
     setting.device = {
       layoutOption,
       keymap,

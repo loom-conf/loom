@@ -70,6 +70,17 @@ const config: NuxtConfig = {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  // Router Configuration
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'kbd',
+        path: '/kbd/:keyboard',
+        component: resolve(__dirname, 'pages/index.vue'),
+      })
+    },
+  },
 }
 
 export default config

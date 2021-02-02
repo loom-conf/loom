@@ -11,7 +11,8 @@
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:ts && npm run lint:style",
     "test": "jest",
-    "quicktype": "quicktype -l ts -o utils/configJSON.ts SampleKeyboard.json --raw-type any",
+    "test:watch": "jest --watch",
+    "quicktype": "quicktype -l ts -o utils/configJSON.ts tools/quicktypeSeed.ts --raw-type any",
     "keycodes": "python -3 tools/generate_keycodes/generate_keybodes.py"
   },
   "dependencies": {

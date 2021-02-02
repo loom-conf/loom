@@ -1,9 +1,17 @@
 <template>
-  <div v-if="hasConfig">
-    <h1>{{ getKeyboardName }}</h1>
-    <KeymapViewer />
+  <div class="editorTopContainer">
+    <div v-if="hasConfig" id="editorTop">
+      <h1>{{ getKeyboardName }}</h1>
+      <KeymapViewer />
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.editorTopContainer {
+  min-height: 40vh;
+}
+</style>
 
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'

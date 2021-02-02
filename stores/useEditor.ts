@@ -14,24 +14,23 @@ export const createEditor = () => {
   const layoutOption = ref<number>(0)
   const currentLayer = ref<number>(0)
 
-  const setKeymap = (array: Uint16Array) => {
-    keymap.value = buildKeymapFromRaw(array)
+  const setKeymap = (array: Uint16Array | undefined) => {
+    keymap.value = array ? buildKeymapFromRaw(array) : []
   }
 
   const setKeycode = (index: number, keycode: KeycodeTypes) => {
     keymap.value[index] = keycode
   }
 
-  const setLayoutOption = (value: number) => {
-    layoutOption.value = value
+  const setLayoutOption = (value: number | undefined) => {
+    layoutOption.value = value ?? 0
   }
 
   const getLayoutOption = computed(() => layoutOption.value)
 
   const setDeviceSetting = (setting: DeviceSetting | undefined) => {
-    if (setting === undefined) throw new Error('device setting is undefined')
-    setKeymap(setting.keymap)
-    setLayoutOption(setting.layoutOption)
+    setKeymap(setting?.keymap)
+    setLayoutOption(setting?.layoutOption)
   }
 
   return {

@@ -1,32 +1,43 @@
 // To parse this data:
 //
-//   import { Convert, ConfigJSON } from "./file";
+//   import { Convert, ConfigJSON, Layouts, KeymapOption, Matrix } from "./file";
 //
 //   const configJSON = Convert.toConfigJSON(json);
+//   const layoutLabels = Convert.toLayoutLabels(json);
+//   const layouts = Convert.toLayouts(json);
+//   const keymapOption = Convert.toKeymapOption(json);
+//   const matrix = Convert.toMatrix(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
 export interface ConfigJSON {
-    name:      string;
-    vendorId:  string;
-    productId: string;
+    layouts:   Layouts;
     lighting:  string;
     matrix:    Matrix;
-    layouts:   Layouts;
+    name:      string;
+    productId: string;
+    vendorId:  string;
 }
 
 export interface Layouts {
-    keymap: Array<Array<KeymapClass | string>>;
+    keymap:  Array<Array<KeymapOption | string>>;
+    labels?: Array<string[] | string>;
 }
 
-export interface KeymapClass {
-    c: string;
+export interface KeymapOption {
+    c?:  string;
+    h?:  number;
+    h2?: number;
+    w?:  number;
+    w2?: number;
+    x?:  number;
+    x2?: number;
 }
 
 export interface Matrix {
-    rows: number;
     cols: number;
+    rows: number;
 }
 
 // Converts JSON types to/from your types
@@ -38,6 +49,38 @@ export class Convert {
 
     public static configJSONToJson(value: ConfigJSON): any {
         return uncast(value, r("ConfigJSON"));
+    }
+
+    public static toLayoutLabels(json: any): Array<string[] | string> {
+        return cast(json, a(u(a(""), "")));
+    }
+
+    public static layoutLabelsToJson(value: Array<string[] | string>): any {
+        return uncast(value, a(u(a(""), "")));
+    }
+
+    public static toLayouts(json: any): Layouts {
+        return cast(json, r("Layouts"));
+    }
+
+    public static layoutsToJson(value: Layouts): any {
+        return uncast(value, r("Layouts"));
+    }
+
+    public static toKeymapOption(json: any): KeymapOption {
+        return cast(json, r("KeymapOption"));
+    }
+
+    public static keymapOptionToJson(value: KeymapOption): any {
+        return uncast(value, r("KeymapOption"));
+    }
+
+    public static toMatrix(json: any): Matrix {
+        return cast(json, r("Matrix"));
+    }
+
+    public static matrixToJson(value: Matrix): any {
+        return uncast(value, r("Matrix"));
     }
 }
 
@@ -175,21 +218,28 @@ function r(name: string) {
 
 const typeMap: any = {
     "ConfigJSON": o([
-        { json: "name", js: "name", typ: "" },
-        { json: "vendorId", js: "vendorId", typ: "" },
-        { json: "productId", js: "productId", typ: "" },
+        { json: "layouts", js: "layouts", typ: r("Layouts") },
         { json: "lighting", js: "lighting", typ: "" },
         { json: "matrix", js: "matrix", typ: r("Matrix") },
-        { json: "layouts", js: "layouts", typ: r("Layouts") },
-    ], false),
+        { json: "name", js: "name", typ: "" },
+        { json: "productId", js: "productId", typ: "" },
+        { json: "vendorId", js: "vendorId", typ: "" },
+    ], "any"),
     "Layouts": o([
-        { json: "keymap", js: "keymap", typ: a(a(u(r("KeymapClass"), ""))) },
-    ], false),
-    "KeymapClass": o([
-        { json: "c", js: "c", typ: "" },
-    ], false),
+        { json: "keymap", js: "keymap", typ: a(a(u(r("KeymapOption"), ""))) },
+        { json: "labels", js: "labels", typ: u(undefined, a(u(a(""), ""))) },
+    ], "any"),
+    "KeymapOption": o([
+        { json: "c", js: "c", typ: u(undefined, "") },
+        { json: "h", js: "h", typ: u(undefined, 3.14) },
+        { json: "h2", js: "h2", typ: u(undefined, 3.14) },
+        { json: "w", js: "w", typ: u(undefined, 3.14) },
+        { json: "w2", js: "w2", typ: u(undefined, 3.14) },
+        { json: "x", js: "x", typ: u(undefined, 3.14) },
+        { json: "x2", js: "x2", typ: u(undefined, 3.14) },
+    ], "any"),
     "Matrix": o([
-        { json: "rows", js: "rows", typ: 0 },
-        { json: "cols", js: "cols", typ: 0 },
-    ], false),
+        { json: "cols", js: "cols", typ: 3.14 },
+        { json: "rows", js: "rows", typ: 3.14 },
+    ], "any"),
 };
