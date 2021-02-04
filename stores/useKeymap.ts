@@ -5,14 +5,21 @@ import {
   provide,
   ref,
 } from '@nuxtjs/composition-api'
+import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 import { buildKeymapFromRaw, Keymap } from '@/models/keymap'
 import { KeycodeTypes } from '~/utils/keycode'
 import { DeviceSetting } from '~/models/deviceSetting'
 
-export const createEditor = () => {
+export const createKeymap = () => {
   const keymap = ref<Keymap>([])
+  const layoutAll = ref<KeyboardLayout>([])
   const layoutOption = ref<number>(0)
   const currentLayer = ref<number>(0)
+
+  function setRawLayout(rawLayout: any[] | undefined) {
+    if (!rawLayout) layoutAll.value = []
+    else layoutAll.value = buildLayoutFromKLE(rawLayout)
+  }
 
   const setKeymap = (array: Uint16Array | undefined) => {
     keymap.value = array ? buildKeymapFromRaw(array) : []
@@ -35,7 +42,9 @@ export const createEditor = () => {
 
   return {
     keymap,
+    layoutAll,
     currentLayer,
+    setRawLayout,
     setKeymap,
     setKeycode,
     setLayoutOption,
@@ -45,16 +54,16 @@ export const createEditor = () => {
 }
 
 /* provide/inject */
-export const key: InjectionKey<ReturnType<typeof createEditor>> = Symbol(
-  'Editor'
+export const key: InjectionKey<ReturnType<typeof createKeymap>> = Symbol(
+  'Keymap'
 )
 
-export const provideEditor = () => {
-  provide(key, createEditor())
+export const provideKeymap = () => {
+  provide(key, createKeymap())
 }
 
-export const useEditor = () => {
+export const useKeymap = () => {
   const ret = inject(key)
-  if (ret === undefined) throw new Error('useEditor is not provided')
+  if (ret === undefined) throw new Error('useKeymap is not provided')
   else return ret
 }

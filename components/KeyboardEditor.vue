@@ -1,6 +1,11 @@
 <template>
   <div class="editor">
-    <EditorTop />
+    <div class="topContainer">
+      <div v-if="hasConfig">
+        <h1>{{ getKeyboardName }}</h1>
+        <KeymapViewer />
+      </div>
+    </div>
     <EditorBottom />
   </div>
 </template>
@@ -8,6 +13,9 @@
 <style lang="scss" scoped>
 .editor {
   margin-left: 30px;
+  .topContainer {
+    min-height: 40vh;
+  }
 }
 </style>
 
@@ -15,16 +23,22 @@
 import axios from 'axios'
 import {
   defineComponent,
-  watch,
   useFetch,
   watchEffect,
+  computed,
+  watch,
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
-import { provideEditor, useEditor } from '@/stores/useEditor'
-import EditorTop from '@/components/EditorTop.vue'
+import { provideKeymap, useKeymap } from '@/stores/useKeymap'
+
+import KeymapViewer from '@/components/KeymapViewer.vue'
 import EditorBottom from '@/components/EditorBottom.vue'
 
 export default defineComponent({
+  components: {
+    KeymapViewer,
+    EditorBottom,
+  },
   props: {
     defaultJsonUrl: {
       type: String,
@@ -35,34 +49,32 @@ export default defineComponent({
       required: true,
     },
   },
-  components: {
-    EditorTop,
-    EditorBottom,
-  },
-
   setup(props) {
     provideKeyboard()
-    provideEditor()
-    const { setting, loadKeyboardConfig } = useKeyboard()
-    const { setDeviceSetting } = useEditor()
+    provideKeymap()
 
-    // connect keyboard stores and editor store
-    watch(
-      () => setting.device,
-      () => {
-        setDeviceSetting(setting.device)
-      }
-    )
+    const { loadKeyboardConfig, keyboadConfig, hasConfig } = useKeyboard()
+    const { setRawLayout } = useKeymap()
 
     const { fetchState } = useFetch(async () => {
-      const url = new URL(props.defaultJsonUrl)
-      const res = await axios.get(url.toString())
-      loadKeyboardConfig(res.data, props.defaultJsonUrl)
+      if (props.defaultJsonUrl) {
+        const url = new URL(props.defaultJsonUrl)
+        const res = await axios.get(url.toString())
+        loadKeyboardConfig(res.data, props.defaultJsonUrl)
+      }
     })
-
     watchEffect(() => {
       if (fetchState.error) console.error(fetchState.error)
     })
+
+    // connect stores
+    watch(keyboadConfig, (v) => {
+      setRawLayout(v?.layouts.keymap)
+    })
+
+    const getKeyboardName = computed(() => keyboadConfig.value?.name)
+
+    return { getKeyboardName, hasConfig }
   },
 })
 </script>

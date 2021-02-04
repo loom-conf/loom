@@ -4,7 +4,7 @@ import {
   reactive,
   InjectionKey,
   inject,
-  ref,
+  toRef,
 } from '@nuxtjs/composition-api'
 
 import { WebHID } from '@/models/webhid'
@@ -14,7 +14,6 @@ import {
   KeyboardConfig,
   buildKeyboardConfigFromJSON,
 } from '@/models/KeyboardConfig'
-import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 import { DeviceSetting } from '@/models/deviceSetting'
 
 type Config = {
@@ -22,24 +21,15 @@ type Config = {
   keyboard: KeyboardConfig | undefined
 }
 
-type Setting = {
-  device: DeviceSetting | undefined
-}
-
 export const createKeyboard = () => {
   const deviceProtocol = new WebHID()
 
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
-  const layout = ref<KeyboardLayout>([])
-  const setting = reactive<Setting>({ device: undefined })
 
   async function loadKeyboardConfig(json: any[][], fileSrc: string) {
     await disconnectDevice()
-    config.keyboard = undefined
-    config.keyboard = { ...buildKeyboardConfigFromJSON(json) }
-    config.keyboard.fileSrc = fileSrc
-    layout.value = buildLayoutFromKLE(config.keyboard.layouts.keymap)
+    config.keyboard = { ...buildKeyboardConfigFromJSON(json), fileSrc }
   }
 
   async function connectDevice() {
@@ -50,38 +40,35 @@ export const createKeyboard = () => {
     await device.connect()
     config.device = await device.getDeviceConfig()
 
-    // if (config.device.name !== config.keyboard.name) {
-    //   const str = `config:${config.keyboard.name}, device:${config.device.name}`
-    //   await disconnectDevice()
-    //   throw new Error(`Incorrect combination ${str}`)
-    // }
-    await loadDeviceSetting()
+    if (config.device.name !== config.keyboard.name) {
+      const str = `config:${config.keyboard.name}, device:${config.device.name}`
+      await disconnectDevice()
+      throw new Error(`Incorrect combination ${str}`)
+    }
   }
 
   async function disconnectDevice() {
     config.device = undefined
-    setting.device = undefined
     if (device.isConnected) {
       await device.disconnect()
     }
   }
 
-  async function loadDeviceSetting() {
-    if (!device.isConnected) throw new Error('Device is not connected')
-    if (!config.keyboard || !config.device) throw new Error('config is missing')
+  async function getDeviceSetting(): Promise<DeviceSetting | undefined> {
+    if (!device.isConnected || !config.keyboard || !config.device)
+      return undefined
     const layoutOption = await device.getLayoutOption()
     const keymap = await device.getKeymapAll(
       config.device.layerCount,
       config.keyboard.matrix
     )
-    console.log(layoutOption)
-    setting.device = {
+    return {
       layoutOption,
       keymap,
     }
   }
 
-  const isConnected = computed(() => device.isConnected)
+  const isConnected = toRef(device, 'isConnected')
 
   const hasConfig = computed(() => !!config.keyboard)
 
@@ -89,16 +76,20 @@ export const createKeyboard = () => {
     () => config.keyboard !== undefined && config.device !== undefined
   )
 
+  const keyboadConfig = toRef(config, 'keyboard')
+
+  const deviceConfig = toRef(config, 'device')
+
   return {
     config,
-    layout,
-    setting,
     connectDevice,
-    loadDeviceSetting,
     loadKeyboardConfig,
+    getDeviceSetting,
     isConnected,
     hasConfig,
     isValid,
+    keyboadConfig,
+    deviceConfig,
   }
 }
 

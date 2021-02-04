@@ -25,19 +25,19 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
-import { useEditor } from '@/stores/useEditor'
+import { useKeymap } from '@/stores/useKeymap'
 
 import ViewerKey from '@/components/ViewerKey.vue'
 
 export default defineComponent({
   components: { ViewerKey },
   setup(_props, _context) {
-    const { layout, config } = useKeyboard()
-    const { keymap } = useEditor()
+    const { keyboadConfig } = useKeyboard()
+    const { keymap, layoutAll } = useKeymap()
 
     const keymapViewerStyle = computed(() => {
-      const col = layout.value.reduce((ret, v) => Math.max(ret, v.x), 0)
-      const row = layout.value.reduce((ret, v) => Math.max(ret, v.y), 0)
+      const col = layoutAll.value.reduce((ret, v) => Math.max(ret, v.x), 0)
+      const row = layoutAll.value.reduce((ret, v) => Math.max(ret, v.y), 0)
       return {
         width: (col + 1) * 55 + 5 + 'px',
         height: (row + 1) * 55 + 5 + 'px',
@@ -46,13 +46,14 @@ export default defineComponent({
 
     const getKeycode = ({ row, col }: { row: number; col: number }) => {
       return computed(() => {
-        if (config.keyboard)
-          return keymap.value[row * config.keyboard.matrix.cols + col]
-        else return undefined
+        const matrixCols = keyboadConfig.value
+        return matrixCols
+          ? keymap.value[row * matrixCols.matrix.cols + col]
+          : undefined
       })
     }
 
-    return { layout, keymapViewerStyle, getKeycode }
+    return { layout: layoutAll, keymapViewerStyle, getKeycode }
   },
 })
 </script>

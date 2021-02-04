@@ -45,7 +45,8 @@ export default defineComponent({
       loadKeyboardConfig,
       hasConfig,
       isConnected,
-      config,
+      keyboadConfig,
+      deviceConfig,
     } = useKeyboard()
 
     const jsonButtonClicked = async () => {
@@ -69,8 +70,8 @@ export default defineComponent({
       }
     }
 
-    const configName = computed(() => config.keyboard?.name)
-    const deviceName = computed(() => config.device?.name)
+    const configName = computed(() => keyboadConfig.value?.name)
+    const deviceName = computed(() => deviceConfig.value?.name)
 
     return {
       ...toRefs(state),
