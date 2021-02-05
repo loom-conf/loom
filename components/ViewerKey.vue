@@ -1,18 +1,15 @@
 <template>
-  <div class="keyLayoutWrapper" :style="boxPosStyle">
+  <div class="keyOuter" :style="style" @click="click">
     {{ getLabel }}
   </div>
 </template>
 
 <style lang="scss" scoped>
-.keyLayoutWrapper {
+.keyOuter {
   z-index: 10;
   position: absolute;
   overflow: hidden;
-  width: 50px;
-  height: 50px;
   border: 1px solid grey;
-  margin: 4px;
 }
 </style>
 
@@ -20,7 +17,8 @@
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 
 import { KeyLayout } from '@/models/keyboardLayout'
-import { KeycodeTypes } from '~/utils/keycode'
+import { KeycodeTypes } from '@/utils/keycode'
+import { useConsts } from '@/stores/useConsts'
 
 export default defineComponent({
   props: {
@@ -35,9 +33,14 @@ export default defineComponent({
   },
 
   setup(props, _context) {
-    const boxPosStyle = computed(() => ({
-      top: props.keyLayout.y * 55 + 'px',
-      left: props.keyLayout.x * 55 + 'px',
+    const { KeyConsts, calcKeySize } = useConsts()
+
+    const style = computed(() => ({
+      top: calcKeySize(props.keyLayout.y) + KeyConsts.margin + 'px',
+      left: calcKeySize(props.keyLayout.x) + KeyConsts.margin + 'px',
+      width: calcKeySize(props.keyLayout.width) + 'px',
+      height: calcKeySize(props.keyLayout.height) + 'px',
+      border: KeyConsts.border + 'px' + ' solid',
     }))
 
     const getLabel = computed(() => {
@@ -45,7 +48,11 @@ export default defineComponent({
       return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })
 
-    return { boxPosStyle, getLabel }
+    const click = () => {
+      console.log(props.keyLayout.labels)
+    }
+
+    return { style, getLabel, click }
   },
 })
 </script>

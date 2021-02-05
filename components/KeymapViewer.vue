@@ -1,6 +1,6 @@
 <template>
-  <div class="keymapViewer" :style="keymapViewerStyle">
-    <div class="keymapContainer">
+  <div class="keymapViewer">
+    <div class="keymapContainer" :style="keymapViewerStyle">
       <ViewerKey
         v-for="keyLayout in layout"
         :key="keyLayout.labels[0]"
@@ -12,12 +12,8 @@
 </template>
 
 <style lang="scss" scoped>
-.keymapViewer {
-  border: 1px solid grey;
-  padding: auto;
-}
-
 .keymapContainer {
+  border: 1px solid grey;
   position: relative;
 }
 </style>
@@ -26,6 +22,7 @@
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
+import { useConsts } from '@/stores/useConsts'
 
 import ViewerKey from '@/components/ViewerKey.vue'
 
@@ -34,13 +31,20 @@ export default defineComponent({
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
     const { keymap, layoutAll } = useKeymap()
+    const { KeyConsts, calcKeySize } = useConsts()
 
     const keymapViewerStyle = computed(() => {
       const col = layoutAll.value.reduce((ret, v) => Math.max(ret, v.x), 0)
       const row = layoutAll.value.reduce((ret, v) => Math.max(ret, v.y), 0)
       return {
-        width: (col + 1) * 55 + 5 + 'px',
-        height: (row + 1) * 55 + 5 + 'px',
+        width:
+          (col + 1) * calcKeySize(1) +
+          (KeyConsts.margin + KeyConsts.border) * 2 +
+          'px',
+        height:
+          (row + 1) * calcKeySize(1) +
+          (KeyConsts.margin + KeyConsts.border) * 2 +
+          'px',
       }
     })
 
