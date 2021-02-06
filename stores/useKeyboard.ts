@@ -13,7 +13,7 @@ import { DeviceConfig } from '@/models/deviceConfig'
 import {
   KeyboardConfig,
   buildKeyboardConfigFromJSON,
-} from '@/models/KeyboardConfig'
+} from '@/models/keyboardConfig'
 import { DeviceSetting } from '@/models/deviceSetting'
 
 type Config = {
