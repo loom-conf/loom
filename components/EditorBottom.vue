@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import KeyboardConfig from '@/components/EditorBottom/KeyboardConfig.vue'
+import KeyboardConfig from '@/components/KeyboardConfig.vue'
 
 interface State {}
 

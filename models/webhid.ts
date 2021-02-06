@@ -40,6 +40,8 @@ export class WebHID implements DeviceProtocol {
       // avoid reopen error
       await this.disconnect()
       await this.device.open()
+    } else {
+      throw new Error("Device isn't selected")
     }
   }
 

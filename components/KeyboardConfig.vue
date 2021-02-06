@@ -17,9 +17,9 @@
       >
       <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
-    <div class="mt-4" v-if="hasConfig">
+    <div v-if="hasConfig" class="mt-4">
       <h2>Layout Option</h2>
-      <layoutOption />
+      <LayoutOption />
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ import {
 } from '@nuxtjs/composition-api'
 
 import { useKeyboard } from '@/stores/useKeyboard'
-import LayoutOption from './LayoutOption.vue'
+import LayoutOption from '@/components/LayoutOption.vue'
 
 interface State {
   jsonURL: string

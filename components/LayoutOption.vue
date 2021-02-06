@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent, computed } from '@nuxtjs/composition-api'
 import { useKeymap } from '@/stores/useKeymap'
-import LayoutOptionToggle from '@/components/EditorBottom/LayoutOptionToggle.vue'
+import LayoutOptionToggle from '@/components/LayoutOptionToggle.vue'
 
 export default defineComponent({
   components: { LayoutOptionToggle },
