@@ -41,6 +41,7 @@ export default defineComponent({
       width: calcKeySize(props.keyLayout.width) + 'px',
       height: calcKeySize(props.keyLayout.height) + 'px',
       border: KeyConsts.border + 'px' + ' solid',
+      backgroundColor: props.keyLayout.disabled ? 'grey' : 'white',
     }))
 
     const getLabel = computed(() => {
@@ -48,9 +49,7 @@ export default defineComponent({
       return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })
 
-    const click = () => {
-      console.log(props.keyLayout.labels)
-    }
+    const click = () => {}
 
     return { style, getLabel, click }
   },

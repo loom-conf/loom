@@ -2,7 +2,11 @@
   <div>
     <div class="mt-4">
       <h2>1.Load keyboard config</h2>
-      <v-text-field v-model="jsonURL" label="JSON URL"></v-text-field>
+      <v-text-field
+        v-model="jsonURL"
+        label="JSON URL"
+        class="textField"
+      ></v-text-field>
       <v-btn :disabled="isLoading" @click="jsonButtonClicked">load</v-btn>
       <h3 v-if="hasConfig">Loaded - {{ configName }}</h3>
     </div>
@@ -13,8 +17,18 @@
       >
       <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
+    <div class="mt-4" v-if="hasConfig">
+      <h2>Layout Option</h2>
+      <layoutOption />
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.textField {
+  width: 90%;
+}
+</style>
 
 <script lang="ts">
 import axios from 'axios'
@@ -26,6 +40,7 @@ import {
 } from '@nuxtjs/composition-api'
 
 import { useKeyboard } from '@/stores/useKeyboard'
+import LayoutOption from './LayoutOption.vue'
 
 interface State {
   jsonURL: string
@@ -33,10 +48,11 @@ interface State {
 }
 
 export default defineComponent({
+  components: { LayoutOption },
   setup(_props, _context) {
     const state = reactive<State>({
       jsonURL:
-        'https://gist.githubusercontent.com/hsgw/c57055b3fddb58bdc58dddaba5c087e4/raw/15da4f3b5e5b54761f33ec5c45b24e2950040677/meishi2.json',
+        'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json',
       isLoading: false,
     })
 

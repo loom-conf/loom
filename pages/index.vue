@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <v-navigation-drawer
       permanent
       app
@@ -20,8 +20,12 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $navigation-drawer-width: 100px;
+
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .editorContainer {
   margin-left: $navigation-drawer-width;
@@ -29,7 +33,6 @@ $navigation-drawer-width: 100px;
 
 #keyboardEditor {
   overflow: hidden;
-  width: 100vw;
   height: 100vh;
 }
 </style>

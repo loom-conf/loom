@@ -1,7 +1,7 @@
 export interface LayoutOptionItem {
   label: string
   options?: Array<string>
-  current: number
+  value: number
 }
 
 export class LayoutOption {
@@ -20,13 +20,13 @@ export class LayoutOption {
           if (typeof v === 'string')
             return {
               label: v,
-              current: 0,
+              value: 0,
             }
           else
             return {
               label: v[0],
               options: v.slice(1),
-              current: 0,
+              value: 0,
             }
         }
       )
@@ -42,7 +42,7 @@ export class LayoutOption {
       .reverse()
       .forEach((item) => {
         const bitWidth = this.calcBitWidth(item)
-        item.current = (layoutOption >> bitPos) & this.makeBitMask(bitWidth)
+        item.value = (layoutOption >> bitPos) & this.makeBitMask(bitWidth)
         bitPos += bitWidth
       })
   }
@@ -53,7 +53,7 @@ export class LayoutOption {
     return this.items.reduce((layoutOption, item) => {
       const bitWidth = this.calcBitWidth(item)
       return (
-        (layoutOption << bitWidth) + (item.current & this.makeBitMask(bitWidth))
+        (layoutOption << bitWidth) + (item.value & this.makeBitMask(bitWidth))
       )
     }, 0)
   }

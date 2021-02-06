@@ -21,11 +21,16 @@ type Config = {
   keyboard: KeyboardConfig | undefined
 }
 
+type Setting = {
+  device: DeviceSetting | undefined
+}
+
 export const createKeyboard = () => {
   const deviceProtocol = new WebHID()
 
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
+  const setting = reactive<Setting>({ device: undefined })
 
   async function loadKeyboardConfig(json: any[][], fileSrc: string) {
     await disconnectDevice()
@@ -45,6 +50,8 @@ export const createKeyboard = () => {
       await disconnectDevice()
       throw new Error(`Incorrect combination ${str}`)
     }
+
+    loadDeviceSetting()
   }
 
   async function disconnectDevice() {
@@ -54,7 +61,7 @@ export const createKeyboard = () => {
     }
   }
 
-  async function getDeviceSetting(): Promise<DeviceSetting | undefined> {
+  async function loadDeviceSetting(): Promise<DeviceSetting | undefined> {
     if (!device.isConnected || !config.keyboard || !config.device)
       return undefined
     const layoutOption = await device.getLayoutOption()
@@ -62,34 +69,32 @@ export const createKeyboard = () => {
       config.device.layerCount,
       config.keyboard.matrix
     )
-    return {
+    setting.device = {
       layoutOption,
       keymap,
     }
   }
 
   const isConnected = toRef(device, 'isConnected')
-
   const hasConfig = computed(() => !!config.keyboard)
-
   const isValid = computed(
     () => config.keyboard !== undefined && config.device !== undefined
   )
-
   const keyboadConfig = toRef(config, 'keyboard')
-
   const deviceConfig = toRef(config, 'device')
+  const deviceSetting = toRef(setting, 'device')
 
   return {
     config,
     connectDevice,
     loadKeyboardConfig,
-    getDeviceSetting,
+    loadDeviceSetting,
     isConnected,
     hasConfig,
     isValid,
     keyboadConfig,
     deviceConfig,
+    deviceSetting,
   }
 }
 

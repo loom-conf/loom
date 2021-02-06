@@ -12,9 +12,14 @@
 
 <style lang="scss" scoped>
 .editor {
+  display: flex;
+  flex-direction: column;
   margin-left: 30px;
   .topContainer {
     min-height: 40vh;
+  }
+  .bottomContainer {
+    flex: 1;
   }
 }
 </style>
@@ -53,8 +58,22 @@ export default defineComponent({
     provideKeyboard()
     provideKeymap()
 
-    const { loadKeyboardConfig, keyboadConfig, hasConfig } = useKeyboard()
-    const { setRawLayout } = useKeymap()
+    const {
+      loadKeyboardConfig,
+      keyboadConfig,
+      deviceSetting,
+      hasConfig,
+    } = useKeyboard()
+    const { setKeyboardConfig, setDeviceSetting } = useKeymap()
+
+    // connect stores
+    watch(keyboadConfig, (v) => {
+      setKeyboardConfig(v)
+    })
+
+    watch(deviceSetting, (v) => {
+      setDeviceSetting(v)
+    })
 
     const { fetchState } = useFetch(async () => {
       if (props.defaultJsonUrl) {
@@ -65,11 +84,6 @@ export default defineComponent({
     })
     watchEffect(() => {
       if (fetchState.error) console.error(fetchState.error)
-    })
-
-    // connect stores
-    watch(keyboadConfig, (v) => {
-      setRawLayout(v?.layouts.keymap)
     })
 
     const getKeyboardName = computed(() => keyboadConfig.value?.name)

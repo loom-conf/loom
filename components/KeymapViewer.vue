@@ -3,7 +3,7 @@
     <div class="keymapContainer" :style="keymapViewerStyle">
       <ViewerKey
         v-for="keyLayout in layout"
-        :key="keyLayout.labels[0]"
+        :key="keyLayout.labels.join()"
         :key-layout="keyLayout"
         :keycode="getKeycode(keyLayout.matrix).value"
       />
@@ -30,21 +30,19 @@ export default defineComponent({
   components: { ViewerKey },
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
-    const { keymap, layoutAll } = useKeymap()
+    const { keymap, layout } = useKeymap()
     const { KeyConsts, calcKeySize } = useConsts()
 
     const keymapViewerStyle = computed(() => {
-      const col = layoutAll.value.reduce((ret, v) => Math.max(ret, v.x), 0)
-      const row = layoutAll.value.reduce((ret, v) => Math.max(ret, v.y), 0)
+      const col = layout.value.reduce((ret, v) => Math.max(ret, v.x), 0)
+      const row = layout.value.reduce((ret, v) => Math.max(ret, v.y), 0)
       return {
-        width:
-          (col + 1) * calcKeySize(1) +
-          (KeyConsts.margin + KeyConsts.border) * 2 +
-          'px',
-        height:
-          (row + 1) * calcKeySize(1) +
-          (KeyConsts.margin + KeyConsts.border) * 2 +
-          'px',
+        width: `${
+          (col + 1) * calcKeySize(1) + (KeyConsts.margin + KeyConsts.border) * 2
+        }px`,
+        height: `${
+          (row + 1) * calcKeySize(1) + (KeyConsts.margin + KeyConsts.border) * 2
+        }px`,
       }
     })
 
@@ -57,7 +55,7 @@ export default defineComponent({
       })
     }
 
-    return { layout: layoutAll, keymapViewerStyle, getKeycode }
+    return { layout, keymapViewerStyle, getKeycode }
   },
 })
 </script>

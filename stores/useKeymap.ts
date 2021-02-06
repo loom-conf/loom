@@ -1,55 +1,70 @@
 import {
-  computed,
   inject,
   InjectionKey,
   provide,
+  reactive,
   ref,
 } from '@nuxtjs/composition-api'
 import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 import { buildKeymapFromRaw, Keymap } from '@/models/keymap'
-import { KeycodeTypes } from '~/utils/keycode'
-import { DeviceSetting } from '~/models/deviceSetting'
+import { KeycodeTypes } from '@/utils/keycode'
+import { DeviceSetting } from '@/models/deviceSetting'
+import { LayoutOption } from '@/models/layoutOption'
+import { KeyboardConfig } from '@/models/keyboardConfig'
 
 export const createKeymap = () => {
   const keymap = ref<Keymap>([])
-  const layoutAll = ref<KeyboardLayout>([])
-  const layoutOption = ref<number>(0)
-  const currentLayer = ref<number>(0)
+  const layout = ref<KeyboardLayout>([])
+  const layoutOption = reactive<LayoutOption>(new LayoutOption())
 
-  function setRawLayout(rawLayout: any[] | undefined) {
-    if (!rawLayout) layoutAll.value = []
-    else layoutAll.value = buildLayoutFromKLE(rawLayout)
+  function setKeyboardConfig(keyboardConfig: KeyboardConfig | undefined) {
+    if (!keyboardConfig?.layouts.keymap) layout.value = []
+    else layout.value = buildLayoutFromKLE(keyboardConfig.layouts.keymap)
+    layoutOption.setLabels(keyboardConfig?.layouts.labels)
+    applyLayoutOption()
+    layoutOption.setRawSetting(0)
   }
 
-  const setKeymap = (array: Uint16Array | undefined) => {
-    keymap.value = array ? buildKeymapFromRaw(array) : []
+  function setDeviceSetting(setting: DeviceSetting | undefined) {
+    keymap.value = setting?.keymap ? buildKeymapFromRaw(setting.keymap) : []
+    layoutOption.setRawSetting(setting?.layoutOption ?? 0)
   }
 
-  const setKeycode = (index: number, keycode: KeycodeTypes) => {
+  function setKeycode(index: number, keycode: KeycodeTypes) {
     keymap.value[index] = keycode
   }
 
-  const setLayoutOption = (value: number | undefined) => {
-    layoutOption.value = value ?? 0
+  function applyLayoutOption() {
+    layout.value = layout.value.map((item) => {
+      if (!item.layoutOption || !layoutOption.items) {
+        item.disabled = false
+      } else if (
+        layoutOption.items[item.layoutOption.layout].value !==
+        item.layoutOption.value
+      ) {
+        item.disabled = true
+      } else {
+        item.disabled = false
+      }
+      return item
+    })
   }
 
-  const getLayoutOption = computed(() => layoutOption.value)
-
-  const setDeviceSetting = (setting: DeviceSetting | undefined) => {
-    setKeymap(setting?.keymap)
-    setLayoutOption(setting?.layoutOption)
+  function changeLayoutOption(index: number, value: number) {
+    if (layoutOption.items) {
+      layoutOption.items[index].value = value
+      applyLayoutOption()
+    }
   }
 
   return {
     keymap,
-    layoutAll,
-    currentLayer,
-    setRawLayout,
-    setKeymap,
+    layout,
+    layoutOption,
     setKeycode,
-    setLayoutOption,
-    getLayoutOption,
+    setKeyboardConfig,
     setDeviceSetting,
+    changeLayoutOption,
   }
 }
 
