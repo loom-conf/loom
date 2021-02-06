@@ -11,7 +11,7 @@ describe('LayoutOption', () => {
     const layoutOption = new LayoutOption()
     layoutOption.setLabels(['test'])
     expect(layoutOption.items).toEqual(
-      expect.arrayContaining([{ label: 'test', current: 0 }])
+      expect.arrayContaining([{ label: 'test', value: 0 }])
     )
   })
 
@@ -20,8 +20,8 @@ describe('LayoutOption', () => {
     layoutOption.setLabels(['test', ['test2Label', 'test2', 'test3']])
     expect(layoutOption.items).toEqual(
       expect.arrayContaining([
-        { label: 'test', current: 0 },
-        { label: 'test2Label', options: ['test2', 'test3'], current: 0 },
+        { label: 'test', value: 0 },
+        { label: 'test2Label', options: ['test2', 'test3'], value: 0 },
       ])
     )
   })
@@ -31,7 +31,7 @@ describe('LayoutOption', () => {
     layoutOption.setLabels(['test'])
     layoutOption.setRawSetting(1)
     expect(layoutOption.items).toEqual(
-      expect.arrayContaining([{ label: 'test', current: 1 }])
+      expect.arrayContaining([{ label: 'test', value: 1 }])
     )
   })
 
@@ -41,11 +41,11 @@ describe('LayoutOption', () => {
     layoutOption.setRawSetting(6)
     expect(layoutOption.items).toEqual(
       expect.arrayContaining([
-        { label: 'test', current: 1 },
+        { label: 'test', value: 1 },
         {
           label: 'test2Label',
           options: ['test2', 'test3', 'test4'],
-          current: 2,
+          value: 2,
         },
       ])
     )
