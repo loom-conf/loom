@@ -589,56 +589,56 @@
   },
   {
     "qmk": "KC_LCTL",
-    "raw": 165,
+    "raw": 224,
     "legend": "Ctrl",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_LSFT",
-    "raw": 166,
+    "raw": 225,
     "legend": "Shift",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_LOPT",
-    "raw": 167,
+    "raw": 226,
     "legend": "Alt",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_LCMD",
-    "raw": 168,
+    "raw": 227,
     "legend": "GUI",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_RCTL",
-    "raw": 169,
+    "raw": 228,
     "legend": "Ctrl",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_RSFT",
-    "raw": 170,
+    "raw": 229,
     "legend": "Shift",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_RALT",
-    "raw": 171,
+    "raw": 230,
     "legend": "Alt",
     "altLegend": "",
     "type": ""
   },
   {
     "qmk": "KC_RGUI",
-    "raw": 172,
+    "raw": 231,
     "legend": "GUI",
     "altLegend": "",
     "type": ""
@@ -1360,7 +1360,7 @@
   {
     "qmk": "KC_KP_EQUAL_AS400",
     "raw": 134,
-    "legend": "=(AS/400)",
+    "legend": "#NAME?",
     "altLegend": "",
     "type": "KEYPAD"
   },
