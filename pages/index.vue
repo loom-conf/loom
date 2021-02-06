@@ -8,7 +8,18 @@
       mini-variant
       mini-variant-width="100px"
     >
-      LOOM
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title"> LOOM </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <template v-slot:append>
+        <div class="pa-3">
+          <v-btn dark rounded href="https://github.com/loom-conf/loom-conf"
+            ><v-icon x-large>mdi-github</v-icon></v-btn
+          >
+        </div>
+      </template>
     </v-navigation-drawer>
     <div class="editorContainer">
       <KeyboardEditor
