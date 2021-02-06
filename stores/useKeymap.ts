@@ -13,11 +13,15 @@ import { LayoutOption } from '@/models/layoutOption'
 import { KeyboardConfig } from '@/models/keyboardConfig'
 
 export const createKeymap = () => {
+  const keyCount = ref<number>(0)
   const keymap = ref<Keymap>([])
   const layout = ref<KeyboardLayout>([])
   const layoutOption = reactive<LayoutOption>(new LayoutOption())
+  const currentLayer = ref<number>(0)
 
   function setKeyboardConfig(keyboardConfig: KeyboardConfig | undefined) {
+    if (keyboardConfig?.matrix)
+      keyCount.value = keyboardConfig.matrix.cols * keyboardConfig.matrix.rows
     if (!keyboardConfig?.layouts.keymap) layout.value = []
     else layout.value = buildLayoutFromKLE(keyboardConfig.layouts.keymap)
     layoutOption.setLabels(keyboardConfig?.layouts.labels)
@@ -59,8 +63,10 @@ export const createKeymap = () => {
 
   return {
     keymap,
+    keyCount,
     layout,
     layoutOption,
+    currentLayer,
     setKeycode,
     setKeyboardConfig,
     setDeviceSetting,

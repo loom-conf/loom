@@ -30,7 +30,7 @@ export default defineComponent({
   components: { ViewerKey },
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
-    const { keymap, layout } = useKeymap()
+    const { keymap, layout, currentLayer, keyCount } = useKeymap()
     const { KeyConsts, calcKeySize } = useConsts()
 
     const keymapViewerStyle = computed(() => {
@@ -47,12 +47,15 @@ export default defineComponent({
     })
 
     const getKeycode = ({ row, col }: { row: number; col: number }) => {
-      return computed(() => {
-        const matrixCols = keyboadConfig.value
-        return matrixCols
-          ? keymap.value[row * matrixCols.matrix.cols + col]
+      return computed(() =>
+        keyboadConfig.value
+          ? keymap.value[
+              row * keyboadConfig.value.matrix.cols +
+                col +
+                keyCount.value * currentLayer.value
+            ]
           : undefined
-      })
+      )
     }
 
     return { layout, keymapViewerStyle, getKeycode }
