@@ -11,10 +11,22 @@
   overflow: hidden;
   border: 1px solid grey;
 }
+.centerpos {
+  position: absolute;
+  z-index: 12;
+  width: 10px;
+  height: 10px;
+  background-color: crimson;
+}
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  PropType,
+  ref,
+} from '@nuxtjs/composition-api'
 
 import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycode'
@@ -33,25 +45,41 @@ export default defineComponent({
   },
 
   setup(props, _context) {
+    const enable = ref(false)
     const { KeyConsts, calcKeySize } = useConsts()
 
-    const style = computed(() => ({
-      top: calcKeySize(props.keyLayout.y) + KeyConsts.margin + 'px',
-      left: calcKeySize(props.keyLayout.x) + KeyConsts.margin + 'px',
-      width: calcKeySize(props.keyLayout.width) + 'px',
-      height: calcKeySize(props.keyLayout.height) + 'px',
-      border: KeyConsts.border + 'px' + ' solid',
-      backgroundColor: props.keyLayout.disabled ? 'grey' : 'white',
-    }))
+    const style = computed(() => {
+      return {
+        width: calcKeySize(props.keyLayout.width) + 'px',
+        height: calcKeySize(props.keyLayout.height) + 'px',
+        top: `${calcKeySize(props.keyLayout.y) + KeyConsts.margin}px`,
+        left: `${calcKeySize(props.keyLayout.x) + KeyConsts.margin}px`,
+        border: KeyConsts.border + 'px' + ' solid',
+        backgroundColor: props.keyLayout.disabled ? 'grey' : 'white',
+        'transform-origin': `${calcKeySize(
+          props.keyLayout.rotation_x - props.keyLayout.x
+        )}px
+        ${calcKeySize(props.keyLayout.rotation_y - props.keyLayout.y)}px`,
+        transform: `rotate(${props.keyLayout.rotation_angle}deg)`,
+      }
+    })
 
     const getLabel = computed(() => {
       if (props.keycode === undefined) return props.keyLayout.labels[0]
       return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })
 
-    const click = () => {}
+    const click = () => {
+      console.log(props.keyLayout)
+      enable.value = !enable.value
+    }
 
-    return { style, getLabel, click }
+    const centerStyle = computed(() => ({
+      top: calcKeySize(props.keyLayout.rotation_y) + KeyConsts.margin + 'px',
+      left: calcKeySize(props.keyLayout.rotation_x) + KeyConsts.margin + 'px',
+    }))
+
+    return { style, getLabel, click, enable, centerStyle }
   },
 })
 </script>

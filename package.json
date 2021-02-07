@@ -16,7 +16,7 @@
     "keycodes": "python -3 tools/generate_keycodes/generate_keybodes.py"
   },
   "dependencies": {
-    "@ijprest/kle-serial": "^0.15.1",
+    "@ijprest/kle-serial": "git+https://github.com/ctrlShiftBryan/kle-serial.git",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/composition-api": "^0.17.0",
