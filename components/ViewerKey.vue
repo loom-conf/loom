@@ -11,22 +11,10 @@
   overflow: hidden;
   border: 1px solid grey;
 }
-.centerpos {
-  position: absolute;
-  z-index: 12;
-  width: 10px;
-  height: 10px;
-  background-color: crimson;
-}
 </style>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  PropType,
-  ref,
-} from '@nuxtjs/composition-api'
+import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 
 import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycode'
@@ -45,7 +33,6 @@ export default defineComponent({
   },
 
   setup(props, _context) {
-    const enable = ref(false)
     const { KeyConsts, calcKeySize } = useConsts()
 
     const style = computed(() => {
@@ -71,15 +58,9 @@ export default defineComponent({
 
     const click = () => {
       console.log(props.keyLayout)
-      enable.value = !enable.value
     }
 
-    const centerStyle = computed(() => ({
-      top: calcKeySize(props.keyLayout.rotation_y) + KeyConsts.margin + 'px',
-      left: calcKeySize(props.keyLayout.rotation_x) + KeyConsts.margin + 'px',
-    }))
-
-    return { style, getLabel, click, enable, centerStyle }
+    return { style, getLabel, click }
   },
 })
 </script>
