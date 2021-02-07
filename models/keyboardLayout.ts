@@ -23,21 +23,23 @@ export type KeyLayout = kle.Key & Matrix & LayoutOption & Disabled
 export type KeyboardLayout = Array<KeyLayout>
 
 export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
-  return kle.Serial.deserialize(kleLayouts).keys.map((key) => {
-    const matrix = {
-      row: parseInt(key.labels[0].split(',')[0]),
-      col: parseInt(key.labels[0].split(',')[1]),
-    }
-
-    let layoutOption
-    if (key.labels[8]) {
-      layoutOption = {
-        layout: parseInt(key.labels[8].split(',')[0]),
-        value: parseInt(key.labels[8].split(',')[1]),
+  return kle.Serial.deserialize(kleLayouts)
+    .keys.filter((key) => key.labels.length)
+    .map((key) => {
+      const matrix = {
+        row: parseInt(key.labels[0].split(',')[0]),
+        col: parseInt(key.labels[0].split(',')[1]),
       }
-    }
 
-    if (layoutOption) return { ...key, matrix, layoutOption, disabled: false }
-    else return { ...key, matrix, disabled: false }
-  })
+      let layoutOption
+      if (key.labels[8]) {
+        layoutOption = {
+          layout: parseInt(key.labels[8].split(',')[0]),
+          value: parseInt(key.labels[8].split(',')[1]),
+        }
+      }
+
+      if (layoutOption) return { ...key, matrix, layoutOption, disabled: false }
+      else return { ...key, matrix, disabled: false }
+    })
 }
