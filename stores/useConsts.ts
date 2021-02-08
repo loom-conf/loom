@@ -1,7 +1,7 @@
 export const useConsts = () => {
   const KeySizeBase = 55
   const KeyConsts = {
-    margin: 4,
+    margin: 10,
     padding: 1,
     border: 1,
   } as const
