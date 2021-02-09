@@ -1,31 +1,49 @@
 <template>
   <div class="editor">
-    <div class="topContainer">
-      <div v-if="hasConfig">
+    <template v-if="hasConfig">
+      <div class="top">
         <h1>{{ getKeyboardName }}</h1>
-        <div class="keymapViewerContainer">
+        <div class="keymapViewer">
           <LayerSelector />
           <KeymapViewer />
         </div>
       </div>
+      <div class="bottom">
+        <EditorBottom />
+      </div>
+    </template>
+    <div v-else class="top initial">
+      <InitialPane />
     </div>
-    <EditorBottom />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .editor {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
-  .topContainer {
-    min-height: 40vh;
-    .keymapViewerContainer {
+  align-items: flex-start;
+  .top {
+    background-color: white;
+    margin-left: 150px;
+    margin-bottom: 2rem;
+    padding-left: 40px;
+    padding-right: 80px;
+    padding-bottom: 30px;
+    border-radius: 0 0 60px 60px;
+    .keymapViewer {
       display: flex;
     }
   }
-  .bottomContainer {
+  .bottom {
     flex: 1;
+    width: 100vw;
+    height: 100%;
+  }
+  .initial {
+    padding: 40px;
+    border-radius: 0 0 30px 30px;
   }
 }
 </style>
@@ -46,12 +64,14 @@ import { provideEditor } from '@/stores/useEditor'
 import KeymapViewer from '@/components/KeymapViewer.vue'
 import LayerSelector from '@/components/LayerSelector.vue'
 import EditorBottom from '@/components/EditorBottom.vue'
+import InitialPane from '@/components/InitialPane.vue'
 
 export default defineComponent({
   components: {
     KeymapViewer,
     LayerSelector,
     EditorBottom,
+    InitialPane,
   },
   props: {
     defaultJsonUrl: {

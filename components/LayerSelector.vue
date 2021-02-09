@@ -24,11 +24,12 @@
     margin: 5px;
     text-align: center;
     font-weight: bold;
-    border-radius: 50%;
-    border: grey solid 1px;
+    border-radius: 20%;
+    border: grey solid 2px;
     cursor: pointer;
     &.selected {
       border: cornflowerblue solid 2px;
+      background-color: cornflowerblue;
     }
   }
 }
@@ -45,7 +46,7 @@ export default defineComponent({
     const { deviceConfig } = useKeyboard()
     const { currentLayer } = useKeymap()
 
-    const layerCount = computed(() => deviceConfig.value?.layerCount)
+    const layerCount = computed(() => deviceConfig.value?.layerCount ?? 4)
 
     const getLayerItemStyle = (n: number) =>
       computed(() =>

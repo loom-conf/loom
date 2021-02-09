@@ -1,12 +1,44 @@
 <template>
   <div class="editorBottom">
-    <KeyboardConfig />
+    <div class="tabContainer">
+      <div class="tab">DEVICE</div>
+      <div class="tab">KEYMAP</div>
+      <div class="tab">LAYOUT</div>
+    </div>
+    <div class="mainContainer">
+      <div style="height: 0">
+        <KeyboardConfig />
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .editorBottom {
-  overflow: auto;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  .tabContainer {
+    .tab {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 3rem;
+      width: 150px;
+      font-weight: bolder;
+      letter-spacing: 0.3rem;
+    }
+  }
+  .mainContainer {
+    background-color: white;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding-left: 2em;
+  }
 }
 </style>
 

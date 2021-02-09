@@ -14,6 +14,7 @@
 <style lang="scss" scoped>
 .keymapContainer {
   border: 1px solid grey;
+  border-radius: 8px;
   .keymapViewer {
     position: relative;
   }
