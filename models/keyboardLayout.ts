@@ -26,6 +26,9 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
   return kle.Serial.deserialize(kleLayouts)
     .keys.filter((key) => key.labels.length)
     .map((key) => {
+      if (!key.labels[0])
+        throw new Error(`matrix position is undefined. x:${key.x}, y:${key.y}`)
+
       const matrix = {
         row: parseInt(key.labels[0].split(',')[0]),
         col: parseInt(key.labels[0].split(',')[1]),
