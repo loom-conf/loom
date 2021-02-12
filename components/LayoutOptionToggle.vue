@@ -1,9 +1,18 @@
 <template>
-  <div>
-    <v-switch :label="label" :input-value="value" @change="toggleChanged">
-    </v-switch>
+  <div class="layoutOptionContainer">
+    <div class="title">{{ label }}</div>
+    <AtomCheckbox :value="!!value" @toggle="toggle" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.layoutOptionContainer {
+  display: flex;
+  .title {
+    width: 300px;
+  }
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
@@ -24,10 +33,10 @@ export default defineComponent({
     },
   },
   setup(_props, _context) {
-    const toggleChanged = () => {
+    const toggle = () => {
       _context.emit('toggle', _props.index, _props.value === 1 ? 0 : 1)
     }
-    return { toggleChanged }
+    return { toggle }
   },
 })
 </script>

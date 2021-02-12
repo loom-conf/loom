@@ -2,18 +2,22 @@
   <div>
     <div class="mt-4">
       <h2>1.Load keyboard config</h2>
-      <v-text-field
+      <AtomInput
         v-model="jsonURL"
         label="JSON URL"
         class="textField"
-      ></v-text-field>
-      <v-btn :disabled="isLoading" @click="jsonButtonClicked">load</v-btn>
+      ></AtomInput>
+      <AtomButton :disabled="isLoading" @click="jsonButtonClicked"
+        >load</AtomButton
+      >
       <h3 v-if="hasConfig">Loaded - {{ configName }}</h3>
     </div>
     <div class="mt-4">
       <h2>2.Connect USB device</h2>
-      <v-btn :disabled="!hasConfig || isConnected" @click="connectButtonClicked"
-        >connect</v-btn
+      <AtomButton
+        :disabled="!hasConfig || isConnected"
+        @click="connectButtonClicked"
+        >connect</AtomButton
       >
       <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
@@ -26,7 +30,7 @@
 
 <style lang="scss" scoped>
 .textField {
-  width: 90%;
+  width: 400px;
 }
 </style>
 
@@ -40,7 +44,6 @@ import {
 } from '@nuxtjs/composition-api'
 
 import { useKeyboard } from '@/stores/useKeyboard'
-import LayoutOption from '@/components/LayoutOption.vue'
 
 interface State {
   jsonURL: string
@@ -48,7 +51,6 @@ interface State {
 }
 
 export default defineComponent({
-  components: { LayoutOption },
   setup(_props, _context) {
     const state = reactive<State>({
       jsonURL:

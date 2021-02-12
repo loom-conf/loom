@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="initialPaneTitle">Load you keyboard config file first.</div>
+    <div class="initialPaneTitle">Load your keyboard config file first.</div>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, reactive, PropType } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {},

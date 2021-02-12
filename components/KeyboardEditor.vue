@@ -1,20 +1,20 @@
 <template>
   <div class="editor">
-    <template v-if="hasConfig">
+    <template>
       <div class="top">
         <h1>{{ getKeyboardName }}</h1>
-        <div class="keymapViewer">
+        <div v-if="hasConfig" class="keymapViewer">
           <LayerSelector />
           <KeymapViewer />
+        </div>
+        <div v-else class="initial">
+          <InitialPane />
         </div>
       </div>
       <div class="bottom">
         <EditorBottom />
       </div>
     </template>
-    <div v-else class="top initial">
-      <InitialPane />
-    </div>
   </div>
 </template>
 
