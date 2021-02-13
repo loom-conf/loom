@@ -1,12 +1,12 @@
 <template>
-  <div class="layoutOptionContainer">
+  <div class="layoutOption">
     <div class="label">{{ label }}</div>
-    <AtomCheckbox :value="!!value" @toggle="toggle" />
+    <AtomSelect :options="options" :value="value" @change="change" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.layoutOptionContainer {
+.layoutOption {
   display: flex;
   margin: 0.3rem 0;
   .label {
@@ -16,12 +16,16 @@
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
     label: {
       type: String,
+      required: true,
+    },
+    options: {
+      type: Array as PropType<Array<String>>,
       required: true,
     },
     value: {
@@ -34,10 +38,10 @@ export default defineComponent({
     },
   },
   setup(_props, _context) {
-    const toggle = () => {
-      _context.emit('toggle', _props.index, _props.value === 1 ? 0 : 1)
+    const change = (value: number) => {
+      _context.emit('change', _props.index, value)
     }
-    return { toggle }
+    return { change }
   },
 })
 </script>

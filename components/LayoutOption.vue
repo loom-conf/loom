@@ -8,6 +8,14 @@
         :index="index"
         @toggle="optionChanged"
       />
+      <LayoutOptionSelect
+        v-else
+        :label="item.label"
+        :value="item.value"
+        :options="item.options"
+        :index="index"
+        @change="optionChanged"
+      />
     </div>
   </div>
 </template>
@@ -15,10 +23,8 @@
 <script lang="ts">
 import { defineComponent, computed } from '@nuxtjs/composition-api'
 import { useKeymap } from '@/stores/useKeymap'
-import LayoutOptionToggle from '@/components/LayoutOptionToggle.vue'
 
 export default defineComponent({
-  components: { LayoutOptionToggle },
   setup(_props, _context) {
     const { layoutOption, changeLayoutOption } = useKeymap()
     const hasOptions = computed(() => layoutOption.items?.length !== 0)

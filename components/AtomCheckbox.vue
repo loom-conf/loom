@@ -10,7 +10,6 @@
   padding: 0;
   width: 20px;
   height: 20px;
-  margin: 3px;
   border: 1px solid grey;
 }
 </style>
