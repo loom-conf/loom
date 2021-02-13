@@ -3,7 +3,7 @@
     <div class="keymapViewer" :style="keymapViewerStyle">
       <ViewerKey
         v-for="keyLayout in layout"
-        :key="keyLayout.labels.join()"
+        :key="`${keyLayout.labels.join()},${keyLayout.x},${keyLayout.y}`"
         :key-layout="keyLayout"
         :keycode="getKeycode(keyLayout.matrix).value"
       />
@@ -90,12 +90,12 @@ export default defineComponent({
       'margin-left': `${calcKeySize(-outer.value.left)}px`,
     }))
 
-    const getKeycode = ({ row, col }: { row: number; col: number }) => {
+    const getKeycode = (matrix: { row: number; col: number }) => {
       return computed(() =>
-        keyboadConfig.value
+        keyboadConfig.value && matrix
           ? keymap.value[
-              row * keyboadConfig.value.matrix.cols +
-                col +
+              matrix.row * keyboadConfig.value.matrix.cols +
+                matrix.col +
                 keyCount.value * currentLayer.value
             ]
           : undefined
