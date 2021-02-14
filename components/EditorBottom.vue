@@ -1,9 +1,26 @@
 <template>
   <div class="editorBottom">
     <div class="tabContainer">
-      <div class="tab">DEVICE</div>
-      <div class="tab">KEYMAP</div>
-      <div class="tab">LAYOUT</div>
+      <EditorBottomTab
+        name="Device"
+        :selected="bottomTabState"
+        @click="selectBottomTab"
+      />
+      <EditorBottomTab
+        name="Keymap"
+        :selected="bottomTabState"
+        @click="selectBottomTab"
+      />
+      <EditorBottomTab
+        name="Layout"
+        :selected="bottomTabState"
+        @click="selectBottomTab"
+      />
+      <EditorBottomTab
+        name="App"
+        :selected="bottomTabState"
+        @click="selectBottomTab"
+      />
     </div>
     <div class="mainContainer">
       <div style="height: 0">
@@ -15,24 +32,19 @@
 
 <style lang="scss" scoped>
 .editorBottom {
+  position: relative;
+  z-index: 50;
   height: 100%;
   overflow-y: auto;
   display: flex;
   align-items: stretch;
   flex-direction: row;
   .tabContainer {
-    .tab {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 3rem;
-      width: 150px;
-      font-weight: bolder;
-      letter-spacing: 0.3rem;
-    }
+    width: 150px;
+    margin-top: 0.5rem;
   }
   .mainContainer {
+    border-top-left-radius: 10px;
     background-color: white;
     overflow-y: auto;
     height: 100%;
@@ -44,14 +56,15 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import KeyboardConfig from '@/components/KeyboardConfig.vue'
-
-interface State {}
+import { BottomTabState, useApp } from '~/stores/useApp'
 
 export default defineComponent({
-  components: { KeyboardConfig },
   setup(_props, _context) {
-    return {}
+    const { setBottomTab, bottomTabState } = useApp()
+    const selectBottomTab = (value: BottomTabState) => {
+      setBottomTab(value)
+    }
+    return { selectBottomTab, bottomTabState }
   },
 })
 </script>

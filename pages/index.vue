@@ -22,6 +22,7 @@ body::-webkit-scrollbar {
   height: 100vh;
   .navContainer {
     position: relative;
+    z-index: 10;
     .nav {
       text-align: center;
       position: absolute;

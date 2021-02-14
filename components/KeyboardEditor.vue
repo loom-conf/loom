@@ -59,7 +59,7 @@ import {
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
-import { provideEditor } from '@/stores/useEditor'
+import { provideApp } from '@/stores/useApp'
 
 import KeymapViewer from '@/components/KeymapViewer.vue'
 import LayerSelector from '@/components/LayerSelector.vue'
@@ -86,7 +86,7 @@ export default defineComponent({
   setup(props) {
     provideKeyboard()
     provideKeymap()
-    provideEditor()
+    provideApp()
 
     const {
       loadKeyboardConfig,
