@@ -1,16 +1,21 @@
 <template>
   <div :class="checkboxClass" @click="clicked">
-    <span><AtomIcon v-if="value" :icon="mdiCheck" /></span>
+    <AtomIcon v-if="value" :icon="mdiCheck" class="checkmark" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .checkbox {
   cursor: pointer;
+  position: relative;
   padding: 0;
   width: 20px;
   height: 20px;
   border: 1px solid grey;
+  overflow: hidden;
+  .checkmark {
+    position: absolute;
+  }
 }
 </style>
 

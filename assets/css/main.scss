@@ -16,10 +16,12 @@ h5 {
 .editorBottom {
   .main {
     .item {
+      font-size: large;
       display: flex;
+      align-items: center;
       margin: 0.3rem 0;
       .label {
-        width: 200px;
+        min-width: 250px;
       }
     }
   }
