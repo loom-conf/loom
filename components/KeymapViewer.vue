@@ -27,7 +27,6 @@ import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
 import { useConsts } from '@/stores/useConsts'
 import { rotateRect, RectPoint } from '@/utils/rotateKey'
-
 import ViewerKey from '@/components/ViewerKey.vue'
 
 export default defineComponent({

@@ -60,7 +60,6 @@ import {
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
 import { provideApp } from '@/stores/useApp'
-
 import KeymapViewer from '@/components/KeymapViewer.vue'
 import LayerSelector from '@/components/LayerSelector.vue'
 import EditorBottom from '@/components/EditorBottom.vue'

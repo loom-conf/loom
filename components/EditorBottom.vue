@@ -56,9 +56,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { BottomTabState, useApp } from '~/stores/useApp'
+import { BottomTabState, useApp } from '@/stores/useApp'
+import EditorBottomTab from '@/components/EditorBottomTab.vue'
+import KeyboardConfig from '@/components/KeyboardConfig.vue'
 
 export default defineComponent({
+  components: { EditorBottomTab, KeyboardConfig },
   setup(_props, _context) {
     const { setBottomTab, bottomTabState } = useApp()
     const selectBottomTab = (value: BottomTabState) => {

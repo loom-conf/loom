@@ -1,14 +1,15 @@
 <template>
-  <div class="layoutOption">
+  <div class="toggle" @click="toggle">
     <div class="label">{{ label }}</div>
-    <AtomSelect :options="options" :value="value" @change="change" />
+    <AtomCheckbox :value="!!value" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.layoutOption {
+.toggle {
   display: flex;
   margin: 0.3rem 0;
+  cursor: pointer;
   .label {
     width: 200px;
   }
@@ -16,16 +17,14 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
+import AtomCheckbox from '@/components/AtomCheckbox.vue'
 
 export default defineComponent({
+  components: { AtomCheckbox },
   props: {
     label: {
       type: String,
-      required: true,
-    },
-    options: {
-      type: Array as PropType<Array<String>>,
       required: true,
     },
     value: {
@@ -34,14 +33,14 @@ export default defineComponent({
     },
     index: {
       type: Number,
-      required: true,
+      required: false,
     },
   },
   setup(_props, _context) {
-    const change = (value: number) => {
-      _context.emit('change', _props.index, value)
+    const toggle = () => {
+      _context.emit('toggle', _props.value === 1 ? 0 : 1, _props.index)
     }
-    return { change }
+    return { toggle }
   },
 })
 </script>

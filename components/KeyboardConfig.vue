@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-4">
+    <div>
       <h2>1.Load keyboard config</h2>
       <AtomInput
         v-model="jsonURL"
@@ -12,7 +12,7 @@
       >
       <h3 v-if="hasConfig">Loaded - {{ configName }}</h3>
     </div>
-    <div class="mt-4">
+    <div>
       <h2>2.Connect USB device</h2>
       <AtomButton
         :disabled="!hasConfig || isConnected"
@@ -21,7 +21,7 @@
       >
       <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
-    <div v-if="hasConfig" class="mt-4">
+    <div v-if="hasConfig">
       <h2>Layout Option</h2>
       <LayoutOption />
     </div>
@@ -42,8 +42,10 @@ import {
   reactive,
   toRefs,
 } from '@nuxtjs/composition-api'
-
 import { useKeyboard } from '@/stores/useKeyboard'
+import AtomInput from '@/components/AtomInput.vue'
+import AtomButton from '@/components/AtomButton.vue'
+import LayoutOption from '@/components/LayoutOption.vue'
 
 interface State {
   jsonURL: string
@@ -51,6 +53,7 @@ interface State {
 }
 
 export default defineComponent({
+  components: { AtomInput, AtomButton, LayoutOption },
   setup(_props, _context) {
     const state = reactive<State>({
       jsonURL:

@@ -16,10 +16,11 @@
 
 <script lang="ts">
 import { defineComponent, computed } from '@nuxtjs/composition-api'
-
+import AtomIcon from '@/components/AtomIcon.vue'
 import { mdiCheck } from '@mdi/js'
 
 export default defineComponent({
+  components: { AtomIcon },
   props: {
     value: {
       type: Boolean,

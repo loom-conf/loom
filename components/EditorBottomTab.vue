@@ -1,5 +1,5 @@
 <template>
-  <div class="tabButton" :class="{ selected: isSelected }" @click="buttonClick">
+  <div class="tabButton" :class="{ selected: isSelected }" @click="click">
     {{ name }}
   </div>
 </template>
@@ -44,7 +44,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import { BottomTabState } from '~/stores/useApp'
+import { BottomTabState } from '@/stores/useApp'
 
 export default defineComponent({
   props: {
@@ -58,12 +58,12 @@ export default defineComponent({
     },
   },
   setup(_props, _context) {
-    const buttonClick = () => {
+    const click = () => {
       _context.emit('click', _props.name)
     }
 
     const isSelected = computed(() => _props.name === _props.selected)
-    return { buttonClick, isSelected }
+    return { click, isSelected }
   },
 })
 </script>

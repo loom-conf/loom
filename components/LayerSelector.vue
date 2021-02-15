@@ -37,7 +37,6 @@
 
 <script lang="ts">
 import { defineComponent, computed } from '@nuxtjs/composition-api'
-
 import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
 
