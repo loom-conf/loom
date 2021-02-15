@@ -21,10 +21,6 @@
       >
       <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
     </div>
-    <div v-if="hasConfig">
-      <h2>Layout Option</h2>
-      <LayoutOption />
-    </div>
   </div>
 </template>
 
@@ -43,9 +39,8 @@ import {
   toRefs,
 } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
-import AtomInput from '@/components/AtomInput.vue'
-import AtomButton from '@/components/AtomButton.vue'
-import LayoutOption from '@/components/LayoutOption.vue'
+import AtomInput from '@/components/atoms/AtomInput.vue'
+import AtomButton from '@/components/atoms/AtomButton.vue'
 
 interface State {
   jsonURL: string
@@ -53,7 +48,7 @@ interface State {
 }
 
 export default defineComponent({
-  components: { AtomInput, AtomButton, LayoutOption },
+  components: { AtomInput, AtomButton },
   setup(_props, _context) {
     const state = reactive<State>({
       jsonURL:

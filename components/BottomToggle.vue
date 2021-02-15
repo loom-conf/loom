@@ -1,24 +1,13 @@
 <template>
-  <div class="toggle" @click="toggle">
+  <div class="toggle item">
     <div class="label">{{ label }}</div>
-    <AtomCheckbox :value="!!value" />
+    <AtomCheckbox :value="!!value" @toggle="toggle" />
   </div>
 </template>
 
-<style lang="scss" scoped>
-.toggle {
-  display: flex;
-  margin: 0.3rem 0;
-  cursor: pointer;
-  .label {
-    width: 200px;
-  }
-}
-</style>
-
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import AtomCheckbox from '@/components/AtomCheckbox.vue'
+import AtomCheckbox from '@/components/atoms/AtomCheckbox.vue'
 
 export default defineComponent({
   components: { AtomCheckbox },

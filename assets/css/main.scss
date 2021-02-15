@@ -12,3 +12,15 @@ h4,
 h5 {
   font-weight: 700;
 }
+
+.editorBottom {
+  .main {
+    .item {
+      display: flex;
+      margin: 0.3rem 0;
+      .label {
+        width: 200px;
+      }
+    }
+  }
+}

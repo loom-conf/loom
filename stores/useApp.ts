@@ -1,10 +1,10 @@
 import { InjectionKey, provide, inject, ref } from '@nuxtjs/composition-api'
 
-export type BottomTabState = 'Device' | 'keymap' | 'Layout'
+export type BottomTabNames = 'Device' | 'keymap' | 'Layout'
 
 export function createApp() {
-  const bottomTabState = ref<BottomTabState>('Device')
-  const setBottomTab = (value: BottomTabState) => {
+  const bottomTabState = ref<BottomTabNames>('Device')
+  const setBottomTab = (value: BottomTabNames) => {
     bottomTabState.value = value
   }
   return { setBottomTab, bottomTabState }

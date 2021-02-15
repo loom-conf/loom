@@ -45,7 +45,7 @@ import KeyboardEditor from '~/components/KeyboardEditor.vue'
 
 export default defineComponent({
   components: { KeyboardEditor },
-  setup(_props) {
+  setup(_props, _context) {
     const { route } = useContext()
     const keyboardName = computed(() => route.value.params.keyboard ?? '')
     const jsonURL = computed(() => route.value.query.config ?? '')

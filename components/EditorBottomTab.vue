@@ -44,16 +44,15 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import { BottomTabState } from '@/stores/useApp'
 
 export default defineComponent({
   props: {
     name: {
-      type: String as PropType<BottomTabState>,
+      type: String,
       required: true,
     },
     selected: {
-      type: String as PropType<BottomTabState>,
+      type: String,
       required: true,
     },
   },

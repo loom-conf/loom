@@ -1,30 +1,31 @@
 <template>
   <div class="editorBottom">
-    <div class="tabContainer">
+    <div class="tabs">
       <EditorBottomTab
         name="Device"
-        :selected="bottomTabState"
+        :selected="selectedTab"
         @click="selectBottomTab"
       />
       <EditorBottomTab
         name="Keymap"
-        :selected="bottomTabState"
+        :selected="selectedTab"
         @click="selectBottomTab"
       />
       <EditorBottomTab
         name="Layout"
-        :selected="bottomTabState"
+        :selected="selectedTab"
         @click="selectBottomTab"
       />
       <EditorBottomTab
         name="App"
-        :selected="bottomTabState"
+        :selected="selectedTab"
         @click="selectBottomTab"
       />
     </div>
-    <div class="mainContainer">
+    <div class="main">
       <div style="height: 0">
-        <KeyboardConfig />
+        <BottomMainDevice v-show="selectedTab === 'Device'" />
+        <BottomMainLayout v-show="selectedTab === 'Layout'" />
       </div>
     </div>
   </div>
@@ -39,35 +40,38 @@
   display: flex;
   align-items: stretch;
   flex-direction: row;
-  .tabContainer {
+  .tabs {
     width: 150px;
     margin-top: 0.5rem;
   }
-  .mainContainer {
+  .main {
     border-top-left-radius: 10px;
     background-color: white;
     overflow-y: auto;
     height: 100%;
     width: 100%;
     padding-left: 2em;
+    padding-top: 1em;
   }
 }
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import { BottomTabState, useApp } from '@/stores/useApp'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import EditorBottomTab from '@/components/EditorBottomTab.vue'
-import KeyboardConfig from '@/components/KeyboardConfig.vue'
+import BottomMainDevice from '@/components/BottomMainDevice.vue'
+import BottomMainLayout from '@/components/BottomMainLayout.vue'
+
+export type BottomTabNames = 'Device' | 'Keymap' | 'Layout' | 'App'
 
 export default defineComponent({
-  components: { EditorBottomTab, KeyboardConfig },
+  components: { EditorBottomTab, BottomMainDevice, BottomMainLayout },
   setup(_props, _context) {
-    const { setBottomTab, bottomTabState } = useApp()
-    const selectBottomTab = (value: BottomTabState) => {
-      setBottomTab(value)
+    const selectedTab = ref<BottomTabNames>('Device')
+    const selectBottomTab = (value: BottomTabNames) => {
+      selectedTab.value = value
     }
-    return { selectBottomTab, bottomTabState }
+    return { selectedTab, selectBottomTab }
   },
 })
 </script>

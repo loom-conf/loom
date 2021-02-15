@@ -1,23 +1,13 @@
 <template>
-  <div class="layoutOption">
+  <div class="select item">
     <div class="label">{{ label }}</div>
     <AtomSelect :options="options" :value="value" @change="change" />
   </div>
 </template>
 
-<style lang="scss" scoped>
-.layoutOption {
-  display: flex;
-  margin: 0.3rem 0;
-  .label {
-    width: 200px;
-  }
-}
-</style>
-
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import AtomSelect from '@/components/AtomSelect.vue'
+import AtomSelect from '@/components/atoms/AtomSelect.vue'
 
 export default defineComponent({
   components: { AtomSelect },
