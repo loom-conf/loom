@@ -43,7 +43,7 @@
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
+import { computed, defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
