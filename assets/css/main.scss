@@ -11,6 +11,18 @@ h3,
 h4,
 h5 {
   font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+a {
+  color: $subColor;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 .editorBottom {

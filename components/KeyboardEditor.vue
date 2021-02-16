@@ -28,22 +28,20 @@
     background-color: white;
     margin-left: $bottomTabWidth;
     margin-bottom: 2rem;
-    padding-left: 40px;
-    padding-right: 80px;
-    padding-bottom: 30px;
-    border-radius: 0 0 60px 60px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0 0 30px 30px;
     .keymapViewer {
       display: flex;
+      padding-right: 2rem;
     }
   }
   .bottom {
     flex: 1;
     width: 100vw;
     height: 100%;
-  }
-  .initial {
-    padding: 40px;
-    border-radius: 0 0 30px 30px;
   }
 }
 </style>

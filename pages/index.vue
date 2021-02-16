@@ -16,6 +16,11 @@
       :default-json-url="jsonURL"
       :default-keyboard-name="keyboardName"
     />
+    <div class="footer github">
+      <a href="https://github.com/loom-conf/loom"
+        ><AtomIcon :icon="mdiGithub" class="icon"
+      /></a>
+    </div>
     <div class="footer copyright">© 2021 hsgw, All right reserved.</div>
   </div>
 </template>
@@ -121,10 +126,12 @@ import {
   computed,
   ref,
 } from '@nuxtjs/composition-api'
-import KeyboardEditor from '~/components/KeyboardEditor.vue'
+import { mdiGithub } from '@mdi/js'
+import KeyboardEditor from '@/components/KeyboardEditor.vue'
+import AtomIcon from '@/components/atoms/AtomIcon.vue'
 
 export default defineComponent({
-  components: { KeyboardEditor },
+  components: { KeyboardEditor, AtomIcon },
   setup(_props, _context) {
     const logoFlag = ref(false)
     const { route } = useContext()
@@ -141,7 +148,7 @@ export default defineComponent({
       logoFlag.value ? 'animate' : '',
     ])
 
-    return { keyboardName, jsonURL, clickLogo, logoBgClass }
+    return { mdiGithub, keyboardName, jsonURL, clickLogo, logoBgClass }
   },
 })
 </script>
