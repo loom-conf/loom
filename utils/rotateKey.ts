@@ -14,11 +14,7 @@ function rotatePoint(
   { x, y }: Point,
   { rx, ry, r }: { rx: number; ry: number; r: number }
 ): Point {
-  function radian(deg: number) {
-    return deg * (Math.PI / 180)
-  }
-
-  const rad = radian(r)
+  const rad = r * (Math.PI / 180)
   return {
     x: rx + (x - rx) * Math.cos(rad) - (y - ry) * Math.sin(rad),
     y: ry + (x - rx) * Math.sin(rad) + (y - ry) * Math.cos(rad),
