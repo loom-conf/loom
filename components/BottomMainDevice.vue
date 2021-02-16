@@ -1,19 +1,21 @@
 <template>
   <div>
-    <div>
-      <h2>1.Load keyboard config</h2>
-      <AtomInput
-        v-model="jsonURL"
-        label="JSON URL"
-        class="textField"
-      ></AtomInput>
-      <AtomButton :disabled="isLoading" @click="jsonButtonClicked"
-        >load</AtomButton
-      >
-      <h3 v-if="hasConfig">Loaded - {{ configName }}</h3>
+    <div class="block">
+      <div class="header">Load keyboard config</div>
+      <div class="item">
+        <AtomInput
+          v-model="jsonURL"
+          label="JSON URL"
+          class="textField"
+        ></AtomInput>
+        <AtomButton :disabled="isLoading" @click="jsonButtonClicked"
+          >load</AtomButton
+        >
+      </div>
+      <div v-if="hasConfig" class="info">Loaded - {{ configName }}</div>
     </div>
-    <div>
-      <h2>2.Connect USB device</h2>
+    <div class="block">
+      <div class="header">Connect USB device</div>
       <AtomButton
         :disabled="!hasConfig || isConnected"
         @click="connectButtonClicked"
@@ -26,7 +28,7 @@
 
 <style lang="scss" scoped>
 .textField {
-  width: 400px;
+  width: 500px;
 }
 </style>
 

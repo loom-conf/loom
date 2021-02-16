@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .tabButton {
-  width: 150px;
+  width: $bottomTabWidth;
   position: relative;
   align-items: center;
   text-align: right;

@@ -13,10 +13,11 @@ input {
   outline: 0;
   background: white;
   border: 1px solid gray;
-  padding: 0.5em 1em;
+  padding: 0.2em;
   color: darken(gray, 20%);
-  font-size: 12px;
+  font-size: small;
   border-radius: 1px;
+  height: 32px;
 
   &:focus {
     border-color: cornflowerblue;

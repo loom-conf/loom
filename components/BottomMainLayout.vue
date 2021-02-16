@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasOptions">
+  <div v-if="hasOptions" class="block">
     <div v-for="(item, index) in layoutOption.items" :key="`${item.label}`">
       <BottomToggle
         v-if="!item.options"

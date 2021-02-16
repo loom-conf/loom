@@ -41,8 +41,7 @@
   align-items: stretch;
   flex-direction: row;
   .tabs {
-    width: 150px;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
   }
   .main {
     border-top-left-radius: 10px;

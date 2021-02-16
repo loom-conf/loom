@@ -1,13 +1,19 @@
 <template>
   <div class="main">
-    <div class="navContainer">
-      <div class="nav">LOOM</div>
+    <div class="titleWrapper">
+      <div class="title">
+        <div class="item">
+          <img src="@/assets/img/loom.png" width="64px" height="64px" />
+        </div>
+        <div class="loom">LOOM</div>
+      </div>
     </div>
     <KeyboardEditor
       class="keyboardEditor"
       :default-json-url="jsonURL"
       :default-keyboard-name="keyboardName"
     />
+    <div class="footer copyright">© 2021 hsgw, All right reserved.</div>
   </div>
 </template>
 
@@ -20,14 +26,42 @@ body::-webkit-scrollbar {
   background-color: silver;
   width: 100vw;
   height: 100vh;
-  .navContainer {
-    position: relative;
+  .titleWrapper {
+    position: absolute;
     z-index: 10;
-    .nav {
+    width: calc(#{$bottomTabWidth} - 32px * 2);
+    height: 118px;
+    top: 0;
+    left: 0;
+    background: white;
+    border-radius: 0 0 10% 10%;
+    margin: 0 32px;
+    .title {
       text-align: center;
-      position: absolute;
-      width: 100px;
-      height: 100vh;
+      .loom {
+        margin: 0.3rem 0;
+        font-size: medium;
+        font-weight: 500;
+        transform: rotateZ(345deg);
+        transition: 1s ease-out;
+        &:hover {
+          cursor: none;
+          transition: 100000s;
+          transform: rotateZ(999999999deg);
+        }
+      }
+    }
+  }
+  .footer {
+    z-index: 100;
+    position: absolute;
+    padding: 0.2rem;
+    font-size: smaller;
+    &.copyright {
+      text-align: right;
+      background: white;
+      bottom: 0;
+      right: 20px;
     }
   }
 }

@@ -6,13 +6,14 @@
 
 <style lang="scss" scoped>
 button {
+  height: 32px;
   text-transform: uppercase;
   outline: 0;
   background: cornflowerblue;
   border: 1px solid cornflowerblue;
-  padding: 0.5em 2em;
+  padding: 0 1rem;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 1px;
   cursor: pointer;
   transition: all 0.5s ease;

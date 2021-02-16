@@ -26,7 +26,7 @@
   align-items: flex-start;
   .top {
     background-color: white;
-    margin-left: 150px;
+    margin-left: $bottomTabWidth;
     margin-bottom: 2rem;
     padding-left: 40px;
     padding-right: 80px;

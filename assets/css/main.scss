@@ -15,13 +15,28 @@ h5 {
 
 .editorBottom {
   .main {
-    .item {
-      font-size: large;
-      display: flex;
-      align-items: center;
-      margin: 0.3rem 0;
-      .label {
-        min-width: 250px;
+    padding-bottom: 2rem;
+    .block {
+      margin-bottom: 2rem;
+      .header {
+        font-size: x-large;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        margin: 0.3rem 0;
+        font-size: large;
+        .label {
+          min-width: 250px;
+        }
+      }
+      .info {
+        font-size: medium;
+        &.error {
+          color: red;
+        }
       }
     }
   }

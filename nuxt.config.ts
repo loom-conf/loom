@@ -41,10 +41,15 @@ const config: NuxtConfig = {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
+  styleResources: {
+    scss: ['~/assets/css/variables.scss'],
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
