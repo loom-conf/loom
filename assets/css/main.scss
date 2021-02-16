@@ -17,7 +17,7 @@ h5 {
   .main {
     padding-bottom: 2rem;
     .block {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       .header {
         font-size: x-large;
         font-weight: 500;
@@ -35,7 +35,7 @@ h5 {
       .info {
         font-size: medium;
         &.error {
-          color: red;
+          color: $errorColor;
         }
       }
     }

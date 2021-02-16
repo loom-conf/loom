@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 0">
     <div class="block">
       <div class="header">Load keyboard config</div>
       <div class="item">
@@ -8,11 +8,17 @@
           label="JSON URL"
           class="textField"
         ></AtomInput>
-        <AtomButton :disabled="isLoading" @click="jsonButtonClicked"
+        <AtomButton
+          :disabled="isLoading"
+          class="jsonButton"
+          @click="jsonButtonClicked"
           >load</AtomButton
         >
+        <AtomButton :disabled="isLoading || true">open local</AtomButton>
       </div>
-      <div v-if="hasConfig" class="info">Loaded - {{ configName }}</div>
+      <div v-if="hasConfig" class="info">
+        Loaded - {{ configName }} / <a :href="configSrc">Original file</a>
+      </div>
     </div>
     <div class="block">
       <div class="header">Connect USB device</div>
@@ -21,7 +27,7 @@
         @click="connectButtonClicked"
         >connect</AtomButton
       >
-      <h3 v-if="isConnected">Connected - {{ deviceName }}</h3>
+      <div v-if="isConnected" class="info">Connected - {{ deviceName }}</div>
     </div>
   </div>
 </template>
@@ -29,6 +35,9 @@
 <style lang="scss" scoped>
 .textField {
   width: 500px;
+}
+.jsonButton {
+  margin: 0 0.3rem;
 }
 </style>
 
@@ -90,6 +99,7 @@ export default defineComponent({
 
     const configName = computed(() => keyboadConfig.value?.name)
     const deviceName = computed(() => deviceConfig.value?.name)
+    const configSrc = computed(() => keyboadConfig.value?.fileSrc)
 
     return {
       ...toRefs(state),
@@ -99,6 +109,7 @@ export default defineComponent({
       connectButtonClicked,
       configName,
       deviceName,
+      configSrc,
     }
   },
 })

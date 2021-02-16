@@ -1,21 +1,23 @@
 <template>
-  <div v-if="hasOptions" class="block">
-    <div v-for="(item, index) in layoutOption.items" :key="`${item.label}`">
-      <BottomToggle
-        v-if="!item.options"
-        :label="item.label"
-        :value="item.value"
-        :index="index"
-        @toggle="optionChanged"
-      />
-      <BottomSelect
-        v-else
-        :label="item.label"
-        :value="item.value"
-        :options="item.options"
-        :index="index"
-        @change="optionChanged"
-      />
+  <div style="height: 0">
+    <div v-if="hasOptions" class="block">
+      <div v-for="(item, index) in layoutOption.items" :key="`${item.label}`">
+        <BottomToggle
+          v-if="!item.options"
+          :label="item.label"
+          :value="item.value"
+          :index="index"
+          @toggle="optionChanged"
+        />
+        <BottomSelect
+          v-else
+          :label="item.label"
+          :value="item.value"
+          :options="item.options"
+          :index="index"
+          @change="optionChanged"
+        />
+      </div>
     </div>
   </div>
 </template>

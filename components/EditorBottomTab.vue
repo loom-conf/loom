@@ -17,6 +17,7 @@
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0);
+  color: $subColor;
   cursor: pointer;
   &::after {
     position: absolute;
@@ -25,19 +26,25 @@
     content: '';
     width: 80%;
     height: 2px;
-    background: #333;
+    background: $subColor;
     transform: scale(0, 1);
     transform-origin: right top;
     transition: transform 0.3s;
   }
   &:hover::after {
-    transform: scale(1, 1);
     visibility: visible;
+    transform: scale(1, 1);
   }
   &.selected::after {
     visibility: visible;
+    background: $fontColor;
     transform: scale(1, 1);
-    background: cadetblue;
+    transition: all 0.5s;
+  }
+  &.selected {
+    visibility: visible;
+    color: $fontColor;
+    transition: all 0.5s;
   }
 }
 </style>

@@ -18,18 +18,26 @@
   flex-direction: column;
   align-items: center;
   margin-right: 15px;
+  .layer {
+    font-size: small;
+    border-bottom: 1px solid $fontSubColor;
+    padding: 0 0.2rem;
+    margin-bottom: 0.2rem;
+  }
   .layerItem {
     width: 25px;
     height: 25px;
-    margin: 5px;
+    margin: 2.5px;
     text-align: center;
-    font-weight: bold;
-    border-radius: 20%;
-    border: grey solid 2px;
+    font-weight: 500;
+    color: $fontSubColor;
+    border-radius: 2px;
+    border: $fontSubColor solid 1px;
     cursor: pointer;
     &.selected {
-      border: cornflowerblue solid 2px;
-      background-color: cornflowerblue;
+      border: $successColor solid 1px;
+      background-color: $successColor;
+      color: white;
     }
   }
 }

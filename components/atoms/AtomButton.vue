@@ -9,24 +9,24 @@ button {
   height: 32px;
   text-transform: uppercase;
   outline: 0;
-  background: cornflowerblue;
-  border: 1px solid cornflowerblue;
+  background: $successColor;
+  border: 1px solid $successColor;
   padding: 0 1rem;
-  color: #fff;
+  color: $mainBgColor;
   font-size: 14px;
   border-radius: 1px;
   cursor: pointer;
   transition: all 0.5s ease;
 
   &:hover {
-    background: darken(cornflowerblue, 15%);
-    border-color: darken(cornflowerblue, 15%);
+    background: darken($successColor, 15%);
+    border-color: darken($successColor, 15%);
   }
 
   &.disabled {
-    background: silver;
-    color: lighten(silver, 20%);
-    border-color: lighten(silver, 20%);
+    background: $disableColor;
+    color: lighten($disableColor, 20%);
+    border-color: lighten($disableColor, 20%);
     cursor: not-allowed;
   }
 }

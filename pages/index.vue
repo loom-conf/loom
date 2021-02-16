@@ -1,9 +1,12 @@
 <template>
   <div class="main">
-    <div class="titleWrapper">
+    <div class="container">
       <div class="title">
         <div class="item">
-          <img src="@/assets/img/loom.png" width="64px" height="64px" />
+          <div class="imgContainer" @click="clickLogo">
+            <img src="@/assets/img/loom.png" width="64px" height="64px" />
+            <div :class="logoBgClass"></div>
+          </div>
         </div>
         <div class="loom">LOOM</div>
       </div>
@@ -23,21 +26,48 @@ body::-webkit-scrollbar {
 }
 
 .main {
-  background-color: silver;
+  background-color: $bgColor;
   width: 100vw;
   height: 100vh;
-  .titleWrapper {
+  .container {
     position: absolute;
-    z-index: 10;
     width: calc(#{$bottomTabWidth} - 32px * 2);
     height: 118px;
-    top: 0;
-    left: 0;
-    background: white;
+    background: $mainBgColor;
     border-radius: 0 0 10% 10%;
     margin: 0 32px;
     .title {
       text-align: center;
+      img {
+        position: relative;
+        z-index: 50;
+      }
+      .logoBg {
+        position: absolute;
+        z-index: 45;
+        width: 30px;
+        height: 30px;
+        top: 18px;
+        left: 28px;
+        background-color: white;
+        transition: all 2s ease;
+        &.animate {
+          background: linear-gradient(
+            45deg,
+            #ff2400,
+            #e81d1d,
+            #e8b71d,
+            #e3e81d,
+            #1de840,
+            #1ddde8,
+            #2b1de8,
+            #dd00f3,
+            #dd00f3
+          );
+          background-size: 1800% 1800%;
+          animation: rainbow 3s ease infinite;
+        }
+      }
       .loom {
         margin: 0.3rem 0;
         font-size: medium;
@@ -59,32 +89,59 @@ body::-webkit-scrollbar {
     font-size: smaller;
     &.copyright {
       text-align: right;
-      background: white;
+      background: $mainBgColor;
       bottom: 0;
       right: 20px;
     }
   }
-}
+  .keyboardEditor {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+  }
 
-.keyboardEditor {
-  overflow: hidden;
-  width: 100%;
-  height: 100vh;
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 82%;
+    }
+    50% {
+      background-position: 100% 19%;
+    }
+    100% {
+      background-position: 0% 82%;
+    }
+  }
 }
 </style>
 
 <script lang="ts">
-import { defineComponent, useContext, computed } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useContext,
+  computed,
+  ref,
+} from '@nuxtjs/composition-api'
 import KeyboardEditor from '~/components/KeyboardEditor.vue'
 
 export default defineComponent({
   components: { KeyboardEditor },
   setup(_props, _context) {
+    const logoFlag = ref(false)
     const { route } = useContext()
     const keyboardName = computed(() => route.value.params.keyboard ?? '')
     const jsonURL = computed(() => route.value.query.config ?? '')
 
-    return { keyboardName, jsonURL }
+    const clickLogo = () => {
+      logoFlag.value = !logoFlag.value
+      console.log(logoFlag.value)
+    }
+
+    const logoBgClass = computed(() => [
+      'logoBg',
+      logoFlag.value ? 'animate' : '',
+    ])
+
+    return { keyboardName, jsonURL, clickLogo, logoBgClass }
   },
 })
 </script>

@@ -25,8 +25,8 @@ input {
   }
 
   &.disabled {
-    background: silver;
-    color: lighten(silver, 20%);
+    background: $disableColor;
+    color: lighten($disableColor, 20%);
     cursor: not-allowed;
   }
 }
