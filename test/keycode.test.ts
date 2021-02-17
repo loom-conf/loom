@@ -3,7 +3,7 @@ import { buildKeycodeFromRaw } from '~/utils/keycode'
 describe('keycode', () => {
   test('simple (4)', () => {
     expect(buildKeycodeFromRaw(4)).toEqual({
-      type: 'BASIC',
+      kind: 'BASIC',
       qmk: 'KC_A',
       raw: 4,
       mods: [],
@@ -12,7 +12,7 @@ describe('keycode', () => {
   })
   test('with mod (S(KC_A))', () => {
     expect(buildKeycodeFromRaw(4 + 0x0200)).toEqual({
-      type: 'BASIC',
+      kind: 'BASIC',
       qmk: 'LSFT(KC_A)',
       raw: 4 + 0x0200,
       mods: ['LSFT'],
@@ -21,7 +21,7 @@ describe('keycode', () => {
   })
   test('with mod (RGUI(RCTL(KC_A)))', () => {
     expect(buildKeycodeFromRaw(4 + 0x1900)).toEqual({
-      type: 'BASIC',
+      kind: 'BASIC',
       qmk: 'RGUI(RCTL(KC_A))',
       raw: 4 + 0x1900,
       mods: ['RCTL', 'RGUI'],
