@@ -1,8 +1,9 @@
 // To parse this data:
 //
-//   import { Convert, ConfigJSON, Layouts, KeymapOption, Matrix } from "./file";
+//   import { Convert, ConfigJSON, Lightning, Layouts, KeymapOption, Matrix } from "./file";
 //
 //   const configJSON = Convert.toConfigJSON(json);
+//   const lightning = Convert.toLightning(json);
 //   const layoutLabels = Convert.toLayoutLabels(json);
 //   const layouts = Convert.toLayouts(json);
 //   const keymapOption = Convert.toKeymapOption(json);
@@ -13,7 +14,7 @@
 
 export interface ConfigJSON {
     layouts:   Layouts;
-    lighting:  string;
+    lighting:  Lightning | string;
     matrix:    Matrix;
     name:      string;
     productId: string;
@@ -27,12 +28,17 @@ export interface Layouts {
 
 export interface KeymapOption {
     c?:  string;
+    d?:  boolean;
     h?:  number;
     h2?: number;
     w?:  number;
     w2?: number;
     x?:  number;
     x2?: number;
+}
+
+export interface Lightning {
+    extends: string;
 }
 
 export interface Matrix {
@@ -49,6 +55,14 @@ export class Convert {
 
     public static configJSONToJson(value: ConfigJSON): any {
         return uncast(value, r("ConfigJSON"));
+    }
+
+    public static toLightning(json: any): Lightning {
+        return cast(json, r("Lightning"));
+    }
+
+    public static lightningToJson(value: Lightning): any {
+        return uncast(value, r("Lightning"));
     }
 
     public static toLayoutLabels(json: any): Array<string[] | string> {
@@ -219,7 +233,7 @@ function r(name: string) {
 const typeMap: any = {
     "ConfigJSON": o([
         { json: "layouts", js: "layouts", typ: r("Layouts") },
-        { json: "lighting", js: "lighting", typ: "" },
+        { json: "lighting", js: "lighting", typ: u(r("Lightning"), "") },
         { json: "matrix", js: "matrix", typ: r("Matrix") },
         { json: "name", js: "name", typ: "" },
         { json: "productId", js: "productId", typ: "" },
@@ -231,12 +245,16 @@ const typeMap: any = {
     ], "any"),
     "KeymapOption": o([
         { json: "c", js: "c", typ: u(undefined, "") },
+        { json: "d", js: "d", typ: u(undefined, true) },
         { json: "h", js: "h", typ: u(undefined, 3.14) },
         { json: "h2", js: "h2", typ: u(undefined, 3.14) },
         { json: "w", js: "w", typ: u(undefined, 3.14) },
         { json: "w2", js: "w2", typ: u(undefined, 3.14) },
         { json: "x", js: "x", typ: u(undefined, 3.14) },
         { json: "x2", js: "x2", typ: u(undefined, 3.14) },
+    ], "any"),
+    "Lightning": o([
+        { json: "extends", js: "extends", typ: "" },
     ], "any"),
     "Matrix": o([
         { json: "cols", js: "cols", typ: 3.14 },

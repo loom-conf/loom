@@ -2,9 +2,13 @@ interface ConfigJSON {
   name: string
   vendorId: string
   productId: string
-  lighting: string
+  lighting: Lightning | string
   matrix: Matrix
   layouts: Layouts
+}
+
+interface Lightning {
+  extends: string
 }
 
 type LayoutLabels = Array<string[] | string>
@@ -22,6 +26,7 @@ interface KeymapOption {
   w2?: number
   h2?: number
   x2?: number
+  d?: boolean
 }
 
 interface Matrix {
