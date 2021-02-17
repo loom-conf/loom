@@ -16,11 +16,6 @@
       :default-json-url="jsonURL"
       :default-keyboard-name="keyboardName"
     />
-    <div class="footer github">
-      <a href="https://github.com/loom-conf/loom"
-        ><AtomIcon :icon="mdiGithub" class="icon"
-      /></a>
-    </div>
     <div class="footer copyright">© 2021 hsgw, All right reserved.</div>
   </div>
 </template>

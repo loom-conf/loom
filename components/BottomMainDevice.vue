@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 0">
+  <div class="deviceSetting">
     <div class="block">
       <div class="header">Load keyboard config</div>
       <div class="item">
@@ -33,6 +33,12 @@
 </template>
 
 <style lang="scss" scoped>
+.deviceSetting {
+  height: 0;
+  .label {
+    min-width: 250px;
+  }
+}
 .textField {
   width: 500px;
 }

@@ -28,7 +28,6 @@
     background-color: white;
     margin-left: $bottomTabWidth;
     margin-bottom: 2rem;
-    padding-top: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 2rem;
@@ -57,7 +56,7 @@ import {
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
-import { provideApp } from '@/stores/useApp'
+import { provideAppSetting } from '@/stores/useAppSetting'
 import KeymapViewer from '@/components/KeymapViewer.vue'
 import LayerSelector from '@/components/LayerSelector.vue'
 import EditorBottom from '@/components/EditorBottom.vue'
@@ -81,9 +80,9 @@ export default defineComponent({
     },
   },
   setup(props) {
+    provideAppSetting()
     provideKeyboard()
     provideKeymap()
-    provideApp()
 
     const {
       loadKeyboardConfig,

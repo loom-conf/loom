@@ -17,7 +17,7 @@ export default defineComponent({
       required: true,
     },
     value: {
-      type: Number,
+      type: Boolean,
       required: true,
     },
     index: {
@@ -27,7 +27,7 @@ export default defineComponent({
   },
   setup(_props, _context) {
     const toggle = () => {
-      _context.emit('toggle', _props.value === 1 ? 0 : 1, _props.index)
+      _context.emit('toggle', !_props.value, _props.index)
     }
     return { toggle }
   },

@@ -68,6 +68,7 @@ import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import EditorBottomTab from '@/components/EditorBottomTab.vue'
 import BottomMainDevice from '@/components/BottomMainDevice.vue'
 import BottomMainLayout from '@/components/BottomMainLayout.vue'
+import BottomMainApp from '@/components/BottomMainApp.vue'
 
 export type BottomTabNames = 'Device' | 'Keymap' | 'Layout' | 'App'
 
@@ -84,6 +85,8 @@ export default defineComponent({
           return BottomMainDevice
         case 'Layout':
           return BottomMainLayout
+        case 'App':
+          return BottomMainApp
       }
       return undefined
     })

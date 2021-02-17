@@ -1,4 +1,5 @@
-import { buildKeycodeFromRaw, KeycodeTypes } from '@/utils/keycode'
+import { buildKeycodeFromRaw } from '@/utils/keycode'
+import { KeycodeTypes } from '@/utils/keycodeTypes'
 
 export type Keymap = Array<KeycodeTypes>
 

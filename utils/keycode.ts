@@ -1,66 +1,6 @@
-type ModKey =
-  | 'LSFT'
-  | 'RSFT'
-  | 'LCTL'
-  | 'RCTL'
-  | 'LALT'
-  | 'RALT'
-  | 'RGUI'
-  | 'LGUI'
+import { KeycodeTypes, QmkKeycode, ModKey } from '@/utils/keycodeTypes'
 
-type KeycodeType =
-  | 'UNKNOWN'
-  | 'BASIC'
-  | 'FUNCTION'
-  | 'MACRO'
-  | 'LAYER_TAP'
-  | 'LAYER_ON'
-  | 'LAYER_MOMENTARY'
-  | 'LAYER_DEFAULT'
-  | 'LAYER_TOGGLE'
-  | 'LAYER_ONESHOT'
-  | 'MOD_ONESHOT'
-  | 'TAPDANCE'
-  | 'LAYER_TAPTOGGLE'
-  | 'LAYER_MOD'
-  | 'MOD_TAP'
-
-type BaseKeycode = {
-  qmk: string
-  raw: number
-  legend: string
-  altLegend?: string
-  type: string
-}
-
-interface Keycode {
-  type: KeycodeType
-  qmk: string
-  raw: number
-}
-
-export type UnknownKeycode = { type: KeycodeType; raw: number }
-export type BasicKeycode = Keycode & { base: BaseKeycode; mods: Array<ModKey> }
-export type ActionKeycode = Keycode & { action: number }
-export type LayerKeycode = Keycode & { layer: number }
-export type LayerTapKeycode = Keycode & { layer: number; tap: BaseKeycode }
-export type LayerModKeycode = Keycode & { layer: number; mods: Array<ModKey> }
-export type OneshotModKeycode = Keycode & { mods: Array<ModKey> }
-export type TapDanceKeycode = Keycode & { tapdance: number }
-export type ModTapKeycode = Keycode & { tap: BaseKeycode; mods: Array<ModKey> }
-
-export type KeycodeTypes =
-  | UnknownKeycode
-  | BaseKeycode
-  | ActionKeycode
-  | LayerKeycode
-  | LayerTapKeycode
-  | LayerModKeycode
-  | OneshotModKeycode
-  | TapDanceKeycode
-  | ModTapKeycode
-
-const list: Array<BaseKeycode> = require('@/utils/QMKKeycodes.json')
+const list: Array<QmkKeycode> = require('@/utils/QMKKeycodes.json')
 
 function findBase(code: number) {
   return list.find((keycode) => keycode.raw === code)
@@ -87,21 +27,21 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     const mods = parseModsToArray(raw >> 8)
     const base = findBase(raw & 0x00ff)
     return base
-      ? ({
-          type: 'BASIC',
+      ? {
+          kind: 'BASIC',
           qmk: mods.reduce((ret, v) => `${v}(${ret})`, base.qmk),
           raw,
           base,
           mods,
-        } as BasicKeycode) // why?
+        }
       : {
-          type: 'UNKNOWN',
+          kind: 'UNKNOWN',
           raw,
         }
   } else if (raw <= 0x2fff) {
     // func
     return {
-      type: 'FUNCTION',
+      kind: 'FUNCTION',
       qmk: `F(${raw & 0x0fff})`,
       raw,
       action: raw & 0xfff,
@@ -109,10 +49,10 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
   } else if (raw <= 0x3fff) {
     // macro
     return {
-      type: 'MACRO',
+      kind: 'MACRO',
       qmk: `M(${raw & 0x0fff})`,
       raw,
-      action: raw & 0x0fff,
+      macro: raw & 0x0fff,
     }
   } else if (raw <= 0x4fff) {
     // tap keycode, hold layer
@@ -120,21 +60,21 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     const layer = (raw & 0x0f00) >> 8
     return base
       ? {
-          type: `LAYER_TAP`,
+          kind: `LAYER_TAP`,
           qmk: `LT(${layer},${base.qmk})`,
           raw,
           tap: base,
           layer,
         }
       : {
-          type: 'UNKNOWN',
+          kind: 'UNKNOWN',
           raw,
         }
   } else if (raw <= 0x50ff) {
     // turn on layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_ON',
+      kind: 'LAYER_ON',
       qmk: `TO(${layer})`,
       raw,
       layer,
@@ -143,7 +83,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // momentary layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_MOMENTARY',
+      kind: 'LAYER_MOMENTARY',
       qmk: `MO(${layer})`,
       raw,
       layer,
@@ -152,7 +92,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // set default layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_DEFAULT',
+      kind: 'LAYER_DEFAULT',
       qmk: `DF(${layer})`,
       raw,
       layer,
@@ -161,7 +101,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // toggle layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_TOGGLE',
+      kind: 'LAYER_TOGGLE',
       qmk: `TG(${layer})`,
       raw,
       layer,
@@ -170,7 +110,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // one shot layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_ONESHOT',
+      kind: 'LAYER_ONESHOT',
       qmk: `OSL(${layer})`,
       raw,
       layer,
@@ -179,20 +119,20 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // one shot mod
     const mods = parseModsToArray(raw & 0xff)
     return {
-      type: 'MOD_ONESHOT',
+      kind: 'MOD_ONESHOT',
       qmk: `OSM(${joinModsArrayToString(mods)})`,
       raw,
       mods,
     }
   } else if (raw <= 0x56ff) {
     return {
-      type: 'UNKNOWN',
+      kind: 'UNKNOWN',
       raw,
     }
   } else if (raw <= 0x57ff) {
     const tapdance = raw & 0xff
     return {
-      type: 'TAPDANCE',
+      kind: 'TAPDANCE',
       qmk: `TD(${tapdance})`,
       raw,
       tapdance,
@@ -201,7 +141,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     // tap toggle layer
     const layer = raw & 0x00ff
     return {
-      type: 'LAYER_TAPTOGGLE',
+      kind: 'LAYER_TAPTOGGLE',
       qmk: `TT(${layer})`,
       raw,
       layer,
@@ -211,7 +151,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     const mods = parseModsToArray(raw & 0x0f)
     const layer = (raw & 0xf0) >> 4
     return {
-      type: 'LAYER_MOD',
+      kind: 'LAYER_MOD',
       qmk: `LM(${layer}, ${joinModsArrayToString(mods)})`,
       raw,
       layer,
@@ -219,7 +159,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     }
   } else if (raw <= 0x5bff) {
     return {
-      type: 'UNKNOWN',
+      kind: 'UNKNOWN',
       raw,
     }
   } else if (raw <= 0x7fff) {
@@ -228,19 +168,19 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     const tap = findBase(raw & 0xff)
     return tap
       ? {
-          type: 'MOD_TAP',
+          kind: 'MOD_TAP',
           qmk: `MT(${joinModsArrayToString(mods)}, tap.qmk)`,
           raw,
           tap,
           mods,
         }
       : {
-          type: 'UNKNOWN',
+          kind: 'UNKNOWN',
           raw,
         }
   }
   return {
-    type: 'UNKNOWN',
+    kind: 'UNKNOWN',
     raw,
   }
 }

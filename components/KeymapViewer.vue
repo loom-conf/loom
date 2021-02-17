@@ -25,6 +25,7 @@
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
+import { useAppSetting } from '@/stores/useAppSetting'
 import { useConsts } from '@/stores/useConsts'
 import { rotateRect, RectPoint } from '@/utils/rotateKey'
 import ViewerKey from '@/components/ViewerKey.vue'
@@ -34,11 +35,18 @@ export default defineComponent({
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
     const { keymap, layout, currentLayer, keyCount } = useKeymap()
+    const { viewerOption } = useAppSetting()
     const { KeyConsts, calcKeySize } = useConsts()
 
     const outer = computed(() =>
       layout.value.reduce(
         (ret, item) => {
+          if (
+            (viewerOption.hideUnselectedLayout && item.disabled) ||
+            item.decal
+          )
+            return ret
+
           const rotated = rotateRect(
             { x: item.x, y: item.y },
             { width: item.width, height: item.height },

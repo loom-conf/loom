@@ -7,7 +7,7 @@ import {
 } from '@nuxtjs/composition-api'
 import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 import { buildKeymapFromRaw, Keymap } from '@/models/keymap'
-import { KeycodeTypes } from '@/utils/keycode'
+import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { DeviceSetting } from '@/models/deviceSetting'
 import { LayoutOption } from '@/models/layoutOption'
 import { KeyboardConfig } from '@/models/keyboardConfig'
