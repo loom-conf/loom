@@ -28,4 +28,20 @@ describe('keycode', () => {
       base: expect.anything(),
     })
   })
+  // test('Macro(0)', () => {
+  //   expect(buildKeycodeFromRaw(24338)).toEqual({
+  //     kind: 'MACRO',
+  //     qmk: 'M(0)',
+  //     raw: 0x5f12,
+  //     macro: 0,
+  //   })
+  // })
+  // test('MT(MOD_SHIFT, KC_ENT) 0x5CD9', () => {
+  //   expect(buildKeycodeFromRaw(23769)).toEqual({
+  //     kind: 'MOD_TAP',
+  //     qmk: 'MT(MOD_SHIFT, KC_ENT)',
+  //     raw: 0x5cd9,
+  //     macro: 0,
+  //   })
+  // })
 })

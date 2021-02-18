@@ -1,7 +1,8 @@
 <template>
   <div v-if="isVisible" class="keyContainer" :style="outerStyle" @click="click">
     <div class="keyBorder" :class="isDisabled ? 'disabled' : ''">
-      <div>{{ getLabel }}</div>
+      <div v-if="keycode === undefined">{{ label }}</div>
+      <component :is="keyComponent" v-else :keycode="keycode" />
     </div>
   </div>
 </template>
@@ -14,18 +15,14 @@
   padding: 0.5px;
   .keyBorder {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     width: 100%;
     height: 100%;
     border: $bgColor 1px solid;
     border-radius: 2px;
-    padding: 2px;
     &.disabled {
       background-color: $disableColor;
-      color: grey;
+      color: lighten($disableColor, 50%);
     }
   }
 }
@@ -37,6 +34,11 @@ import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { useConsts } from '@/stores/useConsts'
 import { useAppSetting } from '@/stores/useAppSetting'
+
+import UnknownKey from '@/components/keys/UnknownKey.vue'
+import BasicKey from '@/components/keys/BasicKey.vue'
+import FunctionKey from '@/components/keys/FunctionKey.vue'
+import MacroKey from '@/components/keys/MacroKey.vue'
 
 export default defineComponent({
   props: {
@@ -68,7 +70,7 @@ export default defineComponent({
       }
     })
 
-    const getLabel = computed(() => {
+    const label = computed(() => {
       if (props.keycode === undefined) return props.keyLayout.labels[0]
       return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
     })
@@ -76,8 +78,11 @@ export default defineComponent({
     const keyComponent = computed(() => {
       switch (props.keycode.kind) {
         case 'BASIC':
+          return BasicKey
         case 'FUNCTION':
+          return FunctionKey
         case 'MACRO':
+          return MacroKey
         case 'LAYER_TAP':
         case 'LAYER_ON':
         case 'LAYER_MOMENTARY':
@@ -90,6 +95,7 @@ export default defineComponent({
         case 'LAYER_MOD':
         case 'MOD_TAP':
         case 'UNKNOWN':
+          return UnknownKey
         default:
           return undefined
       }
@@ -104,10 +110,10 @@ export default defineComponent({
     const isDisabled = computed(() => props.keyLayout.disabled)
 
     const click = () => {
-      console.log(props.keyLayout)
+      console.log(props.keycode)
     }
 
-    return { outerStyle, getLabel, keyComponent, isVisible, isDisabled, click }
+    return { outerStyle, label, keyComponent, isVisible, isDisabled, click }
   },
 })
 </script>

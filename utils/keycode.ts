@@ -162,7 +162,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
       kind: 'UNKNOWN',
       raw,
     }
-  } else if (raw <= 0x7fff) {
+  } else if (raw >= 0x6000 && raw <= 0x7fff) {
     // mod tap
     const mods = parseModsToArray((raw & 0x1f00) >> 8)
     const tap = findBase(raw & 0xff)
