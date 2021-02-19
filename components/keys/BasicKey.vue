@@ -1,8 +1,10 @@
 <template>
-  <div class="basicKey keyTop">
-    <div v-if="hasMods" class="mods">
-      <div v-for="symbol in modSymbols" :key="symbol" class="symbol">
-        {{ symbol }}
+  <div class="keyTop basicKeytop">
+    <div class="labelRow">
+      <div v-if="hasMods" class="mods">
+        <div v-for="symbol in modSymbols" :key="symbol" class="symbol">
+          {{ symbol }}
+        </div>
       </div>
     </div>
     <div class="legend">
@@ -15,13 +17,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.mods {
-  color: white;
-  background-color: $successColor;
-}
-</style>
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'

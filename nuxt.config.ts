@@ -20,7 +20,11 @@ const config: NuxtConfig = {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/css/ress.scss', '@/assets/css/main.scss'],
+  css: [
+    '@/assets/css/ress.scss',
+    '@/assets/css/main.scss',
+    '@/assets/css/keytop.scss',
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],

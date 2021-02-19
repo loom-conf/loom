@@ -156,3 +156,11 @@ export type KeycodeTypes =
   | LayerTapToggleKeycode
   | LayerModKeycode
   | ModTapKeycode
+
+export type LayerKeycodeTypes =
+  | LayerOnKeycode
+  | LayerMomentaryKeycode
+  | LayerDefaultKeycode
+  | LayerToggleKeycode
+  | LayerOneshotKeycode
+  | LayerTapToggleKeycode

@@ -1,11 +1,12 @@
 <template>
-  <div class="keyTop unknownKeyTop">
+  <div class="keyTop layerKeyTop withKeycode">
     <div class="labelRow">
-      <div class="label">?</div>
+      <div class="label">LT</div>
+      <div class="value">{{ keycode.layer }}</div>
     </div>
     <div class="legend">
       <div>
-        <div>{{ keycode.raw }}</div>
+        <div class="keycode">{{ keycode.tap.legend }}</div>
       </div>
     </div>
   </div>
@@ -13,12 +14,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { UnknownKeycode } from '@/utils/keycodeTypes'
+import { LayerTapKeycode } from '@/utils/keycodeTypes'
 
 export default defineComponent({
   props: {
     keycode: {
-      type: Object as PropType<UnknownKeycode>,
+      type: Object as PropType<LayerTapKeycode>,
       required: true,
     },
   },
