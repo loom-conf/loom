@@ -40,6 +40,7 @@ import BasicKey from '@/components/keys/BasicKey.vue'
 import FunctionKey from '@/components/keys/FunctionKey.vue'
 import MacroKey from '@/components/keys/MacroKey.vue'
 import LayerTapKey from '@/components/keys/LayerTapKey.vue'
+import LayerModKey from '@/components/keys/LayerModKey.vue'
 import LayerKey from '@/components/keys/LayerKey.vue'
 
 export default defineComponent({
@@ -88,6 +89,7 @@ export default defineComponent({
         case 'LAYER_TAP':
           return LayerTapKey
         case 'LAYER_MOD':
+          return LayerModKey
         case 'LAYER_ON':
         case 'LAYER_MOMENTARY':
         case 'LAYER_DEFAULT':

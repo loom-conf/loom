@@ -31,9 +31,11 @@ export default defineComponent({
   },
   setup(_props, _context) {
     const hasMods = computed(() => _props.keycode.mods.length !== 0)
-    const modSymbols = computed(() =>
-      _props.keycode.mods.map((mod) => mod.substr(1, 1))
-    )
+    const modSymbols = computed(() => {
+      if (_props.keycode.mods.length === 1)
+        return [_props.keycode.mods[0].substr(1, 3)]
+      return _props.keycode.mods.map((mod) => mod.substr(1, 1))
+    })
     const isVisibleAltLegend = computed(
       () => _props.keycode.base.altLegend && !hasMods.value
     )

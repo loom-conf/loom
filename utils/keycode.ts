@@ -72,7 +72,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
         }
   } else if (raw <= 0x50ff) {
     // turn on layer
-    const layer = raw & 0x00ff
+    const layer = raw & 0x00f
     return {
       kind: 'LAYER_ON',
       qmk: `TO(${layer})`,

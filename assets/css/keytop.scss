@@ -38,7 +38,7 @@
       background-color: $subColor;
       & > div {
         text-align: center;
-        padding: 0 3px;
+        padding: 0 2px;
       }
     }
   }
@@ -66,10 +66,21 @@
       font-size: smaller;
       font-weight: 300;
     }
+    .mods {
+      display: flex;
+      height: 18px;
+      font-size: small;
+      font-weight: 500;
+      border-bottom: $subColor 2px solid;
+      padding: 0 1px;
+      & > div {
+        padding: 0 2px;
+      }
+    }
   }
   .value {
     margin: 0 auto;
-    width: 18px;
+    padding: 0 5px;
     height: 18px;
     font-size: small;
     font-weight: 500;

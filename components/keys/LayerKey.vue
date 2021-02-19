@@ -1,5 +1,5 @@
 <template>
-  <div class="keyTop layerKeyTop" :class="hasCode ? 'withKeycode' : ''">
+  <div class="keyTop layerKeyTop">
     <div class="labelRow">
       <div class="label">{{ label }}</div>
     </div>
