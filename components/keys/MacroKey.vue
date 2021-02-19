@@ -20,12 +20,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { UnknownKeycode } from '@/utils/keycodeTypes'
+import { MacroKeycode } from '@/utils/keycodeTypes'
 
 export default defineComponent({
   props: {
     keycode: {
-      type: Object as PropType<UnknownKeycode>,
+      type: Object as PropType<MacroKeycode>,
       required: true,
     },
   },

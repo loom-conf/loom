@@ -42,6 +42,8 @@ import MacroKey from '@/components/keys/MacroKey.vue'
 import LayerTapKey from '@/components/keys/LayerTapKey.vue'
 import LayerModKey from '@/components/keys/LayerModKey.vue'
 import LayerKey from '@/components/keys/LayerKey.vue'
+import ModTapKey from '@/components/keys/ModTapKey.vue'
+import OneshotModKey from '@/components/keys/OneshotModKey.vue'
 
 export default defineComponent({
   props: {
@@ -98,8 +100,10 @@ export default defineComponent({
         case 'LAYER_TAPTOGGLE':
           return LayerKey
         case 'MOD_ONESHOT':
-        case 'TAPDANCE':
+          return OneshotModKey
         case 'MOD_TAP':
+          return ModTapKey
+        case 'TAPDANCE':
         case 'UNKNOWN':
           return UnknownKey
         default:

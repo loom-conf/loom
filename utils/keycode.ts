@@ -169,7 +169,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     return tap
       ? {
           kind: 'MOD_TAP',
-          qmk: `MT(${joinModsArrayToString(mods)}, tap.qmk)`,
+          qmk: `MT(${joinModsArrayToString(mods)}, ${tap.qmk})`,
           raw,
           tap,
           mods,
