@@ -17,6 +17,23 @@ function parseModsToArray(mods: number): Array<ModKey> {
   return parsed as Array<ModKey>
 }
 
+function parseModsArrayToValue(mods: ModKey[]): number {
+  return mods.reduce((ret, mod) => {
+    ret |= mod.charAt(0) === 'R' ? 0x10 : 0
+    switch (mod.charAt(1)) {
+      case 'C':
+        return ret | 0x01
+      case 'S':
+        return ret | 0x02
+      case 'A':
+        return ret | 0x04
+      case 'G':
+        return ret | 0x08
+    }
+    return ret
+  }, 0)
+}
+
 function joinModsArrayToString(array: Array<ModKey>): string {
   return array.map<string>((v) => `MOD_${v}`).join('|')
 }
@@ -72,6 +89,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
         }
   } else if (raw <= 0x50ff) {
     // turn on layer
+    // max 16
     const layer = raw & 0x00f
     return {
       kind: 'LAYER_ON',
@@ -185,28 +203,45 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
   }
 }
 
-// no need to implement??????
-// function BuildFromQMK(str: string): Keycode | undefined {
-//   const parsed = str
-//     .replace(/\)/g, '')
-//     .split('(')
-//     .reduce<{ baseKeyName: string; mod: Array<ModKey> }>(
-//       (ret, value) => {
-//         // check mods
-//         if (['S', 'LSFT'].includes(value)) ret.mod.push('LSFT')
-//         else if (['RSFT'].includes(value)) ret.mod.push('RSFT')
-//         else if (['C', 'LCTL'].includes(value)) ret.mod.push('LCTL')
-//         else if (['RCTL'].includes(value)) ret.mod.push('RCTL')
-//         else if (['A', 'LAlt'].includes(value)) ret.mod.push('LALT')
-//         else if (['RALT'].includes(value)) ret.mod.push('RALT')
-//         else if (['G', 'LGUI'].includes(value)) ret.mod.push('LGUI')
-//         else if (['RGUI'].includes(value)) ret.mod.push('RGUI')
-//         // check MO
-//         else ret.baseKeyName = value
-//         return ret
-//       },
-//       { baseKeyName: '', mod: [] }
-//     )
-//   if (!parsed.baseKeyName) return undefined
-//   return undefined
-// }
+export function buildRawFromKeycode(keycode: KeycodeTypes) {
+  switch (keycode.kind) {
+    case 'BASIC':
+      return keycode.base.raw | (parseModsArrayToValue(keycode.mods) << 8)
+    case 'FUNCTION':
+      return 0x2000 | keycode.action
+    case 'MACRO':
+      return 0x3000 | keycode.macro
+    case 'LAYER_TAP':
+      return 0x4000 | (keycode.layer << 8) | keycode.tap.raw
+    case 'LAYER_ON':
+      return 0x5010 | keycode.layer
+    case 'LAYER_MOMENTARY':
+      return 0x5100 | keycode.layer
+    case 'LAYER_DEFAULT':
+      return 0x5200 | keycode.layer
+    case 'LAYER_TOGGLE':
+      return 0x5300 | keycode.layer
+    case 'LAYER_ONESHOT':
+      return 0x5400 | keycode.layer
+    case 'MOD_ONESHOT':
+      return 0x5500 | parseModsArrayToValue(keycode.mods)
+    case 'TAPDANCE':
+      return 0x5700 | keycode.tapdance
+    case 'LAYER_TAPTOGGLE':
+      return 0x5800 | keycode.layer
+    case 'LAYER_MOD':
+      return (
+        0x5900 |
+        (keycode.layer << 4) |
+        (parseModsArrayToValue(keycode.mods) & 0x0f)
+      )
+    case 'MOD_TAP':
+      return (
+        0x6000 | (parseModsArrayToValue(keycode.mods) << 8) | keycode.tap.raw
+      )
+    case 'UNKNOWN':
+      return keycode.raw
+    default:
+      return 0
+  }
+}
