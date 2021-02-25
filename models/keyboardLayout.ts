@@ -1,4 +1,6 @@
 import * as kle from '@ijprest/kle-serial'
+import { RectPoint, rotateRect } from '@/utils/rotateKey'
+import { useConsts } from '@/stores/useConsts'
 
 interface Matrix {
   matrix:
@@ -20,11 +22,16 @@ interface Disabled {
   disabled: boolean
 }
 
-export type KeyLayout = kle.Key & Matrix & LayoutOption & Disabled
+interface Rotated {
+  rotated: RectPoint
+}
+
+export type KeyLayout = kle.Key & Matrix & LayoutOption & Disabled & Rotated
 
 export type KeyboardLayout = Array<KeyLayout>
 
 export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
+  const { calcKeySize } = useConsts()
   return kle.Serial.deserialize(kleLayouts)
     .keys.filter((key) => key.labels.length)
     .map((key) => {
@@ -36,6 +43,16 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
         }
       }
 
+      const rotated = rotateRect(
+        { x: calcKeySize(key.x), y: calcKeySize(key.y) },
+        { width: calcKeySize(key.width), height: calcKeySize(key.height) },
+        {
+          rx: calcKeySize(key.rotation_x),
+          ry: calcKeySize(key.rotation_y),
+          r: key.rotation_angle,
+        }
+      )
+
       let layoutOption
       if (key.labels[8]) {
         layoutOption = {
@@ -44,7 +61,8 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
         }
       }
 
-      if (layoutOption) return { ...key, matrix, layoutOption, disabled: false }
-      else return { ...key, matrix, disabled: false }
+      if (layoutOption)
+        return { ...key, matrix, layoutOption, disabled: false, rotated }
+      else return { ...key, matrix, disabled: false, rotated }
     })
 }

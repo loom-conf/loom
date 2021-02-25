@@ -135,7 +135,6 @@ export default defineComponent({
 
     const clickLogo = () => {
       logoFlag.value = !logoFlag.value
-      console.log(logoFlag.value)
     }
 
     const logoBgClass = computed(() => [

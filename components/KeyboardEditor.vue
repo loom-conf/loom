@@ -1,20 +1,18 @@
 <template>
   <div class="editor">
-    <template>
-      <div class="top">
-        <h1>{{ getKeyboardName }}</h1>
-        <div v-if="hasConfig" class="keymapViewer">
-          <LayerSelector />
-          <KeymapViewer />
-        </div>
-        <div v-else class="initial">
-          <InitialPane />
-        </div>
+    <div class="top">
+      <div v-if="hasConfig" class="keymapEditorContainer">
+        <KeymapEditor />
       </div>
-      <div class="bottom">
-        <EditorBottom />
+      <div v-else class="initial">
+        <InitialPane />
       </div>
-    </template>
+      <div class="modal" hidden></div>
+    </div>
+    <div class="bottom">
+      <KeyboardEditorBottom />
+    </div>
+    <KeySettingModal />
   </div>
 </template>
 
@@ -25,15 +23,16 @@
   flex-direction: column;
   align-items: flex-start;
   .top {
+    display: flex;
     background-color: white;
+    min-width: 600px;
     margin-left: $bottomTabWidth;
     margin-bottom: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 2rem;
     border-radius: 0 0 30px 30px;
-    .keymapViewer {
-      display: flex;
+    .keymapEditorContainer {
       padding-right: 2rem;
     }
   }
@@ -51,23 +50,23 @@ import {
   defineComponent,
   useFetch,
   watchEffect,
-  computed,
   watch,
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
 import { provideAppSetting } from '@/stores/useAppSetting'
-import KeymapViewer from '@/components/KeymapViewer.vue'
-import LayerSelector from '@/components/LayerSelector.vue'
-import EditorBottom from '@/components/EditorBottom.vue'
+import { provideKeySettingModal } from '@/stores/useKeySettingModal'
+import KeyboardEditorBottom from '@/components/KeyboardEditorBottom.vue'
 import InitialPane from '@/components/InitialPane.vue'
+import KeymapEditor from '@/components/KeymapEditor.vue'
+import KeySettingModal from '@/components/KeySettingModal.vue'
 
 export default defineComponent({
   components: {
-    KeymapViewer,
-    LayerSelector,
-    EditorBottom,
+    KeyboardEditorBottom,
     InitialPane,
+    KeymapEditor,
+    KeySettingModal,
   },
   props: {
     defaultJsonUrl: {
@@ -83,6 +82,7 @@ export default defineComponent({
     provideAppSetting()
     provideKeyboard()
     provideKeymap()
+    provideKeySettingModal()
 
     const {
       loadKeyboardConfig,
@@ -90,6 +90,7 @@ export default defineComponent({
       deviceSetting,
       hasConfig,
     } = useKeyboard()
+
     const { setKeyboardConfig, setDeviceSetting } = useKeymap()
 
     // connect stores
@@ -112,9 +113,9 @@ export default defineComponent({
       if (fetchState.error) console.error(fetchState.error)
     })
 
-    const getKeyboardName = computed(() => keyboadConfig.value?.name)
-
-    return { getKeyboardName, hasConfig }
+    return {
+      hasConfig,
+    }
   },
 })
 </script>

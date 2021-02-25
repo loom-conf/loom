@@ -1,6 +1,6 @@
 <template>
   <div v-if="isVisible" class="keyContainer" :style="outerStyle" @click="click">
-    <div class="keyBorder" :class="isDisabled ? 'disabled' : ''">
+    <div ref="keyRef" class="keyBorder" :class="isDisabled ? 'disabled' : ''">
       <div v-if="keycode === undefined">{{ label }}</div>
       <component :is="keyComponent" v-else :keycode="keycode" />
     </div>
@@ -9,10 +9,10 @@
 
 <style lang="scss" scoped>
 .keyContainer {
-  z-index: 10;
   position: absolute;
-  overflow: hidden;
+  z-index: 1000;
   padding: 0.5px;
+  user-select: none;
   .keyBorder {
     display: flex;
     overflow: hidden;
@@ -29,11 +29,17 @@
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  PropType,
+  ref,
+} from '@nuxtjs/composition-api'
 import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { useConsts } from '@/stores/useConsts'
 import { useAppSetting } from '@/stores/useAppSetting'
+import { useKeySettingModal } from '@/stores/useKeySettingModal'
 
 import UnknownKey from '@/components/keys/UnknownKey.vue'
 import BasicKey from '@/components/keys/BasicKey.vue'
@@ -52,36 +58,52 @@ export default defineComponent({
       required: true,
     },
     keycode: {
-      type: Object as PropType<KeycodeTypes> | undefined,
-      default: undefined,
+      type: Object as PropType<KeycodeTypes>,
+      required: false,
+    },
+    keycodeIndex: {
+      type: Number,
+      required: false,
     },
   },
 
-  setup(props, _context) {
+  setup(_props, _context) {
+    const keyRef = ref<HTMLDivElement>()
+
     const { KeyConsts, calcKeySize } = useConsts()
     const { viewerOption } = useAppSetting()
+    const { openKeySetting } = useKeySettingModal()
+
+    const width = computed(() => calcKeySize(_props.keyLayout.width))
+    const height = computed(() => calcKeySize(_props.keyLayout.height))
+    const top = computed(
+      () => calcKeySize(_props.keyLayout.y) + KeyConsts.margin
+    )
+    const left = computed(
+      () => calcKeySize(_props.keyLayout.x) + KeyConsts.margin
+    )
 
     const outerStyle = computed(() => {
       return {
-        width: calcKeySize(props.keyLayout.width) + 'px',
-        height: calcKeySize(props.keyLayout.height) + 'px',
-        top: `${calcKeySize(props.keyLayout.y) + KeyConsts.margin}px`,
-        left: `${calcKeySize(props.keyLayout.x) + KeyConsts.margin}px`,
+        width: `${width.value}px`,
+        height: `${height.value}px`,
+        top: `${top.value}px`,
+        left: `${left.value}px`,
         'transform-origin': `${calcKeySize(
-          props.keyLayout.rotation_x - props.keyLayout.x
+          _props.keyLayout.rotation_x - _props.keyLayout.x
         )}px
-        ${calcKeySize(props.keyLayout.rotation_y - props.keyLayout.y)}px`,
-        transform: `rotate(${props.keyLayout.rotation_angle}deg)`,
+        ${calcKeySize(_props.keyLayout.rotation_y - _props.keyLayout.y)}px`,
+        transform: `rotate(${_props.keyLayout.rotation_angle}deg)`,
       }
     })
 
     const label = computed(() => {
-      if (props.keycode === undefined) return props.keyLayout.labels[0]
-      return 'qmk' in props.keycode ? props.keycode.qmk : props.keycode.raw
+      if (_props.keycode === undefined) return _props.keyLayout.labels[0]
+      return 'qmk' in _props.keycode ? _props.keycode.qmk : _props.keycode.raw
     })
 
     const keyComponent = computed(() => {
-      switch (props.keycode.kind) {
+      switch (_props.keycode?.kind) {
         case 'BASIC':
           return BasicKey
         case 'FUNCTION':
@@ -113,17 +135,36 @@ export default defineComponent({
 
     const isVisible = computed(
       () =>
-        !(viewerOption.hideUnselectedLayout && props.keyLayout.disabled) &&
-        !props.keyLayout.decal
+        !(viewerOption.hideUnselectedLayout && _props.keyLayout.disabled) &&
+        !_props.keyLayout.decal
     )
 
-    const isDisabled = computed(() => props.keyLayout.disabled)
+    const isDisabled = computed(() => _props.keyLayout.disabled)
 
     const click = () => {
-      console.log(props.keycode)
+      const rect = keyRef.value?.getBoundingClientRect()
+      if (rect) {
+        if (_props.keycode) {
+          openKeySetting(
+            { x: rect.x + rect.width, y: rect.y },
+            _props.keycode,
+            (newKeycode) => {
+              _context.emit('update-keycode', newKeycode, _props.keycodeIndex)
+            }
+          )
+        }
+      }
     }
 
-    return { outerStyle, label, keyComponent, isVisible, isDisabled, click }
+    return {
+      keyRef,
+      outerStyle,
+      label,
+      keyComponent,
+      isVisible,
+      isDisabled,
+      click,
+    }
   },
 })
 </script>

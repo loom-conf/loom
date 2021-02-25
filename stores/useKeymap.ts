@@ -23,7 +23,9 @@ export const createKeymap = () => {
     if (keyboardConfig?.matrix)
       keyCount.value = keyboardConfig.matrix.cols * keyboardConfig.matrix.rows
     if (!keyboardConfig?.layouts.keymap) layout.value = []
-    else layout.value = buildLayoutFromKLE(keyboardConfig.layouts.keymap)
+    else {
+      layout.value = buildLayoutFromKLE(keyboardConfig.layouts.keymap)
+    }
     layoutOption.setLabels(keyboardConfig?.layouts.labels)
     applyLayoutOption()
     layoutOption.setRawSetting(0)
@@ -32,10 +34,6 @@ export const createKeymap = () => {
   function setDeviceSetting(setting: DeviceSetting | undefined) {
     keymap.value = setting?.keymap ? buildKeymapFromRaw(setting.keymap) : []
     layoutOption.setRawSetting(setting?.layoutOption ?? 0)
-  }
-
-  function setKeycode(index: number, keycode: KeycodeTypes) {
-    keymap.value[index] = keycode
   }
 
   function applyLayoutOption() {
@@ -61,6 +59,19 @@ export const createKeymap = () => {
     }
   }
 
+  function setKeycode(keycode: KeycodeTypes, index: number) {
+    keymap.value[index] = keycode
+    applyLayoutOption()
+  }
+
+  function setCurrentLayer(layer: number) {
+    currentLayer.value = layer
+  }
+
+  function getKeymapAsRawArray(): number[] {
+    return keymap.value.map((keycode) => keycode.raw)
+  }
+
   return {
     keymap,
     keyCount,
@@ -71,6 +82,8 @@ export const createKeymap = () => {
     setKeyboardConfig,
     setDeviceSetting,
     changeLayoutOption,
+    setCurrentLayer,
+    getKeymapAsRawArray,
   }
 }
 

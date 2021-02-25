@@ -1,18 +1,20 @@
 <template>
-  <div class="keymapContainer" :style="keymapContainerStyle">
+  <div class="keymapViewerContainer" :style="keymapViewerContainerStyle">
     <div class="keymapViewer" :style="keymapViewerStyle">
-      <ViewerKey
+      <KeymapViewerKey
         v-for="keyLayout in layout"
         :key="`${keyLayout.labels.join()},${keyLayout.x},${keyLayout.y}`"
         :key-layout="keyLayout"
+        :keycode-index="getKeycodeIndex(keyLayout.matrix).value"
         :keycode="getKeycode(keyLayout.matrix).value"
+        @update-keycode="setKeycode"
       />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.keymapContainer {
+.keymapViewerContainer {
   border: 1px solid grey;
   border-radius: 8px;
   .keymapViewer {
@@ -27,16 +29,17 @@ import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
 import { useAppSetting } from '@/stores/useAppSetting'
 import { useConsts } from '@/stores/useConsts'
-import { rotateRect, RectPoint } from '@/utils/rotateKey'
-import ViewerKey from '@/components/ViewerKey.vue'
+import { RectPoint } from '@/utils/rotateKey'
+import KeymapViewerKey from '@/components/KeymapViewerKey.vue'
+import KeySettingModal from '@/components/KeySettingModal.vue'
 
 export default defineComponent({
-  components: { ViewerKey },
+  components: { KeymapViewerKey, KeySettingModal },
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
-    const { keymap, layout, currentLayer, keyCount } = useKeymap()
+    const { keymap, layout, currentLayer, keyCount, setKeycode } = useKeymap()
     const { viewerOption } = useAppSetting()
-    const { KeyConsts, calcKeySize } = useConsts()
+    const { KeyConsts } = useConsts()
 
     const outer = computed(() =>
       layout.value.reduce(
@@ -47,20 +50,10 @@ export default defineComponent({
           )
             return ret
 
-          const rotated = rotateRect(
-            { x: item.x, y: item.y },
-            { width: item.width, height: item.height },
-            {
-              rx: item.rotation_x,
-              ry: item.rotation_y,
-              r: item.rotation_angle,
-            }
-          )
-
-          const { xValues, yValues } = Object.keys(rotated).reduce(
+          const { xValues, yValues } = Object.keys(item.rotated).reduce(
             (ret, key) => {
-              ret.xValues.push(rotated[key as keyof RectPoint].x)
-              ret.yValues.push(rotated[key as keyof RectPoint].y)
+              ret.xValues.push(item.rotated[key as keyof RectPoint].x)
+              ret.yValues.push(item.rotated[key as keyof RectPoint].y)
               return ret
             },
             { xValues: [] as number[], yValues: [] as number[] }
@@ -81,35 +74,48 @@ export default defineComponent({
       )
     )
 
-    const keymapContainerStyle = computed(() => ({
+    const keymapViewerContainerStyle = computed(() => ({
       width: `${
-        calcKeySize(outer.value.right - outer.value.left) +
+        outer.value.right -
+        outer.value.left +
         (KeyConsts.margin + KeyConsts.border) * 2
       }px`,
       height: `${
-        calcKeySize(outer.value.bottom - outer.value.top) +
+        outer.value.bottom -
+        outer.value.top +
         (KeyConsts.margin + KeyConsts.border) * 2
       }px`,
     }))
 
     const keymapViewerStyle = computed(() => ({
-      'margin-top': `${calcKeySize(-outer.value.top)}px`,
-      'margin-left': `${calcKeySize(-outer.value.left)}px`,
+      'margin-top': `${-outer.value.top}px`,
+      'margin-left': `${-outer.value.left}px`,
     }))
 
-    const getKeycode = (matrix: { row: number; col: number }) => {
+    const getKeycodeIndex = (matrix: { row: number; col: number }) => {
       return computed(() =>
         keyboadConfig.value && matrix
-          ? keymap.value[
-              matrix.row * keyboadConfig.value.matrix.cols +
-                matrix.col +
-                keyCount.value * currentLayer.value
-            ]
+          ? matrix.row * keyboadConfig.value.matrix.cols +
+            matrix.col +
+            keyCount.value * currentLayer.value
           : undefined
       )
     }
 
-    return { layout, keymapContainerStyle, keymapViewerStyle, getKeycode }
+    const getKeycode = (matrix: { row: number; col: number }) =>
+      computed(() => {
+        const index = getKeycodeIndex(matrix)
+        return index.value === undefined ? undefined : keymap.value[index.value]
+      })
+
+    return {
+      layout,
+      keymapViewerContainerStyle,
+      keymapViewerStyle,
+      getKeycodeIndex,
+      getKeycode,
+      setKeycode,
+    }
   },
 })
 </script>

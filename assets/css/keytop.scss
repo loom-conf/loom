@@ -1,4 +1,5 @@
 .keyTop {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -49,64 +50,64 @@
       padding: 0 3px;
     }
   }
-}
 
-.keyTop.unknownKeyTop {
-  .labelRow {
-    .label {
-      background-color: $disableColor;
+  &.unknownKeyTop {
+    .labelRow {
+      .label {
+        background-color: $disableColor;
+      }
     }
-  }
-  .legend {
-    font-weight: 300;
-  }
-}
-
-.keyTop.modTapKeyTop {
-  .labelRow {
-    .label {
-      background-color: violet;
-    }
-  }
-  .legend {
-    .mods,
-    .keycode {
-      height: 16px;
-      line-height: 15px;
-    }
-  }
-}
-
-.keyTop.oneshotModKeyTop {
-  .labelRow {
-    .label {
-      background-color: violet;
-    }
-  }
-}
-
-.keyTop.layerKeyTop {
-  .labelRow {
-    .label {
-      background-color: $successColor;
-    }
-  }
-  &.withKeycode {
     .legend {
-      .mods {
-        height: 18px;
-        padding: 0 1px;
-        & > div {
-          padding: 0 2px;
-        }
+      font-weight: 300;
+    }
+  }
+
+  &.modTapKeyTop {
+    .labelRow {
+      .label {
+        background-color: violet;
+      }
+    }
+    .legend {
+      .mods,
+      .keycode {
+        height: 16px;
+        line-height: 15px;
       }
     }
   }
-  .value {
-    margin: 0 auto;
-    padding: 0 5px;
-    height: 18px;
-    text-align: center;
-    border-bottom: $successColor 2px solid;
+
+  &.oneshotModKeyTop {
+    .labelRow {
+      .label {
+        background-color: violet;
+      }
+    }
+  }
+
+  &.layerKeyTop {
+    .labelRow {
+      .label {
+        background-color: $successColor;
+      }
+    }
+    &.withKeycode {
+      .legend {
+        .mods {
+          height: 18px;
+          padding: 0 1px;
+          & > div {
+            padding: 0 2px;
+          }
+        }
+      }
+    }
+    .value {
+      margin: 0 auto;
+      padding: 0 5px;
+      height: 18px;
+      text-align: center;
+      border-bottom: $successColor 2px solid;
+    }
   }
 }

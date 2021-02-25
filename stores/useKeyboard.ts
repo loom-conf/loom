@@ -61,7 +61,7 @@ export const createKeyboard = () => {
     }
   }
 
-  async function loadDeviceSetting(): Promise<DeviceSetting | undefined> {
+  async function loadDeviceSetting() {
     if (!device.isConnected || !config.keyboard || !config.device)
       return undefined
     const layoutOption = await device.getLayoutOption()
@@ -72,6 +72,16 @@ export const createKeyboard = () => {
     setting.device = {
       layoutOption,
       keymap,
+    }
+  }
+
+  async function uploadKeymap(rawKeymap: Uint16Array) {
+    if (config.device && config.keyboard) {
+      await device.writeKeymapAll(
+        config.device.layerCount,
+        config.keyboard.matrix,
+        rawKeymap
+      )
     }
   }
 
@@ -89,6 +99,7 @@ export const createKeyboard = () => {
     connectDevice,
     loadKeyboardConfig,
     loadDeviceSetting,
+    uploadKeymap,
     isConnected,
     hasConfig,
     isValid,

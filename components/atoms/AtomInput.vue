@@ -1,11 +1,14 @@
 <template>
-  <input
-    :value="value"
-    :class="inputClass"
-    :placeholder="label"
-    type="text"
-    @input="updateInput"
-  />
+  <form @submit.prevent="submit">
+    <input
+      :value="inputValue"
+      :class="inputClass"
+      :placeholder="label"
+      type="text"
+      @input="update"
+      v-on:blur="blur"
+    />
+  </form>
 </template>
 
 <style lang="scss" scoped>
@@ -18,6 +21,7 @@ input {
   font-size: small;
   border-radius: 1px;
   height: 32px;
+  width: 100%;
 
   &:focus {
     border-color: cornflowerblue;
@@ -33,7 +37,7 @@ input {
 </style>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -51,12 +55,27 @@ export default defineComponent({
     },
   },
   setup(_props, _context) {
+    const inputValue = ref(_props.value)
     const inputClass = computed(() => (_props.disabled ? 'disabled' : ''))
-    const updateInput = (event: Event) => {
-      if (event.target instanceof HTMLInputElement)
-        _context.emit('input', event.target.value)
+    const update = (event: Event) => {
+      if (event.target instanceof HTMLInputElement) {
+        inputValue.value = event.target.value
+        _context.emit('input', inputValue.value)
+      }
     }
-    return { inputClass, updateInput }
+    const submit = (event: Event) => {
+      if (event.target instanceof HTMLFormElement) {
+        _context.emit('submit', inputValue.value)
+      }
+    }
+
+    const blur = (event: Event) => {
+      if (event.target instanceof HTMLInputElement) {
+        _context.emit('blur', inputValue.value)
+      }
+    }
+
+    return { inputValue, inputClass, update, submit, blur }
   },
 })
 </script>

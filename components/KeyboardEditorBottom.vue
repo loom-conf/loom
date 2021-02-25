@@ -1,26 +1,10 @@
 <template>
   <div class="editorBottom">
     <div class="tabs">
-      <EditorBottomTab
-        name="Device"
-        :selected="selectedTab"
-        @click="selectBottomTab"
-      />
-      <EditorBottomTab
-        name="Keymap"
-        :selected="selectedTab"
-        @click="selectBottomTab"
-      />
-      <EditorBottomTab
-        name="Layout"
-        :selected="selectedTab"
-        @click="selectBottomTab"
-      />
-      <EditorBottomTab
-        name="App"
-        :selected="selectedTab"
-        @click="selectBottomTab"
-      />
+      <BottomTab name="Device" :selected="selectedTab" @click="clickTab" />
+      <BottomTab name="Keymap" :selected="selectedTab" @click="clickTab" />
+      <BottomTab name="Layout" :selected="selectedTab" @click="clickTab" />
+      <BottomTab name="App" :selected="selectedTab" @click="clickTab" />
     </div>
     <div class="main">
       <transition name="main-fade" mode="out-in">
@@ -33,7 +17,6 @@
 <style lang="scss" scoped>
 .editorBottom {
   position: relative;
-  z-index: 50;
   height: 100%;
   overflow-y: auto;
   display: flex;
@@ -65,7 +48,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
-import EditorBottomTab from '@/components/EditorBottomTab.vue'
+import BottomTab from '@/components/BottomTab.vue'
 import BottomMainDevice from '@/components/BottomMainDevice.vue'
 import BottomMainLayout from '@/components/BottomMainLayout.vue'
 import BottomMainApp from '@/components/BottomMainApp.vue'
@@ -73,10 +56,10 @@ import BottomMainApp from '@/components/BottomMainApp.vue'
 export type BottomTabNames = 'Device' | 'Keymap' | 'Layout' | 'App'
 
 export default defineComponent({
-  components: { EditorBottomTab, BottomMainDevice, BottomMainLayout },
+  components: { BottomTab, BottomMainDevice, BottomMainLayout },
   setup(_props, _context) {
     const selectedTab = ref<BottomTabNames>('Device')
-    const selectBottomTab = (value: BottomTabNames) => {
+    const clickTab = (value: BottomTabNames) => {
       selectedTab.value = value
     }
     const mainComponents = computed(() => {
@@ -90,7 +73,7 @@ export default defineComponent({
       }
       return undefined
     })
-    return { selectedTab, selectBottomTab, mainComponents }
+    return { selectedTab, clickTab, mainComponents }
   },
 })
 </script>

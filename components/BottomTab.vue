@@ -1,11 +1,11 @@
 <template>
-  <div class="tabButton" :class="{ selected: isSelected }" @click="click">
+  <div class="BottomTabButton" :class="{ selected: isSelected }" @click="click">
     {{ name }}
   </div>
 </template>
 
 <style lang="scss">
-.tabButton {
+.BottomTabButton {
   width: $bottomTabWidth;
   position: relative;
   align-items: center;
