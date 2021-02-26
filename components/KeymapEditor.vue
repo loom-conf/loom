@@ -1,29 +1,60 @@
 <template>
-  <div>
-    <h1>{{ keyboardName }}</h1>
-    <div class="keymapEditor">
-      <div class="sideMenu">
-        <KeymapEditorLayerSelector
-          :current-layer="currentLayer"
-          :layer-count="layerCount"
-          @change="layerChange"
-        />
-        <KeymapEditorUsb @upload="uploadToDevice" />
+  <div class="keymapEditorContainer">
+    <div
+      :class="isCommunicating ? 'blur' : ''"
+      style="transition: filter 0.3s linear"
+    >
+      <h1>{{ keyboardName }}</h1>
+      <div class="keymapEditor">
+        <div class="sideMenu">
+          <KeymapEditorLayerSelector
+            :current-layer="currentLayer"
+            :layer-count="layerCount"
+            @change="layerChange"
+          />
+          <KeymapEditorUsb @upload="uploadToDevice" />
+        </div>
+        <KeymapViewer />
       </div>
-      <KeymapViewer />
+    </div>
+    <div v-if="isCommunicating" class="loadingModal">
+      <AtomLoader />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.keymapEditor {
-  flex: 1;
-  display: flex;
-  .sideMenu {
-    div:first-child {
-      margin-bottom: 1rem;
+.keymapEditorContainer {
+  position: relative;
+  transition: filter 0.5s linear;
+  filter: none;
+  .keymapEditor {
+    position: relative;
+    flex: 1;
+    display: flex;
+    .sideMenu {
+      div:first-child {
+        margin-bottom: 1rem;
+      }
     }
   }
+  .loadingModal {
+    position: absolute;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    transition: all 0.3s linear;
+  }
+}
+.blur {
+  filter: blur(4px);
 }
 </style>
 
@@ -34,12 +65,14 @@ import { useKeymap } from '@/stores/useKeymap'
 import KeymapEditorLayerSelector from '@/components/KeymapEditorLayerSelector.vue'
 import KeymapEditorUsb from '@/components/KeymapEditorUsb.vue'
 import KeymapViewer from '@/components/KeymapViewer.vue'
+import AtomLoader from '@/components/atoms/AtomLoader.vue'
 
 export default defineComponent({
   components: {
     KeymapEditorLayerSelector,
     KeymapEditorUsb,
     KeymapViewer,
+    AtomLoader,
   },
   setup(_props, _context) {
     const {
@@ -47,6 +80,7 @@ export default defineComponent({
       deviceConfig,
       loadDeviceSetting,
       uploadKeymap,
+      isCommunicating,
     } = useKeyboard()
     const { setCurrentLayer, currentLayer, getKeymapAsRawArray } = useKeymap()
 
@@ -59,10 +93,8 @@ export default defineComponent({
     }
 
     const uploadToDevice = async () => {
-      console.log('flash')
       await uploadKeymap(new Uint16Array(getKeymapAsRawArray()))
       await loadDeviceSetting()
-      console.log('done')
     }
 
     return {
@@ -71,6 +103,7 @@ export default defineComponent({
       layerCount,
       layerChange,
       uploadToDevice,
+      isCommunicating,
     }
   },
 })

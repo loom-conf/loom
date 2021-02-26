@@ -5,6 +5,7 @@ import {
   InjectionKey,
   inject,
   toRef,
+  ref,
 } from '@nuxtjs/composition-api'
 
 import { WebHID } from '@/models/webhid'
@@ -31,6 +32,7 @@ export const createKeyboard = () => {
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
   const setting = reactive<Setting>({ device: undefined })
+  const isCommunicating = ref(false)
 
   async function loadKeyboardConfig(json: any[][], fileSrc: string) {
     await disconnectDevice()
@@ -64,6 +66,7 @@ export const createKeyboard = () => {
   async function loadDeviceSetting() {
     if (!device.isConnected || !config.keyboard || !config.device)
       return undefined
+    isCommunicating.value = true
     const layoutOption = await device.getLayoutOption()
     const keymap = await device.getKeymapAll(
       config.device.layerCount,
@@ -73,15 +76,18 @@ export const createKeyboard = () => {
       layoutOption,
       keymap,
     }
+    isCommunicating.value = false
   }
 
   async function uploadKeymap(rawKeymap: Uint16Array) {
     if (config.device && config.keyboard) {
+      isCommunicating.value = true
       await device.writeKeymapAll(
         config.device.layerCount,
         config.keyboard.matrix,
         rawKeymap
       )
+      isCommunicating.value = false
     }
   }
 
@@ -100,6 +106,7 @@ export const createKeyboard = () => {
     loadKeyboardConfig,
     loadDeviceSetting,
     uploadKeymap,
+    isCommunicating,
     isConnected,
     hasConfig,
     isValid,

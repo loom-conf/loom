@@ -10,6 +10,9 @@
         @update-keycode="setKeycode"
       />
     </div>
+    <!-- <div
+      style="position: relative; z-index: 150; width: 100%; height: 100%"
+    ></div> -->
   </div>
 </template>
 
@@ -19,6 +22,7 @@
   border-radius: 8px;
   .keymapViewer {
     position: relative;
+    z-index: 100;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="initPane">
     <h1>LOOM Configulator - beta</h1>
     <p>Keyboard keymap configulator on a browser.</p>
     <h4>
@@ -34,9 +34,11 @@
 </template>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: xx-large;
-  font-weight: 900;
+.initPane {
+  h1 {
+    font-size: xx-large;
+    font-weight: 900;
+  }
 }
 </style>
 
@@ -44,7 +46,6 @@ h1 {
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  props: {},
   setup(_props, _context) {
     return {}
   },
