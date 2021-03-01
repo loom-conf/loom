@@ -5,7 +5,7 @@ import {
   SpecialKeycode,
 } from '@/utils/keycodeTypes'
 
-import list from '@/utils/QmkKeycodes.json'
+import list from '@/assets/data/qmkKeycodes.json'
 
 function findBase(code: number) {
   return list.find((keycode) => keycode.raw === code)
