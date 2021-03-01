@@ -91,3 +91,6 @@ sw.*
 
 # VS code setting
 .vscode/
+
+# lock file
+*.csv#
