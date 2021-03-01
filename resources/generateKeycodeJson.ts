@@ -2,7 +2,7 @@ const fs = require('fs')
 const csv = require('csvtojson')
 
 const csvPath = 'resources/qmk_keycodes.csv'
-const jsonPath = 'utils/QmkKeycodes.json'
+const jsonPath = 'assets/data/qmkKeycodes.json'
 
 csv()
   .fromFile(csvPath)
