@@ -1,7 +1,12 @@
 <template>
   <div class="editorSideMenu">
     <div class="title">USB</div>
-    <div class="item" @click="clickFlash"><AtomIcon :icon="mdiUpload" /></div>
+    <div v-tooltip.right="`Connect`" class="item" @click="clickConnect">
+      <AtomIcon :icon="mdiUsbPort" />
+    </div>
+    <div v-tooltip.right="`Upload`" class="item" @click="clickUpload">
+      <AtomIcon :icon="mdiUpload" />
+    </div>
   </div>
 </template>
 
@@ -25,19 +30,24 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mdiUpload } from '@mdi/js'
+import { mdiUpload, mdiUsbPort } from '@mdi/js'
 import AtomIcon from '@/components/atoms/AtomIcon.vue'
 
 export default defineComponent({
   components: { AtomIcon },
   setup(_props, _context) {
-    const clickFlash = () => {
+    const clickConnect = () => {
+      _context.emit('connect')
+    }
+    const clickUpload = () => {
       _context.emit('upload')
     }
 
     return {
+      mdiUsbPort,
       mdiUpload,
-      clickFlash,
+      clickConnect,
+      clickUpload,
     }
   },
 })

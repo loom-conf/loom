@@ -27,7 +27,7 @@
     color: black;
     background-color: #fff;
     background-image: none;
-    border: 1px solid grey;
+    border: 1px solid $bgColor;
     -ms-word-break: normal;
     word-break: normal;
   }
@@ -35,9 +35,6 @@
     content: '<>';
     font: 15px 'Consolas', monospace;
     color: grey;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
     right: 0.2rem;
     top: 2.5px;

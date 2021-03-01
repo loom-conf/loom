@@ -21,7 +21,8 @@
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/composition-api": "^0.17.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "v-tooltip": "^2.1.2"
   },
   "devDependencies": {
     "@mdi/js": "^5.9.55",
