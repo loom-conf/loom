@@ -1,12 +1,11 @@
 import {
   KeycodeTypes,
-  QmkKeycode,
   ModKey,
   UnknownKeycode,
   SpecialKeycode,
 } from '@/utils/keycodeTypes'
 
-const list: Array<QmkKeycode> = require('@/utils/QmkKeycodes.json')
+import list from '@/utils/QmkKeycodes.json'
 
 function findBase(code: number) {
   return list.find((keycode) => keycode.raw === code)
