@@ -27,8 +27,7 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "jest",
-      "qmkKeycodes",
+      "jest"
     ],
   },
   "exclude": [
