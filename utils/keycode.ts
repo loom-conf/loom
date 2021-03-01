@@ -1,9 +1,30 @@
-import { KeycodeTypes, QmkKeycode, ModKey } from '@/utils/keycodeTypes'
+import {
+  KeycodeTypes,
+  QmkKeycode,
+  ModKey,
+  UnknownKeycode,
+  SpecialKeycode,
+} from '@/utils/keycodeTypes'
 
 const list: Array<QmkKeycode> = require('@/utils/QmkKeycodes.json')
 
 function findBase(code: number) {
   return list.find((keycode) => keycode.raw === code)
+}
+
+function findSpecialKeycode(raw: number): SpecialKeycode | UnknownKeycode {
+  const base = findBase(raw)
+  return base
+    ? {
+        kind: 'SPECIAL',
+        qmk: base.qmk,
+        raw,
+        base,
+      }
+    : {
+        kind: 'UNKNOWN',
+        raw,
+      }
 }
 
 function parseModsToArray(mods: number): Array<ModKey> {
@@ -143,10 +164,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
       mods,
     }
   } else if (raw <= 0x56ff) {
-    return {
-      kind: 'UNKNOWN',
-      raw,
-    }
+    return findSpecialKeycode(raw)
   } else if (raw <= 0x57ff) {
     const tapdance = raw & 0xff
     return {
@@ -176,10 +194,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
       mods,
     }
   } else if (raw <= 0x5bff) {
-    return {
-      kind: 'UNKNOWN',
-      raw,
-    }
+    return findSpecialKeycode(raw)
   } else if (raw >= 0x6000 && raw <= 0x7fff) {
     // mod tap
     const mods = parseModsToArray((raw & 0x1f00) >> 8)
@@ -197,10 +212,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
           raw,
         }
   }
-  return {
-    kind: 'UNKNOWN',
-    raw,
-  }
+  return findSpecialKeycode(raw)
 }
 
 export function buildRawFromKeycode(keycode: KeycodeTypes) {

@@ -101,6 +101,7 @@ export default defineComponent({
 
     const { fetchState } = useFetch(async () => {
       if (props.defaultJsonUrl) {
+        console.log(props.defaultJsonUrl)
         const url = new URL(props.defaultJsonUrl)
         const res = await axios.get(url.toString())
         loadKeyboardConfig(res.data, props.defaultJsonUrl)

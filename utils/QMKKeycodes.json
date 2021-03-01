@@ -1,5 +1,21 @@
 [
   {
+    "qmk": "KC_NO",
+    "alt": "KC_NO",
+    "legend": "◻",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 0
+  },
+  {
+    "qmk": "KC_TRANSPARENT",
+    "alt": "KC_TRNS",
+    "legend": "▽",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 1
+  },
+  {
     "qmk": "KC_A",
     "alt": "",
     "legend": "A",
@@ -288,6 +304,150 @@
     "raw": 39
   },
   {
+    "qmk": "KC_ENTER",
+    "alt": "KC_ENT",
+    "legend": "Enter",
+    "altLegend": "",
+    "type": "",
+    "raw": 40
+  },
+  {
+    "qmk": "KC_ESCAPE",
+    "alt": "KC_ESC",
+    "legend": "ESC",
+    "altLegend": "",
+    "type": "",
+    "raw": 41
+  },
+  {
+    "qmk": "KC_BSPACE",
+    "alt": "KC_BSPC",
+    "legend": "BS",
+    "altLegend": "",
+    "type": "",
+    "raw": 42
+  },
+  {
+    "qmk": "KC_TAB",
+    "alt": "",
+    "legend": "Tab",
+    "altLegend": "",
+    "type": "",
+    "raw": 43
+  },
+  {
+    "qmk": "KC_SPACE",
+    "alt": "KC_SPC",
+    "legend": "Space",
+    "altLegend": "",
+    "type": "",
+    "raw": 44
+  },
+  {
+    "qmk": "KC_MINUS",
+    "alt": "KC_MINS",
+    "legend": "-",
+    "altLegend": "_",
+    "type": "",
+    "raw": 45
+  },
+  {
+    "qmk": "KC_EQUAL",
+    "alt": "KC_EQL",
+    "legend": "=",
+    "altLegend": "+",
+    "type": "",
+    "raw": 46
+  },
+  {
+    "qmk": "KC_LBRACKET",
+    "alt": "KC_LBRC",
+    "legend": "[",
+    "altLegend": "{",
+    "type": "",
+    "raw": 47
+  },
+  {
+    "qmk": "KC_RBRACKET",
+    "alt": "KC_RBRC",
+    "legend": "]",
+    "altLegend": "}",
+    "type": "",
+    "raw": 48
+  },
+  {
+    "qmk": "KC_BSLASH",
+    "alt": "KC_BSLS",
+    "legend": "\\",
+    "altLegend": "|",
+    "type": "",
+    "raw": 49
+  },
+  {
+    "qmk": "KC_NONUS_HASH",
+    "alt": "KC_NUHS",
+    "legend": "#",
+    "altLegend": "~",
+    "type": "",
+    "raw": 50
+  },
+  {
+    "qmk": "KC_SCOLON",
+    "alt": "KC_SCLN",
+    "legend": ";",
+    "altLegend": ":",
+    "type": "",
+    "raw": 51
+  },
+  {
+    "qmk": "KC_QUOTE",
+    "alt": "KC_QUOT",
+    "legend": "'",
+    "altLegend": ",",
+    "type": "",
+    "raw": 52
+  },
+  {
+    "qmk": "KC_GRAVE",
+    "alt": "",
+    "legend": "~",
+    "altLegend": "",
+    "type": "",
+    "raw": 53
+  },
+  {
+    "qmk": "KC_COMMA",
+    "alt": "KC_COMM",
+    "legend": ",",
+    "altLegend": "<",
+    "type": "",
+    "raw": 54
+  },
+  {
+    "qmk": "KC_DOT",
+    "alt": "",
+    "legend": ".",
+    "altLegend": ">",
+    "type": "",
+    "raw": 55
+  },
+  {
+    "qmk": "KC_SLASH",
+    "alt": "KC_SLSH",
+    "legend": "/",
+    "altLegend": "?",
+    "type": "",
+    "raw": 56
+  },
+  {
+    "qmk": "KC_CAPSLOCK",
+    "alt": "KC_CAPS",
+    "legend": "Caps Lock",
+    "altLegend": "",
+    "type": "",
+    "raw": 57
+  },
+  {
     "qmk": "KC_F1",
     "alt": "",
     "legend": "F1",
@@ -382,6 +542,278 @@
     "altLegend": "",
     "type": "",
     "raw": 69
+  },
+  {
+    "qmk": "KC_PSCREEN",
+    "alt": "KC_PSCR",
+    "legend": "PrtScrn",
+    "altLegend": "",
+    "type": "",
+    "raw": 70
+  },
+  {
+    "qmk": "KC_SCROLLLOCK",
+    "alt": "KC_SLCK",
+    "legend": "Scroll Lock",
+    "altLegend": "",
+    "type": "",
+    "raw": 71
+  },
+  {
+    "qmk": "KC_PAUSE",
+    "alt": "KC_PAUS",
+    "legend": "Pause",
+    "altLegend": "",
+    "type": "",
+    "raw": 72
+  },
+  {
+    "qmk": "KC_INSERT",
+    "alt": "KC_INS",
+    "legend": "Insert",
+    "altLegend": "",
+    "type": "",
+    "raw": 73
+  },
+  {
+    "qmk": "KC_HOME",
+    "alt": "",
+    "legend": "Home",
+    "altLegend": "",
+    "type": "",
+    "raw": 74
+  },
+  {
+    "qmk": "KC_PGUP",
+    "alt": "",
+    "legend": "Page Up",
+    "altLegend": "",
+    "type": "",
+    "raw": 75
+  },
+  {
+    "qmk": "KC_DELETE",
+    "alt": "KC_DEL",
+    "legend": "Del",
+    "altLegend": "",
+    "type": "",
+    "raw": 76
+  },
+  {
+    "qmk": "KC_END",
+    "alt": "",
+    "legend": "End",
+    "altLegend": "",
+    "type": "",
+    "raw": 77
+  },
+  {
+    "qmk": "KC_PGDOWN",
+    "alt": "KC_PGDN",
+    "legend": "Page Down",
+    "altLegend": "",
+    "type": "",
+    "raw": 78
+  },
+  {
+    "qmk": "KC_RIGHT",
+    "alt": "KC_RGHT",
+    "legend": "→",
+    "altLegend": "",
+    "type": "",
+    "raw": 79
+  },
+  {
+    "qmk": "KC_LEFT",
+    "alt": "",
+    "legend": "←",
+    "altLegend": "",
+    "type": "",
+    "raw": 80
+  },
+  {
+    "qmk": "KC_DOWN",
+    "alt": "",
+    "legend": "↓",
+    "altLegend": "",
+    "type": "",
+    "raw": 81
+  },
+  {
+    "qmk": "KC_UP",
+    "alt": "",
+    "legend": "↑",
+    "altLegend": "",
+    "type": "",
+    "raw": 82
+  },
+  {
+    "qmk": "KC_NUMLOCK",
+    "alt": "KC_NLCK",
+    "legend": "Num Lock",
+    "altLegend": "",
+    "type": "",
+    "raw": 83
+  },
+  {
+    "qmk": "KC_KP_SLASH",
+    "alt": "KC_PSLS",
+    "legend": "/",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 84
+  },
+  {
+    "qmk": "KC_KP_ASTERISK",
+    "alt": "KC_PAST",
+    "legend": "*",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 85
+  },
+  {
+    "qmk": "KC_KP_MINUS",
+    "alt": "KC_PMNS",
+    "legend": "-",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 86
+  },
+  {
+    "qmk": "KC_KP_PLUS",
+    "alt": "KC_PPLS",
+    "legend": "+",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 87
+  },
+  {
+    "qmk": "KC_KP_ENTER",
+    "alt": "KC_PENT",
+    "legend": "Enter",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 88
+  },
+  {
+    "qmk": "KC_KP_1",
+    "alt": "KC_P1",
+    "legend": "1",
+    "altLegend": "End",
+    "type": "KEYPAD",
+    "raw": 89
+  },
+  {
+    "qmk": "KC_KP_2",
+    "alt": "KC_P2",
+    "legend": "2",
+    "altLegend": "↓",
+    "type": "KEYPAD",
+    "raw": 90
+  },
+  {
+    "qmk": "KC_KP_3",
+    "alt": "KC_P3",
+    "legend": "3",
+    "altLegend": "PgDn",
+    "type": "KEYPAD",
+    "raw": 91
+  },
+  {
+    "qmk": "KC_KP_4",
+    "alt": "KC_P4",
+    "legend": "4",
+    "altLegend": "←",
+    "type": "KEYPAD",
+    "raw": 92
+  },
+  {
+    "qmk": "KC_KP_5",
+    "alt": "KC_P5",
+    "legend": "5",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 93
+  },
+  {
+    "qmk": "KC_KP_6",
+    "alt": "KC_P6",
+    "legend": "6",
+    "altLegend": "→",
+    "type": "KEYPAD",
+    "raw": 94
+  },
+  {
+    "qmk": "KC_KP_7",
+    "alt": "KC_P7",
+    "legend": "7",
+    "altLegend": "Home",
+    "type": "KEYPAD",
+    "raw": 95
+  },
+  {
+    "qmk": "KC_KP_8",
+    "alt": "KC_P8",
+    "legend": "8",
+    "altLegend": "↑",
+    "type": "KEYPAD",
+    "raw": 96
+  },
+  {
+    "qmk": "KC_KP_9",
+    "alt": "KC_P9",
+    "legend": "9",
+    "altLegend": "PgUp",
+    "type": "KEYPAD",
+    "raw": 97
+  },
+  {
+    "qmk": "KC_KP_0",
+    "alt": "KC_P0",
+    "legend": "0",
+    "altLegend": "Ins",
+    "type": "KEYPAD",
+    "raw": 98
+  },
+  {
+    "qmk": "KC_KP_DOT",
+    "alt": "KC_PDOT",
+    "legend": ".",
+    "altLegend": "Del",
+    "type": "KEYPAD",
+    "raw": 99
+  },
+  {
+    "qmk": "KC_NONUS_BSLASH",
+    "alt": "KC_NUBS",
+    "legend": "Non-US \\",
+    "altLegend": "\\",
+    "type": "",
+    "raw": 100
+  },
+  {
+    "qmk": "KC_APPLICATION",
+    "alt": "KC_APP",
+    "legend": "App",
+    "altLegend": "",
+    "type": "",
+    "raw": 101
+  },
+  {
+    "qmk": "KC_POWER",
+    "alt": "",
+    "legend": "Power",
+    "altLegend": "",
+    "type": "",
+    "raw": 102
+  },
+  {
+    "qmk": "KC_KP_EQUAL",
+    "alt": "KC_PEQL",
+    "legend": "=",
+    "altLegend": "",
+    "type": "KEYPAD",
+    "raw": 103
   },
   {
     "qmk": "KC_F13",
@@ -480,172 +912,116 @@
     "raw": 115
   },
   {
-    "qmk": "KC_ENTER",
-    "alt": "KC_ENT",
-    "legend": "Enter",
+    "qmk": "KC_EXECUTE",
+    "alt": "KC_EXEC",
+    "legend": "Execute",
     "altLegend": "",
     "type": "",
-    "raw": 40
+    "raw": 116
   },
   {
-    "qmk": "KC_ESCAPE",
-    "alt": "KC_ESC",
-    "legend": "ESC",
-    "altLegend": "",
-    "type": "",
-    "raw": 41
-  },
-  {
-    "qmk": "KC_BSPACE",
-    "alt": "KC_BSPC",
-    "legend": "BS",
-    "altLegend": "",
-    "type": "",
-    "raw": 42
-  },
-  {
-    "qmk": "KC_TAB",
+    "qmk": "KC_HELP",
     "alt": "",
-    "legend": "Tab",
+    "legend": "Help",
     "altLegend": "",
     "type": "",
-    "raw": 43
+    "raw": 117
   },
   {
-    "qmk": "KC_SPACE",
-    "alt": "KC_SPC",
-    "legend": "Space",
-    "altLegend": "",
-    "type": "",
-    "raw": 44
-  },
-  {
-    "qmk": "KC_MINUS",
-    "alt": "KC_MINS",
-    "legend": "-",
-    "altLegend": "_",
-    "type": "",
-    "raw": 45
-  },
-  {
-    "qmk": "KC_EQUAL",
-    "alt": "KC_EQL",
-    "legend": "=",
-    "altLegend": "+",
-    "type": "",
-    "raw": 46
-  },
-  {
-    "qmk": "KC_LBRACKET",
-    "alt": "KC_LBRC",
-    "legend": "[",
-    "altLegend": "{",
-    "type": "",
-    "raw": 47
-  },
-  {
-    "qmk": "KC_RBRACKET",
-    "alt": "KC_RBRC",
-    "legend": "]",
-    "altLegend": "}",
-    "type": "",
-    "raw": 48
-  },
-  {
-    "qmk": "KC_BSLASH",
-    "alt": "KC_BSLS",
-    "legend": "\\",
-    "altLegend": "\\",
-    "type": "",
-    "raw": 49
-  },
-  {
-    "qmk": "KC_NONUS_HASH",
-    "alt": "KC_NUHS",
-    "legend": "#",
-    "altLegend": "~",
-    "type": "",
-    "raw": 50
-  },
-  {
-    "qmk": "KC_SCOLON",
-    "alt": "KC_SCLN",
-    "legend": ";",
-    "altLegend": ":",
-    "type": "",
-    "raw": 51
-  },
-  {
-    "qmk": "KC_QUOTE",
-    "alt": "KC_QUOT",
-    "legend": "'",
-    "altLegend": ",",
-    "type": "",
-    "raw": 52
-  },
-  {
-    "qmk": "KC_GRAVE",
+    "qmk": "KC_MENU",
     "alt": "",
-    "legend": "~",
+    "legend": "Menu",
     "altLegend": "",
     "type": "",
-    "raw": 53
+    "raw": 118
   },
   {
-    "qmk": "KC_COMMA",
-    "alt": "KC_COMM",
-    "legend": ",",
-    "altLegend": "<",
+    "qmk": "KC_SELECT",
+    "alt": "KC_SLCT",
+    "legend": "Select",
+    "altLegend": "",
     "type": "",
-    "raw": 54
+    "raw": 119
   },
   {
-    "qmk": "KC_DOT",
+    "qmk": "KC_STOP",
     "alt": "",
-    "legend": ".",
-    "altLegend": ">",
-    "type": "",
-    "raw": 55
-  },
-  {
-    "qmk": "KC_SLASH",
-    "alt": "KC_SLSH",
-    "legend": "/",
-    "altLegend": "?",
-    "type": "",
-    "raw": 56
-  },
-  {
-    "qmk": "KC_NONUS_BSLASH",
-    "alt": "KC_NUBS",
-    "legend": "Non-US \\",
-    "altLegend": "\\",
-    "type": "",
-    "raw": 100
-  },
-  {
-    "qmk": "KC_CAPSLOCK",
-    "alt": "KC_CAPS",
-    "legend": "Caps Lock",
+    "legend": "Stop",
     "altLegend": "",
     "type": "",
-    "raw": 57
+    "raw": 120
   },
   {
-    "qmk": "KC_SCROLLLOCK",
-    "alt": "KC_SLCK",
-    "legend": "Scroll Lock",
+    "qmk": "KC_AGAIN",
+    "alt": "KC_AGIN",
+    "legend": "Again",
     "altLegend": "",
     "type": "",
-    "raw": 71
+    "raw": 121
   },
   {
-    "qmk": "KC_NUMLOCK",
-    "alt": "KC_NLCK",
-    "legend": "Num Lock",
+    "qmk": "KC_UNDO",
+    "alt": "",
+    "legend": "Undo",
     "altLegend": "",
     "type": "",
-    "raw": 83
+    "raw": 122
+  },
+  {
+    "qmk": "KC_CUT",
+    "alt": "",
+    "legend": "Cut",
+    "altLegend": "",
+    "type": "",
+    "raw": 123
+  },
+  {
+    "qmk": "KC_COPY",
+    "alt": "",
+    "legend": "Copy",
+    "altLegend": "",
+    "type": "",
+    "raw": 124
+  },
+  {
+    "qmk": "KC_PASTE",
+    "alt": "KC_PSTE",
+    "legend": "Paste",
+    "altLegend": "",
+    "type": "",
+    "raw": 125
+  },
+  {
+    "qmk": "KC_FIND",
+    "alt": "",
+    "legend": "Find",
+    "altLegend": "",
+    "type": "",
+    "raw": 126
+  },
+  {
+    "qmk": "KC__MUTE",
+    "alt": "",
+    "legend": "Mute",
+    "altLegend": "",
+    "type": "MEDIA",
+    "raw": 127
+  },
+  {
+    "qmk": "KC__VOLUP",
+    "alt": "",
+    "legend": "Vol Up",
+    "altLegend": "",
+    "type": "MEDIA",
+    "raw": 128
+  },
+  {
+    "qmk": "KC__VOLDOWN",
+    "alt": "",
+    "legend": "Vol Down",
+    "altLegend": "",
+    "type": "MEDIA",
+    "raw": 129
   },
   {
     "qmk": "KC_LOCKING_CAPS",
@@ -672,68 +1048,20 @@
     "raw": 132
   },
   {
-    "qmk": "KC_LCTRL",
-    "alt": "KC_LCTL",
-    "legend": "Ctrl",
+    "qmk": "KC_KP_COMMA",
+    "alt": "KC_PCMM",
+    "legend": ",",
     "altLegend": "",
-    "type": "",
-    "raw": 224
+    "type": "KEYPAD",
+    "raw": 133
   },
   {
-    "qmk": "KC_LSHIFT",
-    "alt": "KC_LSFT",
-    "legend": "Shift",
-    "altLegend": "",
-    "type": "",
-    "raw": 225
-  },
-  {
-    "qmk": "KC_LALT",
-    "alt": "KC_LOPT",
-    "legend": "Alt",
-    "altLegend": "",
-    "type": "",
-    "raw": 226
-  },
-  {
-    "qmk": "KC_LGUI",
-    "alt": "KC_LCMD",
-    "legend": "GUI",
-    "altLegend": "",
-    "type": "",
-    "raw": 227
-  },
-  {
-    "qmk": "KC_RCTRL",
-    "alt": "KC_RCTL",
-    "legend": "Ctrl",
-    "altLegend": "",
-    "type": "",
-    "raw": 228
-  },
-  {
-    "qmk": "KC_RSHIFT",
-    "alt": "KC_RSFT",
-    "legend": "Shift",
-    "altLegend": "",
-    "type": "",
-    "raw": 229
-  },
-  {
-    "qmk": "KC_RALT",
+    "qmk": "KC_KP_EQUAL_AS400",
     "alt": "",
-    "legend": "Alt",
+    "legend": "0",
     "altLegend": "",
-    "type": "",
-    "raw": 230
-  },
-  {
-    "qmk": "KC_RGUI",
-    "alt": "",
-    "legend": "GUI",
-    "altLegend": "",
-    "type": "",
-    "raw": 231
+    "type": "KEYPAD",
+    "raw": 134
   },
   {
     "qmk": "KC_INT1",
@@ -880,230 +1208,6 @@
     "raw": 152
   },
   {
-    "qmk": "KC_PSCREEN",
-    "alt": "KC_PSCR",
-    "legend": "PrtScrn",
-    "altLegend": "",
-    "type": "",
-    "raw": 70
-  },
-  {
-    "qmk": "KC_PAUSE",
-    "alt": "KC_PAUS",
-    "legend": "Pause",
-    "altLegend": "",
-    "type": "",
-    "raw": 72
-  },
-  {
-    "qmk": "KC_INSERT",
-    "alt": "KC_INS",
-    "legend": "Insert",
-    "altLegend": "",
-    "type": "",
-    "raw": 73
-  },
-  {
-    "qmk": "KC_HOME",
-    "alt": "",
-    "legend": "Home",
-    "altLegend": "",
-    "type": "",
-    "raw": 74
-  },
-  {
-    "qmk": "KC_PGUP",
-    "alt": "",
-    "legend": "Page Up",
-    "altLegend": "",
-    "type": "",
-    "raw": 75
-  },
-  {
-    "qmk": "KC_DELETE",
-    "alt": "KC_DEL",
-    "legend": "Del",
-    "altLegend": "",
-    "type": "",
-    "raw": 76
-  },
-  {
-    "qmk": "KC_END",
-    "alt": "",
-    "legend": "End",
-    "altLegend": "",
-    "type": "",
-    "raw": 77
-  },
-  {
-    "qmk": "KC_PGDOWN",
-    "alt": "KC_PGDN",
-    "legend": "Page Down",
-    "altLegend": "",
-    "type": "",
-    "raw": 78
-  },
-  {
-    "qmk": "KC_RIGHT",
-    "alt": "KC_RGHT",
-    "legend": "→",
-    "altLegend": "",
-    "type": "",
-    "raw": 79
-  },
-  {
-    "qmk": "KC_LEFT",
-    "alt": "",
-    "legend": "←",
-    "altLegend": "",
-    "type": "",
-    "raw": 80
-  },
-  {
-    "qmk": "KC_DOWN",
-    "alt": "",
-    "legend": "↓",
-    "altLegend": "",
-    "type": "",
-    "raw": 81
-  },
-  {
-    "qmk": "KC_UP",
-    "alt": "",
-    "legend": "↑",
-    "altLegend": "",
-    "type": "",
-    "raw": 82
-  },
-  {
-    "qmk": "KC_APPLICATION",
-    "alt": "KC_APP",
-    "legend": "App",
-    "altLegend": "",
-    "type": "",
-    "raw": 101
-  },
-  {
-    "qmk": "KC_POWER",
-    "alt": "",
-    "legend": "Power",
-    "altLegend": "",
-    "type": "",
-    "raw": 102
-  },
-  {
-    "qmk": "KC_EXECUTE",
-    "alt": "KC_EXEC",
-    "legend": "Execute",
-    "altLegend": "",
-    "type": "",
-    "raw": 116
-  },
-  {
-    "qmk": "KC_HELP",
-    "alt": "",
-    "legend": "Help",
-    "altLegend": "",
-    "type": "",
-    "raw": 117
-  },
-  {
-    "qmk": "KC_MENU",
-    "alt": "",
-    "legend": "Menu",
-    "altLegend": "",
-    "type": "",
-    "raw": 118
-  },
-  {
-    "qmk": "KC_SELECT",
-    "alt": "KC_SLCT",
-    "legend": "Select",
-    "altLegend": "",
-    "type": "",
-    "raw": 119
-  },
-  {
-    "qmk": "KC_STOP",
-    "alt": "",
-    "legend": "Stop",
-    "altLegend": "",
-    "type": "",
-    "raw": 120
-  },
-  {
-    "qmk": "KC_AGAIN",
-    "alt": "KC_AGIN",
-    "legend": "Again",
-    "altLegend": "",
-    "type": "",
-    "raw": 121
-  },
-  {
-    "qmk": "KC_UNDO",
-    "alt": "",
-    "legend": "Undo",
-    "altLegend": "",
-    "type": "",
-    "raw": 122
-  },
-  {
-    "qmk": "KC_CUT",
-    "alt": "",
-    "legend": "Cut",
-    "altLegend": "",
-    "type": "",
-    "raw": 123
-  },
-  {
-    "qmk": "KC_COPY",
-    "alt": "",
-    "legend": "Copy",
-    "altLegend": "",
-    "type": "",
-    "raw": 124
-  },
-  {
-    "qmk": "KC_PASTE",
-    "alt": "KC_PSTE",
-    "legend": "Paste",
-    "altLegend": "",
-    "type": "",
-    "raw": 125
-  },
-  {
-    "qmk": "KC_FIND",
-    "alt": "",
-    "legend": "Find",
-    "altLegend": "",
-    "type": "",
-    "raw": 126
-  },
-  {
-    "qmk": "KC__MUTE",
-    "alt": "",
-    "legend": "Mute",
-    "altLegend": "",
-    "type": "MEDIA",
-    "raw": 127
-  },
-  {
-    "qmk": "KC__VOLUP",
-    "alt": "",
-    "legend": "Vol Up",
-    "altLegend": "",
-    "type": "MEDIA",
-    "raw": 128
-  },
-  {
-    "qmk": "KC__VOLDOWN",
-    "alt": "",
-    "legend": "Vol Down",
-    "altLegend": "",
-    "type": "MEDIA",
-    "raw": 129
-  },
-  {
     "qmk": "KC_ALT_ERASE",
     "alt": "KC_ERAS",
     "legend": "Erase",
@@ -1205,7 +1309,7 @@
     "legend": "Power",
     "altLegend": "",
     "type": "SYSTEM",
-    "raw": 173
+    "raw": 165
   },
   {
     "qmk": "KC_SYSTEM_SLEEP",
@@ -1213,7 +1317,7 @@
     "legend": "Sleep",
     "altLegend": "",
     "type": "SYSTEM",
-    "raw": 174
+    "raw": 166
   },
   {
     "qmk": "KC_SYSTEM_WAKE",
@@ -1221,7 +1325,7 @@
     "legend": "Wake",
     "altLegend": "",
     "type": "SYSTEM",
-    "raw": 175
+    "raw": 167
   },
   {
     "qmk": "KC_AUDIO_MUTE",
@@ -1229,23 +1333,23 @@
     "legend": "Mute",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 176
+    "raw": 168
   },
   {
     "qmk": "KC_AUDIO_VOL_UP",
     "alt": "KC_VOLU",
-    "legend": "Vol Up",
+    "legend": "Vol +",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 177
+    "raw": 169
   },
   {
     "qmk": "KC_AUDIO_VOL_DOWN",
     "alt": "KC_VOLD",
-    "legend": "Vol Down",
+    "legend": "Vol -",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 178
+    "raw": 170
   },
   {
     "qmk": "KC_MEDIA_NEXT_TRACK",
@@ -1253,7 +1357,7 @@
     "legend": "Next",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 179
+    "raw": 171
   },
   {
     "qmk": "KC_MEDIA_PREV_TRACK",
@@ -1261,7 +1365,7 @@
     "legend": "Prev",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 180
+    "raw": 172
   },
   {
     "qmk": "KC_MEDIA_STOP",
@@ -1269,7 +1373,7 @@
     "legend": "Stop",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 181
+    "raw": 173
   },
   {
     "qmk": "KC_MEDIA_PLAY_PAUSE",
@@ -1277,7 +1381,7 @@
     "legend": "Play",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 182
+    "raw": 174
   },
   {
     "qmk": "KC_MEDIA_SELECT",
@@ -1285,7 +1389,7 @@
     "legend": "Player",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 183
+    "raw": 175
   },
   {
     "qmk": "KC_MEDIA_EJECT",
@@ -1293,287 +1397,311 @@
     "legend": "Eject",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 184
+    "raw": 176
   },
   {
     "qmk": "KC_MAIL",
     "alt": "",
     "legend": "Mail",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 185
+    "type": "PC",
+    "raw": 177
   },
   {
     "qmk": "KC_CALCULATOR",
     "alt": "KC_CALC",
     "legend": "Calc",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 186
+    "type": "PC",
+    "raw": 178
   },
   {
     "qmk": "KC_MY_COMPUTER",
     "alt": "KC_MYCM",
     "legend": "My Comp",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 187
+    "type": "PC",
+    "raw": 179
   },
   {
     "qmk": "KC_WWW_SEARCH",
     "alt": "KC_WSCH",
     "legend": "WWW Search",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 188
+    "type": "PC",
+    "raw": 180
   },
   {
     "qmk": "KC_WWW_HOME",
     "alt": "KC_WHOM",
     "legend": "WWW Home",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 189
+    "type": "PC",
+    "raw": 181
   },
   {
     "qmk": "KC_WWW_BACK",
     "alt": "KC_WBAK",
     "legend": "WWW Back",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 190
+    "type": "PC",
+    "raw": 182
   },
   {
     "qmk": "KC_WWW_FORWARD",
     "alt": "KC_WFWD",
     "legend": "WWW Forward",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 191
+    "type": "PC",
+    "raw": 183
   },
   {
     "qmk": "KC_WWW_STOP",
     "alt": "KC_WSTP",
     "legend": "WWW Stop",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 192
+    "type": "PC",
+    "raw": 184
   },
   {
     "qmk": "KC_WWW_REFRESH",
     "alt": "KC_WREF",
     "legend": "WWW Refresh",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 193
+    "type": "PC",
+    "raw": 185
   },
   {
     "qmk": "KC_WWW_FAVORITES",
     "alt": "KC_WFAV",
     "legend": "WWW Fav",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 194
+    "type": "PC",
+    "raw": 186
   },
   {
     "qmk": "KC_MEDIA_FAST_FORWARD",
     "alt": "KC_MFFD",
-    "legend": "Next",
+    "legend": ">>",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 195
+    "raw": 187
   },
   {
     "qmk": "KC_MEDIA_REWIND",
     "alt": "KC_MRWD",
-    "legend": "Previous",
+    "legend": "<<",
     "altLegend": "",
     "type": "MEDIA",
-    "raw": 196
+    "raw": 188
   },
   {
     "qmk": "KC_BRIGHTNESS_UP",
     "alt": "KC_BRIU",
-    "legend": "BR Up",
+    "legend": "BR +",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 197
+    "type": "PC",
+    "raw": 189
   },
   {
     "qmk": "KC_BRIGHTNESS_DOWN",
     "alt": "KC_BRID",
-    "legend": "BR Down",
+    "legend": "BR -",
     "altLegend": "",
-    "type": "MEDIA",
-    "raw": 198
+    "type": "PC",
+    "raw": 190
   },
   {
-    "qmk": "KC_KP_SLASH",
-    "alt": "KC_PSLS",
-    "legend": "/",
+    "qmk": "KC_LCTRL",
+    "alt": "KC_LCTL",
+    "legend": "Ctrl",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 84
+    "type": "",
+    "raw": 224
   },
   {
-    "qmk": "KC_KP_ASTERISK",
-    "alt": "KC_PAST",
-    "legend": "*",
+    "qmk": "KC_LSHIFT",
+    "alt": "KC_LSFT",
+    "legend": "Shift",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 85
+    "type": "",
+    "raw": 225
   },
   {
-    "qmk": "KC_KP_MINUS",
-    "alt": "KC_PMNS",
-    "legend": "-",
+    "qmk": "KC_LALT",
+    "alt": "KC_LOPT",
+    "legend": "Alt",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 86
+    "type": "",
+    "raw": 226
   },
   {
-    "qmk": "KC_KP_PLUS",
-    "alt": "KC_PPLS",
-    "legend": "+",
+    "qmk": "KC_LGUI",
+    "alt": "KC_LCMD",
+    "legend": "GUI",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 87
+    "type": "",
+    "raw": 227
   },
   {
-    "qmk": "KC_KP_ENTER",
-    "alt": "KC_PENT",
-    "legend": "Enter",
+    "qmk": "KC_RCTRL",
+    "alt": "KC_RCTL",
+    "legend": "Ctrl",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 88
+    "type": "",
+    "raw": 228
   },
   {
-    "qmk": "KC_KP_1",
-    "alt": "KC_P1",
-    "legend": "1",
-    "altLegend": "End",
-    "type": "KEYPAD",
-    "raw": 89
-  },
-  {
-    "qmk": "KC_KP_2",
-    "alt": "KC_P2",
-    "legend": "2",
-    "altLegend": "↓",
-    "type": "KEYPAD",
-    "raw": 90
-  },
-  {
-    "qmk": "KC_KP_3",
-    "alt": "KC_P3",
-    "legend": "3",
-    "altLegend": "PgDn",
-    "type": "KEYPAD",
-    "raw": 91
-  },
-  {
-    "qmk": "KC_KP_4",
-    "alt": "KC_P4",
-    "legend": "4",
-    "altLegend": "←",
-    "type": "KEYPAD",
-    "raw": 92
-  },
-  {
-    "qmk": "KC_KP_5",
-    "alt": "KC_P5",
-    "legend": "5",
+    "qmk": "KC_RSHIFT",
+    "alt": "KC_RSFT",
+    "legend": "Shift",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 93
+    "type": "",
+    "raw": 229
   },
   {
-    "qmk": "KC_KP_6",
-    "alt": "KC_P6",
-    "legend": "6",
-    "altLegend": "→",
-    "type": "KEYPAD",
-    "raw": 94
-  },
-  {
-    "qmk": "KC_KP_7",
-    "alt": "KC_P7",
-    "legend": "7",
-    "altLegend": "Home",
-    "type": "KEYPAD",
-    "raw": 95
-  },
-  {
-    "qmk": "KC_KP_8",
-    "alt": "KC_P8",
-    "legend": "8",
-    "altLegend": "↑",
-    "type": "KEYPAD",
-    "raw": 96
-  },
-  {
-    "qmk": "KC_KP_9",
-    "alt": "KC_P9",
-    "legend": "9",
-    "altLegend": "PgUp",
-    "type": "KEYPAD",
-    "raw": 97
-  },
-  {
-    "qmk": "KC_KP_0",
-    "alt": "KC_P0",
-    "legend": "0",
-    "altLegend": "Ins",
-    "type": "KEYPAD",
-    "raw": 98
-  },
-  {
-    "qmk": "KC_KP_DOT",
-    "alt": "KC_PDOT",
-    "legend": ".",
-    "altLegend": "Del",
-    "type": "KEYPAD",
-    "raw": 99
-  },
-  {
-    "qmk": "KC_KP_EQUAL",
-    "alt": "KC_PEQL",
-    "legend": "=",
-    "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 103
-  },
-  {
-    "qmk": "KC_KP_COMMA",
-    "alt": "KC_PCMM",
-    "legend": ",",
-    "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 133
-  },
-  {
-    "qmk": "KC_KP_EQUAL_AS400",
+    "qmk": "KC_RALT",
     "alt": "",
-    "legend": "= AS400",
+    "legend": "Alt",
     "altLegend": "",
-    "type": "KEYPAD",
-    "raw": 134
+    "type": "",
+    "raw": 230
   },
   {
-    "qmk": "KC_NO",
-    "alt": "KC_NO",
-    "legend": "",
+    "qmk": "KC_RGUI",
+    "alt": "",
+    "legend": "GUI",
     "altLegend": "",
-    "type": "QMK",
-    "raw": 0
+    "type": "",
+    "raw": 231
   },
   {
-    "qmk": "KC_TRANSPARENT",
-    "alt": "KC_TRNS",
-    "legend": "▽",
+    "qmk": "KC_MS_UP",
+    "alt": "KC_MS_U",
+    "legend": "Up",
     "altLegend": "",
-    "type": "QMK",
-    "raw": 1
+    "type": "MOUSE",
+    "raw": 231
+  },
+  {
+    "qmk": "KC_MS_DOWN",
+    "alt": "KC_MS_D",
+    "legend": "Down",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 232
+  },
+  {
+    "qmk": "KC_MS_LEFT",
+    "alt": "KC_MS_L",
+    "legend": "L",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 233
+  },
+  {
+    "qmk": "KC_MS_RIGHT",
+    "alt": "KC_MS_R",
+    "legend": "R",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 234
+  },
+  {
+    "qmk": "KC_MS_BTN1",
+    "alt": "KC_BTN1",
+    "legend": "Btn1",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 235
+  },
+  {
+    "qmk": "KC_MS_BTN2",
+    "alt": "KC_BTN2",
+    "legend": "Btn2",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 236
+  },
+  {
+    "qmk": "KC_MS_BTN3",
+    "alt": "KC_BTN3",
+    "legend": "Btn3",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 237
+  },
+  {
+    "qmk": "KC_MS_BTN4",
+    "alt": "KC_BTN4",
+    "legend": "Btn4",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 238
+  },
+  {
+    "qmk": "KC_MS_BTN5",
+    "alt": "KC_BTN5",
+    "legend": "Btn5",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 239
+  },
+  {
+    "qmk": "KC_MS_WH_UP",
+    "alt": "KC_WH_U",
+    "legend": "WH Up",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 240
+  },
+  {
+    "qmk": "KC_MS_WH_DOWN",
+    "alt": "KC_WH_D",
+    "legend": "WH Down",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 241
+  },
+  {
+    "qmk": "KC_MS_WH_LEFT",
+    "alt": "KC_WH_L",
+    "legend": "WH L",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 242
+  },
+  {
+    "qmk": "KC_MS_WH_RIGHT",
+    "alt": "KC_WH_R",
+    "legend": "WH R",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 243
+  },
+  {
+    "qmk": "KC_MS_ACCEL0",
+    "alt": "KC_ACL0",
+    "legend": "Acc0",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 244
+  },
+  {
+    "qmk": "KC_MS_ACCEL1",
+    "alt": "KC_ACL1",
+    "legend": "Acc1",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 245
+  },
+  {
+    "qmk": "KC_MS_ACCEL2",
+    "alt": "KC_ACL2",
+    "legend": "Acc2",
+    "altLegend": "",
+    "type": "MOUSE",
+    "raw": 246
   },
   {
     "qmk": "RESET",
@@ -1592,12 +1720,172 @@
     "raw": 23553
   },
   {
-    "qmk": "EEPROM_RESET",
-    "alt": "EEP_RST",
-    "legend": "ROM RESET",
+    "qmk": "MAGIC_SWAP_CONTROL_CAPSLOCK",
+    "alt": "CL_SWAP",
+    "legend": "CL Swap",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23631
+    "raw": 23554
+  },
+  {
+    "qmk": "MAGIC_CAPSLOCK_TO_CONTROL",
+    "alt": "CL_CTRL",
+    "legend": "CL Ctrl",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23555
+  },
+  {
+    "qmk": "MAGIC_SWAP_LALT_LGUI",
+    "alt": "LAG_SWP",
+    "legend": "LAG Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23556
+  },
+  {
+    "qmk": "MAGIC_SWAP_RALT_RGUI",
+    "alt": "RAG_SWP",
+    "legend": "RAG Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23557
+  },
+  {
+    "qmk": "MAGIC_NO_GUI",
+    "alt": "GUI_OFF",
+    "legend": "No GUI",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23558
+  },
+  {
+    "qmk": "MAGIC_SWAP_GRAVE_ESC",
+    "alt": "GE_SWAP",
+    "legend": "GE Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23559
+  },
+  {
+    "qmk": "MAGIC_SWAP_BACKSLASH_BACKSPACE",
+    "alt": "BS_SWAP",
+    "legend": "BS Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23560
+  },
+  {
+    "qmk": "MAGIC_HOST_NKRO",
+    "alt": "NK_ON",
+    "legend": "NKRO ON",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23561
+  },
+  {
+    "qmk": "MAGIC_SWAP_ALT_GUI",
+    "alt": "AG_SWAP",
+    "legend": "AG Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23562
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_CONTROL_CAPSLOCK",
+    "alt": "CL_NORM",
+    "legend": "CL Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23563
+  },
+  {
+    "qmk": "MAGIC_UNCAPSLOCK_TO_CONTROL",
+    "alt": "CL_CAPS",
+    "legend": "CL Caps",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23564
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_LALT_LGUI",
+    "alt": "LAG_NRM",
+    "legend": "LAG Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23565
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_RALT_RGUI",
+    "alt": "RAG_NRM",
+    "legend": "RAG Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23566
+  },
+  {
+    "qmk": "MAGIC_UNNO_GUI",
+    "alt": "GUI_ON",
+    "legend": "GUI On",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23567
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_GRAVE_ESC",
+    "alt": "GE_NORM",
+    "legend": "GE Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23568
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_BACKSLASH_BACKSPACE",
+    "alt": "BS_NORM",
+    "legend": "BS Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23569
+  },
+  {
+    "qmk": "MAGIC_UNHOST_NKRO",
+    "alt": "NK_OFF",
+    "legend": "NKRO Off",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23570
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_ALT_GUI",
+    "alt": "AG_NORM",
+    "legend": "AG Normal",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23571
+  },
+  {
+    "qmk": "MAGIC_TOGGLE_NKRO",
+    "alt": "NK_TOGG",
+    "legend": "NKRO Toggle",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23572
+  },
+  {
+    "qmk": "MAGIC_TOGGLE_ALT_GUI",
+    "alt": "AG_TOGG",
+    "legend": "AG Toggle",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23573
+  },
+  {
+    "qmk": "GRAVE_ESC",
+    "alt": "KC_GESC",
+    "legend": "ESC `",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23574
   },
   {
     "qmk": "AU_ON",
@@ -1658,7 +1946,7 @@
   {
     "qmk": "MU_ON",
     "alt": "",
-    "legend": "",
+    "legend": "Music On",
     "altLegend": "",
     "type": "QMK",
     "raw": 23590
@@ -1666,7 +1954,7 @@
   {
     "qmk": "MU_OFF",
     "alt": "",
-    "legend": "",
+    "legend": "Music Off",
     "altLegend": "",
     "type": "QMK",
     "raw": 23591
@@ -1674,7 +1962,7 @@
   {
     "qmk": "MU_TOG",
     "alt": "",
-    "legend": "",
+    "legend": "Music Toggle",
     "altLegend": "",
     "type": "QMK",
     "raw": 23592
@@ -1682,31 +1970,15 @@
   {
     "qmk": "MU_MOD",
     "alt": "",
-    "legend": "",
+    "legend": "Music Mode",
     "altLegend": "",
     "type": "QMK",
     "raw": 23593
   },
   {
-    "qmk": "BL_TOGG",
-    "alt": "",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23600
-  },
-  {
-    "qmk": "BL_STEP",
-    "alt": "",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23601
-  },
-  {
     "qmk": "BL_ON",
     "alt": "",
-    "legend": "",
+    "legend": "BL On",
     "altLegend": "",
     "type": "QMK",
     "raw": 23596
@@ -1714,447 +1986,55 @@
   {
     "qmk": "BL_OFF",
     "alt": "",
-    "legend": "",
+    "legend": "BL Off",
     "altLegend": "",
     "type": "QMK",
     "raw": 23597
   },
   {
-    "qmk": "BL_INC",
-    "alt": "",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23599
-  },
-  {
     "qmk": "BL_DEC",
     "alt": "",
-    "legend": "",
+    "legend": "BL Dec",
     "altLegend": "",
     "type": "QMK",
     "raw": 23598
   },
   {
+    "qmk": "BL_INC",
+    "alt": "",
+    "legend": "BL Inc",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23599
+  },
+  {
+    "qmk": "BL_TOGG",
+    "alt": "",
+    "legend": "BL Toggle",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23600
+  },
+  {
+    "qmk": "BL_STEP",
+    "alt": "",
+    "legend": "BL Step",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23601
+  },
+  {
     "qmk": "BL_BRTG",
     "alt": "",
-    "legend": "",
+    "legend": "BL breath",
     "altLegend": "",
     "type": "QMK",
     "raw": 23602
   },
   {
-    "qmk": "MAGIC_SWAP_CONTROL_CAPSLOCK",
-    "alt": "CL_SWAP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23554
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_CONTROL_CAPSLOCK",
-    "alt": "CL_NORM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23563
-  },
-  {
-    "qmk": "MAGIC_CAPSLOCK_TO_CONTROL",
-    "alt": "CL_CTRL",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23555
-  },
-  {
-    "qmk": "MAGIC_UNCAPSLOCK_TO_CONTROL",
-    "alt": "CL_CAPS",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23564
-  },
-  {
-    "qmk": "MAGIC_SWAP_LCTL_LGUI",
-    "alt": "LCG_SWP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23659
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_LCTL_LGUI",
-    "alt": "LCG_NRM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23661
-  },
-  {
-    "qmk": "MAGIC_SWAP_RCTL_RGUI",
-    "alt": "RCG_SWP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23660
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_RCTL_RGUI",
-    "alt": "RCG_NRM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23662
-  },
-  {
-    "qmk": "MAGIC_SWAP_CTL_GUI",
-    "alt": "CG_SWAP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23663
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_CTL_GUI",
-    "alt": "CG_NORM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23664
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_CTL_GUI",
-    "alt": "CG_TOGG",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23665
-  },
-  {
-    "qmk": "MAGIC_SWAP_LALT_LGUI",
-    "alt": "LAG_SWP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23556
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_LALT_LGUI",
-    "alt": "LAG_NRM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23565
-  },
-  {
-    "qmk": "MAGIC_SWAP_RALT_RGUI",
-    "alt": "RAG_SWP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23557
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_RALT_RGUI",
-    "alt": "RAG_NRM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23566
-  },
-  {
-    "qmk": "MAGIC_SWAP_ALT_GUI",
-    "alt": "AG_SWAP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23562
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_ALT_GUI",
-    "alt": "AG_NORM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23571
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_ALT_GUI",
-    "alt": "AG_TOGG",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23573
-  },
-  {
-    "qmk": "MAGIC_NO_GUI",
-    "alt": "GUI_OFF",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23558
-  },
-  {
-    "qmk": "MAGIC_UNNO_GUI",
-    "alt": "GUI_ON",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23567
-  },
-  {
-    "qmk": "MAGIC_SWAP_GRAVE_ESC",
-    "alt": "GE_SWAP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23559
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_GRAVE_ESC",
-    "alt": "GE_NORM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23568
-  },
-  {
-    "qmk": "MAGIC_SWAP_BACKSLASH_BACKSPACE",
-    "alt": "BS_SWAP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23560
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_BACKSLASH_BACKSPACE",
-    "alt": "BS_NORM",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23569
-  },
-  {
-    "qmk": "MAGIC_HOST_NKRO",
-    "alt": "NK_ON",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23561
-  },
-  {
-    "qmk": "MAGIC_UNHOST_NKRO",
-    "alt": "NK_OFF",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23570
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_NKRO",
-    "alt": "NK_TOGG",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23572
-  },
-  {
-    "qmk": "MAGIC_EE_HANDS_LEFT",
-    "alt": "EH_LEFT",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23666
-  },
-  {
-    "qmk": "MAGIC_EE_HANDS_RIGHT",
-    "alt": "EH_RGHT",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23667
-  },
-  {
-    "qmk": "DYN_REC_START1",
-    "alt": "DM_REC1",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23668
-  },
-  {
-    "qmk": "DYN_REC_START2",
-    "alt": "DM_REC2",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23669
-  },
-  {
-    "qmk": "DYN_MACRO_PLAY1",
-    "alt": "DM_PLY1",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23671
-  },
-  {
-    "qmk": "DYN_MACRO_PLAY2",
-    "alt": "DM_PLY2",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23672
-  },
-  {
-    "qmk": "DYN_REC_STOP",
-    "alt": "DM_RSTP",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23670
-  },
-  {
-    "qmk": "GRAVE_ESC",
-    "alt": "KC_GESC",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23574
-  },
-  {
-    "qmk": "KC_MS_UP",
-    "alt": "KC_MS_U",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 231
-  },
-  {
-    "qmk": "KC_MS_DOWN",
-    "alt": "KC_MS_D",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 232
-  },
-  {
-    "qmk": "KC_MS_LEFT",
-    "alt": "KC_MS_L",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 233
-  },
-  {
-    "qmk": "KC_MS_RIGHT",
-    "alt": "KC_MS_R",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 234
-  },
-  {
-    "qmk": "KC_MS_BTN1",
-    "alt": "KC_BTN1",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 235
-  },
-  {
-    "qmk": "KC_MS_BTN2",
-    "alt": "KC_BTN2",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 236
-  },
-  {
-    "qmk": "KC_MS_BTN3",
-    "alt": "KC_BTN3",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 237
-  },
-  {
-    "qmk": "KC_MS_BTN4",
-    "alt": "KC_BTN4",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 238
-  },
-  {
-    "qmk": "KC_MS_BTN5",
-    "alt": "KC_BTN5",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 239
-  },
-  {
-    "qmk": "KC_MS_WH_UP",
-    "alt": "KC_WH_U",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 240
-  },
-  {
-    "qmk": "KC_MS_WH_DOWN",
-    "alt": "KC_WH_D",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 241
-  },
-  {
-    "qmk": "KC_MS_WH_LEFT",
-    "alt": "KC_WH_L",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 242
-  },
-  {
-    "qmk": "KC_MS_WH_RIGHT",
-    "alt": "KC_WH_R",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 243
-  },
-  {
-    "qmk": "KC_MS_ACCEL0",
-    "alt": "KC_ACL0",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 244
-  },
-  {
-    "qmk": "KC_MS_ACCEL1",
-    "alt": "KC_ACL1",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 245
-  },
-  {
-    "qmk": "KC_MS_ACCEL2",
-    "alt": "KC_ACL2",
-    "legend": "",
-    "altLegend": "",
-    "type": "MOUSE",
-    "raw": 246
-  },
-  {
     "qmk": "RGB_TOG",
     "alt": "",
-    "legend": "",
+    "legend": "Toggle",
     "altLegend": "",
     "type": "LED",
     "raw": 23603
@@ -2162,7 +2042,7 @@
   {
     "qmk": "RGB_MODE_FORWARD",
     "alt": "RGB_MOD",
-    "legend": "",
+    "legend": "MODE FW",
     "altLegend": "",
     "type": "LED",
     "raw": 23604
@@ -2170,7 +2050,7 @@
   {
     "qmk": "RGB_MODE_REVERSE",
     "alt": "RGB_RMOD",
-    "legend": "",
+    "legend": "MODE RE",
     "altLegend": "",
     "type": "LED",
     "raw": 23605
@@ -2178,7 +2058,7 @@
   {
     "qmk": "RGB_HUI",
     "alt": "",
-    "legend": "",
+    "legend": "HUI",
     "altLegend": "",
     "type": "LED",
     "raw": 23606
@@ -2186,7 +2066,7 @@
   {
     "qmk": "RGB_HUD",
     "alt": "",
-    "legend": "",
+    "legend": "HUD",
     "altLegend": "",
     "type": "LED",
     "raw": 23607
@@ -2194,7 +2074,7 @@
   {
     "qmk": "RGB_SAI",
     "alt": "",
-    "legend": "",
+    "legend": "SAI",
     "altLegend": "",
     "type": "LED",
     "raw": 23608
@@ -2202,7 +2082,7 @@
   {
     "qmk": "RGB_SAD",
     "alt": "",
-    "legend": "",
+    "legend": "SAD",
     "altLegend": "",
     "type": "LED",
     "raw": 23609
@@ -2210,7 +2090,7 @@
   {
     "qmk": "RGB_VAI",
     "alt": "",
-    "legend": "",
+    "legend": "VAI",
     "altLegend": "",
     "type": "LED",
     "raw": 23610
@@ -2218,7 +2098,7 @@
   {
     "qmk": "RGB_VAD",
     "alt": "",
-    "legend": "",
+    "legend": "VAD",
     "altLegend": "",
     "type": "LED",
     "raw": 23611
@@ -2226,7 +2106,7 @@
   {
     "qmk": "RGB_MODE_PLAIN",
     "alt": "RGB_M_P",
-    "legend": "",
+    "legend": "Mode Plain",
     "altLegend": "",
     "type": "LED",
     "raw": 23614
@@ -2234,7 +2114,7 @@
   {
     "qmk": "RGB_MODE_BREATHE",
     "alt": "RGB_M_B",
-    "legend": "",
+    "legend": "Mode Breathe",
     "altLegend": "",
     "type": "LED",
     "raw": 23615
@@ -2242,7 +2122,7 @@
   {
     "qmk": "RGB_MODE_RAINBOW",
     "alt": "RGB_M_R",
-    "legend": "",
+    "legend": "Mode Rainbow",
     "altLegend": "",
     "type": "LED",
     "raw": 23616
@@ -2250,7 +2130,7 @@
   {
     "qmk": "RGB_MODE_SWIRL",
     "alt": "RGB_M_SW",
-    "legend": "",
+    "legend": "Mode Swirl",
     "altLegend": "",
     "type": "LED",
     "raw": 23617
@@ -2258,7 +2138,7 @@
   {
     "qmk": "RGB_MODE_SNAKE",
     "alt": "RGB_M_SN",
-    "legend": "",
+    "legend": "Mode Snake",
     "altLegend": "",
     "type": "LED",
     "raw": 23618
@@ -2266,7 +2146,7 @@
   {
     "qmk": "RGB_MODE_KNIGHT",
     "alt": "RGB_M_K",
-    "legend": "",
+    "legend": "Mode knight",
     "altLegend": "",
     "type": "LED",
     "raw": 23619
@@ -2274,7 +2154,7 @@
   {
     "qmk": "RGB_MODE_XMAS",
     "alt": "RGB_M_X",
-    "legend": "",
+    "legend": "Mode Xmas",
     "altLegend": "",
     "type": "LED",
     "raw": 23620
@@ -2282,7 +2162,7 @@
   {
     "qmk": "RGB_MODE_GRADIENT",
     "alt": "RGB_M_G",
-    "legend": "",
+    "legend": "Mode Grad",
     "altLegend": "",
     "type": "LED",
     "raw": 23621
@@ -2290,31 +2170,15 @@
   {
     "qmk": "RGB_MODE_RGBTEST",
     "alt": "RGB_M_T",
-    "legend": "",
+    "legend": "Mode Test",
     "altLegend": "",
     "type": "LED",
     "raw": 23622
   },
   {
-    "qmk": "KC_LCPO",
-    "alt": "",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23652
-  },
-  {
-    "qmk": "KC_RCPC",
-    "alt": "",
-    "legend": "",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23653
-  },
-  {
     "qmk": "KC_LSPO",
     "alt": "",
-    "legend": "",
+    "legend": "LShift (",
     "altLegend": "",
     "type": "QMK",
     "raw": 23624
@@ -2322,15 +2186,47 @@
   {
     "qmk": "KC_RSPC",
     "alt": "",
-    "legend": "",
+    "legend": "RShift )",
     "altLegend": "",
     "type": "QMK",
     "raw": 23625
   },
   {
+    "qmk": "KC_SFTENT",
+    "alt": "",
+    "legend": "RShift Enter",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23626
+  },
+  {
+    "qmk": "EEPROM_RESET",
+    "alt": "EEP_RST",
+    "legend": "ROM RESET",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23631
+  },
+  {
+    "qmk": "KC_LCPO",
+    "alt": "",
+    "legend": "LCtrl (",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23652
+  },
+  {
+    "qmk": "KC_RCPC",
+    "alt": "",
+    "legend": "RCtrl )",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23653
+  },
+  {
     "qmk": "KC_LAPO",
     "alt": "",
-    "legend": "",
+    "legend": "LAlt  (",
     "altLegend": "",
     "type": "QMK",
     "raw": 23654
@@ -2338,17 +2234,121 @@
   {
     "qmk": "KC_RAPC",
     "alt": "",
-    "legend": "",
+    "legend": "RAlt )",
     "altLegend": "",
     "type": "QMK",
     "raw": 23655
   },
   {
-    "qmk": "KC_SFTENT",
-    "alt": "",
-    "legend": "",
+    "qmk": "MAGIC_SWAP_LCTL_LGUI",
+    "alt": "LCG_SWP",
+    "legend": "LCG Swap",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23626
+    "raw": 23659
+  },
+  {
+    "qmk": "MAGIC_SWAP_RCTL_RGUI",
+    "alt": "RCG_SWP",
+    "legend": "RCG Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23660
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_LCTL_LGUI",
+    "alt": "LCG_NRM",
+    "legend": "LCG Norm",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23661
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_RCTL_RGUI",
+    "alt": "RCG_NRM",
+    "legend": "RCG Norm",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23662
+  },
+  {
+    "qmk": "MAGIC_SWAP_CTL_GUI",
+    "alt": "CG_SWAP",
+    "legend": "CG Swap",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23663
+  },
+  {
+    "qmk": "MAGIC_UNSWAP_CTL_GUI",
+    "alt": "CG_NORM",
+    "legend": "CG Norm",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23664
+  },
+  {
+    "qmk": "MAGIC_TOGGLE_CTL_GUI",
+    "alt": "CG_TOGG",
+    "legend": "CG Tog",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23665
+  },
+  {
+    "qmk": "MAGIC_EE_HANDS_LEFT",
+    "alt": "EH_LEFT",
+    "legend": "HAND L",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23666
+  },
+  {
+    "qmk": "MAGIC_EE_HANDS_RIGHT",
+    "alt": "EH_RGHT",
+    "legend": "HAND R",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23667
+  },
+  {
+    "qmk": "DYN_REC_START1",
+    "alt": "DM_REC1",
+    "legend": "DM Rec1",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23668
+  },
+  {
+    "qmk": "DYN_REC_START2",
+    "alt": "DM_REC2",
+    "legend": "DM Rec2",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23669
+  },
+  {
+    "qmk": "DYN_REC_STOP",
+    "alt": "DM_RSTP",
+    "legend": "DM Stop",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23670
+  },
+  {
+    "qmk": "DYN_MACRO_PLAY1",
+    "alt": "DM_PLY1",
+    "legend": "DM Play1",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23671
+  },
+  {
+    "qmk": "DYN_MACRO_PLAY2",
+    "alt": "DM_PLY2",
+    "legend": "DM Play2",
+    "altLegend": "",
+    "type": "QMK",
+    "raw": 23672
   }
 ]

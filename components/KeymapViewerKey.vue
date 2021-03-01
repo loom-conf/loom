@@ -43,6 +43,7 @@ import { useKeySettingModal } from '@/stores/useKeySettingModal'
 
 import UnknownKey from '@/components/keys/UnknownKey.vue'
 import BasicKey from '@/components/keys/BasicKey.vue'
+import SpecialKey from '@/components/keys/SpecialKey.vue'
 import FunctionKey from '@/components/keys/FunctionKey.vue'
 import MacroKey from '@/components/keys/MacroKey.vue'
 import LayerTapKey from '@/components/keys/LayerTapKey.vue'
@@ -106,6 +107,8 @@ export default defineComponent({
       switch (_props.keycode?.kind) {
         case 'BASIC':
           return BasicKey
+        case 'SPECIAL':
+          return SpecialKey
         case 'FUNCTION':
           return FunctionKey
         case 'MACRO':

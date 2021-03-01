@@ -29,6 +29,13 @@ export interface BasicKeycode {
   mods: ModKey[]
 }
 
+export interface SpecialKeycode {
+  kind: 'SPECIAL'
+  qmk: string
+  raw: number
+  base: QmkKeycode
+}
+
 export interface FunctionKeycode {
   kind: 'FUNCTION'
   qmk: string
@@ -126,6 +133,7 @@ export interface ModTapKeycode {
 type KeycodeKind =
   | 'UNKNOWN'
   | 'BASIC'
+  | 'SPECIAL'
   | 'ACTION'
   | 'MACRO'
   | 'LAYER_TAP'
@@ -143,6 +151,7 @@ type KeycodeKind =
 export type KeycodeTypes =
   | UnknownKeycode
   | BasicKeycode
+  | SpecialKeycode
   | FunctionKeycode
   | MacroKeycode
   | LayerTapKeycode
