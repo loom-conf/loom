@@ -47,6 +47,11 @@ const config: NuxtConfig = {
         property: 'og:image',
         content: 'https://loom-conf.github.io/ogp.png',
       },
+      {
+        hid: 'twitter:card',
+        property: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
