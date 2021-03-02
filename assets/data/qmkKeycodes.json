@@ -1720,166 +1720,6 @@
     "raw": 23553
   },
   {
-    "qmk": "MAGIC_SWAP_CONTROL_CAPSLOCK",
-    "alt": "CL_SWAP",
-    "legend": "CL Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23554
-  },
-  {
-    "qmk": "MAGIC_CAPSLOCK_TO_CONTROL",
-    "alt": "CL_CTRL",
-    "legend": "CL Ctrl",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23555
-  },
-  {
-    "qmk": "MAGIC_SWAP_LALT_LGUI",
-    "alt": "LAG_SWP",
-    "legend": "LAG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23556
-  },
-  {
-    "qmk": "MAGIC_SWAP_RALT_RGUI",
-    "alt": "RAG_SWP",
-    "legend": "RAG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23557
-  },
-  {
-    "qmk": "MAGIC_NO_GUI",
-    "alt": "GUI_OFF",
-    "legend": "No GUI",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23558
-  },
-  {
-    "qmk": "MAGIC_SWAP_GRAVE_ESC",
-    "alt": "GE_SWAP",
-    "legend": "GE Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23559
-  },
-  {
-    "qmk": "MAGIC_SWAP_BACKSLASH_BACKSPACE",
-    "alt": "BS_SWAP",
-    "legend": "BS Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23560
-  },
-  {
-    "qmk": "MAGIC_HOST_NKRO",
-    "alt": "NK_ON",
-    "legend": "NKRO ON",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23561
-  },
-  {
-    "qmk": "MAGIC_SWAP_ALT_GUI",
-    "alt": "AG_SWAP",
-    "legend": "AG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23562
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_CONTROL_CAPSLOCK",
-    "alt": "CL_NORM",
-    "legend": "CL Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23563
-  },
-  {
-    "qmk": "MAGIC_UNCAPSLOCK_TO_CONTROL",
-    "alt": "CL_CAPS",
-    "legend": "CL Caps",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23564
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_LALT_LGUI",
-    "alt": "LAG_NRM",
-    "legend": "LAG Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23565
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_RALT_RGUI",
-    "alt": "RAG_NRM",
-    "legend": "RAG Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23566
-  },
-  {
-    "qmk": "MAGIC_UNNO_GUI",
-    "alt": "GUI_ON",
-    "legend": "GUI On",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23567
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_GRAVE_ESC",
-    "alt": "GE_NORM",
-    "legend": "GE Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23568
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_BACKSLASH_BACKSPACE",
-    "alt": "BS_NORM",
-    "legend": "BS Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23569
-  },
-  {
-    "qmk": "MAGIC_UNHOST_NKRO",
-    "alt": "NK_OFF",
-    "legend": "NKRO Off",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23570
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_ALT_GUI",
-    "alt": "AG_NORM",
-    "legend": "AG Normal",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23571
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_NKRO",
-    "alt": "NK_TOGG",
-    "legend": "NKRO Toggle",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23572
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_ALT_GUI",
-    "alt": "AG_TOGG",
-    "legend": "AG Toggle",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23573
-  },
-  {
     "qmk": "GRAVE_ESC",
     "alt": "KC_GESC",
     "legend": "ESC `",
@@ -1888,100 +1728,12 @@
     "raw": 23574
   },
   {
-    "qmk": "AU_ON",
-    "alt": "",
-    "legend": "Audio On",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23581
-  },
-  {
-    "qmk": "AU_OFF",
-    "alt": "",
-    "legend": "Audio Off",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23582
-  },
-  {
-    "qmk": "AU_TOG",
-    "alt": "",
-    "legend": "Audio Toggle",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23583
-  },
-  {
-    "qmk": "CLICKY_TOGGLE",
-    "alt": "CK_TOGG",
-    "legend": "Clicky Toggle",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23584
-  },
-  {
-    "qmk": "CLICKY_UP",
-    "alt": "CK_UP",
-    "legend": "Clicky Up",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23587
-  },
-  {
-    "qmk": "CLICKY_DOWN",
-    "alt": "CK_DOWN",
-    "legend": "Clicky Down",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23588
-  },
-  {
-    "qmk": "CLICKY_RESET",
-    "alt": "CK_RST",
-    "legend": "Clicky Reset",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23589
-  },
-  {
-    "qmk": "MU_ON",
-    "alt": "",
-    "legend": "Music On",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23590
-  },
-  {
-    "qmk": "MU_OFF",
-    "alt": "",
-    "legend": "Music Off",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23591
-  },
-  {
-    "qmk": "MU_TOG",
-    "alt": "",
-    "legend": "Music Toggle",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23592
-  },
-  {
-    "qmk": "MU_MOD",
-    "alt": "",
-    "legend": "Music Mode",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23593
-  },
-  {
     "qmk": "BL_ON",
     "alt": "",
     "legend": "BL On",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23596
+    "raw": 23739
   },
   {
     "qmk": "BL_OFF",
@@ -1989,7 +1741,7 @@
     "legend": "BL Off",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23597
+    "raw": 23740
   },
   {
     "qmk": "BL_DEC",
@@ -1997,7 +1749,7 @@
     "legend": "BL Dec",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23598
+    "raw": 23741
   },
   {
     "qmk": "BL_INC",
@@ -2005,7 +1757,7 @@
     "legend": "BL Inc",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23599
+    "raw": 23742
   },
   {
     "qmk": "BL_TOGG",
@@ -2013,7 +1765,7 @@
     "legend": "BL Toggle",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23600
+    "raw": 23743
   },
   {
     "qmk": "BL_STEP",
@@ -2021,7 +1773,7 @@
     "legend": "BL Step",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23601
+    "raw": 23744
   },
   {
     "qmk": "BL_BRTG",
@@ -2029,7 +1781,7 @@
     "legend": "BL breath",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23602
+    "raw": 23745
   },
   {
     "qmk": "RGB_TOG",
@@ -2037,7 +1789,7 @@
     "legend": "Toggle",
     "altLegend": "",
     "type": "LED",
-    "raw": 23603
+    "raw": 23746
   },
   {
     "qmk": "RGB_MODE_FORWARD",
@@ -2045,7 +1797,7 @@
     "legend": "MODE FW",
     "altLegend": "",
     "type": "LED",
-    "raw": 23604
+    "raw": 23747
   },
   {
     "qmk": "RGB_MODE_REVERSE",
@@ -2053,7 +1805,7 @@
     "legend": "MODE RE",
     "altLegend": "",
     "type": "LED",
-    "raw": 23605
+    "raw": 23748
   },
   {
     "qmk": "RGB_HUI",
@@ -2061,7 +1813,7 @@
     "legend": "HUI",
     "altLegend": "",
     "type": "LED",
-    "raw": 23606
+    "raw": 23749
   },
   {
     "qmk": "RGB_HUD",
@@ -2069,7 +1821,7 @@
     "legend": "HUD",
     "altLegend": "",
     "type": "LED",
-    "raw": 23607
+    "raw": 23750
   },
   {
     "qmk": "RGB_SAI",
@@ -2077,7 +1829,7 @@
     "legend": "SAI",
     "altLegend": "",
     "type": "LED",
-    "raw": 23608
+    "raw": 23751
   },
   {
     "qmk": "RGB_SAD",
@@ -2085,7 +1837,7 @@
     "legend": "SAD",
     "altLegend": "",
     "type": "LED",
-    "raw": 23609
+    "raw": 23752
   },
   {
     "qmk": "RGB_VAI",
@@ -2093,7 +1845,7 @@
     "legend": "VAI",
     "altLegend": "",
     "type": "LED",
-    "raw": 23610
+    "raw": 23753
   },
   {
     "qmk": "RGB_VAD",
@@ -2101,7 +1853,23 @@
     "legend": "VAD",
     "altLegend": "",
     "type": "LED",
-    "raw": 23611
+    "raw": 23754
+  },
+  {
+    "qmk": "RGB_SPI",
+    "alt": "",
+    "legend": "SPI",
+    "altLegend": "",
+    "type": "LED",
+    "raw": 23755
+  },
+  {
+    "qmk": "RGB_SPD",
+    "alt": "",
+    "legend": "SPD",
+    "altLegend": "",
+    "type": "LED",
+    "raw": 23756
   },
   {
     "qmk": "RGB_MODE_PLAIN",
@@ -2109,7 +1877,7 @@
     "legend": "Mode Plain",
     "altLegend": "",
     "type": "LED",
-    "raw": 23614
+    "raw": 23757
   },
   {
     "qmk": "RGB_MODE_BREATHE",
@@ -2117,7 +1885,7 @@
     "legend": "Mode Breathe",
     "altLegend": "",
     "type": "LED",
-    "raw": 23615
+    "raw": 23758
   },
   {
     "qmk": "RGB_MODE_RAINBOW",
@@ -2125,7 +1893,7 @@
     "legend": "Mode Rainbow",
     "altLegend": "",
     "type": "LED",
-    "raw": 23616
+    "raw": 23759
   },
   {
     "qmk": "RGB_MODE_SWIRL",
@@ -2133,7 +1901,7 @@
     "legend": "Mode Swirl",
     "altLegend": "",
     "type": "LED",
-    "raw": 23617
+    "raw": 23760
   },
   {
     "qmk": "RGB_MODE_SNAKE",
@@ -2141,7 +1909,7 @@
     "legend": "Mode Snake",
     "altLegend": "",
     "type": "LED",
-    "raw": 23618
+    "raw": 23761
   },
   {
     "qmk": "RGB_MODE_KNIGHT",
@@ -2149,7 +1917,7 @@
     "legend": "Mode knight",
     "altLegend": "",
     "type": "LED",
-    "raw": 23619
+    "raw": 23762
   },
   {
     "qmk": "RGB_MODE_XMAS",
@@ -2157,7 +1925,7 @@
     "legend": "Mode Xmas",
     "altLegend": "",
     "type": "LED",
-    "raw": 23620
+    "raw": 23763
   },
   {
     "qmk": "RGB_MODE_GRADIENT",
@@ -2165,7 +1933,7 @@
     "legend": "Mode Grad",
     "altLegend": "",
     "type": "LED",
-    "raw": 23621
+    "raw": 23764
   },
   {
     "qmk": "RGB_MODE_RGBTEST",
@@ -2173,7 +1941,7 @@
     "legend": "Mode Test",
     "altLegend": "",
     "type": "LED",
-    "raw": 23622
+    "raw": 23765
   },
   {
     "qmk": "KC_LSPO",
@@ -2181,7 +1949,7 @@
     "legend": "LShift (",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23624
+    "raw": 23767
   },
   {
     "qmk": "KC_RSPC",
@@ -2189,7 +1957,7 @@
     "legend": "RShift )",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23625
+    "raw": 23768
   },
   {
     "qmk": "KC_SFTENT",
@@ -2197,15 +1965,7 @@
     "legend": "RShift Enter",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23626
-  },
-  {
-    "qmk": "EEPROM_RESET",
-    "alt": "EEP_RST",
-    "legend": "ROM RESET",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23631
+    "raw": 23769
   },
   {
     "qmk": "KC_LCPO",
@@ -2213,7 +1973,7 @@
     "legend": "LCtrl (",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23652
+    "raw": 23795
   },
   {
     "qmk": "KC_RCPC",
@@ -2221,7 +1981,7 @@
     "legend": "RCtrl )",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23653
+    "raw": 23796
   },
   {
     "qmk": "KC_LAPO",
@@ -2229,7 +1989,7 @@
     "legend": "LAlt  (",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23654
+    "raw": 23797
   },
   {
     "qmk": "KC_RAPC",
@@ -2237,118 +1997,6 @@
     "legend": "RAlt )",
     "altLegend": "",
     "type": "QMK",
-    "raw": 23655
-  },
-  {
-    "qmk": "MAGIC_SWAP_LCTL_LGUI",
-    "alt": "LCG_SWP",
-    "legend": "LCG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23659
-  },
-  {
-    "qmk": "MAGIC_SWAP_RCTL_RGUI",
-    "alt": "RCG_SWP",
-    "legend": "RCG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23660
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_LCTL_LGUI",
-    "alt": "LCG_NRM",
-    "legend": "LCG Norm",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23661
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_RCTL_RGUI",
-    "alt": "RCG_NRM",
-    "legend": "RCG Norm",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23662
-  },
-  {
-    "qmk": "MAGIC_SWAP_CTL_GUI",
-    "alt": "CG_SWAP",
-    "legend": "CG Swap",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23663
-  },
-  {
-    "qmk": "MAGIC_UNSWAP_CTL_GUI",
-    "alt": "CG_NORM",
-    "legend": "CG Norm",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23664
-  },
-  {
-    "qmk": "MAGIC_TOGGLE_CTL_GUI",
-    "alt": "CG_TOGG",
-    "legend": "CG Tog",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23665
-  },
-  {
-    "qmk": "MAGIC_EE_HANDS_LEFT",
-    "alt": "EH_LEFT",
-    "legend": "HAND L",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23666
-  },
-  {
-    "qmk": "MAGIC_EE_HANDS_RIGHT",
-    "alt": "EH_RGHT",
-    "legend": "HAND R",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23667
-  },
-  {
-    "qmk": "DYN_REC_START1",
-    "alt": "DM_REC1",
-    "legend": "DM Rec1",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23668
-  },
-  {
-    "qmk": "DYN_REC_START2",
-    "alt": "DM_REC2",
-    "legend": "DM Rec2",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23669
-  },
-  {
-    "qmk": "DYN_REC_STOP",
-    "alt": "DM_RSTP",
-    "legend": "DM Stop",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23670
-  },
-  {
-    "qmk": "DYN_MACRO_PLAY1",
-    "alt": "DM_PLY1",
-    "legend": "DM Play1",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23671
-  },
-  {
-    "qmk": "DYN_MACRO_PLAY2",
-    "alt": "DM_PLY2",
-    "legend": "DM Play2",
-    "altLegend": "",
-    "type": "QMK",
-    "raw": 23672
+    "raw": 23798
   }
 ]
