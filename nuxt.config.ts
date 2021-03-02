@@ -22,12 +22,12 @@ const config: NuxtConfig = {
         hid: 'description',
         name: 'description',
         content:
-          'LOOM Configulator is a keymap editor for keyboards made with QMK Firmware.',
+          'LOOM Configurator is a keymap editor for keyboards made with QMK Firmware.',
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'LOOM Configulator',
+        content: 'LOOM Configurator',
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -35,12 +35,12 @@ const config: NuxtConfig = {
         property: 'og:url',
         content: 'https://loom-conf.github.io/',
       },
-      { hid: 'og:title', property: 'og:title', content: 'Loom Configulator' },
+      { hid: 'og:title', property: 'og:title', content: 'Loom Configurator' },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'LOOM Configulator is a keymap editor for keyboards made with QMK Firmware.',
+          'LOOM Configurator is a keymap editor for keyboards made with QMK Firmware.',
       },
       {
         hid: 'og:image',
