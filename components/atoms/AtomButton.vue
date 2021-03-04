@@ -10,7 +10,7 @@ button {
   text-transform: uppercase;
   outline: 0;
   background: $successColor;
-  border: 1px solid $successColor;
+  border: none;
   padding: 0 1rem;
   color: $mainBgColor;
   font-size: 14px;

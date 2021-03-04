@@ -10,9 +10,6 @@
         @update-keycode="setKeycode"
       />
     </div>
-    <!-- <div
-      style="position: relative; z-index: 150; width: 100%; height: 100%"
-    ></div> -->
   </div>
 </template>
 
@@ -35,10 +32,9 @@ import { useAppSetting } from '@/stores/useAppSetting'
 import { useConsts } from '@/stores/useConsts'
 import { RectPoint } from '@/utils/rotateKey'
 import KeymapViewerKey from '@/components/KeymapViewerKey.vue'
-import KeySettingModal from '@/components/KeySettingModal.vue'
 
 export default defineComponent({
-  components: { KeymapViewerKey, KeySettingModal },
+  components: { KeymapViewerKey },
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
     const { keymap, layout, currentLayer, keyCount, setKeycode } = useKeymap()

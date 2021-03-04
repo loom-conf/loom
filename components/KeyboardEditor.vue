@@ -11,7 +11,7 @@
     <div class="bottom">
       <KeyboardEditorBottom />
     </div>
-    <KeySettingModal />
+    <KeySettingPopup />
   </div>
 </template>
 
@@ -56,14 +56,14 @@ import { provideKeySettingModal } from '@/stores/useKeySettingModal'
 import KeyboardEditorBottom from '@/components/KeyboardEditorBottom.vue'
 import InitialPane from '@/components/InitialPane.vue'
 import KeymapEditor from '@/components/KeymapEditor.vue'
-import KeySettingModal from '@/components/KeySettingModal.vue'
+import KeySettingPopup from '~/components/KeySettingPopup.vue'
 
 export default defineComponent({
   components: {
     KeyboardEditorBottom,
     InitialPane,
     KeymapEditor,
-    KeySettingModal,
+    KeySettingPopup,
   },
   props: {
     defaultJsonUrl: {

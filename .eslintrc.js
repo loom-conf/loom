@@ -13,6 +13,15 @@ module.exports = {
   ],
   plugins: ['prettier'],
   // add your custom rules here
-  rules: { 'unicorn/number-literal-case': 'off' },
+  rules: {
+    'unicorn/number-literal-case': 'off',
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: true,
+      },
+    ],
+  },
   ignorePatterns: ['configJSON.ts'],
 }
