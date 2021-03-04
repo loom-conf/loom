@@ -52,11 +52,11 @@ import {
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
 import { provideAppSetting } from '@/stores/useAppSetting'
-import { provideKeySettingModal } from '@/stores/useKeySettingModal'
+import { provideKeySettingPopup } from '@/stores/useKeySettingPopup'
 import KeyboardEditorBottom from '@/components/KeyboardEditorBottom.vue'
 import InitialPane from '@/components/InitialPane.vue'
 import KeymapEditor from '@/components/KeymapEditor.vue'
-import KeySettingPopup from '~/components/KeySettingPopup.vue'
+import KeySettingPopup from '@/components/KeySettingPopup.vue'
 
 export default defineComponent({
   components: {
@@ -79,7 +79,7 @@ export default defineComponent({
     provideAppSetting()
     provideKeyboard()
     provideKeymap()
-    provideKeySettingModal()
+    provideKeySettingPopup()
 
     const {
       loadKeyboardConfig,

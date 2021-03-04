@@ -39,7 +39,7 @@ import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { useConsts } from '@/stores/useConsts'
 import { useAppSetting } from '@/stores/useAppSetting'
-import { useKeySettingModal } from '@/stores/useKeySettingModal'
+import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 
 import UnknownKey from '@/components/keys/UnknownKey.vue'
 import BasicKey from '@/components/keys/BasicKey.vue'
@@ -73,7 +73,7 @@ export default defineComponent({
 
     const { KeyConsts, calcKeySize } = useConsts()
     const { viewerOption } = useAppSetting()
-    const { openKeySetting } = useKeySettingModal()
+    const { popupWidth, openKeySetting } = useKeySettingPopup()
 
     const width = computed(() => calcKeySize(_props.keyLayout.width))
     const height = computed(() => calcKeySize(_props.keyLayout.height))
@@ -147,15 +147,23 @@ export default defineComponent({
     const click = () => {
       const rect = keyRef.value?.getBoundingClientRect()
       if (rect) {
+        const isRight = rect.right + popupWidth < window.innerWidth
+        console.log(`${rect.left}, ${rect.right}`)
         if (_props.keycode) {
           openKeySetting(
-            { x: rect.x + rect.width, y: rect.y },
+            {
+              x: isRight ? rect.left : window.innerWidth - rect.right,
+              y: rect.bottom,
+              isRight,
+            },
             _props.keycode,
             (newKeycode) => {
               _context.emit('update-keycode', newKeycode, _props.keycodeIndex)
             }
           )
         }
+      } else {
+        console.error("KeySetting popup can't open!")
       }
     }
 

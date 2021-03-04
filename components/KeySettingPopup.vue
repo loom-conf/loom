@@ -4,7 +4,7 @@
       <SettingRawCode :raw="raw" @change="changeRawCode" />
       <AtomButton @click="doneKeySetting">OK</AtomButton>
       <AtomButton style="background-color: red" @click="doneKeySetting"
-        >CANCEL</AtomButton
+        >back</AtomButton
       >
     </div>
   </AtomModal>
@@ -14,17 +14,17 @@
 .keySetting {
   position: fixed;
   background-color: white;
+  margin-top: 4px;
   padding: 1rem;
-  margin: 5px;
   border: 1px solid $bgColor;
   border-radius: 3px;
-  box-shadow: 5px 5px rgba(black, 30%);
+  box-shadow: 5px 5px rgba(black, 0.3);
 }
 </style>
 
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
-import { useKeySettingModal } from '@/stores/useKeySettingModal'
+import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 import AtomModal from '@/components/atoms/AtomModal.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
 import SettingRawCode from '@/components/keySettings/SettingRawcode.vue'
@@ -34,18 +34,28 @@ export default defineComponent({
   props: {},
   setup(_props, _context) {
     const {
+      popupWidth,
       isOpen,
       keycode,
       position,
       closeKeySetting,
       setRawCode,
       doneKeySetting,
-    } = useKeySettingModal()
+    } = useKeySettingPopup()
 
-    const positionStyle = computed(() => ({
-      top: `${position.value?.y}px`,
-      left: `${position.value?.x}px`,
-    }))
+    const positionStyle = computed(() =>
+      position.value?.isRight
+        ? {
+            width: `${popupWidth}px`,
+            top: `${position.value?.y}px`,
+            left: `${position.value?.x}px`,
+          }
+        : {
+            width: `${popupWidth}px`,
+            top: `${position.value?.y}px`,
+            right: `${position.value?.x}px`,
+          }
+    )
 
     const raw = computed(() => keycode.value?.raw)
 

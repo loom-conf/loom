@@ -1,5 +1,4 @@
 import { InjectionKey, provide, inject, ref } from '@nuxtjs/composition-api'
-import { Point } from '@/utils/rotateKey'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { buildKeycodeFromRaw } from '@/utils/keycode'
 
@@ -7,14 +6,21 @@ interface KeySettingDoneCallback {
   (newKeycode: KeycodeTypes): void
 }
 
-export function createKeySettingModal() {
+interface KeySettingPosition {
+  x: number
+  y: number
+  isRight: boolean
+}
+
+export function createKeySettingPopup() {
+  const popupWidth = 200
   const isOpen = ref<boolean>(false)
   const keycode = ref<KeycodeTypes>()
-  const position = ref<Point>()
+  const position = ref<KeySettingPosition>()
   let callback: KeySettingDoneCallback | undefined
 
   const openKeySetting = (
-    pos: Point,
+    pos: KeySettingPosition,
     code: KeycodeTypes,
     callbackFunc: KeySettingDoneCallback
   ) => {
@@ -41,6 +47,7 @@ export function createKeySettingModal() {
   }
 
   return {
+    popupWidth,
     isOpen,
     position,
     keycode,
@@ -53,15 +60,15 @@ export function createKeySettingModal() {
 
 /* provide/inject */
 export const key: InjectionKey<
-  ReturnType<typeof createKeySettingModal>
-> = Symbol('KeySettingModal')
+  ReturnType<typeof createKeySettingPopup>
+> = Symbol('KeySettingPopup')
 
-export const provideKeySettingModal = () => {
-  provide(key, createKeySettingModal())
+export const provideKeySettingPopup = () => {
+  provide(key, createKeySettingPopup())
 }
 
-export const useKeySettingModal = () => {
+export const useKeySettingPopup = () => {
   const ret = inject(key)
-  if (ret === undefined) throw new Error('useKeySettingModal is not provided')
+  if (ret === undefined) throw new Error('useKeySettingPopup is not provided')
   else return ret
 }
