@@ -4,7 +4,7 @@
       <div class="title">
         <div class="item">
           <div class="imgContainer" @click="clickLogo">
-            <img src="@/assets/img/loom.png" width="64px" height="64px" />
+            <img src="@/assets/img/loom.png" width="72px" height="72px" />
             <div :class="logoBgClass"></div>
           </div>
         </div>
@@ -31,11 +31,12 @@ body::-webkit-scrollbar {
   height: 100vh;
   .container {
     position: absolute;
-    width: calc(#{$bottomTabWidth} - 32px * 2);
-    height: 118px;
+    width: calc(#{$bottomTabWidth} - 50px);
     background: $mainBgColor;
-    border-radius: 0 0 10% 10%;
-    margin: 0 32px;
+    border-radius: 0 0 12px 12px;
+    border: 8px solid black;
+    border-top: none;
+    margin: 0 25px;
     .title {
       text-align: center;
       img {
@@ -69,7 +70,8 @@ body::-webkit-scrollbar {
         }
       }
       .loom {
-        margin: 0.3rem 0;
+        margin-top: 8px;
+        margin-bottom: 15px;
         font-size: medium;
         font-weight: 500;
         transform: rotateZ(345deg);

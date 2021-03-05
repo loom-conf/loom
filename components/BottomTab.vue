@@ -13,10 +13,9 @@
   height: 2rem;
   margin: 1rem 0;
   padding: 0 0.5rem 0 0;
-  font-weight: bolder;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
   color: $subColor;
   cursor: pointer;
   &::after {
@@ -25,7 +24,7 @@
     right: 0;
     content: '';
     width: 80%;
-    height: 2px;
+    height: 4px;
     background: $subColor;
     transform: scale(0, 1);
     transform-origin: right top;
