@@ -62,6 +62,7 @@ const config: NuxtConfig = {
     '@/assets/css/main.scss',
     '@/assets/css/keytop.scss',
     '@/assets/css/tooltip.scss',
+    'vue-select/src/scss/vue-select.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)

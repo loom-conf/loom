@@ -1,16 +1,30 @@
 <template>
-  <div>
-    <div class="title"></div>
+  <div class="keySetting">
+    <div class="title">Unknown</div>
+    <div class="item">
+      <SettingRawCode :raw="keycode.raw" @change="changeRaw" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, PropType } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { UnknownKeycode } from '@/utils/keycodeTypes'
+import SettingRawCode from '@/components/keySettings/SettingRawcode.vue'
 
 export default defineComponent({
-  props: {},
+  components: { SettingRawCode },
+  props: {
+    keycode: {
+      type: Object as PropType<UnknownKeycode>,
+      required: true,
+    },
+  },
   setup(_props, _context) {
-    return {}
+    const changeRaw = (newRaw: number) => {
+      _context.emit('change-raw', newRaw)
+    }
+    return { changeRaw }
   },
 })
 </script>
