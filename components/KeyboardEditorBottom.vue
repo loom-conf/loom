@@ -26,15 +26,12 @@
     margin-top: 0.25rem;
   }
   .main {
-    border-top-left-radius: 10px;
     background-color: $mainBgColor;
     overflow-y: auto;
     height: 100%;
     width: 100%;
     padding-left: 2em;
     padding-top: 1em;
-    border-top: 8px solid black;
-    border-left: 8px solid black;
   }
 }
 

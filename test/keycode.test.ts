@@ -1,4 +1,4 @@
-import { buildKeycodeFromRaw, buildRawFromKeycode } from '~/utils/keycode'
+import { buildKeycodeFromRaw, buildRawFromKeycode } from '@/utils/keycodes'
 
 describe('keycode from raw', () => {
   test('simple (4)', () => {

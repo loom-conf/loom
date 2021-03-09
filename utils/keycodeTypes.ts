@@ -1,3 +1,22 @@
+export type BaseKeycodeKind =
+  | 'BASIC'
+  | 'QMK'
+  | 'SYSTEM'
+  | 'KEYPAD'
+  | 'MEDIA'
+  | 'PC'
+  | 'MOD'
+  | 'MOUSE'
+  | 'LED'
+
+export interface BaseKeycode {
+  qmk: string
+  raw: number
+  legend: string
+  altLegend?: string
+  kind: BaseKeycodeKind
+}
+
 export type ModKey =
   | 'LSFT'
   | 'RSFT'
@@ -8,14 +27,6 @@ export type ModKey =
   | 'RGUI'
   | 'LGUI'
 
-export interface QmkKeycode {
-  qmk: string
-  raw: number
-  legend: string
-  altLegend?: string
-  type: string
-}
-
 export interface UnknownKeycode {
   kind: 'UNKNOWN'
   raw: number
@@ -25,7 +36,7 @@ export interface BasicKeycode {
   kind: 'BASIC'
   qmk: string
   raw: number
-  base: QmkKeycode
+  base: BaseKeycode
   mods: ModKey[]
 }
 
@@ -33,7 +44,7 @@ export interface SpecialKeycode {
   kind: 'SPECIAL'
   qmk: string
   raw: number
-  base: QmkKeycode
+  base: BaseKeycode
 }
 
 export interface FunctionKeycode {
@@ -55,7 +66,7 @@ export interface LayerTapKeycode {
   qmk: string
   raw: number
   layer: number
-  tap: QmkKeycode
+  base: BaseKeycode
 }
 
 export interface LayerOnKeycode {
@@ -126,7 +137,7 @@ export interface ModTapKeycode {
   kind: 'MOD_TAP'
   qmk: string
   raw: number
-  tap: QmkKeycode
+  base: BaseKeycode
   mods: ModKey[]
 }
 

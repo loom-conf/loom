@@ -30,9 +30,6 @@
     .initialPane {
       padding: 0 32px 32px 32px;
       background-color: white;
-      border-radius: 0 0 12px 12px;
-      border: 8px solid black;
-      border-top: none;
     }
   }
   .bottom {

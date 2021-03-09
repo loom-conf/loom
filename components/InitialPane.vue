@@ -2,10 +2,6 @@
   <div class="initPane">
     <h1>LOOM Configulator - beta</h1>
     <p>Keyboard keymap configulator on a browser.</p>
-    <h4>
-      This app is not implement upload keymap to keyboard feature!<br />
-      You can view layout and keymap only.
-    </h4>
     <h2>How to use</h2>
     <li>Open Device tab</li>
     <li>Load VIA compatible config file</li>
@@ -28,7 +24,7 @@
       Please see
       <a href="https://github.com/loom-conf/loom/blob/master/LICENSE"
         >https://github.com/loom-conf/loom/blob/master/LICENSE</a
-      >.
+      >
     </p>
   </div>
 </template>

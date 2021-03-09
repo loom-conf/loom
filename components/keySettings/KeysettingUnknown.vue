@@ -22,7 +22,7 @@ export default defineComponent({
   },
   setup(_props, _context) {
     const changeRaw = (newRaw: number) => {
-      _context.emit('change-raw', newRaw)
+      _context.emit('changeRawCode', newRaw)
     }
     return { changeRaw }
   },

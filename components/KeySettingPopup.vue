@@ -1,7 +1,12 @@
 <template>
   <AtomModal :is-open="isOpen" @close="closeKeySetting">
     <div class="keySettingPopup" :style="positionStyle">
-      <component :is="settingComponent" :keycode="keycode" />
+      <component
+        :is="settingComponent"
+        :keycode="keycode"
+        @change-rawcode="changeRawcode"
+        @change-keycode="changeKeycode"
+      />
       <AtomButton @click="doneKeySetting">OK</AtomButton>
       <AtomButton style="background-color: red" @click="doneKeySetting"
         >Cancel</AtomButton
@@ -27,7 +32,8 @@ import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 import AtomModal from '@/components/atoms/AtomModal.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
-import KeysettingUnknown from './keySettings/KeysettingUnknown.vue'
+import KeysettingBasic from '@/components/keySettings/KeySettingBasic.vue'
+import KeysettingUnknown from '@/components/keySettings/KeySettingUnknown.vue'
 
 export default defineComponent({
   components: { AtomModal, AtomButton, KeysettingUnknown },
@@ -59,13 +65,19 @@ export default defineComponent({
 
     const raw = computed(() => keycode.value?.raw)
 
-    const changeRawCode = (newRaw: number) => {
+    const changeRawcode = (newRaw: number) => {
       setRawCode(newRaw)
+    }
+
+    const changeKeycode = (newKeycode: any) => {
+      console.log(newKeycode)
     }
 
     const settingComponent = computed(() => {
       if (!keycode.value) return undefined
       switch (keycode.value.kind) {
+        case 'BASIC':
+          return KeysettingBasic
         case 'UNKNOWN':
         default:
           return KeysettingUnknown
@@ -79,7 +91,8 @@ export default defineComponent({
       closeKeySetting,
       positionStyle,
       raw,
-      changeRawCode,
+      changeRawcode,
+      changeKeycode,
       settingComponent,
     }
   },

@@ -1,2002 +1,1752 @@
 [
   {
     "qmk": "KC_NO",
-    "alt": "KC_NO",
     "legend": "◻",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 0
   },
   {
-    "qmk": "KC_TRANSPARENT",
-    "alt": "KC_TRNS",
+    "qmk": "KC_TRNS",
     "legend": "▽",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 1
   },
   {
     "qmk": "KC_A",
-    "alt": "",
     "legend": "A",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 4
   },
   {
     "qmk": "KC_B",
-    "alt": "",
     "legend": "B",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 5
   },
   {
     "qmk": "KC_C",
-    "alt": "",
     "legend": "C",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 6
   },
   {
     "qmk": "KC_D",
-    "alt": "",
     "legend": "D",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 7
   },
   {
     "qmk": "KC_E",
-    "alt": "",
     "legend": "E",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 8
   },
   {
     "qmk": "KC_F",
-    "alt": "",
     "legend": "F",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 9
   },
   {
     "qmk": "KC_G",
-    "alt": "",
     "legend": "G",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 10
   },
   {
     "qmk": "KC_H",
-    "alt": "",
     "legend": "H",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 11
   },
   {
     "qmk": "KC_I",
-    "alt": "",
     "legend": "I",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 12
   },
   {
     "qmk": "KC_J",
-    "alt": "",
     "legend": "J",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 13
   },
   {
     "qmk": "KC_K",
-    "alt": "",
     "legend": "K",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 14
   },
   {
     "qmk": "KC_L",
-    "alt": "",
     "legend": "L",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 15
   },
   {
     "qmk": "KC_M",
-    "alt": "",
     "legend": "M",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 16
   },
   {
     "qmk": "KC_N",
-    "alt": "",
     "legend": "N",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 17
   },
   {
     "qmk": "KC_O",
-    "alt": "",
     "legend": "O",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 18
   },
   {
     "qmk": "KC_P",
-    "alt": "",
     "legend": "P",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 19
   },
   {
     "qmk": "KC_Q",
-    "alt": "",
     "legend": "Q",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 20
   },
   {
     "qmk": "KC_R",
-    "alt": "",
     "legend": "R",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 21
   },
   {
     "qmk": "KC_S",
-    "alt": "",
     "legend": "S",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 22
   },
   {
     "qmk": "KC_T",
-    "alt": "",
     "legend": "T",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 23
   },
   {
     "qmk": "KC_U",
-    "alt": "",
     "legend": "U",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 24
   },
   {
     "qmk": "KC_V",
-    "alt": "",
     "legend": "V",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 25
   },
   {
     "qmk": "KC_W",
-    "alt": "",
     "legend": "W",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 26
   },
   {
     "qmk": "KC_X",
-    "alt": "",
     "legend": "X",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 27
   },
   {
     "qmk": "KC_Y",
-    "alt": "",
     "legend": "Y",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 28
   },
   {
     "qmk": "KC_Z",
-    "alt": "",
     "legend": "Z",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 29
   },
   {
     "qmk": "KC_1",
-    "alt": "",
     "legend": "1",
     "altLegend": "!",
-    "type": "",
+    "kind": "BASIC",
     "raw": 30
   },
   {
     "qmk": "KC_2",
-    "alt": "",
     "legend": "2",
     "altLegend": "@",
-    "type": "",
+    "kind": "BASIC",
     "raw": 31
   },
   {
     "qmk": "KC_3",
-    "alt": "",
     "legend": "3",
     "altLegend": "#",
-    "type": "",
+    "kind": "BASIC",
     "raw": 32
   },
   {
     "qmk": "KC_4",
-    "alt": "",
     "legend": "4",
     "altLegend": "$",
-    "type": "",
+    "kind": "BASIC",
     "raw": 33
   },
   {
     "qmk": "KC_5",
-    "alt": "",
     "legend": "5",
     "altLegend": "%",
-    "type": "",
+    "kind": "BASIC",
     "raw": 34
   },
   {
     "qmk": "KC_6",
-    "alt": "",
     "legend": "6",
     "altLegend": "^",
-    "type": "",
+    "kind": "BASIC",
     "raw": 35
   },
   {
     "qmk": "KC_7",
-    "alt": "",
     "legend": "7",
     "altLegend": "&",
-    "type": "",
+    "kind": "BASIC",
     "raw": 36
   },
   {
     "qmk": "KC_8",
-    "alt": "",
     "legend": "8",
     "altLegend": "*",
-    "type": "",
+    "kind": "BASIC",
     "raw": 37
   },
   {
     "qmk": "KC_9",
-    "alt": "",
     "legend": "9",
     "altLegend": "(",
-    "type": "",
+    "kind": "BASIC",
     "raw": 38
   },
   {
     "qmk": "KC_0",
-    "alt": "",
     "legend": "0",
     "altLegend": ")",
-    "type": "",
+    "kind": "BASIC",
     "raw": 39
   },
   {
-    "qmk": "KC_ENTER",
-    "alt": "KC_ENT",
+    "qmk": "KC_ENT",
     "legend": "Enter",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 40
   },
   {
-    "qmk": "KC_ESCAPE",
-    "alt": "KC_ESC",
+    "qmk": "KC_ESC",
     "legend": "ESC",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 41
   },
   {
-    "qmk": "KC_BSPACE",
-    "alt": "KC_BSPC",
+    "qmk": "KC_BSPC",
     "legend": "BS",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 42
   },
   {
     "qmk": "KC_TAB",
-    "alt": "",
     "legend": "Tab",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 43
   },
   {
-    "qmk": "KC_SPACE",
-    "alt": "KC_SPC",
+    "qmk": "KC_SPC",
     "legend": "Space",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 44
   },
   {
-    "qmk": "KC_MINUS",
-    "alt": "KC_MINS",
+    "qmk": "KC_MINS",
     "legend": "-",
     "altLegend": "_",
-    "type": "",
+    "kind": "BASIC",
     "raw": 45
   },
   {
-    "qmk": "KC_EQUAL",
-    "alt": "KC_EQL",
+    "qmk": "KC_EQL",
     "legend": "=",
     "altLegend": "+",
-    "type": "",
+    "kind": "BASIC",
     "raw": 46
   },
   {
-    "qmk": "KC_LBRACKET",
-    "alt": "KC_LBRC",
+    "qmk": "KC_LBRC",
     "legend": "[",
     "altLegend": "{",
-    "type": "",
+    "kind": "BASIC",
     "raw": 47
   },
   {
-    "qmk": "KC_RBRACKET",
-    "alt": "KC_RBRC",
+    "qmk": "KC_RBRC",
     "legend": "]",
     "altLegend": "}",
-    "type": "",
+    "kind": "BASIC",
     "raw": 48
   },
   {
-    "qmk": "KC_BSLASH",
-    "alt": "KC_BSLS",
+    "qmk": "KC_BSLS",
     "legend": "\\",
     "altLegend": "|",
-    "type": "",
+    "kind": "BASIC",
     "raw": 49
   },
   {
-    "qmk": "KC_NONUS_HASH",
-    "alt": "KC_NUHS",
+    "qmk": "KC_NUHS",
     "legend": "#",
     "altLegend": "~",
-    "type": "",
+    "kind": "BASIC",
     "raw": 50
   },
   {
-    "qmk": "KC_SCOLON",
-    "alt": "KC_SCLN",
+    "qmk": "KC_SCLN",
     "legend": ";",
     "altLegend": ":",
-    "type": "",
+    "kind": "BASIC",
     "raw": 51
   },
   {
-    "qmk": "KC_QUOTE",
-    "alt": "KC_QUOT",
+    "qmk": "KC_QUOT",
     "legend": "'",
     "altLegend": ",",
-    "type": "",
+    "kind": "BASIC",
     "raw": 52
   },
   {
     "qmk": "KC_GRAVE",
-    "alt": "",
     "legend": "~",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 53
   },
   {
-    "qmk": "KC_COMMA",
-    "alt": "KC_COMM",
+    "qmk": "KC_COMM",
     "legend": ",",
     "altLegend": "<",
-    "type": "",
+    "kind": "BASIC",
     "raw": 54
   },
   {
     "qmk": "KC_DOT",
-    "alt": "",
     "legend": ".",
     "altLegend": ">",
-    "type": "",
+    "kind": "BASIC",
     "raw": 55
   },
   {
-    "qmk": "KC_SLASH",
-    "alt": "KC_SLSH",
+    "qmk": "KC_SLSH",
     "legend": "/",
     "altLegend": "?",
-    "type": "",
+    "kind": "BASIC",
     "raw": 56
   },
   {
-    "qmk": "KC_CAPSLOCK",
-    "alt": "KC_CAPS",
+    "qmk": "KC_CAPS",
     "legend": "Caps Lock",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 57
   },
   {
     "qmk": "KC_F1",
-    "alt": "",
     "legend": "F1",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 58
   },
   {
     "qmk": "KC_F2",
-    "alt": "",
     "legend": "F2",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 59
   },
   {
     "qmk": "KC_F3",
-    "alt": "",
     "legend": "F3",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 60
   },
   {
     "qmk": "KC_F4",
-    "alt": "",
     "legend": "F4",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 61
   },
   {
     "qmk": "KC_F5",
-    "alt": "",
     "legend": "F5",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 62
   },
   {
     "qmk": "KC_F6",
-    "alt": "",
     "legend": "F6",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 63
   },
   {
     "qmk": "KC_F7",
-    "alt": "",
     "legend": "F7",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 64
   },
   {
     "qmk": "KC_F8",
-    "alt": "",
     "legend": "F8",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 65
   },
   {
     "qmk": "KC_F9",
-    "alt": "",
     "legend": "F9",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 66
   },
   {
     "qmk": "KC_F10",
-    "alt": "",
     "legend": "F10",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 67
   },
   {
     "qmk": "KC_F11",
-    "alt": "",
     "legend": "F11",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 68
   },
   {
     "qmk": "KC_F12",
-    "alt": "",
     "legend": "F12",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 69
   },
   {
-    "qmk": "KC_PSCREEN",
-    "alt": "KC_PSCR",
+    "qmk": "KC_PSCR",
     "legend": "PrtScrn",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 70
   },
   {
-    "qmk": "KC_SCROLLLOCK",
-    "alt": "KC_SLCK",
+    "qmk": "KC_SLCK",
     "legend": "Scroll Lock",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 71
   },
   {
-    "qmk": "KC_PAUSE",
-    "alt": "KC_PAUS",
+    "qmk": "KC_PAUS",
     "legend": "Pause",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 72
   },
   {
-    "qmk": "KC_INSERT",
-    "alt": "KC_INS",
+    "qmk": "KC_INS",
     "legend": "Insert",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 73
   },
   {
     "qmk": "KC_HOME",
-    "alt": "",
     "legend": "Home",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 74
   },
   {
     "qmk": "KC_PGUP",
-    "alt": "",
     "legend": "Page Up",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 75
   },
   {
-    "qmk": "KC_DELETE",
-    "alt": "KC_DEL",
+    "qmk": "KC_DEL",
     "legend": "Del",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 76
   },
   {
     "qmk": "KC_END",
-    "alt": "",
     "legend": "End",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 77
   },
   {
-    "qmk": "KC_PGDOWN",
-    "alt": "KC_PGDN",
+    "qmk": "KC_PGDN",
     "legend": "Page Down",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 78
   },
   {
-    "qmk": "KC_RIGHT",
-    "alt": "KC_RGHT",
+    "qmk": "KC_RGHT",
     "legend": "→",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 79
   },
   {
     "qmk": "KC_LEFT",
-    "alt": "",
     "legend": "←",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 80
   },
   {
     "qmk": "KC_DOWN",
-    "alt": "",
     "legend": "↓",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 81
   },
   {
     "qmk": "KC_UP",
-    "alt": "",
     "legend": "↑",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 82
   },
   {
-    "qmk": "KC_NUMLOCK",
-    "alt": "KC_NLCK",
+    "qmk": "KC_NLCK",
     "legend": "Num Lock",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 83
   },
   {
-    "qmk": "KC_KP_SLASH",
-    "alt": "KC_PSLS",
+    "qmk": "KC_PSLS",
     "legend": "/",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 84
   },
   {
-    "qmk": "KC_KP_ASTERISK",
-    "alt": "KC_PAST",
+    "qmk": "KC_PAST",
     "legend": "*",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 85
   },
   {
-    "qmk": "KC_KP_MINUS",
-    "alt": "KC_PMNS",
+    "qmk": "KC_PMNS",
     "legend": "-",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 86
   },
   {
-    "qmk": "KC_KP_PLUS",
-    "alt": "KC_PPLS",
+    "qmk": "KC_PPLS",
     "legend": "+",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 87
   },
   {
-    "qmk": "KC_KP_ENTER",
-    "alt": "KC_PENT",
+    "qmk": "KC_PENT",
     "legend": "Enter",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 88
   },
   {
-    "qmk": "KC_KP_1",
-    "alt": "KC_P1",
+    "qmk": "KC_P1",
     "legend": "1",
     "altLegend": "End",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 89
   },
   {
-    "qmk": "KC_KP_2",
-    "alt": "KC_P2",
+    "qmk": "KC_P2",
     "legend": "2",
     "altLegend": "↓",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 90
   },
   {
-    "qmk": "KC_KP_3",
-    "alt": "KC_P3",
+    "qmk": "KC_P3",
     "legend": "3",
     "altLegend": "PgDn",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 91
   },
   {
-    "qmk": "KC_KP_4",
-    "alt": "KC_P4",
+    "qmk": "KC_P4",
     "legend": "4",
     "altLegend": "←",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 92
   },
   {
-    "qmk": "KC_KP_5",
-    "alt": "KC_P5",
+    "qmk": "KC_P5",
     "legend": "5",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 93
   },
   {
-    "qmk": "KC_KP_6",
-    "alt": "KC_P6",
+    "qmk": "KC_P6",
     "legend": "6",
     "altLegend": "→",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 94
   },
   {
-    "qmk": "KC_KP_7",
-    "alt": "KC_P7",
+    "qmk": "KC_P7",
     "legend": "7",
     "altLegend": "Home",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 95
   },
   {
-    "qmk": "KC_KP_8",
-    "alt": "KC_P8",
+    "qmk": "KC_P8",
     "legend": "8",
     "altLegend": "↑",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 96
   },
   {
-    "qmk": "KC_KP_9",
-    "alt": "KC_P9",
+    "qmk": "KC_P9",
     "legend": "9",
     "altLegend": "PgUp",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 97
   },
   {
-    "qmk": "KC_KP_0",
-    "alt": "KC_P0",
+    "qmk": "KC_P0",
     "legend": "0",
     "altLegend": "Ins",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 98
   },
   {
-    "qmk": "KC_KP_DOT",
-    "alt": "KC_PDOT",
+    "qmk": "KC_PDOT",
     "legend": ".",
     "altLegend": "Del",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 99
   },
   {
-    "qmk": "KC_NONUS_BSLASH",
-    "alt": "KC_NUBS",
+    "qmk": "KC_NUBS",
     "legend": "Non-US \\",
     "altLegend": "\\",
-    "type": "",
+    "kind": "BASIC",
     "raw": 100
   },
   {
-    "qmk": "KC_APPLICATION",
-    "alt": "KC_APP",
+    "qmk": "KC_APP",
     "legend": "App",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 101
   },
   {
     "qmk": "KC_POWER",
-    "alt": "",
     "legend": "Power",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 102
   },
   {
-    "qmk": "KC_KP_EQUAL",
-    "alt": "KC_PEQL",
+    "qmk": "KC_PEQL",
     "legend": "=",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 103
   },
   {
     "qmk": "KC_F13",
-    "alt": "",
     "legend": "F13",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 104
   },
   {
     "qmk": "KC_F14",
-    "alt": "",
     "legend": "F14",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 105
   },
   {
     "qmk": "KC_F15",
-    "alt": "",
     "legend": "F15",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 106
   },
   {
     "qmk": "KC_F16",
-    "alt": "",
     "legend": "F16",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 107
   },
   {
     "qmk": "KC_F17",
-    "alt": "",
     "legend": "F17",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 108
   },
   {
     "qmk": "KC_F18",
-    "alt": "",
     "legend": "F18",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 109
   },
   {
     "qmk": "KC_F19",
-    "alt": "",
     "legend": "F19",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 110
   },
   {
     "qmk": "KC_F20",
-    "alt": "",
     "legend": "F20",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 111
   },
   {
     "qmk": "KC_F21",
-    "alt": "",
     "legend": "F21",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 112
   },
   {
     "qmk": "KC_F22",
-    "alt": "",
     "legend": "F22",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 113
   },
   {
     "qmk": "KC_F23",
-    "alt": "",
     "legend": "F23",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 114
   },
   {
     "qmk": "KC_F24",
-    "alt": "",
     "legend": "F24",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 115
   },
   {
-    "qmk": "KC_EXECUTE",
-    "alt": "KC_EXEC",
+    "qmk": "KC_EXEC",
     "legend": "Execute",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 116
   },
   {
     "qmk": "KC_HELP",
-    "alt": "",
     "legend": "Help",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 117
   },
   {
     "qmk": "KC_MENU",
-    "alt": "",
     "legend": "Menu",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 118
   },
   {
-    "qmk": "KC_SELECT",
-    "alt": "KC_SLCT",
+    "qmk": "KC_SLCT",
     "legend": "Select",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 119
   },
   {
     "qmk": "KC_STOP",
-    "alt": "",
     "legend": "Stop",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 120
   },
   {
-    "qmk": "KC_AGAIN",
-    "alt": "KC_AGIN",
+    "qmk": "KC_AGIN",
     "legend": "Again",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 121
   },
   {
     "qmk": "KC_UNDO",
-    "alt": "",
     "legend": "Undo",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 122
   },
   {
     "qmk": "KC_CUT",
-    "alt": "",
     "legend": "Cut",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 123
   },
   {
     "qmk": "KC_COPY",
-    "alt": "",
     "legend": "Copy",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 124
   },
   {
-    "qmk": "KC_PASTE",
-    "alt": "KC_PSTE",
+    "qmk": "KC_PSTE",
     "legend": "Paste",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 125
   },
   {
     "qmk": "KC_FIND",
-    "alt": "",
     "legend": "Find",
     "altLegend": "",
-    "type": "",
+    "kind": "SYSTEM",
     "raw": 126
   },
   {
     "qmk": "KC__MUTE",
-    "alt": "",
     "legend": "Mute",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 127
   },
   {
     "qmk": "KC__VOLUP",
-    "alt": "",
     "legend": "Vol Up",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 128
   },
   {
     "qmk": "KC__VOLDOWN",
-    "alt": "",
     "legend": "Vol Down",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 129
   },
   {
-    "qmk": "KC_LOCKING_CAPS",
-    "alt": "KC_LCAP",
+    "qmk": "KC_LCAP",
     "legend": "LCAP",
     "altLegend": "",
-    "type": "",
+    "kind": "QMK",
     "raw": 130
   },
   {
-    "qmk": "KC_LOCKING_NUM",
-    "alt": "KC_LNUM",
+    "qmk": "KC_LNUM",
     "legend": "LNUM",
     "altLegend": "",
-    "type": "",
+    "kind": "QMK",
     "raw": 131
   },
   {
-    "qmk": "KC_LOCKING_SCROLL",
-    "alt": "KC_LSCR",
+    "qmk": "KC_LSCR",
     "legend": "LSCR",
     "altLegend": "",
-    "type": "",
+    "kind": "QMK",
     "raw": 132
   },
   {
-    "qmk": "KC_KP_COMMA",
-    "alt": "KC_PCMM",
+    "qmk": "KC_PCMM",
     "legend": ",",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 133
   },
   {
     "qmk": "KC_KP_EQUAL_AS400",
-    "alt": "",
     "legend": "0",
     "altLegend": "",
-    "type": "KEYPAD",
+    "kind": "KEYPAD",
     "raw": 134
   },
   {
-    "qmk": "KC_INT1",
-    "alt": "KC_RO",
+    "qmk": "KC_RO",
     "legend": "\\",
     "altLegend": "_",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 135
   },
   {
-    "qmk": "KC_INT2",
-    "alt": "KC_KANA",
+    "qmk": "KC_KANA",
     "legend": "かな",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 136
   },
   {
-    "qmk": "KC_INT3",
-    "alt": "KC_JYEN",
+    "qmk": "KC_JYEN",
     "legend": "￥",
     "altLegend": "\\",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 137
   },
   {
-    "qmk": "KC_INT4",
-    "alt": "KC_HENK",
+    "qmk": "KC_HENK",
     "legend": "変換",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 138
   },
   {
-    "qmk": "KC_INT5",
-    "alt": "KC_MHEN",
+    "qmk": "KC_MHEN",
     "legend": "無変換",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 139
   },
   {
     "qmk": "KC_INT6",
-    "alt": "",
     "legend": "Numpad",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 140
   },
   {
     "qmk": "KC_INT7",
-    "alt": "",
     "legend": "Int7",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 141
   },
   {
     "qmk": "KC_INT8",
-    "alt": "",
     "legend": "Int8",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 142
   },
   {
     "qmk": "KC_INT9",
-    "alt": "",
     "legend": "Int9",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 143
   },
   {
-    "qmk": "KC_LANG1",
-    "alt": "KC_HAEN",
+    "qmk": "KC_HAEN",
     "legend": "Hangul",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 144
   },
   {
-    "qmk": "KC_LANG2",
-    "alt": "KC_HANJ",
+    "qmk": "KC_HANJ",
     "legend": "Hanja",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 145
   },
   {
     "qmk": "KC_LANG3",
-    "alt": "",
     "legend": "カタカナ",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 146
   },
   {
     "qmk": "KC_LANG4",
-    "alt": "",
     "legend": "ひらがな",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 147
   },
   {
     "qmk": "KC_LANG5",
-    "alt": "",
     "legend": "全角半角",
     "altLegend": "",
-    "type": "JIS",
+    "kind": "BASIC",
     "raw": 148
   },
   {
     "qmk": "KC_LANG6",
-    "alt": "",
     "legend": "Lang6",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 149
   },
   {
     "qmk": "KC_LANG7",
-    "alt": "",
     "legend": "Lang7",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 150
   },
   {
     "qmk": "KC_LANG8",
-    "alt": "",
     "legend": "Lang8",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 151
   },
   {
     "qmk": "KC_LANG9",
-    "alt": "",
     "legend": "Lang9",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 152
   },
   {
-    "qmk": "KC_ALT_ERASE",
-    "alt": "KC_ERAS",
+    "qmk": "KC_ERAS",
     "legend": "Erase",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 153
   },
   {
     "qmk": "KC_SYSREQ",
-    "alt": "",
     "legend": "SysReq",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 154
   },
   {
     "qmk": "KC_CANCEL",
-    "alt": "",
     "legend": "Cancel",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 155
   },
   {
-    "qmk": "KC_CLEAR",
-    "alt": "KC_CLR",
+    "qmk": "KC_CLR",
     "legend": "Clear",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 156
   },
   {
     "qmk": "KC_PRIOR",
-    "alt": "",
     "legend": "Prior",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 157
   },
   {
     "qmk": "KC_RETURN",
-    "alt": "",
     "legend": "Return",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 158
   },
   {
     "qmk": "KC_SEPARATOR",
-    "alt": "",
     "legend": "Separator",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 159
   },
   {
     "qmk": "KC_OUT",
-    "alt": "",
     "legend": "Out",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 160
   },
   {
     "qmk": "KC_OPER",
-    "alt": "",
     "legend": "Oper",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 161
   },
   {
     "qmk": "KC_CLEAR_AGAIN",
-    "alt": "",
     "legend": "Clear/Again",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 162
   },
   {
     "qmk": "KC_CRSEL",
-    "alt": "",
     "legend": "CrSel/Props",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 163
   },
   {
     "qmk": "KC_EXSEL",
-    "alt": "",
     "legend": "ExSel",
     "altLegend": "",
-    "type": "",
+    "kind": "BASIC",
     "raw": 164
   },
   {
-    "qmk": "KC_SYSTEM_POWER",
-    "alt": "KC_PWR",
+    "qmk": "KC_PWR",
     "legend": "Power",
     "altLegend": "",
-    "type": "SYSTEM",
+    "kind": "SYSTEM",
     "raw": 165
   },
   {
-    "qmk": "KC_SYSTEM_SLEEP",
-    "alt": "KC_SLEP",
+    "qmk": "KC_SLEP",
     "legend": "Sleep",
     "altLegend": "",
-    "type": "SYSTEM",
+    "kind": "SYSTEM",
     "raw": 166
   },
   {
-    "qmk": "KC_SYSTEM_WAKE",
-    "alt": "KC_WAKE",
+    "qmk": "KC_WAKE",
     "legend": "Wake",
     "altLegend": "",
-    "type": "SYSTEM",
+    "kind": "SYSTEM",
     "raw": 167
   },
   {
-    "qmk": "KC_AUDIO_MUTE",
-    "alt": "KC_MUTE",
+    "qmk": "KC_MUTE",
     "legend": "Mute",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 168
   },
   {
-    "qmk": "KC_AUDIO_VOL_UP",
-    "alt": "KC_VOLU",
+    "qmk": "KC_VOLU",
     "legend": "Vol +",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 169
   },
   {
-    "qmk": "KC_AUDIO_VOL_DOWN",
-    "alt": "KC_VOLD",
+    "qmk": "KC_VOLD",
     "legend": "Vol -",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 170
   },
   {
-    "qmk": "KC_MEDIA_NEXT_TRACK",
-    "alt": "KC_MNXT",
+    "qmk": "KC_MNXT",
     "legend": "Next",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 171
   },
   {
-    "qmk": "KC_MEDIA_PREV_TRACK",
-    "alt": "KC_MPRV",
+    "qmk": "KC_MPRV",
     "legend": "Prev",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 172
   },
   {
-    "qmk": "KC_MEDIA_STOP",
-    "alt": "KC_MSTP",
+    "qmk": "KC_MSTP",
     "legend": "Stop",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 173
   },
   {
-    "qmk": "KC_MEDIA_PLAY_PAUSE",
-    "alt": "KC_MPLY",
+    "qmk": "KC_MPLY",
     "legend": "Play",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 174
   },
   {
-    "qmk": "KC_MEDIA_SELECT",
-    "alt": "KC_MSEL",
+    "qmk": "KC_MSEL",
     "legend": "Player",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 175
   },
   {
-    "qmk": "KC_MEDIA_EJECT",
-    "alt": "KC_EJCT",
+    "qmk": "KC_EJCT",
     "legend": "Eject",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 176
   },
   {
     "qmk": "KC_MAIL",
-    "alt": "",
     "legend": "Mail",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 177
   },
   {
-    "qmk": "KC_CALCULATOR",
-    "alt": "KC_CALC",
+    "qmk": "KC_CALC",
     "legend": "Calc",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 178
   },
   {
-    "qmk": "KC_MY_COMPUTER",
-    "alt": "KC_MYCM",
+    "qmk": "KC_MYCM",
     "legend": "My Comp",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 179
   },
   {
-    "qmk": "KC_WWW_SEARCH",
-    "alt": "KC_WSCH",
+    "qmk": "KC_WSCH",
     "legend": "WWW Search",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 180
   },
   {
-    "qmk": "KC_WWW_HOME",
-    "alt": "KC_WHOM",
+    "qmk": "KC_WHOM",
     "legend": "WWW Home",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 181
   },
   {
-    "qmk": "KC_WWW_BACK",
-    "alt": "KC_WBAK",
+    "qmk": "KC_WBAK",
     "legend": "WWW Back",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 182
   },
   {
-    "qmk": "KC_WWW_FORWARD",
-    "alt": "KC_WFWD",
+    "qmk": "KC_WFWD",
     "legend": "WWW Forward",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 183
   },
   {
-    "qmk": "KC_WWW_STOP",
-    "alt": "KC_WSTP",
+    "qmk": "KC_WSTP",
     "legend": "WWW Stop",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 184
   },
   {
-    "qmk": "KC_WWW_REFRESH",
-    "alt": "KC_WREF",
+    "qmk": "KC_WREF",
     "legend": "WWW Refresh",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 185
   },
   {
-    "qmk": "KC_WWW_FAVORITES",
-    "alt": "KC_WFAV",
+    "qmk": "KC_WFAV",
     "legend": "WWW Fav",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 186
   },
   {
-    "qmk": "KC_MEDIA_FAST_FORWARD",
-    "alt": "KC_MFFD",
+    "qmk": "KC_MFFD",
     "legend": ">>",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 187
   },
   {
-    "qmk": "KC_MEDIA_REWIND",
-    "alt": "KC_MRWD",
+    "qmk": "KC_MRWD",
     "legend": "<<",
     "altLegend": "",
-    "type": "MEDIA",
+    "kind": "MEDIA",
     "raw": 188
   },
   {
-    "qmk": "KC_BRIGHTNESS_UP",
-    "alt": "KC_BRIU",
+    "qmk": "KC_BRIU",
     "legend": "BR +",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 189
   },
   {
-    "qmk": "KC_BRIGHTNESS_DOWN",
-    "alt": "KC_BRID",
+    "qmk": "KC_BRID",
     "legend": "BR -",
     "altLegend": "",
-    "type": "PC",
+    "kind": "PC",
     "raw": 190
   },
   {
-    "qmk": "KC_LCTRL",
-    "alt": "KC_LCTL",
+    "qmk": "KC_LCTL",
     "legend": "Ctrl",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 224
   },
   {
-    "qmk": "KC_LSHIFT",
-    "alt": "KC_LSFT",
+    "qmk": "KC_LSFT",
     "legend": "Shift",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 225
   },
   {
-    "qmk": "KC_LALT",
-    "alt": "KC_LOPT",
+    "qmk": "KC_LOPT",
     "legend": "Alt",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 226
   },
   {
-    "qmk": "KC_LGUI",
-    "alt": "KC_LCMD",
+    "qmk": "KC_LCMD",
     "legend": "GUI",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 227
   },
   {
-    "qmk": "KC_RCTRL",
-    "alt": "KC_RCTL",
+    "qmk": "KC_RCTL",
     "legend": "Ctrl",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 228
   },
   {
-    "qmk": "KC_RSHIFT",
-    "alt": "KC_RSFT",
+    "qmk": "KC_RSFT",
     "legend": "Shift",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 229
   },
   {
     "qmk": "KC_RALT",
-    "alt": "",
     "legend": "Alt",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 230
   },
   {
     "qmk": "KC_RGUI",
-    "alt": "",
     "legend": "GUI",
     "altLegend": "",
-    "type": "",
+    "kind": "MOD",
     "raw": 231
   },
   {
-    "qmk": "KC_MS_UP",
-    "alt": "KC_MS_U",
+    "qmk": "KC_MS_U",
     "legend": "Up",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 231
   },
   {
-    "qmk": "KC_MS_DOWN",
-    "alt": "KC_MS_D",
+    "qmk": "KC_MS_D",
     "legend": "Down",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 232
   },
   {
-    "qmk": "KC_MS_LEFT",
-    "alt": "KC_MS_L",
+    "qmk": "KC_MS_L",
     "legend": "L",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 233
   },
   {
-    "qmk": "KC_MS_RIGHT",
-    "alt": "KC_MS_R",
+    "qmk": "KC_MS_R",
     "legend": "R",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 234
   },
   {
-    "qmk": "KC_MS_BTN1",
-    "alt": "KC_BTN1",
+    "qmk": "KC_BTN1",
     "legend": "Btn1",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 235
   },
   {
-    "qmk": "KC_MS_BTN2",
-    "alt": "KC_BTN2",
+    "qmk": "KC_BTN2",
     "legend": "Btn2",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 236
   },
   {
-    "qmk": "KC_MS_BTN3",
-    "alt": "KC_BTN3",
+    "qmk": "KC_BTN3",
     "legend": "Btn3",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 237
   },
   {
-    "qmk": "KC_MS_BTN4",
-    "alt": "KC_BTN4",
+    "qmk": "KC_BTN4",
     "legend": "Btn4",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 238
   },
   {
-    "qmk": "KC_MS_BTN5",
-    "alt": "KC_BTN5",
+    "qmk": "KC_BTN5",
     "legend": "Btn5",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 239
   },
   {
-    "qmk": "KC_MS_WH_UP",
-    "alt": "KC_WH_U",
+    "qmk": "KC_WH_U",
     "legend": "WH Up",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 240
   },
   {
-    "qmk": "KC_MS_WH_DOWN",
-    "alt": "KC_WH_D",
+    "qmk": "KC_WH_D",
     "legend": "WH Down",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 241
   },
   {
-    "qmk": "KC_MS_WH_LEFT",
-    "alt": "KC_WH_L",
+    "qmk": "KC_WH_L",
     "legend": "WH L",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 242
   },
   {
-    "qmk": "KC_MS_WH_RIGHT",
-    "alt": "KC_WH_R",
+    "qmk": "KC_WH_R",
     "legend": "WH R",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 243
   },
   {
-    "qmk": "KC_MS_ACCEL0",
-    "alt": "KC_ACL0",
+    "qmk": "KC_ACL0",
     "legend": "Acc0",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 244
   },
   {
-    "qmk": "KC_MS_ACCEL1",
-    "alt": "KC_ACL1",
+    "qmk": "KC_ACL1",
     "legend": "Acc1",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 245
   },
   {
-    "qmk": "KC_MS_ACCEL2",
-    "alt": "KC_ACL2",
+    "qmk": "KC_ACL2",
     "legend": "Acc2",
     "altLegend": "",
-    "type": "MOUSE",
+    "kind": "MOUSE",
     "raw": 246
   },
   {
     "qmk": "RESET",
-    "alt": "",
     "legend": "RESET",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23552
   },
   {
     "qmk": "DEBUG",
-    "alt": "",
     "legend": "DEBUG",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23553
   },
   {
-    "qmk": "GRAVE_ESC",
-    "alt": "KC_GESC",
+    "qmk": "KC_GESC",
     "legend": "ESC `",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23574
   },
   {
     "qmk": "BL_ON",
-    "alt": "",
     "legend": "BL On",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23739
   },
   {
     "qmk": "BL_OFF",
-    "alt": "",
     "legend": "BL Off",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23740
   },
   {
     "qmk": "BL_DEC",
-    "alt": "",
     "legend": "BL Dec",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23741
   },
   {
     "qmk": "BL_INC",
-    "alt": "",
     "legend": "BL Inc",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23742
   },
   {
     "qmk": "BL_TOGG",
-    "alt": "",
     "legend": "BL Toggle",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23743
   },
   {
     "qmk": "BL_STEP",
-    "alt": "",
     "legend": "BL Step",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23744
   },
   {
     "qmk": "BL_BRTG",
-    "alt": "",
     "legend": "BL breath",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23745
   },
   {
     "qmk": "RGB_TOG",
-    "alt": "",
     "legend": "Toggle",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23746
   },
   {
-    "qmk": "RGB_MODE_FORWARD",
-    "alt": "RGB_MOD",
+    "qmk": "RGB_MOD",
     "legend": "MODE FW",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23747
   },
   {
-    "qmk": "RGB_MODE_REVERSE",
-    "alt": "RGB_RMOD",
+    "qmk": "RGB_RMOD",
     "legend": "MODE RE",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23748
   },
   {
     "qmk": "RGB_HUI",
-    "alt": "",
     "legend": "HUI",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23749
   },
   {
     "qmk": "RGB_HUD",
-    "alt": "",
     "legend": "HUD",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23750
   },
   {
     "qmk": "RGB_SAI",
-    "alt": "",
     "legend": "SAI",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23751
   },
   {
     "qmk": "RGB_SAD",
-    "alt": "",
     "legend": "SAD",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23752
   },
   {
     "qmk": "RGB_VAI",
-    "alt": "",
     "legend": "VAI",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23753
   },
   {
     "qmk": "RGB_VAD",
-    "alt": "",
     "legend": "VAD",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23754
   },
   {
     "qmk": "RGB_SPI",
-    "alt": "",
     "legend": "SPI",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23755
   },
   {
     "qmk": "RGB_SPD",
-    "alt": "",
     "legend": "SPD",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23756
   },
   {
-    "qmk": "RGB_MODE_PLAIN",
-    "alt": "RGB_M_P",
+    "qmk": "RGB_M_P",
     "legend": "Mode Plain",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23757
   },
   {
-    "qmk": "RGB_MODE_BREATHE",
-    "alt": "RGB_M_B",
+    "qmk": "RGB_M_B",
     "legend": "Mode Breathe",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23758
   },
   {
-    "qmk": "RGB_MODE_RAINBOW",
-    "alt": "RGB_M_R",
+    "qmk": "RGB_M_R",
     "legend": "Mode Rainbow",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23759
   },
   {
-    "qmk": "RGB_MODE_SWIRL",
-    "alt": "RGB_M_SW",
+    "qmk": "RGB_M_SW",
     "legend": "Mode Swirl",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23760
   },
   {
-    "qmk": "RGB_MODE_SNAKE",
-    "alt": "RGB_M_SN",
+    "qmk": "RGB_M_SN",
     "legend": "Mode Snake",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23761
   },
   {
-    "qmk": "RGB_MODE_KNIGHT",
-    "alt": "RGB_M_K",
+    "qmk": "RGB_M_K",
     "legend": "Mode knight",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23762
   },
   {
-    "qmk": "RGB_MODE_XMAS",
-    "alt": "RGB_M_X",
+    "qmk": "RGB_M_X",
     "legend": "Mode Xmas",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23763
   },
   {
-    "qmk": "RGB_MODE_GRADIENT",
-    "alt": "RGB_M_G",
+    "qmk": "RGB_M_G",
     "legend": "Mode Grad",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23764
   },
   {
-    "qmk": "RGB_MODE_RGBTEST",
-    "alt": "RGB_M_T",
+    "qmk": "RGB_M_T",
     "legend": "Mode Test",
     "altLegend": "",
-    "type": "LED",
+    "kind": "LED",
     "raw": 23765
   },
   {
     "qmk": "KC_LSPO",
-    "alt": "",
     "legend": "LShift (",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23767
   },
   {
     "qmk": "KC_RSPC",
-    "alt": "",
     "legend": "RShift )",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23768
   },
   {
     "qmk": "KC_SFTENT",
-    "alt": "",
     "legend": "RShift Enter",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23769
   },
   {
     "qmk": "KC_LCPO",
-    "alt": "",
     "legend": "LCtrl (",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23795
   },
   {
     "qmk": "KC_RCPC",
-    "alt": "",
     "legend": "RCtrl )",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23796
   },
   {
     "qmk": "KC_LAPO",
-    "alt": "",
     "legend": "LAlt  (",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23797
   },
   {
     "qmk": "KC_RAPC",
-    "alt": "",
     "legend": "RAlt )",
     "altLegend": "",
-    "type": "QMK",
+    "kind": "QMK",
     "raw": 23798
   }
 ]

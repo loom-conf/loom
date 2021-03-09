@@ -6,7 +6,7 @@
     </div>
     <div class="legend">
       <div>
-        <div class="keycode">{{ keycode.tap.legend }}</div>
+        <div class="keycode">{{ keycode.base.legend }}</div>
       </div>
     </div>
   </div>

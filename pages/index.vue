@@ -31,12 +31,10 @@ body::-webkit-scrollbar {
   height: 100vh;
   .container {
     position: absolute;
-    width: calc(#{$bottomTabWidth} - 50px);
+    width: calc(#{$bottomTabWidth} - 64px);
     background: $mainBgColor;
     border-radius: 0 0 12px 12px;
-    border: 8px solid black;
-    border-top: none;
-    margin: 0 25px;
+    margin: 0 32px;
     .title {
       text-align: center;
       img {
@@ -46,7 +44,7 @@ body::-webkit-scrollbar {
       .logoBg {
         position: absolute;
         z-index: 45;
-        width: 30px;
+        width: 40px;
         height: 30px;
         top: 18px;
         left: 28px;
@@ -71,9 +69,9 @@ body::-webkit-scrollbar {
       }
       .loom {
         margin-top: 8px;
-        margin-bottom: 15px;
-        font-size: medium;
-        font-weight: 500;
+        margin-bottom: 18px;
+        font-size: 18px;
+        font-weight: 900;
         transform: rotateZ(345deg);
         transition: 1s ease-out;
         &:hover {

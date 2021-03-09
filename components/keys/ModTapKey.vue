@@ -9,7 +9,7 @@
           <div v-for="mod in modSymbols" :key="mod">{{ mod }}</div>
         </div>
         <div class="keycode">
-          {{ keycode.tap.legend }}
+          {{ keycode.base.legend }}
         </div>
       </div>
     </div>

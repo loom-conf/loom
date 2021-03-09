@@ -1,6 +1,6 @@
 import { InjectionKey, provide, inject, ref } from '@nuxtjs/composition-api'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
-import { buildKeycodeFromRaw } from '@/utils/keycode'
+import { buildKeycodeFromRaw } from '@/utils/keycodes'
 
 interface KeySettingDoneCallback {
   (newKeycode: KeycodeTypes): void
@@ -13,7 +13,7 @@ interface KeySettingPosition {
 }
 
 export function createKeySettingPopup() {
-  const popupWidth = 200
+  const popupWidth = 300
   const isOpen = ref<boolean>(false)
   const keycode = ref<KeycodeTypes>()
   const position = ref<KeySettingPosition>()

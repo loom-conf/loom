@@ -3,12 +3,14 @@ import {
   ModKey,
   UnknownKeycode,
   SpecialKeycode,
+  BaseKeycode,
+  BaseKeycodeKind,
 } from '@/utils/keycodeTypes'
 
-import list from '@/assets/data/qmkKeycodes.json'
+const baseKeycodes: BaseKeycode[] = require('@/assets/data/BaseKeycodes.json')
 
-function findBase(code: number) {
-  return list.find((keycode) => keycode.raw === code)
+function findBase(raw: number): BaseKeycode | undefined {
+  return baseKeycodes.find((keycode) => keycode.raw === raw)
 }
 
 function findSpecialKeycode(raw: number): SpecialKeycode | UnknownKeycode {
@@ -100,7 +102,7 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
           kind: `LAYER_TAP`,
           qmk: `LT(${layer},${base.qmk})`,
           raw,
-          tap: base,
+          base,
           layer,
         }
       : {
@@ -197,13 +199,13 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
   } else if (raw >= 0x6000 && raw <= 0x7fff) {
     // mod tap
     const mods = parseModsToArray((raw & 0x1f00) >> 8)
-    const tap = findBase(raw & 0xff)
-    return tap
+    const base = findBase(raw & 0xff)
+    return base
       ? {
           kind: 'MOD_TAP',
-          qmk: `MT(${joinModsArrayToString(mods)}, ${tap.qmk})`,
+          qmk: `MT(${joinModsArrayToString(mods)}, ${base.qmk})`,
           raw,
-          tap,
+          base,
           mods,
         }
       : {
@@ -223,7 +225,7 @@ export function buildRawFromKeycode(keycode: KeycodeTypes) {
     case 'MACRO':
       return 0x3000 | keycode.macro
     case 'LAYER_TAP':
-      return 0x4000 | (keycode.layer << 8) | keycode.tap.raw
+      return 0x4000 | (keycode.layer << 8) | keycode.base.raw
     case 'LAYER_ON':
       return 0x5010 | keycode.layer
     case 'LAYER_MOMENTARY':
@@ -248,11 +250,16 @@ export function buildRawFromKeycode(keycode: KeycodeTypes) {
       )
     case 'MOD_TAP':
       return (
-        0x6000 | (parseModsArrayToValue(keycode.mods) << 8) | keycode.tap.raw
+        0x6000 | (parseModsArrayToValue(keycode.mods) << 8) | keycode.base.raw
       )
     case 'UNKNOWN':
       return keycode.raw
     default:
       return 0
   }
+}
+
+export function getKeycodeList(kind?: BaseKeycodeKind): BaseKeycode[] {
+  if (!kind) return baseKeycodes as BaseKeycode[]
+  return baseKeycodes.filter((keycode) => keycode.kind === kind)
 }
