@@ -13,7 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "quicktype": "quicktype -l ts -o utils/configJSON.ts resources/quicktypeSeed.ts --raw-type any",
-    "generateKeycodes": "ts-node resources/generateKeycodeJson.ts"
+    "keycodes": "ts-node resources/generateKeycodesJson.ts"
   },
   "dependencies": {
     "@ijprest/kle-serial": "git+https://github.com/ctrlShiftBryan/kle-serial.git",

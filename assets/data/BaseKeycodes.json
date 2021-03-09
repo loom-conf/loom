@@ -1,19 +1,5 @@
 [
   {
-    "qmk": "KC_NO",
-    "legend": "◻",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 0
-  },
-  {
-    "qmk": "KC_TRNS",
-    "legend": "▽",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 1
-  },
-  {
     "qmk": "KC_A",
     "legend": "A",
     "altLegend": "",
@@ -574,144 +560,11 @@
     "raw": 83
   },
   {
-    "qmk": "KC_PSLS",
-    "legend": "/",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 84
-  },
-  {
-    "qmk": "KC_PAST",
-    "legend": "*",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 85
-  },
-  {
-    "qmk": "KC_PMNS",
-    "legend": "-",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 86
-  },
-  {
-    "qmk": "KC_PPLS",
-    "legend": "+",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 87
-  },
-  {
-    "qmk": "KC_PENT",
-    "legend": "Enter",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 88
-  },
-  {
-    "qmk": "KC_P1",
-    "legend": "1",
-    "altLegend": "End",
-    "kind": "KEYPAD",
-    "raw": 89
-  },
-  {
-    "qmk": "KC_P2",
-    "legend": "2",
-    "altLegend": "↓",
-    "kind": "KEYPAD",
-    "raw": 90
-  },
-  {
-    "qmk": "KC_P3",
-    "legend": "3",
-    "altLegend": "PgDn",
-    "kind": "KEYPAD",
-    "raw": 91
-  },
-  {
-    "qmk": "KC_P4",
-    "legend": "4",
-    "altLegend": "←",
-    "kind": "KEYPAD",
-    "raw": 92
-  },
-  {
-    "qmk": "KC_P5",
-    "legend": "5",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 93
-  },
-  {
-    "qmk": "KC_P6",
-    "legend": "6",
-    "altLegend": "→",
-    "kind": "KEYPAD",
-    "raw": 94
-  },
-  {
-    "qmk": "KC_P7",
-    "legend": "7",
-    "altLegend": "Home",
-    "kind": "KEYPAD",
-    "raw": 95
-  },
-  {
-    "qmk": "KC_P8",
-    "legend": "8",
-    "altLegend": "↑",
-    "kind": "KEYPAD",
-    "raw": 96
-  },
-  {
-    "qmk": "KC_P9",
-    "legend": "9",
-    "altLegend": "PgUp",
-    "kind": "KEYPAD",
-    "raw": 97
-  },
-  {
-    "qmk": "KC_P0",
-    "legend": "0",
-    "altLegend": "Ins",
-    "kind": "KEYPAD",
-    "raw": 98
-  },
-  {
-    "qmk": "KC_PDOT",
-    "legend": ".",
-    "altLegend": "Del",
-    "kind": "KEYPAD",
-    "raw": 99
-  },
-  {
     "qmk": "KC_NUBS",
     "legend": "Non-US \\",
     "altLegend": "\\",
     "kind": "BASIC",
     "raw": 100
-  },
-  {
-    "qmk": "KC_APP",
-    "legend": "App",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 101
-  },
-  {
-    "qmk": "KC_POWER",
-    "legend": "Power",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 102
-  },
-  {
-    "qmk": "KC_PEQL",
-    "legend": "=",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 103
   },
   {
     "qmk": "KC_F13",
@@ -796,139 +649,6 @@
     "altLegend": "",
     "kind": "BASIC",
     "raw": 115
-  },
-  {
-    "qmk": "KC_EXEC",
-    "legend": "Execute",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 116
-  },
-  {
-    "qmk": "KC_HELP",
-    "legend": "Help",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 117
-  },
-  {
-    "qmk": "KC_MENU",
-    "legend": "Menu",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 118
-  },
-  {
-    "qmk": "KC_SLCT",
-    "legend": "Select",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 119
-  },
-  {
-    "qmk": "KC_STOP",
-    "legend": "Stop",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 120
-  },
-  {
-    "qmk": "KC_AGIN",
-    "legend": "Again",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 121
-  },
-  {
-    "qmk": "KC_UNDO",
-    "legend": "Undo",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 122
-  },
-  {
-    "qmk": "KC_CUT",
-    "legend": "Cut",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 123
-  },
-  {
-    "qmk": "KC_COPY",
-    "legend": "Copy",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 124
-  },
-  {
-    "qmk": "KC_PSTE",
-    "legend": "Paste",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 125
-  },
-  {
-    "qmk": "KC_FIND",
-    "legend": "Find",
-    "altLegend": "",
-    "kind": "SYSTEM",
-    "raw": 126
-  },
-  {
-    "qmk": "KC__MUTE",
-    "legend": "Mute",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 127
-  },
-  {
-    "qmk": "KC__VOLUP",
-    "legend": "Vol Up",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 128
-  },
-  {
-    "qmk": "KC__VOLDOWN",
-    "legend": "Vol Down",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 129
-  },
-  {
-    "qmk": "KC_LCAP",
-    "legend": "LCAP",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 130
-  },
-  {
-    "qmk": "KC_LNUM",
-    "legend": "LNUM",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 131
-  },
-  {
-    "qmk": "KC_LSCR",
-    "legend": "LSCR",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 132
-  },
-  {
-    "qmk": "KC_PCMM",
-    "legend": ",",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 133
-  },
-  {
-    "qmk": "KC_KP_EQUAL_AS400",
-    "legend": "0",
-    "altLegend": "",
-    "kind": "KEYPAD",
-    "raw": 134
   },
   {
     "qmk": "KC_RO",
@@ -1141,6 +861,440 @@
     "raw": 164
   },
   {
+    "qmk": "KC_LCTL",
+    "legend": "Ctrl",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 224
+  },
+  {
+    "qmk": "KC_LSFT",
+    "legend": "Shift",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 225
+  },
+  {
+    "qmk": "KC_LOPT",
+    "legend": "Alt",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 226
+  },
+  {
+    "qmk": "KC_LCMD",
+    "legend": "GUI",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 227
+  },
+  {
+    "qmk": "KC_RCTL",
+    "legend": "Ctrl",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 228
+  },
+  {
+    "qmk": "KC_RSFT",
+    "legend": "Shift",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 229
+  },
+  {
+    "qmk": "KC_RALT",
+    "legend": "Alt",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 230
+  },
+  {
+    "qmk": "KC_RGUI",
+    "legend": "GUI",
+    "altLegend": "",
+    "kind": "MOD",
+    "raw": 231
+  },
+  {
+    "qmk": "KC_PSLS",
+    "legend": "/",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 84
+  },
+  {
+    "qmk": "KC_PAST",
+    "legend": "*",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 85
+  },
+  {
+    "qmk": "KC_PMNS",
+    "legend": "-",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 86
+  },
+  {
+    "qmk": "KC_PPLS",
+    "legend": "+",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 87
+  },
+  {
+    "qmk": "KC_PENT",
+    "legend": "Enter",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 88
+  },
+  {
+    "qmk": "KC_P1",
+    "legend": "1",
+    "altLegend": "End",
+    "kind": "KEYPAD",
+    "raw": 89
+  },
+  {
+    "qmk": "KC_P2",
+    "legend": "2",
+    "altLegend": "↓",
+    "kind": "KEYPAD",
+    "raw": 90
+  },
+  {
+    "qmk": "KC_P3",
+    "legend": "3",
+    "altLegend": "PgDn",
+    "kind": "KEYPAD",
+    "raw": 91
+  },
+  {
+    "qmk": "KC_P4",
+    "legend": "4",
+    "altLegend": "←",
+    "kind": "KEYPAD",
+    "raw": 92
+  },
+  {
+    "qmk": "KC_P5",
+    "legend": "5",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 93
+  },
+  {
+    "qmk": "KC_P6",
+    "legend": "6",
+    "altLegend": "→",
+    "kind": "KEYPAD",
+    "raw": 94
+  },
+  {
+    "qmk": "KC_P7",
+    "legend": "7",
+    "altLegend": "Home",
+    "kind": "KEYPAD",
+    "raw": 95
+  },
+  {
+    "qmk": "KC_P8",
+    "legend": "8",
+    "altLegend": "↑",
+    "kind": "KEYPAD",
+    "raw": 96
+  },
+  {
+    "qmk": "KC_P9",
+    "legend": "9",
+    "altLegend": "PgUp",
+    "kind": "KEYPAD",
+    "raw": 97
+  },
+  {
+    "qmk": "KC_P0",
+    "legend": "0",
+    "altLegend": "Ins",
+    "kind": "KEYPAD",
+    "raw": 98
+  },
+  {
+    "qmk": "KC_PDOT",
+    "legend": ".",
+    "altLegend": "Del",
+    "kind": "KEYPAD",
+    "raw": 99
+  },
+  {
+    "qmk": "KC_PEQL",
+    "legend": "=",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 103
+  },
+  {
+    "qmk": "KC_PCMM",
+    "legend": ",",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 133
+  },
+  {
+    "qmk": "KC_KP_EQUAL_AS400",
+    "legend": "0",
+    "altLegend": "",
+    "kind": "KEYPAD",
+    "raw": 134
+  },
+  {
+    "qmk": "KC_NO",
+    "legend": "◻",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 0
+  },
+  {
+    "qmk": "KC_TRNS",
+    "legend": "▽",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 1
+  },
+  {
+    "qmk": "KC_LCAP",
+    "legend": "LCAP",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 130
+  },
+  {
+    "qmk": "KC_LNUM",
+    "legend": "LNUM",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 131
+  },
+  {
+    "qmk": "KC_LSCR",
+    "legend": "LSCR",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 132
+  },
+  {
+    "qmk": "RESET",
+    "legend": "RESET",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23552
+  },
+  {
+    "qmk": "DEBUG",
+    "legend": "DEBUG",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23553
+  },
+  {
+    "qmk": "KC_GESC",
+    "legend": "ESC `",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23574
+  },
+  {
+    "qmk": "BL_ON",
+    "legend": "BL On",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23739
+  },
+  {
+    "qmk": "BL_OFF",
+    "legend": "BL Off",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23740
+  },
+  {
+    "qmk": "BL_DEC",
+    "legend": "BL Dec",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23741
+  },
+  {
+    "qmk": "BL_INC",
+    "legend": "BL Inc",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23742
+  },
+  {
+    "qmk": "BL_TOGG",
+    "legend": "BL Toggle",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23743
+  },
+  {
+    "qmk": "BL_STEP",
+    "legend": "BL Step",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23744
+  },
+  {
+    "qmk": "BL_BRTG",
+    "legend": "BL breath",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23745
+  },
+  {
+    "qmk": "KC_LSPO",
+    "legend": "LShift (",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23767
+  },
+  {
+    "qmk": "KC_RSPC",
+    "legend": "RShift )",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23768
+  },
+  {
+    "qmk": "KC_SFTENT",
+    "legend": "RShift Enter",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23769
+  },
+  {
+    "qmk": "KC_LCPO",
+    "legend": "LCtrl (",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23795
+  },
+  {
+    "qmk": "KC_RCPC",
+    "legend": "RCtrl )",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23796
+  },
+  {
+    "qmk": "KC_LAPO",
+    "legend": "LAlt  (",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23797
+  },
+  {
+    "qmk": "KC_RAPC",
+    "legend": "RAlt )",
+    "altLegend": "",
+    "kind": "QMK",
+    "raw": 23798
+  },
+  {
+    "qmk": "KC_APP",
+    "legend": "App",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 101
+  },
+  {
+    "qmk": "KC_POWER",
+    "legend": "Power",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 102
+  },
+  {
+    "qmk": "KC_EXEC",
+    "legend": "Execute",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 116
+  },
+  {
+    "qmk": "KC_HELP",
+    "legend": "Help",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 117
+  },
+  {
+    "qmk": "KC_MENU",
+    "legend": "Menu",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 118
+  },
+  {
+    "qmk": "KC_SLCT",
+    "legend": "Select",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 119
+  },
+  {
+    "qmk": "KC_STOP",
+    "legend": "Stop",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 120
+  },
+  {
+    "qmk": "KC_AGIN",
+    "legend": "Again",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 121
+  },
+  {
+    "qmk": "KC_UNDO",
+    "legend": "Undo",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 122
+  },
+  {
+    "qmk": "KC_CUT",
+    "legend": "Cut",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 123
+  },
+  {
+    "qmk": "KC_COPY",
+    "legend": "Copy",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 124
+  },
+  {
+    "qmk": "KC_PSTE",
+    "legend": "Paste",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 125
+  },
+  {
+    "qmk": "KC_FIND",
+    "legend": "Find",
+    "altLegend": "",
+    "kind": "SYSTEM",
+    "raw": 126
+  },
+  {
     "qmk": "KC_PWR",
     "legend": "Power",
     "altLegend": "",
@@ -1160,69 +1314,6 @@
     "altLegend": "",
     "kind": "SYSTEM",
     "raw": 167
-  },
-  {
-    "qmk": "KC_MUTE",
-    "legend": "Mute",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 168
-  },
-  {
-    "qmk": "KC_VOLU",
-    "legend": "Vol +",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 169
-  },
-  {
-    "qmk": "KC_VOLD",
-    "legend": "Vol -",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 170
-  },
-  {
-    "qmk": "KC_MNXT",
-    "legend": "Next",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 171
-  },
-  {
-    "qmk": "KC_MPRV",
-    "legend": "Prev",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 172
-  },
-  {
-    "qmk": "KC_MSTP",
-    "legend": "Stop",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 173
-  },
-  {
-    "qmk": "KC_MPLY",
-    "legend": "Play",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 174
-  },
-  {
-    "qmk": "KC_MSEL",
-    "legend": "Player",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 175
-  },
-  {
-    "qmk": "KC_EJCT",
-    "legend": "Eject",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 176
   },
   {
     "qmk": "KC_MAIL",
@@ -1295,20 +1386,6 @@
     "raw": 186
   },
   {
-    "qmk": "KC_MFFD",
-    "legend": ">>",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 187
-  },
-  {
-    "qmk": "KC_MRWD",
-    "legend": "<<",
-    "altLegend": "",
-    "kind": "MEDIA",
-    "raw": 188
-  },
-  {
     "qmk": "KC_BRIU",
     "legend": "BR +",
     "altLegend": "",
@@ -1323,60 +1400,102 @@
     "raw": 190
   },
   {
-    "qmk": "KC_LCTL",
-    "legend": "Ctrl",
+    "qmk": "KC__MUTE",
+    "legend": "Mute",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 224
+    "kind": "MEDIA",
+    "raw": 127
   },
   {
-    "qmk": "KC_LSFT",
-    "legend": "Shift",
+    "qmk": "KC__VOLUP",
+    "legend": "Vol Up",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 225
+    "kind": "MEDIA",
+    "raw": 128
   },
   {
-    "qmk": "KC_LOPT",
-    "legend": "Alt",
+    "qmk": "KC__VOLDOWN",
+    "legend": "Vol Down",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 226
+    "kind": "MEDIA",
+    "raw": 129
   },
   {
-    "qmk": "KC_LCMD",
-    "legend": "GUI",
+    "qmk": "KC_MUTE",
+    "legend": "Mute",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 227
+    "kind": "MEDIA",
+    "raw": 168
   },
   {
-    "qmk": "KC_RCTL",
-    "legend": "Ctrl",
+    "qmk": "KC_VOLU",
+    "legend": "Vol +",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 228
+    "kind": "MEDIA",
+    "raw": 169
   },
   {
-    "qmk": "KC_RSFT",
-    "legend": "Shift",
+    "qmk": "KC_VOLD",
+    "legend": "Vol -",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 229
+    "kind": "MEDIA",
+    "raw": 170
   },
   {
-    "qmk": "KC_RALT",
-    "legend": "Alt",
+    "qmk": "KC_MNXT",
+    "legend": "Next",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 230
+    "kind": "MEDIA",
+    "raw": 171
   },
   {
-    "qmk": "KC_RGUI",
-    "legend": "GUI",
+    "qmk": "KC_MPRV",
+    "legend": "Prev",
     "altLegend": "",
-    "kind": "MOD",
-    "raw": 231
+    "kind": "MEDIA",
+    "raw": 172
+  },
+  {
+    "qmk": "KC_MSTP",
+    "legend": "Stop",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 173
+  },
+  {
+    "qmk": "KC_MPLY",
+    "legend": "Play",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 174
+  },
+  {
+    "qmk": "KC_MSEL",
+    "legend": "Player",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 175
+  },
+  {
+    "qmk": "KC_EJCT",
+    "legend": "Eject",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 176
+  },
+  {
+    "qmk": "KC_MFFD",
+    "legend": ">>",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 187
+  },
+  {
+    "qmk": "KC_MRWD",
+    "legend": "<<",
+    "altLegend": "",
+    "kind": "MEDIA",
+    "raw": 188
   },
   {
     "qmk": "KC_MS_U",
@@ -1489,76 +1608,6 @@
     "altLegend": "",
     "kind": "MOUSE",
     "raw": 246
-  },
-  {
-    "qmk": "RESET",
-    "legend": "RESET",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23552
-  },
-  {
-    "qmk": "DEBUG",
-    "legend": "DEBUG",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23553
-  },
-  {
-    "qmk": "KC_GESC",
-    "legend": "ESC `",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23574
-  },
-  {
-    "qmk": "BL_ON",
-    "legend": "BL On",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23739
-  },
-  {
-    "qmk": "BL_OFF",
-    "legend": "BL Off",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23740
-  },
-  {
-    "qmk": "BL_DEC",
-    "legend": "BL Dec",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23741
-  },
-  {
-    "qmk": "BL_INC",
-    "legend": "BL Inc",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23742
-  },
-  {
-    "qmk": "BL_TOGG",
-    "legend": "BL Toggle",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23743
-  },
-  {
-    "qmk": "BL_STEP",
-    "legend": "BL Step",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23744
-  },
-  {
-    "qmk": "BL_BRTG",
-    "legend": "BL breath",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23745
   },
   {
     "qmk": "RGB_TOG",
@@ -1699,54 +1748,5 @@
     "altLegend": "",
     "kind": "LED",
     "raw": 23765
-  },
-  {
-    "qmk": "KC_LSPO",
-    "legend": "LShift (",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23767
-  },
-  {
-    "qmk": "KC_RSPC",
-    "legend": "RShift )",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23768
-  },
-  {
-    "qmk": "KC_SFTENT",
-    "legend": "RShift Enter",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23769
-  },
-  {
-    "qmk": "KC_LCPO",
-    "legend": "LCtrl (",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23795
-  },
-  {
-    "qmk": "KC_RCPC",
-    "legend": "RCtrl )",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23796
-  },
-  {
-    "qmk": "KC_LAPO",
-    "legend": "LAlt  (",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23797
-  },
-  {
-    "qmk": "KC_RAPC",
-    "legend": "RAlt )",
-    "altLegend": "",
-    "kind": "QMK",
-    "raw": 23798
   }
 ]

@@ -1,11 +1,11 @@
 export type BaseKeycodeKind =
   | 'BASIC'
+  | 'MOD'
+  | 'KEYPAD'
   | 'QMK'
   | 'SYSTEM'
-  | 'KEYPAD'
-  | 'MEDIA'
   | 'PC'
-  | 'MOD'
+  | 'MEDIA'
   | 'MOUSE'
   | 'LED'
 
