@@ -145,10 +145,10 @@ export default defineComponent({
     const isDisabled = computed(() => _props.keyLayout.disabled)
 
     const click = () => {
+      console.log(_props.keycode?.kind)
       const rect = keyRef.value?.getBoundingClientRect()
       if (rect) {
         const isRight = rect.right + popupWidth < window.innerWidth
-        console.log(`${rect.left}, ${rect.right}`)
         if (_props.keycode) {
           openKeySetting(
             {
@@ -162,8 +162,6 @@ export default defineComponent({
             }
           )
         }
-      } else {
-        console.error("KeySetting popup can't open!")
       }
     }
 

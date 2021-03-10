@@ -1,12 +1,10 @@
 <template>
   <div class="keyTop SpecialKeytop">
     <div class="labelRow">
-      <div class="label">{{ keycode.base.type }}</div>
+      <div class="label">{{ keycode.base.kind }}</div>
     </div>
     <div class="legend">
-      <div>
-        <div>{{ keycode.qmk }}</div>
-      </div>
+      <div>{{ keycode.base.legend }}</div>
     </div>
   </div>
 </template>
