@@ -4,7 +4,6 @@
       <component
         :is="settingComponent"
         :keycode="keycode"
-        @change-rawcode="changeRawcode"
         @change-keycode="changeKeycode"
       />
       <AtomButton @click="doneKeySetting">OK</AtomButton>
@@ -32,11 +31,12 @@ import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 import AtomModal from '@/components/atoms/AtomModal.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
-import KeysettingBasic from '@/components/keySettings/KeySettingBasic.vue'
 import KeysettingUnknown from '@/components/keySettings/KeySettingUnknown.vue'
+import KeysettingBasic from '@/components/keySettings/KeySettingBasic.vue'
+import KeysettingLayer from '@/components/keySettings/KeySettingLayer.vue'
 
 export default defineComponent({
-  components: { AtomModal, AtomButton, KeysettingUnknown },
+  components: { AtomModal, AtomButton, KeysettingUnknown, KeysettingLayer },
   props: {},
   setup(_props, _context) {
     const {
@@ -77,7 +77,15 @@ export default defineComponent({
       if (!keycode.value) return undefined
       switch (keycode.value.kind) {
         case 'BASIC':
+        case 'SPECIAL':
           return KeysettingBasic
+        case 'LAYER_ON':
+        case 'LAYER_MOMENTARY':
+        case 'LAYER_DEFAULT':
+        case 'LAYER_TOGGLE':
+        case 'LAYER_ONESHOT':
+        case 'LAYER_TAPTOGGLE':
+          return KeysettingLayer
         case 'UNKNOWN':
         default:
           return KeysettingUnknown

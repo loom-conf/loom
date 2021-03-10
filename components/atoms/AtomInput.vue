@@ -15,10 +15,10 @@
 input {
   outline: 0;
   background: white;
-  border: 1px solid gray;
-  padding: 0.2em;
-  color: darken(gray, 20%);
-  font-size: small;
+  border: 1px solid $fontSubColor;
+  padding: 8px;
+  color: $fontColor;
+  font-size: 12px;
   border-radius: 1px;
   height: 32px;
   width: 100%;

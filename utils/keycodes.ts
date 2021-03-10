@@ -66,7 +66,11 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
     const mods = parseModsToArray(raw >> 8)
     const base = findBase(raw & 0x00ff)
     if (!base) return { kind: 'UNKNOWN', raw }
-    if (base.kind === 'BASIC' || base.kind === 'KEYPAD') {
+    if (
+      base.kind === 'BASIC' ||
+      base.kind === 'KEYPAD' ||
+      base.kind === 'MOD'
+    ) {
       return {
         kind: 'BASIC',
         qmk: mods.reduce((ret, v) => `${v}(${ret})`, base.qmk),

@@ -1,7 +1,11 @@
 <template>
   <div class="keySetting">
     <div class="item">
-      <div class="label">Unknown</div>
+      <div class="label">Layer</div>
+      <SettingLayer :layer="keycode.layer" @change="changeLayer" />
+    </div>
+    <div class="item">
+      <div class="label">Raw</div>
       <SettingRaw :raw="keycode.raw" @change-raw="changeRaw" />
     </div>
   </div>
@@ -9,14 +13,15 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { UnknownKeycode } from '@/utils/keycodeTypes'
+import { LayerKeycodeTypes } from '@/utils/keycodeTypes'
+import SettingLayer from '@/components/keySettings/SettingLayer.vue'
 import SettingRaw from '@/components/keySettings/SettingRaw.vue'
 
 export default defineComponent({
-  components: { SettingRaw },
+  components: { SettingRaw, SettingLayer },
   props: {
     keycode: {
-      type: Object as PropType<UnknownKeycode>,
+      type: Object as PropType<LayerKeycodeTypes>,
       required: true,
     },
   },
@@ -24,7 +29,10 @@ export default defineComponent({
     const changeRaw = (newRaw: number) => {
       _context.emit('changeRaw', newRaw)
     }
-    return { changeRaw }
+    const changeLayer = (newLayer: number) => {
+      _context.emit('changeLayer', newLayer)
+    }
+    return { changeRaw, changeLayer }
   },
 })
 </script>

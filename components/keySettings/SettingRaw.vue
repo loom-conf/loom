@@ -1,14 +1,9 @@
 <template>
-  <div class="keySettingItem raw">
-    <div class="title">Raw</div>
-    <div class="content">
-      <AtomInput
-        :value="raw !== undefined ? raw.toString() : undefined"
-        @submit="change"
-        @blur="change"
-      />
-    </div>
-  </div>
+  <AtomInput
+    :value="raw !== undefined ? raw.toString() : undefined"
+    @submit="change"
+    @blur="change"
+  />
 </template>
 
 <script lang="ts">
@@ -25,7 +20,7 @@ export default defineComponent({
     const change = (input: string) => {
       const newRaw = parseInt(input)
       if (isNaN(newRaw)) return
-      _context.emit('change', newRaw)
+      _context.emit('changeRaw', newRaw)
     }
     return { change }
   },
