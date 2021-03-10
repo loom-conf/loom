@@ -20,6 +20,7 @@
     height: 100%;
     border: $bgColor 1px solid;
     border-radius: 2px;
+    background-color: white;
     &.disabled {
       background-color: $disableColor;
       color: lighten($disableColor, 50%);
@@ -78,10 +79,10 @@ export default defineComponent({
     const width = computed(() => calcKeySize(_props.keyLayout.width))
     const height = computed(() => calcKeySize(_props.keyLayout.height))
     const top = computed(
-      () => calcKeySize(_props.keyLayout.y) + KeyConsts.margin
+      () => calcKeySize(_props.keyLayout.y) + KeyConsts.outerMargin
     )
     const left = computed(
-      () => calcKeySize(_props.keyLayout.x) + KeyConsts.margin
+      () => calcKeySize(_props.keyLayout.x) + KeyConsts.outerMargin
     )
 
     const outerStyle = computed(() => {
