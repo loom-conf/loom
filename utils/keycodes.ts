@@ -228,6 +228,8 @@ export function buildRawFromKeycode(keycode: KeycodeTypes) {
   switch (keycode.kind) {
     case 'BASIC':
       return keycode.base.raw | (parseModsArrayToValue(keycode.mods) << 8)
+    case 'SPECIAL':
+      return keycode.base.raw
     case 'FUNCTION':
       return 0x2000 | keycode.action
     case 'MACRO':
