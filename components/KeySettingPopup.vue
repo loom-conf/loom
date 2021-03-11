@@ -1,8 +1,7 @@
 <template>
   <AtomModal :is-open="isOpen" @close="closeKeySetting">
     <div class="keySettingPopup" :style="positionStyle">
-      <component
-        :is="settingComponent"
+      <KeySetting
         :keycode="keycode"
         @changeKeycode="changeKeycode"
         @changeRaw="changeRaw"
@@ -32,12 +31,14 @@ import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 import AtomModal from '@/components/atoms/AtomModal.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
-import KeysettingUnknown from '@/components/keySettings/KeySettingUnknown.vue'
-import KeysettingBasic from '@/components/keySettings/KeySettingBasic.vue'
-import KeysettingLayer from '@/components/keySettings/KeySettingLayer.vue'
+import KeySetting from '@/components/KeySetting.vue'
 
 export default defineComponent({
-  components: { AtomModal, AtomButton, KeysettingUnknown, KeysettingLayer },
+  components: {
+    AtomModal,
+    AtomButton,
+    KeySetting,
+  },
   props: {},
   setup(_props, _context) {
     const {
@@ -73,27 +74,6 @@ export default defineComponent({
       setKeycode(newKeycode)
     }
 
-    const settingComponent = computed(() => {
-      if (!keycode.value) return undefined
-      switch (keycode.value.kind) {
-        case 'BASIC':
-        case 'SPECIAL':
-          return KeysettingBasic
-        case 'LAYER_ON':
-        case 'LAYER_MOMENTARY':
-        case 'LAYER_DEFAULT':
-        case 'LAYER_TOGGLE':
-        case 'LAYER_ONESHOT':
-        case 'LAYER_TAPTOGGLE':
-        case 'LAYER_TAP':
-        case 'LAYER_MOD':
-          return KeysettingLayer
-        case 'UNKNOWN':
-        default:
-          return KeysettingUnknown
-      }
-    })
-
     return {
       isOpen,
       keycode,
@@ -102,7 +82,6 @@ export default defineComponent({
       positionStyle,
       changeRaw,
       changeKeycode,
-      settingComponent,
     }
   },
 })
