@@ -13,12 +13,12 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import { LayerKeycodeTypes } from '@/utils/keycodeTypes'
+import { SimpleLayerKeycodeTypes } from '@/utils/keycodeTypes'
 
 export default defineComponent({
   props: {
     keycode: {
-      type: Object as PropType<LayerKeycodeTypes>,
+      type: Object as PropType<SimpleLayerKeycodeTypes>,
       required: true,
     },
   },

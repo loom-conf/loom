@@ -1,10 +1,6 @@
 import { InjectionKey, provide, inject, ref } from '@nuxtjs/composition-api'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
-import { buildKeycodeFromRaw } from '@/utils/keycodes'
-
-interface KeySettingDoneCallback {
-  (newKeycode: KeycodeTypes): void
-}
+import { buildKeycodeFromRaw, buildRawFromKeycode } from '@/utils/keycodes'
 
 interface KeySettingPosition {
   x: number
@@ -12,37 +8,44 @@ interface KeySettingPosition {
   isRight: boolean
 }
 
+type KeySettingUpdateFunc = (newKeycode: KeycodeTypes) => void
+
 export function createKeySettingPopup() {
   const popupWidth = 300
   const isOpen = ref<boolean>(false)
   const keycode = ref<KeycodeTypes>()
   const position = ref<KeySettingPosition>()
-  let callback: KeySettingDoneCallback | undefined
+  let updateKeycodeFunc: KeySettingUpdateFunc | undefined
 
   const openKeySetting = (
     pos: KeySettingPosition,
     code: KeycodeTypes,
-    callbackFunc: KeySettingDoneCallback
+    updateCallback: KeySettingUpdateFunc
   ) => {
     position.value = pos
     keycode.value = code
     isOpen.value = true
-    callback = callbackFunc
+    updateKeycodeFunc = updateCallback
   }
 
   const closeKeySetting = () => {
     isOpen.value = false
     keycode.value = undefined
     position.value = undefined
-    callback = undefined
+    updateKeycodeFunc = undefined
   }
 
-  const setRawCode = (raw: number) => {
+  const setRaw = (raw: number) => {
     keycode.value = buildKeycodeFromRaw(raw)
+    if (updateKeycodeFunc) updateKeycodeFunc(keycode.value)
+  }
+
+  const setKeycode = (newKeycode: KeycodeTypes) => {
+    keycode.value = buildKeycodeFromRaw(buildRawFromKeycode(newKeycode))
+    if (updateKeycodeFunc) updateKeycodeFunc(keycode.value)
   }
 
   const doneKeySetting = () => {
-    if (keycode.value && callback) callback(keycode.value)
     closeKeySetting()
   }
 
@@ -54,7 +57,8 @@ export function createKeySettingPopup() {
     openKeySetting,
     closeKeySetting,
     doneKeySetting,
-    setRawCode,
+    setRaw,
+    setKeycode,
   }
 }
 

@@ -6,7 +6,7 @@
       multiple
       :options="['SFT', 'CTL', 'ALT', 'GUI']"
     />
-    <div class="modsOption">
+    <div v-if="option" class="modsOption">
       <span
         ><input
           v-model="modsOption"
@@ -37,6 +37,10 @@ export default defineComponent({
     modsKey: {
       type: Array as PropType<string[]>,
       default: [],
+    },
+    option: {
+      type: Boolean,
+      defalut: true,
     },
   },
   setup(_props, _context) {

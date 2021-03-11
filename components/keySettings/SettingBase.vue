@@ -32,8 +32,8 @@ export default defineComponent({
     },
   },
   setup(_props, _context) {
-    const input = (newBaseKeycode: BaseKeycode) => {
-      _context.emit('changeBaseKeycode', newBaseKeycode)
+    const input = (newBase: BaseKeycode) => {
+      _context.emit('changeBase', newBase)
     }
     return { getKeycodeList, input }
   },

@@ -4,7 +4,8 @@
       <component
         :is="settingComponent"
         :keycode="keycode"
-        @change-keycode="changeKeycode"
+        @changeKeycode="changeKeycode"
+        @changeRaw="changeRaw"
       />
       <AtomButton @click="doneKeySetting">OK</AtomButton>
       <AtomButton style="background-color: red" @click="doneKeySetting"
@@ -45,7 +46,8 @@ export default defineComponent({
       keycode,
       position,
       closeKeySetting,
-      setRawCode,
+      setRaw,
+      setKeycode,
       doneKeySetting,
     } = useKeySettingPopup()
 
@@ -63,14 +65,12 @@ export default defineComponent({
           }
     )
 
-    const raw = computed(() => keycode.value?.raw)
-
-    const changeRawcode = (newRaw: number) => {
-      setRawCode(newRaw)
+    const changeRaw = (newRaw: number) => {
+      setRaw(newRaw)
     }
 
     const changeKeycode = (newKeycode: any) => {
-      console.log(newKeycode)
+      setKeycode(newKeycode)
     }
 
     const settingComponent = computed(() => {
@@ -85,6 +85,8 @@ export default defineComponent({
         case 'LAYER_TOGGLE':
         case 'LAYER_ONESHOT':
         case 'LAYER_TAPTOGGLE':
+        case 'LAYER_TAP':
+        case 'LAYER_MOD':
           return KeysettingLayer
         case 'UNKNOWN':
         default:
@@ -98,8 +100,7 @@ export default defineComponent({
       doneKeySetting,
       closeKeySetting,
       positionStyle,
-      raw,
-      changeRawcode,
+      changeRaw,
       changeKeycode,
       settingComponent,
     }

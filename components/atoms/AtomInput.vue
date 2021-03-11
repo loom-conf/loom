@@ -6,7 +6,7 @@
       :placeholder="label"
       type="text"
       @input="update"
-      v-on:blur="blur"
+      @blur="blur"
     />
   </form>
 </template>
@@ -37,7 +37,13 @@ input {
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  ref,
+  watch,
+  toRef,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -56,6 +62,11 @@ export default defineComponent({
   },
   setup(_props, _context) {
     const inputValue = ref(_props.value)
+
+    watch(toRef(_props, 'value'), () => {
+      inputValue.value = _props.value
+    })
+
     const inputClass = computed(() => (_props.disabled ? 'disabled' : ''))
     const update = (event: Event) => {
       if (event.target instanceof HTMLInputElement) {
