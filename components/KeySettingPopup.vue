@@ -1,15 +1,29 @@
 <template>
   <AtomModal :is-open="isOpen" @close="closeKeySetting">
     <div class="keySettingPopup" :style="positionStyle">
-      <KeySetting
-        :keycode="keycode"
-        @changeKeycode="changeKeycode"
-        @changeRaw="changeRaw"
-      />
-      <AtomButton @click="doneKeySetting">OK</AtomButton>
-      <AtomButton style="background-color: red" @click="doneKeySetting"
-        >Cancel</AtomButton
-      >
+      <div class="keySetting">
+        <div class="title">{{ title }}</div>
+        <div v-if="hasLayer" class="item">
+          <div class="label">Layer</div>
+          <SettingLayer :layer="keycode.layer" @changeLayer="changeLayer" />
+        </div>
+        <div v-if="hasBase" class="item">
+          <div class="label">Key</div>
+          <SettingBase :base-keycode="keycode.base" @changeBase="changeBase" />
+        </div>
+        <div v-if="hasMods" class="item">
+          <div class="label">Mod</div>
+          <SettingMod
+            :mods-key="keycode.mods"
+            :option="keycode.kind !== 'LAYER_MOD'"
+            @changeMods="changeMods"
+          />
+        </div>
+        <div v-if="keycode" class="item">
+          <div class="label">Raw</div>
+          <SettingRaw :raw="keycode.raw" @changeRaw="changeRaw" />
+        </div>
+      </div>
     </div>
   </AtomModal>
 </template>
@@ -29,15 +43,20 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
+import { BaseKeycode, ModKey } from '@/utils/keycodeTypes'
 import AtomModal from '@/components/atoms/AtomModal.vue'
-import AtomButton from '@/components/atoms/AtomButton.vue'
-import KeySetting from '@/components/KeySetting.vue'
+import SettingBase from '@/components/keySettings/SettingBase.vue'
+import SettingRaw from '@/components/keySettings/SettingRaw.vue'
+import SettingMod from '@/components/keySettings/SettingMod.vue'
+import SettingLayer from '@/components/keySettings/SettingLayer.vue'
 
 export default defineComponent({
   components: {
     AtomModal,
-    AtomButton,
-    KeySetting,
+    SettingBase,
+    SettingRaw,
+    SettingMod,
+    SettingLayer,
   },
   props: {},
   setup(_props, _context) {
@@ -49,7 +68,6 @@ export default defineComponent({
       closeKeySetting,
       setRaw,
       setKeycode,
-      doneKeySetting,
     } = useKeySettingPopup()
 
     const positionStyle = computed(() =>
@@ -66,22 +84,59 @@ export default defineComponent({
           }
     )
 
+    const title = computed(() => keycode.value?.kind.replaceAll('_', ' '))
+
+    const changeBase = (newBase: BaseKeycode) => {
+      if (keycode.value && 'base' in keycode.value) {
+        const newKeycode = { ...keycode.value }
+        newKeycode.base = newBase
+        setKeycode(newKeycode)
+      }
+    }
+
+    const changeMods = (newMods: ModKey[]) => {
+      if (keycode.value && 'mods' in keycode.value) {
+        const newKeycode = { ...keycode.value }
+        newKeycode.mods = newMods
+        setKeycode(newKeycode)
+      }
+    }
+
+    const changeLayer = (newLayer: number) => {
+      if (keycode.value && 'layer' in keycode.value) {
+        const newKeycode = { ...keycode.value }
+        newKeycode.layer = newLayer
+        setKeycode(newKeycode)
+      }
+    }
+
     const changeRaw = (newRaw: number) => {
       setRaw(newRaw)
     }
 
-    const changeKeycode = (newKeycode: any) => {
-      setKeycode(newKeycode)
-    }
+    const hasBase = computed(() =>
+      keycode.value ? 'base' in keycode.value : undefined
+    )
+    const hasMods = computed(() =>
+      keycode.value ? 'mods' in keycode.value : undefined
+    )
+    const hasLayer = computed(() =>
+      keycode.value ? 'layer' in keycode.value : undefined
+    )
 
     return {
       isOpen,
       keycode,
-      doneKeySetting,
       closeKeySetting,
       positionStyle,
+      title,
+      changeBase,
+      changeMods,
       changeRaw,
-      changeKeycode,
+      changeLayer,
+      hasBase,
+      hasMods,
+      hasLayer,
     }
   },
 })
