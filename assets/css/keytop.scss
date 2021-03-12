@@ -21,7 +21,7 @@
     .mods {
       display: flex;
       height: 18px;
-      border-bottom: $subColor 2px solid;
+      border-bottom: $basicKeyColor 2px solid;
       & > div {
         padding: 0 2px;
       }
@@ -41,7 +41,7 @@
       border-radius: 0 0 4px 0;
     }
     .mods {
-      background-color: $subColor;
+      background-color: $basicKeyColor;
       & > div {
         text-align: center;
         padding: 0 2px;
@@ -61,7 +61,7 @@
   &.unknownKeyTop {
     .labelRow {
       .label {
-        background-color: $disableColor;
+        background-color: $specialKeyColor;
       }
     }
     .legend {
@@ -72,7 +72,7 @@
   &.modTapKeyTop {
     .labelRow {
       .label {
-        background-color: violet;
+        background-color: $modKeyColor;
       }
     }
     .legend {
@@ -87,7 +87,7 @@
   &.oneshotModKeyTop {
     .labelRow {
       .label {
-        background-color: violet;
+        background-color: $modKeyColor;
       }
     }
   }
@@ -95,7 +95,7 @@
   &.layerKeyTop {
     .labelRow {
       .label {
-        background-color: $successColor;
+        background-color: $layerKeyColor;
       }
     }
     &.withKeycode {
@@ -114,7 +114,7 @@
       padding: 0 5px;
       height: 18px;
       text-align: center;
-      border-bottom: $successColor 2px solid;
+      border-bottom: $layerKeyColor 2px solid;
     }
   }
 }

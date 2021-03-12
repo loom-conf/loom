@@ -4,8 +4,13 @@ $fontColor: black;
 $fontSubColor: #666;
 $successColor: #6bb;
 $subColor: #669;
-$errorColor: #e5b;
+$errorColor: rgb(233, 108, 191);
 $disableColor: #aaa;
+
+$basicKeyColor: $subColor;
+$layerKeyColor: $successColor;
+$modKeyColor: $errorColor;
+$specialKeyColor: $disableColor;
 
 $popupBgColor: $fontSubColor;
 $popupFontColor: $mainBgColor;

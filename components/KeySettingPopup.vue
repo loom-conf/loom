@@ -1,8 +1,15 @@
 <template>
   <AtomModal :is-open="isOpen" @close="closeKeySetting">
-    <div class="keySettingPopup" :style="positionStyle">
+    <div class="keySettingPopup" :class="colorClass" :style="positionStyle">
       <div class="keySetting">
-        <div class="title">{{ title }}</div>
+        <div class="header">
+          <div :class="colorClass" class="title">
+            {{ title }}
+          </div>
+          <div v-tooltip.left="'undo'" class="undo" @click.stop="clickUndo">
+            <AtomIcon :icon="mdiUndo" />
+          </div>
+        </div>
         <div v-if="hasLayer" class="item">
           <div class="label">Layer</div>
           <SettingLayer :layer="keycode.layer" @changeLayer="changeLayer" />
@@ -20,8 +27,17 @@
           />
         </div>
         <div v-if="keycode" class="item">
-          <div class="label">Raw</div>
-          <SettingRaw :raw="keycode.raw" @changeRaw="changeRaw" />
+          <div class="label" @click="clickRawLabel">
+            <span class="rawMark" :class="isRawOpen ? 'open' : ''">▼</span> Raw
+          </div>
+          <transition name="slide-down">
+            <SettingRaw
+              v-show="isRawOpen"
+              :raw="keycode.raw"
+              class="settingRaw"
+              @changeRaw="changeRaw"
+            />
+          </transition>
         </div>
       </div>
     </div>
@@ -33,18 +49,96 @@
   position: fixed;
   background-color: white;
   margin-top: 4px;
-  padding: 1rem;
-  border: 1px solid $bgColor;
+  margin-left: -8px;
+  margin-right: -8px;
+  border: 8px solid $bgColor;
   border-radius: 3px;
   box-shadow: 5px 5px rgba(black, 0.3);
+  &.basic {
+    border-color: $basicKeyColor;
+  }
+  &.layer {
+    border-color: $layerKeyColor;
+  }
+  &.mod {
+    border-color: $modKeyColor;
+  }
+}
+.keySetting {
+  padding-bottom: 12px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+    margin: 0 0 8px 8px;
+    .title {
+      font-weight: 500;
+      color: white;
+      background-color: $bgColor;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 0 8px 4px 8px;
+      &.basic {
+        background-color: $basicKeyColor;
+      }
+      &.layer {
+        background-color: $layerKeyColor;
+      }
+      &.mod {
+        background-color: $modKeyColor;
+      }
+    }
+    .undo {
+      color: $fontSubColor;
+      width: 20px;
+      height: 20px;
+      margin-top: 4px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+  }
+  .item {
+    margin-bottom: 6px;
+    padding: 0 16px;
+    .label {
+      margin-bottom: 2px;
+      user-select: none;
+      font-size: small;
+      font-weight: 400;
+    }
+  }
+}
+.rawMark {
+  display: inline-block;
+  transition: 0.3s;
+  &.open {
+    transform: rotate(180deg);
+    transition: 0.3s;
+  }
+}
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.2s;
+}
+.slide-down-enter-to,
+.slide-down-leave {
+  overflow: hidden;
+  height: 32px;
+}
+.slide-down-enter,
+.slide-down-leave-to {
+  overflow: hidden;
+  height: 0;
 }
 </style>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 import { BaseKeycode, ModKey } from '@/utils/keycodeTypes'
+import { mdiUndo } from '@mdi/js'
 import AtomModal from '@/components/atoms/AtomModal.vue'
+import AtomIcon from '@/components/atoms/AtomIcon.vue'
 import SettingBase from '@/components/keySettings/SettingBase.vue'
 import SettingRaw from '@/components/keySettings/SettingRaw.vue'
 import SettingMod from '@/components/keySettings/SettingMod.vue'
@@ -53,6 +147,7 @@ import SettingLayer from '@/components/keySettings/SettingLayer.vue'
 export default defineComponent({
   components: {
     AtomModal,
+    AtomIcon,
     SettingBase,
     SettingRaw,
     SettingMod,
@@ -60,6 +155,7 @@ export default defineComponent({
   },
   props: {},
   setup(_props, _context) {
+    const isRawOpen = ref(false)
     const {
       popupWidth,
       isOpen,
@@ -68,23 +164,51 @@ export default defineComponent({
       closeKeySetting,
       setRaw,
       setKeycode,
+      undo,
     } = useKeySettingPopup()
 
-    const positionStyle = computed(() =>
-      position.value?.isRight
+    const positionStyle = computed(() => {
+      if (!position.value) return
+      return position.value?.isRight
         ? {
             width: `${popupWidth}px`,
-            top: `${position.value?.y}px`,
-            left: `${position.value?.x}px`,
+            top: `${position.value.y}px`,
+            left: `${position.value.x}px`,
           }
         : {
             width: `${popupWidth}px`,
-            top: `${position.value?.y}px`,
-            right: `${position.value?.x}px`,
+            top: `${position.value.y}px`,
+            right: `${position.value.x}px`,
           }
-    )
+    })
 
     const title = computed(() => keycode.value?.kind.replaceAll('_', ' '))
+
+    const colorClass = computed(() => {
+      switch (keycode.value?.kind) {
+        case 'BASIC':
+          return 'basic'
+        case 'LAYER_TAP':
+        case 'LAYER_MOD':
+        case 'LAYER_ON':
+        case 'LAYER_MOMENTARY':
+        case 'LAYER_DEFAULT':
+        case 'LAYER_TOGGLE':
+        case 'LAYER_ONESHOT':
+        case 'LAYER_TAPTOGGLE':
+          return 'layer'
+        case 'MOD_ONESHOT':
+        case 'MOD_TAP':
+          return 'mod'
+        case 'SPECIAL':
+        case 'FUNCTION':
+        case 'MACRO':
+        case 'TAPDANCE':
+        case 'UNKNOWN':
+        default:
+          return undefined
+      }
+    })
 
     const changeBase = (newBase: BaseKeycode) => {
       if (keycode.value && 'base' in keycode.value) {
@@ -114,6 +238,14 @@ export default defineComponent({
       setRaw(newRaw)
     }
 
+    const clickUndo = () => {
+      undo()
+    }
+
+    const clickRawLabel = () => {
+      isRawOpen.value = !isRawOpen.value
+    }
+
     const hasBase = computed(() =>
       keycode.value ? 'base' in keycode.value : undefined
     )
@@ -125,15 +257,20 @@ export default defineComponent({
     )
 
     return {
+      mdiUndo,
+      isRawOpen,
       isOpen,
       keycode,
       closeKeySetting,
       positionStyle,
       title,
+      colorClass,
       changeBase,
       changeMods,
       changeRaw,
       changeLayer,
+      clickUndo,
+      clickRawLabel,
       hasBase,
       hasMods,
       hasLayer,

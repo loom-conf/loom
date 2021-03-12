@@ -3,7 +3,7 @@
     :clearable="false"
     :append-to-body="true"
     :options="layerItems"
-    :value="layer"
+    :value="String(layer)"
     label="layer"
     @input="input"
   />

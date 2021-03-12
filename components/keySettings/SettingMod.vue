@@ -4,6 +4,7 @@
       v-model="mods"
       taggable
       multiple
+      :append-to-body="true"
       :options="['SFT', 'CTL', 'ALT', 'GUI']"
     />
     <div v-if="option" class="modsOption">

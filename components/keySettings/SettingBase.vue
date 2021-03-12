@@ -9,14 +9,6 @@
   />
 </template>
 
-<style lang="scss">
-.basicSelect {
-  height: 32px;
-  font-size: 12px;
-  color: $fontColor;
-}
-</style>
-
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import VueSelect from 'vue-select'

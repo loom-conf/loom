@@ -8,41 +8,55 @@ interface KeySettingPosition {
   isRight: boolean
 }
 
-type KeySettingUpdateFunc = (newKeycode: KeycodeTypes) => void
+type UpdateCallback = (newKeycode: KeycodeTypes) => void
+type CloseCallBack = () => void
 
 export function createKeySettingPopup() {
   const popupWidth = 300
   const isOpen = ref<boolean>(false)
   const keycode = ref<KeycodeTypes>()
   const position = ref<KeySettingPosition>()
-  let updateKeycodeFunc: KeySettingUpdateFunc | undefined
+  let originalKeycode: KeycodeTypes | undefined
+  let updateCallbackFunc: UpdateCallback | undefined
+  let closeCallbackFunc: CloseCallBack | undefined
 
   const openKeySetting = (
     pos: KeySettingPosition,
     code: KeycodeTypes,
-    updateCallback: KeySettingUpdateFunc
+    updateCallback: UpdateCallback,
+    closeCallback: CloseCallBack
   ) => {
     position.value = pos
     keycode.value = code
     isOpen.value = true
-    updateKeycodeFunc = updateCallback
+    originalKeycode = code
+    updateCallbackFunc = updateCallback
+    closeCallbackFunc = closeCallback
   }
 
   const closeKeySetting = () => {
+    if (closeCallbackFunc) closeCallbackFunc()
     isOpen.value = false
     keycode.value = undefined
     position.value = undefined
-    updateKeycodeFunc = undefined
+    originalKeycode = undefined
+    updateCallbackFunc = undefined
+    closeCallbackFunc = undefined
   }
 
   const setRaw = (raw: number) => {
     keycode.value = buildKeycodeFromRaw(raw)
-    if (updateKeycodeFunc) updateKeycodeFunc(keycode.value)
+    if (updateCallbackFunc) updateCallbackFunc(keycode.value)
   }
 
   const setKeycode = (newKeycode: KeycodeTypes) => {
     keycode.value = buildKeycodeFromRaw(buildRawFromKeycode(newKeycode))
-    if (updateKeycodeFunc) updateKeycodeFunc(keycode.value)
+    if (updateCallbackFunc) updateCallbackFunc(keycode.value)
+  }
+
+  const undo = () => {
+    keycode.value = originalKeycode
+    if (updateCallbackFunc && keycode.value) updateCallbackFunc(keycode.value)
   }
 
   const doneKeySetting = () => {
@@ -59,6 +73,7 @@ export function createKeySettingPopup() {
     doneKeySetting,
     setRaw,
     setKeycode,
+    undo,
   }
 }
 

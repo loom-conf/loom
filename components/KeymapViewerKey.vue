@@ -1,6 +1,6 @@
 <template>
   <div v-if="isVisible" class="keyContainer" :style="outerStyle" @click="click">
-    <div ref="keyRef" class="keyBorder" :class="isDisabled ? 'disabled' : ''">
+    <div ref="keyRef" class="keyBorder" :class="borderClass">
       <div v-if="keycode === undefined">{{ label }}</div>
       <component :is="keyComponent" v-else :keycode="keycode" />
     </div>
@@ -24,6 +24,9 @@
     &.disabled {
       background-color: $disableColor;
       color: lighten($disableColor, 50%);
+    }
+    &.openingSetting {
+      border: 4px solid $successColor;
     }
   }
 }
@@ -71,6 +74,7 @@ export default defineComponent({
 
   setup(_props, _context) {
     const keyRef = ref<HTMLDivElement>()
+    const isOpeningSetting = ref(false)
 
     const { KeyConsts, calcKeySize } = useConsts()
     const { viewerOption } = useAppSetting()
@@ -98,6 +102,11 @@ export default defineComponent({
         transform: `rotate(${_props.keyLayout.rotation_angle}deg)`,
       }
     })
+
+    const borderClass = computed(() => ({
+      disabled: isDisabled.value,
+      openingSetting: isOpeningSetting.value,
+    }))
 
     const label = computed(() => {
       if (_props.keycode === undefined) return _props.keyLayout.labels[0]
@@ -147,10 +156,12 @@ export default defineComponent({
 
     const click = () => {
       console.log(_props.keycode?.kind)
+      console.log(borderClass.value)
       const rect = keyRef.value?.getBoundingClientRect()
       if (rect) {
         const isRight = rect.right + popupWidth < window.innerWidth
         if (_props.keycode) {
+          isOpeningSetting.value = true
           openKeySetting(
             {
               x: isRight ? rect.left : window.innerWidth - rect.right,
@@ -160,6 +171,9 @@ export default defineComponent({
             _props.keycode,
             (newKeycode) => {
               _context.emit('update-keycode', newKeycode, _props.keycodeIndex)
+            },
+            () => {
+              isOpeningSetting.value = false
             }
           )
         }
@@ -168,7 +182,9 @@ export default defineComponent({
 
     return {
       keyRef,
+      isOpeningSetting,
       outerStyle,
+      borderClass,
       label,
       keyComponent,
       isVisible,
