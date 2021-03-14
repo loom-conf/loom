@@ -1,8 +1,8 @@
 <template>
   <div class="deviceSetting">
-    <div class="block">
+    <div class="item">
       <div class="header">Load keyboard config</div>
-      <div class="item">
+      <div class="containt">
         <AtomInput
           v-model="jsonURL"
           label="JSON URL"
@@ -16,18 +16,68 @@
         >
         <AtomButton :disabled="isLoading || true">open local</AtomButton>
       </div>
+      <div v-if="indexedHistory" class="history">
+        <table class="historyTable">
+          <tr
+            v-for="history in pinnedHistory"
+            :key="`pinned${history.name}${history.index}`"
+          >
+            <td
+              :class="history.isPinned ? 'enable' : ''"
+              class="pin"
+              @click="clickHistoryPin(history.index)"
+            >
+              ★
+            </td>
+            <td class="name">{{ history.name }}</td>
+            <td class="src">
+              <a :href="history.src">{{ history.src }}</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div v-if="indexedHistory" class="history">
+        <div class="header">History</div>
+        <table class="historyTable">
+          <tr
+            v-for="history in indexedHistory"
+            :key="`history${history.name}${history.index}`"
+          >
+            <td
+              :class="history.isPinned ? 'enable' : ''"
+              class="pin"
+              @click="clickHistoryPin(history.index)"
+            >
+              ★
+            </td>
+            <td class="name">{{ history.name }}</td>
+            <td class="src">
+              <a :href="history.src">{{ history.src }}</a>
+            </td>
+            <td
+              v-if="!history.isPinned"
+              class="remove"
+              @click="clickRemoveHistory(history.index)"
+            >
+              ×
+            </td>
+          </tr>
+        </table>
+      </div>
       <div v-if="hasConfig" class="info">
-        Loaded - {{ configName }} / <a :href="configSrc">Original file</a>
+        Loaded - {{ configName }} / <a :href="configSrc">src</a>
       </div>
     </div>
-    <div class="block">
+    <div class="item">
       <div class="header">Connect USB device</div>
-      <AtomButton
-        :disabled="!hasConfig || isConnected"
-        @click="connectButtonClicked"
-        >connect</AtomButton
-      >
-      <div v-if="isConnected" class="info">Connected - {{ deviceName }}</div>
+      <div class="containt">
+        <AtomButton
+          :disabled="!hasConfig || isConnected"
+          @click="connectButtonClicked"
+          >connect</AtomButton
+        >
+        <div v-if="isConnected" class="info">Connected - {{ deviceName }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,15 +85,36 @@
 <style lang="scss" scoped>
 .deviceSetting {
   height: 0;
-  .label {
-    min-width: 250px;
-  }
+  min-width: 250px;
 }
 .textField {
   width: 500px;
 }
 .jsonButton {
   margin: 0 0.3rem;
+}
+.history {
+  .historyTable {
+    .pin {
+      cursor: pointer;
+      color: $disableColor;
+      &.enable {
+        color: $successColor;
+      }
+    }
+    .name {
+      cursor: pointer;
+      padding: 0 16px 0 0;
+      font-weight: 500;
+    }
+    .src {
+      max-width: 400px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: x-small;
+    }
+  }
 }
 </style>
 
@@ -80,6 +151,10 @@ export default defineComponent({
       isConnected,
       keyboadConfig,
       deviceConfig,
+      indexedHistory,
+      updateHistory,
+      toggleHistoryPin,
+      removeHistory,
     } = useKeyboard()
 
     const jsonButtonClicked = async () => {
@@ -87,7 +162,11 @@ export default defineComponent({
         state.isLoading = true
         const url = new URL(state.jsonURL)
         const res = await axios.get(url.toString())
-        loadKeyboardConfig(res.data, state.jsonURL)
+        await loadKeyboardConfig(res.data, state.jsonURL)
+        updateHistory({
+          name: keyboadConfig.value?.name ?? '',
+          src: state.jsonURL,
+        })
       } catch (e) {
         console.error(e)
       } finally {
@@ -103,16 +182,32 @@ export default defineComponent({
       }
     }
 
+    const clickHistoryPin = (index: number) => {
+      toggleHistoryPin(index)
+    }
+
+    const clickRemoveHistory = (index: number) => {
+      removeHistory(index)
+    }
+
+    const pinnedHistory = computed(() =>
+      indexedHistory.value.filter((v) => v.isPinned)
+    )
+
     const configName = computed(() => keyboadConfig.value?.name)
     const deviceName = computed(() => deviceConfig.value?.name)
     const configSrc = computed(() => keyboadConfig.value?.fileSrc)
 
     return {
       ...toRefs(state),
+      indexedHistory,
       hasConfig,
       isConnected,
       jsonButtonClicked,
       connectButtonClicked,
+      clickHistoryPin,
+      clickRemoveHistory,
+      pinnedHistory,
       configName,
       deviceName,
       configSrc,

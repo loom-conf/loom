@@ -1,8 +1,8 @@
 <template>
   <div class="appSetting">
-    <div class="block">
-      <h3>Viewer</h3>
-      <div class="item">
+    <div class="item">
+      <div class="header">Viewer</div>
+      <div class="containt">
         <BottomToggle
           :value="viewerOption.hideUnselectedLayout"
           label="Hide keys in unselected layout"

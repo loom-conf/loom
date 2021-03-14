@@ -26,6 +26,12 @@ type Setting = {
   device: DeviceSetting | undefined
 }
 
+interface ConfigHistoryItem {
+  name: string
+  src: string
+  isPinned: boolean
+}
+
 export const createKeyboard = () => {
   const deviceProtocol = new WebHID()
 
@@ -33,6 +39,58 @@ export const createKeyboard = () => {
   const config = reactive<Config>({ device: undefined, keyboard: undefined })
   const setting = reactive<Setting>({ device: undefined })
   const isCommunicating = ref(false)
+
+  const configHistoryJson = window.localStorage.getItem('ConfigHistories')
+  const configHistory = ref<ConfigHistoryItem[]>(
+    configHistoryJson
+      ? JSON.parse(configHistoryJson)
+      : [
+          {
+            name: 'Tartan',
+            src:
+              'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/tartan.json',
+            isPinned: false,
+          },
+        ]
+  )
+
+  function saveHistory() {
+    window.localStorage.setItem(
+      'ConfigHistories',
+      JSON.stringify(configHistory.value)
+    )
+  }
+
+  function addHistory(config: ConfigHistoryItem) {
+    configHistory.value.unshift(config)
+  }
+
+  const indexedHistory = computed(() =>
+    configHistory.value.map((v, index) => ({ ...v, index }))
+  )
+
+  function updateHistory(config: { name: string; src: string }) {
+    let isPinned = false
+    configHistory.value = configHistory.value.filter((v) => {
+      if (v.name !== config.name) {
+        isPinned = v.isPinned
+        return true
+      }
+      return false
+    })
+    addHistory({ ...config, isPinned })
+    saveHistory()
+  }
+
+  function toggleHistoryPin(index: number) {
+    configHistory.value[index].isPinned = !configHistory.value[index].isPinned
+    saveHistory()
+  }
+
+  function removeHistory(index: number) {
+    configHistory.value.splice(index, 1)
+    saveHistory()
+  }
 
   async function loadKeyboardConfig(json: any[][], fileSrc: string) {
     await disconnectDevice()
@@ -102,6 +160,10 @@ export const createKeyboard = () => {
 
   return {
     config,
+    indexedHistory,
+    updateHistory,
+    toggleHistoryPin,
+    removeHistory,
     connectDevice,
     loadKeyboardConfig,
     loadDeviceSetting,

@@ -10,7 +10,12 @@ interface ViewerOption {
 }
 
 export function createAppSetting() {
-  const viewerOption = reactive<ViewerOption>({ hideUnselectedLayout: true })
+  const optionJson = window.localStorage.getItem('ViewerOption')
+
+  const viewerOption = reactive<ViewerOption>(
+    optionJson ? JSON.parse(optionJson) : { hideUnselectedLayout: true }
+  )
+
   return { viewerOption }
 }
 

@@ -42,14 +42,14 @@ p {
 .editorBottom {
   .main {
     padding-bottom: 2rem;
-    .block {
+    .item {
       margin-bottom: 1.5rem;
       .header {
-        font-size: x-large;
-        font-weight: 500;
+        font-size: medium;
+        font-weight: 600;
         margin-bottom: 0.3rem;
       }
-      .item {
+      .containt {
         display: flex;
         align-items: center;
         margin: 0.3rem 0;
