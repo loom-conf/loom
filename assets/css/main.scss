@@ -45,7 +45,7 @@ p {
     .item {
       margin-bottom: 1rem;
       .header {
-        font-size: medium;
+        font-size: larger;
         font-weight: 600;
         margin-bottom: 0.3rem;
       }
@@ -55,6 +55,9 @@ p {
         font-size: large;
         .label {
           padding-right: 1rem;
+        }
+        .row {
+          display: flex;
         }
       }
       .info {

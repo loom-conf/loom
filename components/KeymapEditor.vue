@@ -4,7 +4,7 @@
       :class="{ blur: isCommunicating }"
       style="transition: filter 0.3s linear"
     >
-      <h1>{{ keyboardName }}</h1>
+      <div class="keyboardName">{{ keyboardName }}</div>
       <div class="keymapEditor">
         <div class="sideMenu">
           <KeymapEditorLayerSelector
@@ -28,6 +28,12 @@
   position: relative;
   transition: filter 0.5s linear;
   filter: none;
+  .keyboardName {
+    margin-left: -10px;
+    line-height: 48px;
+    font-size: 48px;
+    font-weight: 900;
+  }
   .keymapEditor {
     position: relative;
     flex: 1;

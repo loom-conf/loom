@@ -1,9 +1,15 @@
 <template>
-  <div class="toggle item">
+  <div class="toggle containt">
     <div class="label">{{ label }}</div>
     <AtomCheckbox :value="!!value" @toggle="toggle" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.toggle {
+  display: flex;
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'

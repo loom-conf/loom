@@ -3,7 +3,7 @@
     <div class="item">
       <div class="header">Load keyboard config</div>
       <div class="containt">
-        <div class="configLoad">
+        <div class="row">
           <AtomInput
             v-model="jsonURL"
             label="JSON URL"
@@ -91,9 +91,6 @@
 .deviceSetting {
   height: 0;
   min-width: 250px;
-}
-.configLoad {
-  display: flex;
 }
 .textField {
   width: 500px;

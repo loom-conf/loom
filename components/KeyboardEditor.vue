@@ -28,7 +28,7 @@
     margin-bottom: 2rem;
     .keymapEditor,
     .initialPane {
-      padding: 0 32px 32px 32px;
+      padding: 0 24px 24px 16px;
       background-color: white;
       border: 10px solid black;
       border-radius: 10px;

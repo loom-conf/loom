@@ -1,7 +1,11 @@
 <template>
-  <div class="layoutOption">
-    <div v-if="hasOptions" class="block">
-      <div v-for="(item, index) in layoutOption.items" :key="`${item.label}`">
+  <div class="layoutOption item">
+    <div v-if="hasOptions" class="containt">
+      <div
+        v-for="(item, index) in layoutOption.items"
+        :key="`${item.label}`"
+        class="row"
+      >
         <BottomToggle
           v-if="!item.options"
           :label="item.label"
@@ -19,7 +23,7 @@
         />
       </div>
     </div>
-    <div v-else class="block">No layout options</div>
+    <div v-else class="item">No layout options</div>
   </div>
 </template>
 
