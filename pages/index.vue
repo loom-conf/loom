@@ -31,12 +31,12 @@ body::-webkit-scrollbar {
   height: 100vh;
   .container {
     position: absolute;
-    width: calc(#{$bottomTabWidth} - 64px);
+    width: calc(#{$bottomTabWidth} - 48px);
     background: $mainBgColor;
-    border: 8px solid black;
+    border: 10px solid black;
     border-top: none;
     border-radius: 0 0 12px 12px;
-    margin: 0 32px;
+    margin: 0 24px;
     .title {
       text-align: center;
       img {
