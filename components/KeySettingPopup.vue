@@ -27,17 +27,13 @@
           />
         </div>
         <div v-if="keycode" class="item">
-          <div class="label" @click="clickRawLabel">
-            <span class="rawMark" :class="{ open: isRawOpen }">▼</span> Raw
-          </div>
-          <transition name="slide-down">
+          <AtomToggleSlide label="Raw">
             <SettingRaw
-              v-show="isRawOpen"
               :raw="keycode.raw"
               class="settingRaw"
               @changeRaw="changeRaw"
             />
-          </transition>
+          </AtomToggleSlide>
         </div>
       </div>
     </div>
@@ -97,6 +93,12 @@
       cursor: pointer;
     }
   }
+}
+</style>
+
+<style lang="scss">
+/* for toggle slide */
+.keySetting {
   .item {
     margin-bottom: 6px;
     padding: 0 16px;
@@ -108,28 +110,6 @@
     }
   }
 }
-.rawMark {
-  display: inline-block;
-  transition: 0.3s;
-  &.open {
-    transform: rotate(180deg);
-    transition: 0.3s;
-  }
-}
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: all 0.2s;
-}
-.slide-down-enter-to,
-.slide-down-leave {
-  overflow: hidden;
-  height: 32px;
-}
-.slide-down-enter,
-.slide-down-leave-to {
-  overflow: hidden;
-  height: 0;
-}
 </style>
 
 <script lang="ts">
@@ -139,6 +119,7 @@ import { BaseKeycode, ModKey } from '@/utils/keycodeTypes'
 import { mdiUndo } from '@mdi/js'
 import AtomModal from '@/components/atoms/AtomModal.vue'
 import AtomIcon from '@/components/atoms/AtomIcon.vue'
+import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
 import SettingBase from '@/components/keySettings/SettingBase.vue'
 import SettingRaw from '@/components/keySettings/SettingRaw.vue'
 import SettingMod from '@/components/keySettings/SettingMod.vue'
@@ -148,6 +129,7 @@ export default defineComponent({
   components: {
     AtomModal,
     AtomIcon,
+    AtomToggleSlide,
     SettingBase,
     SettingRaw,
     SettingMod,
