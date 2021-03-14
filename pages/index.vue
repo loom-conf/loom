@@ -92,8 +92,8 @@ body::-webkit-scrollbar {
     &.copyright {
       text-align: right;
       background: $mainBgColor;
-      bottom: 0;
-      right: 20px;
+      bottom: 16px;
+      right: 32px;
     }
   }
   .keyboardEditor {
