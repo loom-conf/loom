@@ -13,7 +13,8 @@ button {
   border: none;
   padding: 0 1rem;
   color: $mainBgColor;
-  font-size: 14px;
+  font-size: medium;
+  font-weight: 600;
   border-radius: 1px;
   cursor: pointer;
   transition: all 0.5s ease;

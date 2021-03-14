@@ -33,6 +33,8 @@ body::-webkit-scrollbar {
     position: absolute;
     width: calc(#{$bottomTabWidth} - 64px);
     background: $mainBgColor;
+    border: 8px solid black;
+    border-top: none;
     border-radius: 0 0 12px 12px;
     margin: 0 32px;
     .title {
@@ -69,7 +71,7 @@ body::-webkit-scrollbar {
       }
       .loom {
         margin-top: 8px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         font-size: 18px;
         font-weight: 900;
         transform: rotateZ(345deg);

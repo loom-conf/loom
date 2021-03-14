@@ -3,18 +3,20 @@
     <div class="item">
       <div class="header">Load keyboard config</div>
       <div class="containt">
-        <AtomInput
-          v-model="jsonURL"
-          label="JSON URL"
-          class="textField"
-        ></AtomInput>
-        <AtomButton
-          :disabled="isLoading"
-          class="jsonButton"
-          @click="jsonButtonClicked"
-          >load</AtomButton
-        >
-        <AtomButton :disabled="isLoading || true">open local</AtomButton>
+        <div class="configLoad">
+          <AtomInput
+            v-model="jsonURL"
+            label="JSON URL"
+            class="textField"
+          ></AtomInput>
+          <AtomButton
+            :disabled="isLoading"
+            class="jsonButton"
+            @click="jsonButtonClicked"
+            >load</AtomButton
+          >
+          <AtomButton :disabled="isLoading || true">open local</AtomButton>
+        </div>
       </div>
       <div v-if="indexedHistory" class="history">
         <table class="historyTable">
@@ -63,9 +65,10 @@
           </tr>
         </table></AtomToggleSlide
       >
-    </div>
-    <div v-if="hasConfig" class="info">
-      Loaded - {{ configName }} / <a :href="configSrc">src</a>
+      <div v-if="hasConfig" class="info">
+        <span class="label">Loaded</span>
+        <span class="msg">{{ configName }} / <a :href="configSrc">src</a></span>
+      </div>
     </div>
     <div class="item">
       <div class="header">Connect USB device</div>
@@ -75,7 +78,10 @@
           @click="connectButtonClicked"
           >connect</AtomButton
         >
-        <div v-if="isConnected" class="info">Connected - {{ deviceName }}</div>
+        <div v-if="isConnected" class="info">
+          <span class="label">Connected</span>
+          <span class="msg">{{ deviceName }} </span>
+        </div>
       </div>
     </div>
   </div>
@@ -85,6 +91,9 @@
 .deviceSetting {
   height: 0;
   min-width: 250px;
+}
+.configLoad {
+  display: flex;
 }
 .textField {
   width: 500px;
