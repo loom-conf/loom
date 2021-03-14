@@ -1,7 +1,7 @@
 <template>
   <div class="keymapEditorContainer">
     <div
-      :class="isCommunicating ? 'blur' : ''"
+      :class="{ blur: isCommunicating }"
       style="transition: filter 0.3s linear"
     >
       <h1>{{ keyboardName }}</h1>

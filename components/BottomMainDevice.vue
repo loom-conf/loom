@@ -23,7 +23,7 @@
             :key="`pinned${history.name}${history.index}`"
           >
             <td
-              :class="history.isPinned ? 'enable' : ''"
+              :class="{ enable: history.isPinned }"
               class="pin"
               @click="clickHistoryPin(history.index)"
             >
@@ -44,7 +44,7 @@
             :key="`history${history.name}${history.index}`"
           >
             <td
-              :class="history.isPinned ? 'enable' : ''"
+              :class="{ enable: history.isPinned }"
               class="pin"
               @click="clickHistoryPin(history.index)"
             >

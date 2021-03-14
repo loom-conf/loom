@@ -28,7 +28,7 @@
         </div>
         <div v-if="keycode" class="item">
           <div class="label" @click="clickRawLabel">
-            <span class="rawMark" :class="isRawOpen ? 'open' : ''">▼</span> Raw
+            <span class="rawMark" :class="{ open: isRawOpen }">▼</span> Raw
           </div>
           <transition name="slide-down">
             <SettingRaw
