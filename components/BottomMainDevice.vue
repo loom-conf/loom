@@ -36,9 +36,8 @@
           </tr>
         </table>
       </div>
-      <div v-if="indexedHistory" class="history">
-        <div class="header">History</div>
-        <table class="historyTable">
+      <AtomToggleSlide v-if="indexedHistory" class="history" label="History"
+        ><table class="historyTable">
           <tr
             v-for="history in indexedHistory"
             :key="`history${history.name}${history.index}`"
@@ -62,11 +61,11 @@
               ×
             </td>
           </tr>
-        </table>
-      </div>
-      <div v-if="hasConfig" class="info">
-        Loaded - {{ configName }} / <a :href="configSrc">src</a>
-      </div>
+        </table></AtomToggleSlide
+      >
+    </div>
+    <div v-if="hasConfig" class="info">
+      Loaded - {{ configName }} / <a :href="configSrc">src</a>
     </div>
     <div class="item">
       <div class="header">Connect USB device</div>
@@ -129,6 +128,7 @@ import {
 import { useKeyboard } from '@/stores/useKeyboard'
 import AtomInput from '@/components/atoms/AtomInput.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
+import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
 
 interface State {
   jsonURL: string
@@ -136,7 +136,7 @@ interface State {
 }
 
 export default defineComponent({
-  components: { AtomInput, AtomButton },
+  components: { AtomInput, AtomButton, AtomToggleSlide },
   setup(_props, _context) {
     const state = reactive<State>({
       jsonURL:
