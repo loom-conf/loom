@@ -72,11 +72,11 @@ export const createKeyboard = () => {
   function updateHistory(config: { name: string; src: string }) {
     let isPinned = false
     configHistory.value = configHistory.value.filter((v) => {
-      if (v.name !== config.name) {
+      if (v.name === config.name) {
         isPinned = v.isPinned
-        return true
+        return false
       }
-      return false
+      return true
     })
     addHistory({ ...config, isPinned })
     saveHistory()

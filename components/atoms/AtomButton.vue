@@ -9,7 +9,7 @@ button {
   height: 32px;
   text-transform: uppercase;
   outline: 0;
-  background: $successColor;
+  background: $subColor;
   border: none;
   padding: 0 1rem;
   color: $mainBgColor;
@@ -20,8 +20,8 @@ button {
   transition: all 0.5s ease;
 
   &:hover {
-    background: darken($successColor, 15%);
-    border-color: darken($successColor, 15%);
+    background: darken($subColor, 15%);
+    border-color: darken($subColor, 15%);
   }
 
   &.disabled {

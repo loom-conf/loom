@@ -18,7 +18,7 @@
           <AtomButton :disabled="isLoading || true">open local</AtomButton>
         </div>
       </div>
-      <div v-if="indexedHistory" class="history">
+      <div v-if="indexedHistory" class="history pinned">
         <table class="historyTable">
           <tr
             v-for="history in pinnedHistory"
@@ -38,8 +38,8 @@
           </tr>
         </table>
       </div>
-      <AtomToggleSlide v-if="indexedHistory" class="history" label="History"
-        ><table class="historyTable">
+      <AtomToggleSlide v-if="indexedHistory" class="history" label="History">
+        <table class="historyTable">
           <tr
             v-for="history in indexedHistory"
             :key="`history${history.name}${history.index}`"
@@ -63,8 +63,8 @@
               ×
             </td>
           </tr>
-        </table></AtomToggleSlide
-      >
+        </table>
+      </AtomToggleSlide>
       <div v-if="hasConfig" class="info">
         <span class="label">Loaded</span>
         <span class="msg">{{ configName }} / <a :href="configSrc">src</a></span>
@@ -99,7 +99,13 @@
   margin: 0 0.3rem;
 }
 .history {
+  margin-left: 4px;
+  font-size: small;
+  margin-bottom: 12px;
   .historyTable {
+    border-left: 1px solid black;
+    margin-left: 5.5px;
+    padding-left: 6px;
     .pin {
       cursor: pointer;
       color: $disableColor;
@@ -109,8 +115,11 @@
     }
     .name {
       cursor: pointer;
-      padding: 0 16px 0 0;
+      padding: 0 8px 0 0;
       font-weight: 500;
+      &:hover {
+        text-decoration: underline;
+      }
     }
     .src {
       max-width: 400px;
@@ -118,6 +127,19 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       font-size: x-small;
+    }
+  }
+  &.pinned {
+    font-size: medium;
+    margin-left: 0;
+    margin-bottom: 0;
+    .historyTable {
+      border: none;
+      padding-left: 0;
+      margin-left: 0;
+      tr {
+        line-height: 20px;
+      }
     }
   }
 }

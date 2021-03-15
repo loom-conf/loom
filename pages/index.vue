@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
         top: 18px;
         left: 28px;
         background-color: white;
-        transition: all 2s ease;
+        transition: all 1s ease;
         &.animate {
           background: linear-gradient(
             45deg,
@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
             #dd00f3
           );
           background-size: 1800% 1800%;
-          animation: rainbow 3s ease infinite;
+          animation: rainbow 3s linear infinite;
         }
       }
       .loom {
