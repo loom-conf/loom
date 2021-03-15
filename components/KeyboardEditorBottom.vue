@@ -32,8 +32,8 @@
     overflow-y: auto;
     height: 100%;
     width: 100%;
-    padding-left: 2em;
-    padding-top: 1em;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
   }
 }
 

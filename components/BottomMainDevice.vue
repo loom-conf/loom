@@ -1,18 +1,33 @@
 <template>
   <div class="deviceSetting">
     <div class="item">
+      <div class="header">Connect USB device</div>
+      <div class="containt">
+        <AtomButton :disabled="isConnected" @click="clickConnect"
+          >connect</AtomButton
+        >
+        <AtomButton :disabled="!isConnected" @click="clickDisconnect"
+          >disconnect</AtomButton
+        >
+        <div v-if="isConnected" class="info">
+          <span class="label">Connected</span>
+          <span class="msg">{{ deviceName }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
       <div class="header">Load keyboard config</div>
       <div class="containt">
         <div class="row">
           <AtomInput
-            v-model="jsonURL"
+            v-model="jsonUrl"
             label="JSON URL"
             class="textField"
           ></AtomInput>
           <AtomButton
             :disabled="isLoading"
-            class="jsonButton"
-            @click="jsonButtonClicked"
+            class="jsonFetchButton"
+            @click="clickLoad"
             >load</AtomButton
           >
           <AtomButton :disabled="isLoading || true">open local</AtomButton>
@@ -38,12 +53,21 @@
           </tr>
         </table>
       </div>
-      <AtomToggleSlide v-if="indexedHistory" class="history" label="History">
+      <AtomToggleSlide
+        v-if="indexedHistory"
+        :value="true"
+        class="history"
+        label="History"
+      >
         <table class="historyTable">
           <tr
             v-for="history in indexedHistory"
             :key="`history${history.name}${history.index}`"
           >
+            <td class="name">{{ history.name }}</td>
+            <td class="src">
+              <a :href="history.src">{{ history.src }}</a>
+            </td>
             <td
               :class="{ enable: history.isPinned }"
               class="pin"
@@ -51,37 +75,19 @@
             >
               ★
             </td>
-            <td class="name">{{ history.name }}</td>
-            <td class="src">
-              <a :href="history.src">{{ history.src }}</a>
-            </td>
             <td
               v-if="!history.isPinned"
               class="remove"
               @click="clickRemoveHistory(history.index)"
             >
-              ×
+              <AtomIcon :icon="mdiDeleteForever" />
             </td>
           </tr>
         </table>
       </AtomToggleSlide>
-      <div v-if="hasConfig" class="info">
+      <div v-if="!!configName" class="info">
         <span class="label">Loaded</span>
         <span class="msg">{{ configName }} / <a :href="configSrc">src</a></span>
-      </div>
-    </div>
-    <div class="item">
-      <div class="header">Connect USB device</div>
-      <div class="containt">
-        <AtomButton
-          :disabled="!hasConfig || isConnected"
-          @click="connectButtonClicked"
-          >connect</AtomButton
-        >
-        <div v-if="isConnected" class="info">
-          <span class="label">Connected</span>
-          <span class="msg">{{ deviceName }} </span>
-        </div>
       </div>
     </div>
   </div>
@@ -95,7 +101,7 @@
 .textField {
   width: 500px;
 }
-.jsonButton {
+.jsonFetchButton {
   margin: 0 0.3rem;
 }
 .history {
@@ -128,6 +134,14 @@
       white-space: nowrap;
       font-size: x-small;
     }
+    .remove {
+      cursor: pointer;
+      color: $fontSubColor;
+      width: 16px;
+      &:hover {
+        color: $errorColor;
+      }
+    }
   }
   &.pinned {
     font-size: medium;
@@ -147,35 +161,26 @@
 
 <script lang="ts">
 import axios from 'axios'
-import {
-  computed,
-  defineComponent,
-  reactive,
-  toRefs,
-} from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
+import { mdiDeleteForever } from '@mdi/js'
+import AtomIcon from '@/components/atoms/AtomIcon.vue'
 import AtomInput from '@/components/atoms/AtomInput.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
 import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
 
-interface State {
-  jsonURL: string
-  isLoading: boolean
-}
-
 export default defineComponent({
-  components: { AtomInput, AtomButton, AtomToggleSlide },
+  components: { AtomIcon, AtomInput, AtomButton, AtomToggleSlide },
   setup(_props, _context) {
-    const state = reactive<State>({
-      jsonURL:
-        'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json',
-      isLoading: false,
-    })
+    const jsonUrl = ref(
+      'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json'
+    )
+    const isLoading = ref(false)
 
     const {
       connectDevice,
+      disconnectDevice,
       loadKeyboardConfig,
-      hasConfig,
       isConnected,
       keyboadConfig,
       deviceConfig,
@@ -185,26 +190,34 @@ export default defineComponent({
       removeHistory,
     } = useKeyboard()
 
-    const jsonButtonClicked = async () => {
+    const clickLoad = async () => {
       try {
-        state.isLoading = true
-        const url = new URL(state.jsonURL)
+        isLoading.value = true
+        const url = new URL(jsonUrl.value)
         const res = await axios.get(url.toString())
-        await loadKeyboardConfig(res.data, state.jsonURL)
+        await loadKeyboardConfig(res.data, jsonUrl.value)
         updateHistory({
           name: keyboadConfig.value?.name ?? '',
-          src: state.jsonURL,
+          src: jsonUrl.value,
         })
       } catch (e) {
         console.error(e)
       } finally {
-        state.isLoading = false
+        isLoading.value = false
       }
     }
 
-    const connectButtonClicked = async () => {
+    const clickConnect = async () => {
       try {
         await connectDevice()
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    const clickDisconnect = async () => {
+      try {
+        await disconnectDevice()
       } catch (e) {
         console.error(e)
       }
@@ -227,12 +240,14 @@ export default defineComponent({
     const configSrc = computed(() => keyboadConfig.value?.fileSrc)
 
     return {
-      ...toRefs(state),
+      jsonUrl,
+      isLoading,
+      mdiDeleteForever,
       indexedHistory,
-      hasConfig,
       isConnected,
-      jsonButtonClicked,
-      connectButtonClicked,
+      clickLoad,
+      clickConnect,
+      clickDisconnect,
       clickHistoryPin,
       clickRemoveHistory,
       pinnedHistory,

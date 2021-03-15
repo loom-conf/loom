@@ -8,6 +8,8 @@ import {
   ref,
 } from '@nuxtjs/composition-api'
 
+import axios from 'axios'
+
 import { WebHID } from '@/models/webhid'
 import { KeyboardDevice } from '@/models/keyboardDevice'
 import { DeviceConfig } from '@/models/deviceConfig'
@@ -92,38 +94,60 @@ export const createKeyboard = () => {
     saveHistory()
   }
 
-  async function loadKeyboardConfig(json: any[][], fileSrc: string) {
-    await disconnectDevice()
-    config.keyboard = { ...buildKeyboardConfigFromJSON(json), fileSrc }
+  async function loadKeyboardConfig(json: any[][], url?: string) {
+    config.keyboard = undefined
+    const loadedConfig = buildKeyboardConfigFromJSON(json)
+    if (
+      (config.device && loadedConfig.name === config.device.name) ||
+      !config.device
+    ) {
+      config.keyboard = {
+        ...loadedConfig,
+        fileSrc: url ?? 'local',
+      }
+      updateHistory({
+        name: config.keyboard?.name ?? '',
+        src: config.keyboard?.fileSrc ?? '',
+      })
+      await loadDeviceSetting()
+    } else {
+      throw new Error(`Wrong keyboard config: name ${loadedConfig.name}`)
+    }
+  }
+
+  async function fetchKeybordConfig(url: string) {
+    const res = await axios.get(url)
+    await loadKeyboardConfig(res.data, url)
   }
 
   async function connectDevice() {
-    if (config.keyboard === undefined)
-      throw new Error('load keyboard config before connect device')
-
     config.device = undefined
+    setting.device = undefined
+
     await device.connect()
-    config.device = await device.getDeviceConfig()
+    const loadedDeviceConfig = await device.getDeviceConfig()
 
-    if (config.device.name !== config.keyboard.name) {
-      const str = `config:${config.keyboard.name}, device:${config.device.name}`
-      await disconnectDevice()
-      throw new Error(`Incorrect combination ${str}`)
+    if (
+      (config.keyboard && loadedDeviceConfig.name === config.keyboard.name) ||
+      !config.keyboard
+    ) {
+      config.device = loadedDeviceConfig
+      await loadDeviceSetting()
+    } else {
+      throw new Error(`Wrong keyboard device: name ${loadedDeviceConfig.name}`)
     }
-
-    loadDeviceSetting()
   }
 
   async function disconnectDevice() {
-    config.device = undefined
     if (device.isConnected) {
       await device.disconnect()
     }
+    config.device = undefined
+    setting.device = undefined
   }
 
   async function loadDeviceSetting() {
-    if (!device.isConnected || !config.keyboard || !config.device)
-      return undefined
+    if (!device.isConnected || !config.keyboard || !config.device) return
     isCommunicating.value = true
     const layoutOption = await device.getLayoutOption()
     const keymap = await device.getKeymapAll(
@@ -150,28 +174,23 @@ export const createKeyboard = () => {
   }
 
   const isConnected = toRef(device, 'isConnected')
-  const hasConfig = computed(() => !!config.keyboard)
-  const isValid = computed(
-    () => config.keyboard !== undefined && config.device !== undefined
-  )
   const keyboadConfig = toRef(config, 'keyboard')
   const deviceConfig = toRef(config, 'device')
   const deviceSetting = toRef(setting, 'device')
 
   return {
-    config,
     indexedHistory,
     updateHistory,
     toggleHistoryPin,
     removeHistory,
     connectDevice,
+    disconnectDevice,
     loadKeyboardConfig,
+    fetchKeybordConfig,
     loadDeviceSetting,
     uploadKeymap,
     isCommunicating,
     isConnected,
-    hasConfig,
-    isValid,
     keyboadConfig,
     deviceConfig,
     deviceSetting,

@@ -1,7 +1,7 @@
 <template>
   <div class="editor">
     <div class="top">
-      <div v-if="hasConfig" class="keymapEditor">
+      <div v-if="hasLayout" class="keymapEditor">
         <KeymapEditor />
       </div>
       <div v-else class="initialPane">
@@ -49,6 +49,7 @@ import {
   useFetch,
   watchEffect,
   watch,
+  computed,
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
@@ -82,14 +83,9 @@ export default defineComponent({
     provideKeymap()
     provideKeySettingPopup()
 
-    const {
-      loadKeyboardConfig,
-      keyboadConfig,
-      deviceSetting,
-      hasConfig,
-    } = useKeyboard()
+    const { loadKeyboardConfig, keyboadConfig, deviceSetting } = useKeyboard()
 
-    const { setKeyboardConfig, setDeviceSetting } = useKeymap()
+    const { setKeyboardConfig, setDeviceSetting, layout } = useKeymap()
 
     // connect stores
     watch(keyboadConfig, (v) => {
@@ -102,7 +98,6 @@ export default defineComponent({
 
     const { fetchState } = useFetch(async () => {
       if (props.defaultJsonUrl) {
-        console.log(props.defaultJsonUrl)
         const url = new URL(props.defaultJsonUrl)
         const res = await axios.get(url.toString())
         loadKeyboardConfig(res.data, props.defaultJsonUrl)
@@ -112,9 +107,9 @@ export default defineComponent({
       if (fetchState.error) console.error(fetchState.error)
     })
 
-    return {
-      hasConfig,
-    }
+    const hasLayout = computed(() => !!layout.value.length)
+
+    return { hasLayout }
   },
 })
 </script>
