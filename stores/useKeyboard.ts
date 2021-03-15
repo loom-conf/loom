@@ -18,6 +18,7 @@ import {
   buildKeyboardConfigFromJSON,
 } from '@/models/keyboardConfig'
 import { DeviceSetting } from '@/models/deviceSetting'
+import { useDialog } from '@/stores/useDialog'
 
 type Config = {
   device: DeviceConfig | undefined
@@ -35,6 +36,8 @@ interface ConfigHistoryItem {
 }
 
 export const createKeyboard = () => {
+  const { openDialog } = useDialog()
+
   const deviceProtocol = new WebHID()
 
   const device = reactive<KeyboardDevice>(new KeyboardDevice(deviceProtocol))
@@ -136,7 +139,14 @@ export const createKeyboard = () => {
         const history = configHistory.value.find(
           (v) => v.name === config.device?.name
         )
-        if (history) console.log(`found ${history.name} in history`)
+        if (history) {
+          const autoload = await openDialog({
+            header: 'Autoload?',
+            message: `The config file for ${history.name} is found in the history.\nContinue to load automatically? `,
+            hasCancel: true,
+          })
+          if (autoload) await fetchKeybordConfig(history.src)
+        }
       }
       await loadDeviceSetting()
     } else {

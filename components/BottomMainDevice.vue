@@ -101,7 +101,6 @@
 import axios from 'axios'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
-import { useDialog } from '@/stores/useDialog'
 import AtomInput from '@/components/atoms/AtomInput.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
 import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
@@ -132,8 +131,6 @@ export default defineComponent({
       toggleHistoryPin,
       removeHistory,
     } = useKeyboard()
-
-    const { openDialog } = useDialog()
 
     const clickLoad = async () => {
       try {

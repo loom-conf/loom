@@ -40,11 +40,13 @@
     }
     .message {
       flex: 1;
+      white-space: pre;
+      margin-top: 0.5rem;
     }
     .buttonContainer {
       display: flex;
       justify-content: flex-end;
-      margin-top: 3rem;
+      margin-top: 2rem;
       .cancelButton {
         margin-left: 10px;
         background-color: $errorColor;
