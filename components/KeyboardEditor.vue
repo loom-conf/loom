@@ -12,6 +12,7 @@
       <KeyboardEditorBottom />
     </div>
     <KeySettingPopup />
+    <Dialog />
   </div>
 </template>
 
@@ -55,10 +56,12 @@ import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
 import { provideAppSetting } from '@/stores/useAppSetting'
 import { provideKeySettingPopup } from '@/stores/useKeySettingPopup'
+import { provideDialog } from '@/stores/useDialog'
 import KeyboardEditorBottom from '@/components/KeyboardEditorBottom.vue'
 import InitialPane from '@/components/InitialPane.vue'
 import KeymapEditor from '@/components/KeymapEditor.vue'
 import KeySettingPopup from '@/components/KeySettingPopup.vue'
+import Dialog from '@/components/Dialog.vue'
 
 export default defineComponent({
   components: {
@@ -66,6 +69,7 @@ export default defineComponent({
     InitialPane,
     KeymapEditor,
     KeySettingPopup,
+    Dialog,
   },
   props: {
     defaultJsonUrl: {
@@ -78,10 +82,11 @@ export default defineComponent({
     },
   },
   setup(props) {
+    provideDialog()
     provideAppSetting()
+    provideKeySettingPopup()
     provideKeyboard()
     provideKeymap()
-    provideKeySettingPopup()
 
     const { loadKeyboardConfig, keyboadConfig, deviceSetting } = useKeyboard()
 

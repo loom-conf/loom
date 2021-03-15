@@ -73,8 +73,6 @@
 }
 .pinned {
   font-size: medium;
-  margin-left: 0;
-  margin-bottom: 0;
   .historyTable {
     border: none;
     padding-left: 0;
@@ -85,8 +83,8 @@
   }
 }
 .history {
-  margin-left: 4px;
   font-size: small;
+  margin-left: 4px;
   margin-bottom: 12px;
   .historyTable {
     border-left: 2px solid $fontSubColor;
@@ -103,6 +101,7 @@
 import axios from 'axios'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
+import { useDialog } from '@/stores/useDialog'
 import AtomInput from '@/components/atoms/AtomInput.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
 import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
@@ -133,6 +132,8 @@ export default defineComponent({
       toggleHistoryPin,
       removeHistory,
     } = useKeyboard()
+
+    const { openDialog } = useDialog()
 
     const clickLoad = async () => {
       try {
