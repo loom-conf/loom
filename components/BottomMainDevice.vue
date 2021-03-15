@@ -33,25 +33,12 @@
           <AtomButton :disabled="isLoading || true">open local</AtomButton>
         </div>
       </div>
-      <div v-if="indexedHistory" class="history pinned">
-        <table class="historyTable">
-          <tr
-            v-for="history in pinnedHistory"
-            :key="`pinned${history.name}${history.index}`"
-          >
-            <td
-              :class="{ enable: history.isPinned }"
-              class="pin"
-              @click="clickHistoryPin(history.index)"
-            >
-              ★
-            </td>
-            <td class="name">{{ history.name }}</td>
-            <td class="src">
-              <a :href="history.src">{{ history.src }}</a>
-            </td>
-          </tr>
-        </table>
+      <div v-if="indexedHistory" class="pinned">
+        <BottomConfigHistory
+          :history="pinnedHistory"
+          @clickPin="clickHistoryPin"
+          @clickRemove="clickRemoveHistory"
+        />
       </div>
       <AtomToggleSlide
         v-if="indexedHistory"
@@ -59,31 +46,11 @@
         class="history"
         label="History"
       >
-        <table class="historyTable">
-          <tr
-            v-for="history in indexedHistory"
-            :key="`history${history.name}${history.index}`"
-          >
-            <td class="name">{{ history.name }}</td>
-            <td class="src">
-              <a :href="history.src">{{ history.src }}</a>
-            </td>
-            <td
-              :class="{ enable: history.isPinned }"
-              class="pin"
-              @click="clickHistoryPin(history.index)"
-            >
-              ★
-            </td>
-            <td
-              v-if="!history.isPinned"
-              class="remove"
-              @click="clickRemoveHistory(history.index)"
-            >
-              <AtomIcon :icon="mdiDeleteForever" />
-            </td>
-          </tr>
-        </table>
+        <BottomConfigHistory
+          :history="indexedHistory"
+          @clickPin="clickHistoryPin"
+          @clickRemove="clickRemoveHistory"
+        />
       </AtomToggleSlide>
       <div v-if="!!configName" class="info">
         <span class="label">Loaded</span>
@@ -104,56 +71,29 @@
 .jsonFetchButton {
   margin: 0 0.3rem;
 }
+.pinned {
+  font-size: medium;
+  margin-left: 0;
+  margin-bottom: 0;
+  .historyTable {
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+    tr {
+      line-height: 20px;
+    }
+  }
+}
 .history {
   margin-left: 4px;
   font-size: small;
   margin-bottom: 12px;
   .historyTable {
-    border-left: 1px solid black;
-    margin-left: 5.5px;
-    padding-left: 6px;
-    .pin {
-      cursor: pointer;
-      color: $disableColor;
-      &.enable {
-        color: $successColor;
-      }
-    }
-    .name {
-      cursor: pointer;
-      padding: 0 8px 0 0;
-      font-weight: 500;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    .src {
-      max-width: 400px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-size: x-small;
-    }
-    .remove {
-      cursor: pointer;
-      color: $fontSubColor;
-      width: 16px;
-      &:hover {
-        color: $errorColor;
-      }
-    }
-  }
-  &.pinned {
-    font-size: medium;
-    margin-left: 0;
-    margin-bottom: 0;
-    .historyTable {
-      border: none;
-      padding-left: 0;
-      margin-left: 0;
-      tr {
-        line-height: 20px;
-      }
+    border-left: 2px solid $fontSubColor;
+    padding-left: 5px;
+    margin-left: 5px;
+    tr {
+      line-height: 20px;
     }
   }
 }
@@ -163,14 +103,18 @@
 import axios from 'axios'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
-import { mdiDeleteForever } from '@mdi/js'
-import AtomIcon from '@/components/atoms/AtomIcon.vue'
 import AtomInput from '@/components/atoms/AtomInput.vue'
 import AtomButton from '@/components/atoms/AtomButton.vue'
 import AtomToggleSlide from '@/components/atoms/AtomToggleSlide.vue'
+import BottomConfigHistory from '@/components/BottomConfigHistory.vue'
 
 export default defineComponent({
-  components: { AtomIcon, AtomInput, AtomButton, AtomToggleSlide },
+  components: {
+    AtomInput,
+    AtomButton,
+    AtomToggleSlide,
+    BottomConfigHistory,
+  },
   setup(_props, _context) {
     const jsonUrl = ref(
       'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json'
@@ -242,7 +186,6 @@ export default defineComponent({
     return {
       jsonUrl,
       isLoading,
-      mdiDeleteForever,
       indexedHistory,
       isConnected,
       clickLoad,

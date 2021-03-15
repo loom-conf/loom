@@ -25,7 +25,7 @@ export default defineComponent({
   },
   setup(_props, _context) {
     const click = () => {
-      _context.emit('close')
+      _context.emit('clickOutside')
     }
     return { click }
   },

@@ -1,5 +1,5 @@
 <template>
-  <AtomModal :is-open="isOpen" @close="closeKeySetting">
+  <AtomModal :is-open="isOpen" @clickOutside="closeKeySetting">
     <div class="keySettingPopup" :class="colorClass" :style="positionStyle">
       <div class="keySetting">
         <div class="header">

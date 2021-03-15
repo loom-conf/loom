@@ -132,6 +132,12 @@ export const createKeyboard = () => {
       !config.keyboard
     ) {
       config.device = loadedDeviceConfig
+      if (!config.keyboard) {
+        const history = configHistory.value.find(
+          (v) => v.name === config.device?.name
+        )
+        if (history) console.log(`found ${history.name} in history`)
+      }
       await loadDeviceSetting()
     } else {
       throw new Error(`Wrong keyboard device: name ${loadedDeviceConfig.name}`)

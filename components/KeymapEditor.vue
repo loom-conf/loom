@@ -17,7 +17,7 @@
         <KeymapViewer />
       </div>
     </div>
-    <div v-if="isCommunicating" class="loadingModal">
+    <div v-if="isCommunicating" class="loading">
       <AtomLoader />
     </div>
   </div>
@@ -44,7 +44,7 @@
       }
     }
   }
-  .loadingModal {
+  .loading {
     position: absolute;
     background-color: rgba($color: #fff, $alpha: 0.3);
     display: flex;
