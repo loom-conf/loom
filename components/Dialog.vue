@@ -4,11 +4,11 @@
       <div class="header">{{ state.header }}</div>
       <div class="message">{{ state.message }}</div>
       <div class="buttonContainer">
-        <AtomButton @click="close(true)">OK</AtomButton>
+        <AtomButton @click="closeDialog(true)">OK</AtomButton>
         <AtomButton
           v-if="state.hasCancel"
           class="cancelButton"
-          @click="close(false)"
+          @click="closeDialog(false)"
           >Cancel</AtomButton
         >
       </div>
@@ -68,8 +68,8 @@ import AtomButton from '@/components/atoms/AtomButton.vue'
 export default defineComponent({
   components: { AtomModal, AtomButton },
   setup(_props, _context) {
-    const { isOpen, state, close } = useDialog()
-    return { isOpen, state, close }
+    const { isOpen, state, closeDialog } = useDialog()
+    return { isOpen, state, closeDialog }
   },
 })
 </script>
