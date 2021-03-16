@@ -8,15 +8,15 @@ interface DialogState {
 
 export function createDialog() {
   const isOpen = ref(false)
-  let state: DialogState = {
+  const state = ref<DialogState>({
     header: 'header',
     message: 'message',
     hasCancel: false,
-  }
+  })
   let dialogResolve: (flag: boolean) => void
 
   const openDialog = (dialogState: DialogState) => {
-    state = dialogState
+    state.value = dialogState
     isOpen.value = true
     return new Promise((resolve) => {
       dialogResolve = resolve
