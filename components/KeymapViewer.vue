@@ -15,9 +15,11 @@
 
 <style lang="scss" scoped>
 .keymapViewerContainer {
+  overflow: hidden;
   border: solid $bgColor;
   background-color: black;
   border-radius: 8px;
+  flex-shrink: 0;
   .keymapViewer {
     position: relative;
     z-index: 100;
@@ -81,13 +83,13 @@ export default defineComponent({
         outer.value.left +
         KeyConsts.outerBorder * 2 +
         KeyConsts.outerMargin * 2
-      }px`,
+      }px !important`,
       height: `${
         outer.value.bottom -
         outer.value.top +
         KeyConsts.outerBorder * 2 +
         KeyConsts.outerMargin * 2
-      }px`,
+      }px !important`,
       'border-width': `${KeyConsts.outerBorder}px`,
     }))
 

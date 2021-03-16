@@ -1,5 +1,5 @@
 <template>
-  <div class="initPane">
+  <div class="initialPane">
     <h1>LOOM Configulator - beta</h1>
     <p>Keyboard keymap configulator on a browser.</p>
     <h2>How to use</h2>
@@ -30,7 +30,11 @@
 </template>
 
 <style lang="scss" scoped>
-.initPane {
+.initialPane {
+  padding: 0 24px 24px 16px;
+  background-color: white;
+  border: 10px solid black;
+  border-radius: 10px;
   h1 {
     font-size: xx-large;
     font-weight: 900;

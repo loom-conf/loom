@@ -1,12 +1,8 @@
 <template>
   <div class="editor">
     <div class="top">
-      <div v-if="hasLayout" class="keymapEditor">
-        <KeymapEditor />
-      </div>
-      <div v-else class="initialPane">
-        <InitialPane />
-      </div>
+      <KeymapEditor v-if="hasLayout" />
+      <InitialPane v-else />
     </div>
     <div class="bottom">
       <KeyboardEditorBottom />
@@ -24,16 +20,9 @@
   align-items: flex-start;
   .top {
     display: flex;
-    min-width: 600px;
-    margin-left: $bottomTabWidth;
+    width: 100%;
+    padding-left: $bottomTabWidth;
     margin-bottom: 2rem;
-    .keymapEditor,
-    .initialPane {
-      padding: 0 24px 24px 16px;
-      background-color: white;
-      border: 10px solid black;
-      border-radius: 10px;
-    }
   }
   .bottom {
     flex: 1;

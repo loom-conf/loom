@@ -1,74 +1,84 @@
 <template>
-  <div class="keymapEditorContainer">
-    <div class="keyboardName">{{ keyboardName }}</div>
-    <div class="keymapEditor">
-      <div class="sideMenuContainer">
-        <KeymapEditorLayerSelector
-          :current-layer="currentLayer"
-          :layer-count="layerCount"
-          class="sideMenu"
-          @change="layerChange"
+  <div class="keymapEditorBorder">
+    <div class="keymapEditorContainer">
+      <div class="keyboardName">{{ keyboardName }}</div>
+      <div class="keymapEditor">
+        <div class="sideMenuContainer">
+          <KeymapEditorLayerSelector
+            :current-layer="currentLayer"
+            :layer-count="layerCount"
+            class="sideMenu"
+            @change="layerChange"
+          />
+          <KeymapEditorUsb class="sideMenu" @upload="uploadToDevice" />
+        </div>
+        <KeymapViewer
+          :class="{ blur: isCommunicating }"
+          style="transition: filter 0.3s linear"
         />
-        <KeymapEditorUsb class="sideMenu" @upload="uploadToDevice" />
       </div>
-      <KeymapViewer
-        :class="{ blur: isCommunicating }"
-        style="transition: filter 0.3s linear"
-      />
-    </div>
-    <div v-if="isCommunicating" class="loading">
-      <AtomLoader />
+      <div v-if="isCommunicating" class="loading">
+        <AtomLoader />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.keymapEditorContainer {
-  position: relative;
+.keymapEditorBorder {
+  background-color: white;
+  border: 10px solid black;
+  border-radius: 10px;
   transition: filter 0.5s linear;
-  filter: none;
-  .keyboardName {
-    margin-left: -6px;
-    margin-top: 3px;
-    line-height: 48px;
-    font-size: 48px;
-    font-weight: 900;
-  }
-  .keymapEditor {
+  max-width: 100%;
+  overflow-x: auto;
+  .keymapEditorContainer {
     position: relative;
-    flex: 1;
-    display: flex;
-    .sideMenuContainer {
-      div:first-child {
-        margin-bottom: 1rem;
-      }
-      .sideMenu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 15px;
-        .title {
-          font-size: small;
-          border-bottom: 1px solid $fontSubColor;
-          padding: 0 0.2rem;
-          margin-bottom: 0.2rem;
+    padding: 0 24px 24px 16px;
+    filter: none;
+    .keyboardName {
+      margin-left: -6px;
+      margin-top: 3px;
+      line-height: 48px;
+      font-size: 48px;
+      font-weight: 900;
+    }
+    .keymapEditor {
+      position: relative;
+      flex: 1;
+      display: flex;
+      .sideMenuContainer {
+        div:first-child {
+          margin-bottom: 1rem;
+        }
+        .sideMenu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 15px;
+          .title {
+            font-size: small;
+            border-bottom: 1px solid $fontSubColor;
+            padding: 0 0.2rem;
+            margin-bottom: 0.2rem;
+          }
         }
       }
     }
-  }
-  .loading {
-    position: absolute;
-    background-color: rgba($color: #fff, $alpha: 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    opacity: 1;
-    transition: all 0.3s linear;
+    .loading {
+      position: absolute;
+      background-color: rgba($color: #fff, $alpha: 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 1;
+      transition: all 0.3s linear;
+    }
   }
 }
 .blur {
