@@ -8,9 +8,12 @@
       >
         ★
       </td>
-      <td class="name">{{ config.name }}</td>
+      <td class="name" @click="clickHistoryName(config.src)">
+        {{ config.name }}
+      </td>
       <td class="src">
-        <a :href="config.src">{{ config.src }}</a>
+        <a v-if="config.src !== 'local'" :href="config.src">{{ config.src }}</a>
+        <span v-else>{{ config.src }}</span>
       </td>
       <td
         v-if="!config.isPinned"
@@ -80,10 +83,18 @@ export default defineComponent({
     const clickHistoryPin = (index: number) => {
       _context.emit('clickPin', index)
     }
+    const clickHistoryName = (src: string) => {
+      _context.emit('clickName', src)
+    }
     const clickRemoveHistory = (index: number) => {
       _context.emit('clickRemove', index)
     }
-    return { mdiDeleteForever, clickHistoryPin, clickRemoveHistory }
+    return {
+      mdiDeleteForever,
+      clickHistoryPin,
+      clickHistoryName,
+      clickRemoveHistory,
+    }
   },
 })
 </script>

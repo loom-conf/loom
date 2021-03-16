@@ -159,8 +159,6 @@ export default defineComponent({
     const isDisabled = computed(() => _props.keyLayout.disabled)
 
     const click = () => {
-      console.log(_props.keycode?.kind)
-      console.log(borderClass.value)
       const rect = keyRef.value?.getBoundingClientRect()
       if (rect) {
         const isRight = rect.right + popupWidth < window.innerWidth

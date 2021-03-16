@@ -30,13 +30,23 @@
             @click="clickLoad"
             >load</AtomButton
           >
-          <AtomButton :disabled="isLoading || true">open local</AtomButton>
+          <AtomButton :disabled="isLoading" @click="clickOpenLocal"
+            >local</AtomButton
+          >
+          <input
+            ref="fileInputRef"
+            type="file"
+            accept=".json"
+            style="display: none"
+            @change="changeFileInput"
+          />
         </div>
       </div>
       <div v-if="indexedHistory" class="pinned">
         <BottomConfigHistory
           :history="pinnedHistory"
           @clickPin="clickHistoryPin"
+          @clickName="clickHistoryName"
           @clickRemove="clickRemoveHistory"
         />
       </div>
@@ -49,6 +59,7 @@
         <BottomConfigHistory
           :history="indexedHistory"
           @clickPin="clickHistoryPin"
+          @clickName="clickHistoryName"
           @clickRemove="clickRemoveHistory"
         />
       </AtomToggleSlide>
@@ -98,7 +109,6 @@
 </style>
 
 <script lang="ts">
-import axios from 'axios'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 import AtomInput from '@/components/atoms/AtomInput.vue'
@@ -114,6 +124,7 @@ export default defineComponent({
     BottomConfigHistory,
   },
   setup(_props, _context) {
+    const fileInputRef = ref<HTMLInputElement>()
     const jsonUrl = ref(
       'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json'
     )
@@ -122,31 +133,50 @@ export default defineComponent({
     const {
       connectDevice,
       disconnectDevice,
+      fetchKeybordConfig,
       loadKeyboardConfig,
       isConnected,
       keyboadConfig,
       deviceConfig,
       indexedHistory,
-      updateHistory,
       toggleHistoryPin,
       removeHistory,
     } = useKeyboard()
 
-    const clickLoad = async () => {
+    const loadConfig = async () => {
       try {
         isLoading.value = true
-        const url = new URL(jsonUrl.value)
-        const res = await axios.get(url.toString())
-        await loadKeyboardConfig(res.data, jsonUrl.value)
-        updateHistory({
-          name: keyboadConfig.value?.name ?? '',
-          src: jsonUrl.value,
-        })
+        await fetchKeybordConfig(jsonUrl.value)
       } catch (e) {
         console.error(e)
       } finally {
         isLoading.value = false
       }
+    }
+
+    const clickLoad = async () => {
+      await loadConfig()
+    }
+
+    const clickOpenLocal = () => {
+      fileInputRef.value?.click()
+    }
+
+    const changeFileInput = async (e: any) => {
+      function loadJson() {
+        return new Promise((resolve) => {
+          const fileReader = new FileReader()
+          fileReader.onload = (e) => {
+            resolve(e.target?.result)
+          }
+          fileReader.readAsText(file)
+        })
+      }
+
+      const file = e.target.files[0]
+      if (!file) return
+      const result = await loadJson()
+      loadKeyboardConfig(JSON.parse(result as string), 'local')
     }
 
     const clickConnect = async () => {
@@ -169,6 +199,12 @@ export default defineComponent({
       toggleHistoryPin(index)
     }
 
+    const clickHistoryName = async (src: string) => {
+      if (src === 'local') return
+      jsonUrl.value = src
+      await loadConfig()
+    }
+
     const clickRemoveHistory = (index: number) => {
       removeHistory(index)
     }
@@ -182,14 +218,18 @@ export default defineComponent({
     const configSrc = computed(() => keyboadConfig.value?.fileSrc)
 
     return {
+      fileInputRef,
       jsonUrl,
       isLoading,
       indexedHistory,
       isConnected,
-      clickLoad,
       clickConnect,
       clickDisconnect,
+      clickLoad,
+      clickOpenLocal,
+      changeFileInput,
       clickHistoryPin,
+      clickHistoryName,
       clickRemoveHistory,
       pinnedHistory,
       configName,
