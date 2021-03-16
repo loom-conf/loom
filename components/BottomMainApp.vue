@@ -30,9 +30,11 @@ import BottomToggle from '@/components/BottomToggle.vue'
 export default defineComponent({
   components: { BottomToggle },
   setup(_props, _context) {
-    const { viewerOption } = useAppSetting()
+    const { viewerOption, setViewerOption } = useAppSetting()
     const toggleHidekeyButon = () => {
-      viewerOption.hideUnselectedLayout = !viewerOption.hideUnselectedLayout
+      viewerOption.value.hideUnselectedLayout = !viewerOption.value
+        .hideUnselectedLayout
+      setViewerOption(viewerOption.value)
     }
     return { viewerOption, toggleHidekeyButon }
   },

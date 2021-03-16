@@ -48,7 +48,7 @@ export default defineComponent({
       layout.value.reduce(
         (ret, item) => {
           if (
-            (viewerOption.hideUnselectedLayout && item.disabled) ||
+            (viewerOption.value.hideUnselectedLayout && item.disabled) ||
             item.decal
           )
             return ret
