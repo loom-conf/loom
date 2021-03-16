@@ -1,7 +1,7 @@
 <template>
   <div v-if="isVisible" class="keyContainer" :style="outerStyle" @click="click">
     <div ref="keyRef" class="keyBorder" :class="borderClass">
-      <div v-if="keycode === undefined">{{ label }}</div>
+      <div v-if="!keycode" style="white-space: pre">{{ label }}</div>
       <component :is="keyComponent" v-else :keycode="keycode" />
     </div>
   </div>
@@ -109,10 +109,13 @@ export default defineComponent({
       openingSetting: isOpeningSetting.value,
     }))
 
-    const label = computed(() => {
-      if (_props.keycode === undefined) return _props.keyLayout.labels[0]
-      return 'qmk' in _props.keycode ? _props.keycode.qmk : _props.keycode.raw
-    })
+    const label = computed(
+      () =>
+        `${_props.keyLayout.labels[0]}` +
+        (_props.keyLayout.layoutOption
+          ? `\n${_props.keyLayout.layoutOption?.layout},${_props.keyLayout.layoutOption?.value}`
+          : '')
+    )
 
     const keyComponent = computed(() => {
       switch (_props.keycode?.kind) {
