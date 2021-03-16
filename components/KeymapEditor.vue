@@ -1,21 +1,20 @@
 <template>
   <div class="keymapEditorContainer">
-    <div
-      :class="{ blur: isCommunicating }"
-      style="transition: filter 0.3s linear"
-    >
-      <div class="keyboardName">{{ keyboardName }}</div>
-      <div class="keymapEditor">
-        <div class="sideMenu">
-          <KeymapEditorLayerSelector
-            :current-layer="currentLayer"
-            :layer-count="layerCount"
-            @change="layerChange"
-          />
-          <KeymapEditorUsb @upload="uploadToDevice" />
-        </div>
-        <KeymapViewer />
+    <div class="keyboardName">{{ keyboardName }}</div>
+    <div class="keymapEditor">
+      <div class="sideMenuContainer">
+        <KeymapEditorLayerSelector
+          :current-layer="currentLayer"
+          :layer-count="layerCount"
+          class="sideMenu"
+          @change="layerChange"
+        />
+        <KeymapEditorUsb class="sideMenu" @upload="uploadToDevice" />
       </div>
+      <KeymapViewer
+        :class="{ blur: isCommunicating }"
+        style="transition: filter 0.3s linear"
+      />
     </div>
     <div v-if="isCommunicating" class="loading">
       <AtomLoader />
@@ -23,13 +22,14 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .keymapEditorContainer {
   position: relative;
   transition: filter 0.5s linear;
   filter: none;
   .keyboardName {
-    margin-left: -10px;
+    margin-left: -6px;
+    margin-top: 3px;
     line-height: 48px;
     font-size: 48px;
     font-weight: 900;
@@ -38,9 +38,21 @@
     position: relative;
     flex: 1;
     display: flex;
-    .sideMenu {
+    .sideMenuContainer {
       div:first-child {
         margin-bottom: 1rem;
+      }
+      .sideMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 15px;
+        .title {
+          font-size: small;
+          border-bottom: 1px solid $fontSubColor;
+          padding: 0 0.2rem;
+          margin-bottom: 0.2rem;
+        }
       }
     }
   }

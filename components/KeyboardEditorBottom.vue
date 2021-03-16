@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .editorBottom {
   position: relative;
   height: 100%;
@@ -34,6 +34,42 @@
     width: 100%;
     padding-left: 1rem;
     padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    .item {
+      margin-bottom: 1rem;
+      .header {
+        font-size: larger;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .containt {
+        align-items: center;
+        margin: 0.3rem 0;
+        font-size: large;
+        .label {
+          padding-right: 1rem;
+        }
+        .row {
+          display: flex;
+        }
+      }
+      .info {
+        margin: 6px 0;
+        font-size: medium;
+        .label {
+          font-weight: 500;
+          background-color: $successColor;
+          color: white;
+          padding: 0 12px;
+          &.error {
+            background-color: $errorColor;
+          }
+        }
+        .msg {
+          padding: 0 6px;
+        }
+      }
+    }
   }
 }
 

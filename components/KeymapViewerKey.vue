@@ -11,22 +11,23 @@
 .keyContainer {
   position: absolute;
   z-index: 1000;
-  padding: 0.5px;
+  padding: 1px;
   user-select: none;
   .keyBorder {
     display: flex;
     overflow: hidden;
     width: 100%;
     height: 100%;
-    border: $bgColor 1px solid;
+    border: none;
     border-radius: 2px;
     background-color: white;
+    transition: all 0.2s;
     &.disabled {
       background-color: $disableColor;
       color: lighten($disableColor, 50%);
     }
     &.openingSetting {
-      border: 4px solid $successColor;
+      background-color: lighten($successColor, 25%);
     }
   }
 }

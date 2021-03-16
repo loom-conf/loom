@@ -26,60 +26,6 @@ p {
   margin-bottom: 1rem;
 }
 
-.editorSideMenu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 15px;
-  .title {
-    font-size: small;
-    border-bottom: 1px solid $fontSubColor;
-    padding: 0 0.2rem;
-    margin-bottom: 0.2rem;
-  }
-}
-
-.editorBottom {
-  .main {
-    padding-bottom: 2rem;
-    .item {
-      margin-bottom: 1rem;
-      .header {
-        font-size: larger;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-      }
-      .containt {
-        align-items: center;
-        margin: 0.3rem 0;
-        font-size: large;
-        .label {
-          padding-right: 1rem;
-        }
-        .row {
-          display: flex;
-        }
-      }
-      .info {
-        margin: 6px 0;
-        font-size: medium;
-        .label {
-          font-weight: 500;
-          background-color: $successColor;
-          color: white;
-          padding: 0 12px;
-          &.error {
-            background-color: $errorColor;
-          }
-        }
-        .msg {
-          padding: 0 6px;
-        }
-      }
-    }
-  }
-}
-
 .v-select {
   font-size: small;
 }
