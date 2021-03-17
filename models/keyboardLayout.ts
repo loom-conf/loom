@@ -50,16 +50,6 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyLayout[] {
         }
       }
 
-      const rotated = rotateRect(
-        { x: calcKeySize(key.x), y: calcKeySize(key.y) },
-        { width: calcKeySize(key.width), height: calcKeySize(key.height) },
-        {
-          rx: calcKeySize(key.rotation_x),
-          ry: calcKeySize(key.rotation_y),
-          r: key.rotation_angle,
-        }
-      )
-
       const layoutOption = key.labels[8]
         ? {
             layout: parseInt(key.labels[8].split(',')[0]),
@@ -103,26 +93,37 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyLayout[] {
         }
       }
 
-      return { ...key, matrix, layoutOption, disabled: false, rotated }
+      return { ...key, matrix, layoutOption, disabled: false }
     })
     .map((key) => {
-      if (!key.layoutOption || key.layoutOption.value === 0) return key
-      const matchedDefaultOrigins = defaultOrigins.filter(
-        (v) => v.layout === key.layoutOption?.layout
+      if (key.layoutOption && key.layoutOption.value !== 0) {
+        const matchedDefaultOrigins = defaultOrigins.filter(
+          (v) => v.layout === key.layoutOption?.layout
+        )
+        const defaultOrigin =
+          matchedDefaultOrigins.length === 1
+            ? matchedDefaultOrigins[0]
+            : matchedDefaultOrigins.find((v) => v.row === key.y)
+        const clusterOrigin = clusterOrigins.find(
+          (v) =>
+            v.layout === key.layoutOption?.layout &&
+            v.value === key.layoutOption.value &&
+            v.row === key.y
+        )
+        if (defaultOrigin && clusterOrigin) {
+          key.x = key.x + (defaultOrigin.left - clusterOrigin.left)
+          key.y = key.y + (defaultOrigin.row - clusterOrigin.row)
+        }
+      }
+      const rotated = rotateRect(
+        { x: calcKeySize(key.x), y: calcKeySize(key.y) },
+        { width: calcKeySize(key.width), height: calcKeySize(key.height) },
+        {
+          rx: calcKeySize(key.rotation_x),
+          ry: calcKeySize(key.rotation_y),
+          r: key.rotation_angle,
+        }
       )
-      const defaultOrigin =
-        matchedDefaultOrigins.length === 1
-          ? matchedDefaultOrigins[0]
-          : matchedDefaultOrigins.find((v) => v.row === key.y)
-      const clusterOrigin = clusterOrigins.find(
-        (v) =>
-          v.layout === key.layoutOption?.layout &&
-          v.value === key.layoutOption.value &&
-          v.row === key.y
-      )
-      if (!defaultOrigin || !clusterOrigin) return key
-      key.x = key.x + (defaultOrigin.left - clusterOrigin.left)
-      key.y = key.y + (defaultOrigin.row - clusterOrigin.row)
-      return key
+      return { ...key, rotated }
     })
 }
