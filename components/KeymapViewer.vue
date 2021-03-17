@@ -31,7 +31,6 @@
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
-import { useAppSetting } from '@/stores/useAppSetting'
 import { useConsts } from '@/stores/useConsts'
 import { RectPoint } from '@/utils/rotateKey'
 import KeymapViewerKey from '@/components/KeymapViewerKey.vue'
@@ -41,17 +40,12 @@ export default defineComponent({
   setup(_props, _context) {
     const { keyboadConfig } = useKeyboard()
     const { keymap, layout, currentLayer, keyCount, setKeycode } = useKeymap()
-    const { viewerOption } = useAppSetting()
     const { KeyConsts } = useConsts()
 
     const outer = computed(() =>
       layout.value.reduce(
         (ret, item) => {
-          if (
-            (viewerOption.value.hideUnselectedLayout && item.disabled) ||
-            item.decal
-          )
-            return ret
+          if (item.disabled || item.decal) return ret
 
           const { xValues, yValues } = Object.keys(item.rotated).reduce(
             (ret, key) => {

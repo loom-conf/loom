@@ -2,13 +2,7 @@
   <div class="appSetting">
     <div class="item">
       <div class="header">Viewer</div>
-      <div class="containt">
-        <BottomToggle
-          :value="viewerOption.hideUnselectedLayout"
-          label="Hide keys in unselected layout"
-          @toggle="toggleHidekeyButon"
-        />
-      </div>
+      <div class="containt"></div>
     </div>
   </div>
 </template>
@@ -30,13 +24,8 @@ import BottomToggle from '@/components/BottomToggle.vue'
 export default defineComponent({
   components: { BottomToggle },
   setup(_props, _context) {
-    const { viewerOption, setViewerOption } = useAppSetting()
-    const toggleHidekeyButon = () => {
-      viewerOption.value.hideUnselectedLayout = !viewerOption.value
-        .hideUnselectedLayout
-      setViewerOption(viewerOption.value)
-    }
-    return { viewerOption, toggleHidekeyButon }
+    const { viewerOption } = useAppSetting()
+    return { viewerOption }
   },
 })
 </script>

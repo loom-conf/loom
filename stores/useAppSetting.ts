@@ -1,14 +1,12 @@
 import { InjectionKey, provide, inject, ref } from '@nuxtjs/composition-api'
 
-interface ViewerOption {
-  hideUnselectedLayout: boolean
-}
+interface ViewerOption {}
 
 export function createAppSetting() {
   const optionJson = window.localStorage.getItem('ViewerOption')
 
   const viewerOption = ref<ViewerOption>(
-    optionJson ? JSON.parse(optionJson) : { hideUnselectedLayout: true }
+    optionJson ? JSON.parse(optionJson) : {}
   )
 
   const setViewerOption = (option: ViewerOption) => {

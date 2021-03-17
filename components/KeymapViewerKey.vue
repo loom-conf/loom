@@ -43,7 +43,6 @@ import {
 import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { useConsts } from '@/stores/useConsts'
-import { useAppSetting } from '@/stores/useAppSetting'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
 
 import UnknownKey from '@/components/keys/UnknownKey.vue'
@@ -78,7 +77,6 @@ export default defineComponent({
     const isOpeningSetting = ref(false)
 
     const { KeyConsts, calcKeySize } = useConsts()
-    const { viewerOption } = useAppSetting()
     const { popupWidth, openKeySetting } = useKeySettingPopup()
 
     const width = computed(() => calcKeySize(_props.keyLayout.width))
@@ -151,10 +149,7 @@ export default defineComponent({
     })
 
     const isVisible = computed(
-      () =>
-        !(
-          viewerOption.value.hideUnselectedLayout && _props.keyLayout.disabled
-        ) && !_props.keyLayout.decal
+      () => !_props.keyLayout.disabled && !_props.keyLayout.decal
     )
 
     const isDisabled = computed(() => _props.keyLayout.disabled)
