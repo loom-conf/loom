@@ -28,10 +28,17 @@ interface Rotated {
 
 export type KeyLayout = kle.Key & Matrix & LayoutOption & Disabled & Rotated
 
-export type KeyboardLayout = Array<KeyLayout>
-
-export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
+export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyLayout[] {
   const { calcKeySize } = useConsts()
+
+  const defaultOrigins: { layout: number; row: number; left: number }[] = []
+  const clusterOrigins: {
+    layout: number
+    value: number
+    row: number
+    left: number
+  }[] = []
+
   return kle.Serial.deserialize(kleLayouts)
     .keys.filter((key) => key.labels.length)
     .map((key) => {
@@ -53,16 +60,69 @@ export function buildLayoutFromKLE(kleLayouts: Array<any>): KeyboardLayout {
         }
       )
 
-      let layoutOption
-      if (key.labels[8]) {
-        layoutOption = {
-          layout: parseInt(key.labels[8].split(',')[0]),
-          value: parseInt(key.labels[8].split(',')[1]),
+      const layoutOption = key.labels[8]
+        ? {
+            layout: parseInt(key.labels[8].split(',')[0]),
+            value: parseInt(key.labels[8].split(',')[1]),
+          }
+        : undefined
+
+      // check origin position for layout option keys
+      if (layoutOption) {
+        if (layoutOption.value === 0) {
+          const storedIndex = defaultOrigins.findIndex(
+            (origin) =>
+              origin.layout === layoutOption.layout && origin.row === key.y
+          )
+          if (storedIndex === -1) {
+            defaultOrigins.push({
+              layout: layoutOption.layout,
+              row: key.y,
+              left: key.x,
+            })
+          } else if (defaultOrigins[storedIndex].left > key.x) {
+            defaultOrigins[storedIndex].left = key.x
+          }
+        } else {
+          const storedIndex = clusterOrigins.findIndex(
+            (origin) =>
+              origin.layout === layoutOption.layout &&
+              origin.value === layoutOption.value &&
+              origin.row === key.y
+          )
+          if (storedIndex === -1) {
+            clusterOrigins.push({
+              layout: layoutOption.layout,
+              value: layoutOption.value,
+              row: key.y,
+              left: key.x,
+            })
+          } else if (clusterOrigins[storedIndex].left > key.x) {
+            clusterOrigins[storedIndex].left = key.x
+          }
         }
       }
 
-      if (layoutOption)
-        return { ...key, matrix, layoutOption, disabled: false, rotated }
-      else return { ...key, matrix, disabled: false, rotated }
+      return { ...key, matrix, layoutOption, disabled: false, rotated }
+    })
+    .map((key) => {
+      if (!key.layoutOption || key.layoutOption.value === 0) return key
+      const matchedDefaultOrigins = defaultOrigins.filter(
+        (v) => v.layout === key.layoutOption?.layout
+      )
+      const defaultOrigin =
+        matchedDefaultOrigins.length === 1
+          ? matchedDefaultOrigins[0]
+          : matchedDefaultOrigins.find((v) => v.row === key.y)
+      const clusterOrigin = clusterOrigins.find(
+        (v) =>
+          v.layout === key.layoutOption?.layout &&
+          v.value === key.layoutOption.value &&
+          v.row === key.y
+      )
+      if (!defaultOrigin || !clusterOrigin) return key
+      key.x = key.x + (defaultOrigin.left - clusterOrigin.left)
+      key.y = key.y + (defaultOrigin.row - clusterOrigin.row)
+      return key
     })
 }

@@ -5,7 +5,7 @@ import {
   reactive,
   ref,
 } from '@nuxtjs/composition-api'
-import { KeyboardLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
+import { KeyLayout, buildLayoutFromKLE } from '@/models/keyboardLayout'
 import { buildKeymapFromRaw, Keymap } from '@/models/keymap'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { DeviceSetting } from '@/models/deviceSetting'
@@ -15,7 +15,7 @@ import { KeyboardConfig } from '@/models/keyboardConfig'
 export const createKeymap = () => {
   const keyCount = ref<number>(0)
   const keymap = ref<Keymap>([])
-  const layout = ref<KeyboardLayout>([])
+  const layout = ref<KeyLayout[]>([])
   const layoutOption = reactive<LayoutOption>(new LayoutOption())
   const currentLayer = ref<number>(0)
 
@@ -28,7 +28,6 @@ export const createKeymap = () => {
     }
     layoutOption.setLabels(keyboardConfig?.layouts.labels)
     applyLayoutOption()
-    layoutOption.setRawSetting(0)
   }
 
   function setDeviceSetting(setting: DeviceSetting | undefined) {
