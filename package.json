@@ -19,9 +19,9 @@
     "@ijprest/kle-serial": "git+https://github.com/ctrlShiftBryan/kle-serial.git",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/composition-api": "^0.17.0",
+    "@nuxtjs/composition-api": "^0.22.1",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.15.3",
     "v-tooltip": "^2.1.2",
     "vue-gtag": "^1.11.0",
     "vue-select": "^3.11.2"
