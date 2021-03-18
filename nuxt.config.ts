@@ -85,6 +85,7 @@ const config: NuxtConfig = {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/google-analytics',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -92,6 +93,11 @@ const config: NuxtConfig = {
 
   styleResources: {
     scss: ['~/assets/css/variables.scss'],
+  },
+
+  googleAnalytics: {
+    id: 'UA-192559961-1',
+    // dev: process.env.NODE_ENV === 'development'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
