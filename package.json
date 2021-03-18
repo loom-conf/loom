@@ -23,6 +23,7 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "v-tooltip": "^2.1.2",
+    "vue-gtag": "^1.11.0",
     "vue-select": "^3.11.2"
   },
   "devDependencies": {
