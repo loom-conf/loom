@@ -4,6 +4,7 @@ interface DialogState {
   header: string
   message: string
   hasCancel: boolean
+  isError?: boolean
 }
 
 export function createDialog() {
@@ -12,6 +13,7 @@ export function createDialog() {
     header: 'header',
     message: 'message',
     hasCancel: false,
+    isError: false,
   })
   let dialogResolve: (flag: boolean) => void
 

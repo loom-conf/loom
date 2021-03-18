@@ -98,8 +98,20 @@ export const createKeyboard = () => {
   }
 
   async function loadKeyboardConfig(json: any[][], url?: string) {
-    config.keyboard = undefined
-    const loadedConfig = buildKeyboardConfigFromJSON(json)
+    let loadedConfig
+    try {
+      loadedConfig = buildKeyboardConfigFromJSON(json)
+    } catch (e: any) {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      await openDialog({
+        header: 'Config file error',
+        message: e.message,
+        hasCancel: false,
+        isError: true,
+      })
+      return
+    }
     if (
       (config.device && loadedConfig.name === config.device.name) ||
       !config.device
@@ -114,12 +126,30 @@ export const createKeyboard = () => {
       })
       await loadDeviceSetting()
     } else {
-      throw new Error(`Wrong keyboard config: name ${loadedConfig.name}`)
+      await openDialog({
+        header: 'Wrong config error',
+        message: `loaded wrong config: ${loadedConfig.name}`,
+        hasCancel: false,
+        isError: true,
+      })
     }
   }
 
   async function fetchKeybordConfig(url: string) {
-    const res = await axios.get(url)
+    let res
+    try {
+      res = await axios.get(url)
+    } catch (e: any) {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      await openDialog({
+        header: 'Fetch config error',
+        message: e.toString(),
+        hasCancel: false,
+        isError: true,
+      })
+      return
+    }
     await loadKeyboardConfig(res.data, url)
   }
 
@@ -127,36 +157,64 @@ export const createKeyboard = () => {
     config.device = undefined
     setting.device = undefined
 
-    await device.connect()
-    const loadedDeviceConfig = await device.getDeviceConfig()
+    try {
+      await device.connect()
+      const loadedDeviceConfig = await device.getDeviceConfig()
 
-    if (
-      (config.keyboard && loadedDeviceConfig.name === config.keyboard.name) ||
-      !config.keyboard
-    ) {
-      config.device = loadedDeviceConfig
-      if (!config.keyboard) {
-        const history = configHistory.value.find(
-          (v) => v.name === config.device?.name
-        )
-        if (history) {
-          const autoload = await openDialog({
-            header: 'Autoload?',
-            message: `The config file for ${history.name} is found in the history.\nContinue to load automatically? `,
-            hasCancel: true,
-          })
-          if (autoload) await fetchKeybordConfig(history.src)
+      if (
+        (config.keyboard && loadedDeviceConfig.name === config.keyboard.name) ||
+        !config.keyboard
+      ) {
+        config.device = loadedDeviceConfig
+        if (!config.keyboard) {
+          const history = configHistory.value.find(
+            (v) => v.name === config.device?.name
+          )
+          if (history) {
+            const autoload = await openDialog({
+              header: `Autoload config?`,
+              message: `The config file for ${history.name} is found in the history.\nContinue to load automatically? `,
+              hasCancel: true,
+            })
+            if (autoload) await fetchKeybordConfig(history.src)
+          }
         }
+        await loadDeviceSetting()
+      } else {
+        await device.disconnect()
+        await openDialog({
+          header: 'Wrong device error',
+          message: `connected wrong device: ${loadedDeviceConfig.name}`,
+          hasCancel: false,
+          isError: true,
+        })
       }
-      await loadDeviceSetting()
-    } else {
-      throw new Error(`Wrong keyboard device: name ${loadedDeviceConfig.name}`)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      await openDialog({
+        header: 'Connect device error',
+        message: e.toString(),
+        hasCancel: false,
+        isError: true,
+      })
     }
   }
 
   async function disconnectDevice() {
     if (device.isConnected) {
-      await device.disconnect()
+      try {
+        await device.disconnect()
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error(e)
+        await openDialog({
+          header: 'Disconnect device error',
+          message: e.toString(),
+          hasCancel: false,
+          isError: true,
+        })
+      }
     }
     config.device = undefined
     setting.device = undefined
@@ -165,14 +223,25 @@ export const createKeyboard = () => {
   async function loadDeviceSetting() {
     if (!device.isConnected || !config.keyboard || !config.device) return
     isCommunicating.value = true
-    const layoutOption = await device.getLayoutOption()
-    const keymap = await device.getKeymapAll(
-      config.device.layerCount,
-      config.keyboard.matrix
-    )
-    setting.device = {
-      layoutOption,
-      keymap,
+    try {
+      const layoutOption = await device.getLayoutOption()
+      const keymap = await device.getKeymapAll(
+        config.device.layerCount,
+        config.keyboard.matrix
+      )
+      setting.device = {
+        layoutOption,
+        keymap,
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      await openDialog({
+        header: 'Load device setting error',
+        message: e.toString(),
+        hasCancel: false,
+        isError: true,
+      })
     }
     isCommunicating.value = false
   }
@@ -180,11 +249,22 @@ export const createKeyboard = () => {
   async function uploadKeymap(rawKeymap: Uint16Array) {
     if (config.device && config.keyboard) {
       isCommunicating.value = true
-      await device.writeKeymapAll(
-        config.device.layerCount,
-        config.keyboard.matrix,
-        rawKeymap
-      )
+      try {
+        await device.writeKeymapAll(
+          config.device.layerCount,
+          config.keyboard.matrix,
+          rawKeymap
+        )
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error(e)
+        await openDialog({
+          header: 'Upload keymap error',
+          message: e.toString(),
+          hasCancel: false,
+          isError: true,
+        })
+      }
       isCommunicating.value = false
     }
   }

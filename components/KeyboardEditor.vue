@@ -33,11 +33,9 @@
 </style>
 
 <script lang="ts">
-import axios from 'axios'
 import {
   defineComponent,
   useFetch,
-  watchEffect,
   watch,
   computed,
 } from '@nuxtjs/composition-api'
@@ -77,7 +75,7 @@ export default defineComponent({
     provideKeyboard()
     provideKeymap()
 
-    const { loadKeyboardConfig, keyboadConfig, deviceSetting } = useKeyboard()
+    const { fetchKeybordConfig, keyboadConfig, deviceSetting } = useKeyboard()
 
     const { setKeyboardConfig, setDeviceSetting, layout } = useKeymap()
 
@@ -90,15 +88,10 @@ export default defineComponent({
       setDeviceSetting(v)
     })
 
-    const { fetchState } = useFetch(async () => {
+    useFetch(async () => {
       if (props.defaultJsonUrl) {
-        const url = new URL(props.defaultJsonUrl)
-        const res = await axios.get(url.toString())
-        loadKeyboardConfig(res.data, props.defaultJsonUrl)
+        await fetchKeybordConfig(props.defaultJsonUrl)
       }
-    })
-    watchEffect(() => {
-      if (fetchState.error) console.error(fetchState.error)
     })
 
     const hasLayout = computed(() => !!layout.value.length)

@@ -26,9 +26,7 @@ export class KeyboardDevice {
   }
 
   async connect() {
-    await this.disconnect()
-    await this.device.connect()
-    this.isConnected = true
+    this.isConnected = await this.device.connect()
   }
 
   async disconnect() {

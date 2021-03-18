@@ -144,14 +144,9 @@ export default defineComponent({
     } = useKeyboard()
 
     const loadConfig = async () => {
-      try {
-        isLoading.value = true
-        await fetchKeybordConfig(jsonUrl.value)
-      } catch (e) {
-        console.error(e)
-      } finally {
-        isLoading.value = false
-      }
+      isLoading.value = true
+      await fetchKeybordConfig(jsonUrl.value)
+      isLoading.value = false
     }
 
     const clickLoad = async () => {
@@ -180,19 +175,11 @@ export default defineComponent({
     }
 
     const clickConnect = async () => {
-      try {
-        await connectDevice()
-      } catch (e) {
-        console.error(e)
-      }
+      await connectDevice()
     }
 
     const clickDisconnect = async () => {
-      try {
-        await disconnectDevice()
-      } catch (e) {
-        console.error(e)
-      }
+      await disconnectDevice()
     }
 
     const clickHistoryPin = (index: number) => {

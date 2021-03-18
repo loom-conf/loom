@@ -1,5 +1,9 @@
 <template>
-  <AtomModal :is-open="isOpen" class="dialogContainer">
+  <AtomModal
+    :is-open="isOpen"
+    :class="{ error: state.isError }"
+    class="dialogContainer"
+  >
     <div class="dialog">
       <div class="header">{{ state.header }}</div>
       <div class="message">{{ state.message }}</div>
@@ -32,6 +36,7 @@
     border-radius: 10px;
     background-color: white;
     min-width: 400px;
+    max-width: 80%;
     padding: 1rem;
     .header {
       font-size: x-large;
@@ -42,6 +47,7 @@
       flex: 1;
       white-space: pre;
       margin-top: 0.5rem;
+      word-break: break-all;
     }
     .buttonContainer {
       display: flex;
@@ -53,6 +59,14 @@
         &:hover {
           background-color: darken($errorColor, 15%);
         }
+      }
+    }
+  }
+  &.error {
+    .dialog {
+      border-color: $errorColor;
+      .header {
+        color: $errorColor;
       }
     }
   }

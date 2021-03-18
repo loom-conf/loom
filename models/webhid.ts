@@ -25,7 +25,7 @@ export declare const navigator: Navigator & {
 export class WebHID implements DeviceProtocol {
   private device: HIDDevice | undefined
 
-  async connect(): Promise<void> {
+  async connect(): Promise<boolean> {
     try {
       this.device = await navigator.hid
         .requestDevice({
@@ -40,8 +40,10 @@ export class WebHID implements DeviceProtocol {
       // avoid reopen error
       await this.disconnect()
       await this.device.open()
+      return true
     } else {
-      throw new Error("Device isn't selected")
+      // device is not selected
+      return false
     }
   }
 
@@ -72,7 +74,10 @@ export class WebHID implements DeviceProtocol {
       this.registerMessageHandler((recieved) => {
         resolve(recieved)
       })
-      this.send(arrayBuffer)
+      this.send(arrayBuffer).catch((e) => {
+        // eslint-disable-next-line no-console
+        console.error(e)
+      })
     })
   }
 
