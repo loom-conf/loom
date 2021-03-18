@@ -18,6 +18,7 @@ import {
   buildKeyboardConfigFromJSON,
 } from '@/models/keyboardConfig'
 import { DeviceSetting } from '@/models/deviceSetting'
+import { ConfigHistory } from '@/models/configHistory'
 import { useDialog } from '@/stores/useDialog'
 
 type Config = {
@@ -45,56 +46,22 @@ export const createKeyboard = () => {
   const setting = reactive<Setting>({ device: undefined })
   const isCommunicating = ref(false)
 
-  const configHistoryJson = window.localStorage.getItem('ConfigHistories')
-  const configHistory = ref<ConfigHistoryItem[]>(
-    configHistoryJson
-      ? JSON.parse(configHistoryJson)
-      : [
-          {
-            name: 'Tartan',
-            src:
-              'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/tartan.json',
-            isPinned: false,
-          },
-        ]
-  )
-
-  function saveHistory() {
-    window.localStorage.setItem(
-      'ConfigHistories',
-      JSON.stringify(configHistory.value)
-    )
-  }
-
-  function addHistory(config: ConfigHistoryItem) {
-    configHistory.value.unshift(config)
-  }
+  const configHistory = reactive<ConfigHistory>(new ConfigHistory())
 
   const indexedHistory = computed(() =>
-    configHistory.value.map((v, index) => ({ ...v, index }))
+    configHistory.items.map((v, index) => ({ ...v, index }))
   )
 
-  function updateHistory(config: { name: string; src: string }) {
-    let isPinned = false
-    configHistory.value = configHistory.value.filter((v) => {
-      if (v.name === config.name) {
-        isPinned = v.isPinned
-        return false
-      }
-      return true
-    })
-    addHistory({ ...config, isPinned })
-    saveHistory()
+  function updateHistory(history: { name: string; src: string }) {
+    configHistory.update(history)
   }
 
   function toggleHistoryPin(index: number) {
-    configHistory.value[index].isPinned = !configHistory.value[index].isPinned
-    saveHistory()
+    configHistory.togglePin(index)
   }
 
   function removeHistory(index: number) {
-    configHistory.value.splice(index, 1)
-    saveHistory()
+    configHistory.remove(index)
   }
 
   async function loadKeyboardConfig(json: any[][], url?: string) {
@@ -167,7 +134,7 @@ export const createKeyboard = () => {
       ) {
         config.device = loadedDeviceConfig
         if (!config.keyboard) {
-          const history = configHistory.value.find(
+          const history = configHistory.items.find(
             (v) => v.name === config.device?.name
           )
           if (history) {
