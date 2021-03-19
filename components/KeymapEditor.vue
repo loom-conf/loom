@@ -10,7 +10,14 @@
             class="sideMenu"
             @change="layerChange"
           />
-          <KeymapEditorUsb class="sideMenu" @upload="uploadToDevice" />
+          <KeymapEditorUsbMenu
+            :is-connected="isConnected"
+            :is-communicating="isCommunicating"
+            class="sideMenu"
+            @upload="clickUpload"
+            @connect="clickConnect"
+            @disconnect="clickDisconnect"
+          />
         </div>
         <KeymapViewer
           :class="{ blur: isCommunicating }"
@@ -91,14 +98,14 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 import { useKeyboard } from '@/stores/useKeyboard'
 import { useKeymap } from '@/stores/useKeymap'
 import KeymapEditorLayerSelector from '@/components/KeymapEditorLayerSelector.vue'
-import KeymapEditorUsb from '@/components/KeymapEditorUsb.vue'
+import KeymapEditorUsbMenu from '@/components/KeymapEditorUsbMenu.vue'
 import KeymapViewer from '@/components/KeymapViewer.vue'
 import AtomLoader from '@/components/atoms/AtomLoader.vue'
 
 export default defineComponent({
   components: {
     KeymapEditorLayerSelector,
-    KeymapEditorUsb,
+    KeymapEditorUsbMenu,
     KeymapViewer,
     AtomLoader,
   },
@@ -109,6 +116,9 @@ export default defineComponent({
       loadDeviceSetting,
       uploadKeymap,
       isCommunicating,
+      isConnected,
+      connectDevice,
+      disconnectDevice,
     } = useKeyboard()
     const { setCurrentLayer, currentLayer, getKeymapAsRawArray } = useKeymap()
 
@@ -120,7 +130,15 @@ export default defineComponent({
       setCurrentLayer(layer)
     }
 
-    const uploadToDevice = async () => {
+    const clickConnect = async () => {
+      await connectDevice()
+    }
+
+    const clickDisconnect = async () => {
+      await disconnectDevice()
+    }
+
+    const clickUpload = async () => {
       await uploadKeymap(new Uint16Array(getKeymapAsRawArray()))
       await loadDeviceSetting()
     }
@@ -130,8 +148,11 @@ export default defineComponent({
       keyboardName,
       layerCount,
       layerChange,
-      uploadToDevice,
+      clickConnect,
+      clickDisconnect,
+      clickUpload,
       isCommunicating,
+      isConnected,
     }
   },
 })

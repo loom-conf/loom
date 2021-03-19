@@ -3,10 +3,14 @@
     <div class="item">
       <div class="header">Connect USB device</div>
       <div class="containt">
-        <AtomButton :disabled="isConnected" @click="clickConnect"
+        <AtomButton
+          :disabled="isConnected || isCommunicating"
+          @click="clickConnect"
           >connect</AtomButton
         >
-        <AtomButton :disabled="!isConnected" @click="clickDisconnect"
+        <AtomButton
+          :disabled="!isConnected || isCommunicating"
+          @click="clickDisconnect"
           >disconnect</AtomButton
         >
         <div v-if="isConnected" class="info">
@@ -25,12 +29,12 @@
             class="textField"
           ></AtomInput>
           <AtomButton
-            :disabled="isLoading"
+            :disabled="isCommunicating"
             class="jsonFetchButton"
             @click="clickLoad"
             >load</AtomButton
           >
-          <AtomButton :disabled="isLoading" @click="clickOpenLocal"
+          <AtomButton :disabled="isCommunicating" @click="clickOpenLocal"
             >local</AtomButton
           >
           <input
@@ -128,7 +132,6 @@ export default defineComponent({
     const jsonUrl = ref(
       'https://gist.githubusercontent.com/hsgw/b9df17b75f12d53e025416af3bd227d8/raw/c8db14f146f685fa81f93d54ee4e7f5e041a191a/tartan.json'
     )
-    const isLoading = ref(false)
 
     const {
       connectDevice,
@@ -136,6 +139,7 @@ export default defineComponent({
       fetchKeybordConfig,
       loadKeyboardConfig,
       isConnected,
+      isCommunicating,
       keyboadConfig,
       deviceConfig,
       indexedHistory,
@@ -144,9 +148,9 @@ export default defineComponent({
     } = useKeyboard()
 
     const loadConfig = async () => {
-      isLoading.value = true
+      isCommunicating.value = true
       await fetchKeybordConfig(jsonUrl.value)
-      isLoading.value = false
+      isCommunicating.value = false
     }
 
     const clickLoad = async () => {
@@ -207,7 +211,7 @@ export default defineComponent({
     return {
       fileInputRef,
       jsonUrl,
-      isLoading,
+      isCommunicating,
       indexedHistory,
       isConnected,
       clickConnect,
