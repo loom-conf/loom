@@ -59,6 +59,15 @@ export const createKeyboard = () => {
   }
 
   async function loadKeyboardConfig(json: any[][], url?: string) {
+    if (config.keyboard && isConnected.value) {
+      const res = await openDialog({
+        header: 'Load config',
+        message: `The config has already been loaded. (${config.keyboard.name})\nAll changes not yet uploaded to the keyboard will be discarded.\n\nAre you sure you want to load?`,
+        hasCancel: true,
+        isError: false,
+      })
+      if (!res) return
+    }
     let loadedConfig
     try {
       loadedConfig = buildKeyboardConfigFromJSON(json)
@@ -163,6 +172,14 @@ export const createKeyboard = () => {
   }
 
   async function disconnectDevice() {
+    const res = await openDialog({
+      header: 'Disconnect device',
+      message:
+        'All changes not yet uploaded to the keyboard will be discarded.\n\nAre you sure you want to disconnect?',
+      hasCancel: true,
+      isError: false,
+    })
+    if (!res) return
     if (device.isConnected) {
       try {
         await device.disconnect()
