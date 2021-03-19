@@ -38,6 +38,7 @@ import {
   useFetch,
   watch,
   computed,
+  wrapProperty,
 } from '@nuxtjs/composition-api'
 import { provideKeyboard, useKeyboard } from '@/stores/useKeyboard'
 import { provideKeymap, useKeymap } from '@/stores/useKeymap'
@@ -49,6 +50,8 @@ import InitialPane from '@/components/InitialPane.vue'
 import KeymapEditor from '@/components/KeymapEditor.vue'
 import KeySettingPopup from '@/components/KeySettingPopup.vue'
 import Dialog from '@/components/Dialog.vue'
+
+const useGtag = wrapProperty('$gtag', false)
 
 export default defineComponent({
   components: {
@@ -74,17 +77,33 @@ export default defineComponent({
     provideKeySettingPopup()
     provideKeyboard()
     provideKeymap()
-
-    const { fetchKeybordConfig, keyboadConfig, deviceSetting } = useKeyboard()
-
+    const gtagEvent = useGtag().event
+    const {
+      fetchKeybordConfig,
+      keyboadConfig,
+      deviceSetting,
+      deviceConfig,
+    } = useKeyboard()
     const { setKeyboardConfig, setDeviceSetting, layout } = useKeymap()
 
     // connect stores
     watch(keyboadConfig, (v) => {
+      if (v) {
+        gtagEvent('load', {
+          event_category: 'config',
+          event_label: v.name,
+        })
+      }
       setKeyboardConfig(v)
     })
 
     watch(deviceSetting, (v) => {
+      if (v && deviceConfig.value) {
+        gtagEvent('connect', {
+          event_category: 'device',
+          event_label: deviceConfig.value.name,
+        })
+      }
       setDeviceSetting(v)
     })
 

@@ -122,21 +122,26 @@ import {
   useContext,
   computed,
   ref,
+  wrapProperty,
 } from '@nuxtjs/composition-api'
 import { mdiGithub } from '@mdi/js'
 import KeyboardEditor from '@/components/KeyboardEditor.vue'
 import AtomIcon from '@/components/atoms/AtomIcon.vue'
+
+const useGtag = wrapProperty('$gtag', false)
 
 export default defineComponent({
   components: { KeyboardEditor, AtomIcon },
   setup(_props, _context) {
     const logoFlag = ref(false)
     const { route } = useContext()
+    const gtagEvent = useGtag().event
     const keyboardName = computed(() => route.value.params.keyboard ?? '')
     const jsonURL = computed(() => route.value.query.config ?? '')
 
     const clickLogo = () => {
       logoFlag.value = !logoFlag.value
+      gtagEvent('click_logo', { event_category: 'miscs' })
     }
 
     const logoBgClass = computed(() => [
