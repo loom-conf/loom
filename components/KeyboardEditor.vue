@@ -89,7 +89,7 @@ export default defineComponent({
     // connect stores
     watch(keyboadConfig, (v) => {
       if (v) {
-        gtagEvent('load', {
+        gtagEvent('keyboard', {
           event_category: 'config',
           event_label: v.name,
         })
@@ -99,7 +99,7 @@ export default defineComponent({
 
     watch(deviceSetting, (v) => {
       if (v && deviceConfig.value) {
-        gtagEvent('connect', {
+        gtagEvent('keyboard', {
           event_category: 'device',
           event_label: deviceConfig.value.name,
         })
