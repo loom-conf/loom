@@ -5,10 +5,9 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import AtomInput from '@/components/atoms/AtomInput.vue'
-import AtomButton from '../atoms/AtomButton.vue'
 
 export default defineComponent({
-  components: { AtomInput, AtomButton },
+  components: { AtomInput },
   props: {
     raw: { type: Number, required: true },
   },

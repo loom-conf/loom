@@ -22,6 +22,12 @@ module.exports = {
         registeredComponentsOnly: true,
       },
     ],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['template', 'style', 'script'],
+      },
+    ],
   },
   ignorePatterns: ['configJSON.ts'],
 }

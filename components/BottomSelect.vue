@@ -27,6 +27,7 @@ export default defineComponent({
     index: {
       type: Number,
       required: false,
+      default: 0,
     },
   },
   setup(_props, _context) {

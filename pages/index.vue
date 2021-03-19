@@ -126,12 +126,11 @@ import {
 } from '@nuxtjs/composition-api'
 import { mdiGithub } from '@mdi/js'
 import KeyboardEditor from '@/components/KeyboardEditor.vue'
-import AtomIcon from '@/components/atoms/AtomIcon.vue'
 
 const useGtag = wrapProperty('$gtag', false)
 
 export default defineComponent({
-  components: { KeyboardEditor, AtomIcon },
+  components: { KeyboardEditor },
   setup(_props, _context) {
     const logoFlag = ref(false)
     const { route } = useContext()

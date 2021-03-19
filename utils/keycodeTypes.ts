@@ -141,7 +141,7 @@ export interface ModTapKeycode {
   mods: ModKey[]
 }
 
-type KeycodeKind =
+export type KeycodeKind =
   | 'UNKNOWN'
   | 'BASIC'
   | 'SPECIAL'

@@ -65,10 +65,12 @@ export default defineComponent({
     keycode: {
       type: Object as PropType<KeycodeTypes>,
       required: false,
+      default: undefined,
     },
     keycodeIndex: {
       type: Number,
       required: false,
+      default: undefined,
     },
   },
 

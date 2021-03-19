@@ -30,12 +30,6 @@ type Setting = {
   device: DeviceSetting | undefined
 }
 
-interface ConfigHistoryItem {
-  name: string
-  src: string
-  isPinned: boolean
-}
-
 export const createKeyboard = () => {
   const { openDialog } = useDialog()
 

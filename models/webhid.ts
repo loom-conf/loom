@@ -1,5 +1,7 @@
 import { DeviceProtocol, DeviceMessageHandler } from '~/models/deviceProtocol'
 
+declare interface AddEventListenerOptions {}
+
 export declare interface HIDDevice {
   opened: boolean
   vendorId: number

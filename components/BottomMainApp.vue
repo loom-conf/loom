@@ -19,10 +19,9 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { useAppSetting } from '@/stores/useAppSetting'
-import BottomToggle from '@/components/BottomToggle.vue'
 
 export default defineComponent({
-  components: { BottomToggle },
+  components: {},
   setup(_props, _context) {
     const { viewerOption } = useAppSetting()
     return { viewerOption }

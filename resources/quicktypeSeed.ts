@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 interface ConfigJSON {
   name: string
   vendorId: string
