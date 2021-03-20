@@ -28,7 +28,7 @@
   .main {
     background-color: $mainBgColor;
     border: 10px solid black;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow-y: auto;
     height: 100%;
     width: 100%;

@@ -35,7 +35,7 @@
 .keymapEditorBorder {
   background-color: white;
   border: 10px solid black;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: filter 0.5s linear;
   max-width: 100%;
   overflow-x: auto;
