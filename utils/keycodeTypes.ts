@@ -12,14 +12,6 @@ export const BaseKeycodeKind = [
 
 export type BaseKeycodeKindType = typeof BaseKeycodeKind[number]
 
-export interface BaseKeycode {
-  qmk: string
-  raw: number
-  legend: string
-  altLegend?: string
-  kind: BaseKeycodeKindType
-}
-
 export type ModKey =
   | 'LSFT'
   | 'RSFT'
@@ -29,6 +21,35 @@ export type ModKey =
   | 'RALT'
   | 'RGUI'
   | 'LGUI'
+export interface BaseKeycode {
+  qmk: string
+  raw: number
+  legend: string
+  altLegend?: string
+  kind: BaseKeycodeKindType
+}
+
+export const KeycodeKind = [
+  'UNKNOWN',
+  'BASIC',
+  'SPECIAL',
+  'FUNCTION',
+  'ACTION',
+  'MACRO',
+  'LAYER_TAP',
+  'LAYER_ON',
+  'LAYER_MOMENTARY',
+  'LAYER_DEFAULT',
+  'LAYER_TOGGLE',
+  'LAYER_ONESHOT',
+  'MOD_ONESHOT',
+  'TAPDANCE',
+  'LAYER_TAPTOGGLE',
+  'LAYER_MOD',
+  'MOD_TAP',
+]
+
+export type KeycodeKindType = typeof KeycodeKind[number]
 
 export interface UnknownKeycode {
   kind: 'UNKNOWN'
@@ -143,25 +164,6 @@ export interface ModTapKeycode {
   base: BaseKeycode
   mods: ModKey[]
 }
-
-export type KeycodeKind =
-  | 'UNKNOWN'
-  | 'BASIC'
-  | 'SPECIAL'
-  | 'FUNCTION'
-  | 'ACTION'
-  | 'MACRO'
-  | 'LAYER_TAP'
-  | 'LAYER_ON'
-  | 'LAYER_MOMENTARY'
-  | 'LAYER_DEFAULT'
-  | 'LAYER_TOGGLE'
-  | 'LAYER_ONESHOT'
-  | 'MOD_ONESHOT'
-  | 'TAPDANCE'
-  | 'LAYER_TAPTOGGLE'
-  | 'LAYER_MOD'
-  | 'MOD_TAP'
 
 export type KeycodeTypes =
   | UnknownKeycode

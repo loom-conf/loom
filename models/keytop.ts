@@ -1,4 +1,4 @@
-import { KeycodeKind } from '@/utils/keycodeTypes'
+import { KeycodeKindType } from '@/utils/keycodeTypes'
 
 import UnknownKey from '@/components/keys/UnknownKey.vue'
 import BasicKey from '@/components/keys/BasicKey.vue'
@@ -11,7 +11,7 @@ import LayerKey from '@/components/keys/LayerKey.vue'
 import ModTapKey from '@/components/keys/ModTapKey.vue'
 import OneshotModKey from '@/components/keys/OneshotModKey.vue'
 
-export function getKeyComponent(kind: KeycodeKind) {
+export function getKeyComponent(kind: KeycodeKindType) {
   switch (kind) {
     case 'BASIC':
       return BasicKey

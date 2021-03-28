@@ -5,6 +5,7 @@ import {
   SpecialKeycode,
   BaseKeycode,
   BaseKeycodeKindType,
+  KeycodeKindType,
 } from '@/utils/keycodeTypes'
 
 export const BaseKeycodes: BaseKeycode[] = require('@/assets/data/BaseKeycodes.json')
@@ -224,6 +225,25 @@ export function buildKeycodeFromRaw(raw: number): KeycodeTypes {
   return findSpecialKeycode(raw)
 }
 
+export const RawBase: { [key in KeycodeKindType]: number } = {
+  BASIC: 0,
+  SPECIAL: 0,
+  FUNCTION: 0x2000,
+  MACRO: 0x3000,
+  LAYER_TAP: 0x4000,
+  LAYER_ON: 0x5010,
+  LAYER_MOMENTARY: 0x5100,
+  LAYER_DEFAULT: 0x5200,
+  LAYER_TOGGLE: 0x5300,
+  LAYER_ONESHOT: 0x5400,
+  MOD_ONESHOT: 0x5500,
+  TAPDANCE: 0x5700,
+  LAYER_TAPTOGGLE: 0x5800,
+  LAYER_MOD: 0x5900,
+  MOD_TAP: 0x6000,
+  UNKNOWN: 0,
+} as const
+
 export function buildRawFromKeycode(keycode: KeycodeTypes) {
   switch (keycode.kind) {
     case 'BASIC':
@@ -231,36 +251,38 @@ export function buildRawFromKeycode(keycode: KeycodeTypes) {
     case 'SPECIAL':
       return keycode.base.raw
     case 'FUNCTION':
-      return 0x2000 | keycode.action
+      return RawBase.FUNCTION | keycode.action
     case 'MACRO':
-      return 0x3000 | keycode.macro
+      return RawBase.MACRO | keycode.macro
     case 'LAYER_TAP':
-      return 0x4000 | (keycode.layer << 8) | keycode.base.raw
+      return RawBase.LAYER_TAP | (keycode.layer << 8) | keycode.base.raw
     case 'LAYER_ON':
-      return 0x5010 | keycode.layer
+      return RawBase.LAYER_ON | keycode.layer
     case 'LAYER_MOMENTARY':
-      return 0x5100 | keycode.layer
+      return RawBase.LAYER_MOMENTARY | keycode.layer
     case 'LAYER_DEFAULT':
-      return 0x5200 | keycode.layer
+      return RawBase.LAYER_DEFAULT | keycode.layer
     case 'LAYER_TOGGLE':
-      return 0x5300 | keycode.layer
+      return RawBase.LAYER_TOGGLE | keycode.layer
     case 'LAYER_ONESHOT':
-      return 0x5400 | keycode.layer
+      return RawBase.LAYER_ONESHOT | keycode.layer
     case 'MOD_ONESHOT':
-      return 0x5500 | parseModsArrayToValue(keycode.mods)
+      return RawBase.MOD_ONESHOT | parseModsArrayToValue(keycode.mods)
     case 'TAPDANCE':
-      return 0x5700 | keycode.tapdance
+      return RawBase.TAPDANCE | keycode.tapdance
     case 'LAYER_TAPTOGGLE':
-      return 0x5800 | keycode.layer
+      return RawBase.LAYER_TAPTOGGLE | keycode.layer
     case 'LAYER_MOD':
       return (
-        0x5900 |
+        RawBase.LAYER_MOD |
         (keycode.layer << 4) |
         (parseModsArrayToValue(keycode.mods) & 0x0f)
       )
     case 'MOD_TAP':
       return (
-        0x6000 | (parseModsArrayToValue(keycode.mods) << 8) | keycode.base.raw
+        RawBase.MOD_TAP |
+        (parseModsArrayToValue(keycode.mods) << 8) |
+        keycode.base.raw
       )
     case 'UNKNOWN':
       return keycode.raw

@@ -63,10 +63,10 @@ export default defineComponent({
           }
         },
         {
-          top: 10000,
-          bottom: -10000,
-          left: 10000,
-          right: -10000,
+          top: Infinity,
+          bottom: -Infinity,
+          left: Infinity,
+          right: -Infinity,
         }
       )
     )
