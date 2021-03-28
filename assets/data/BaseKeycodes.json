@@ -1502,112 +1502,112 @@
     "legend": "Up",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 231
+    "raw": 240
   },
   {
     "qmk": "KC_MS_D",
     "legend": "Down",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 232
+    "raw": 241
   },
   {
     "qmk": "KC_MS_L",
     "legend": "L",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 233
+    "raw": 242
   },
   {
     "qmk": "KC_MS_R",
     "legend": "R",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 234
+    "raw": 243
   },
   {
     "qmk": "KC_BTN1",
     "legend": "Btn1",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 235
+    "raw": 244
   },
   {
     "qmk": "KC_BTN2",
     "legend": "Btn2",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 236
+    "raw": 245
   },
   {
     "qmk": "KC_BTN3",
     "legend": "Btn3",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 237
+    "raw": 246
   },
   {
     "qmk": "KC_BTN4",
     "legend": "Btn4",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 238
+    "raw": 247
   },
   {
     "qmk": "KC_BTN5",
     "legend": "Btn5",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 239
+    "raw": 248
   },
   {
     "qmk": "KC_WH_U",
     "legend": "WH Up",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 240
+    "raw": 249
   },
   {
     "qmk": "KC_WH_D",
     "legend": "WH Down",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 241
+    "raw": 250
   },
   {
     "qmk": "KC_WH_L",
     "legend": "WH L",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 242
+    "raw": 251
   },
   {
     "qmk": "KC_WH_R",
     "legend": "WH R",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 243
+    "raw": 252
   },
   {
     "qmk": "KC_ACL0",
     "legend": "Acc0",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 244
+    "raw": 253
   },
   {
     "qmk": "KC_ACL1",
     "legend": "Acc1",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 245
+    "raw": 254
   },
   {
     "qmk": "KC_ACL2",
     "legend": "Acc2",
     "altLegend": "",
     "kind": "MOUSE",
-    "raw": 246
+    "raw": 255
   },
   {
     "qmk": "RGB_TOG",
