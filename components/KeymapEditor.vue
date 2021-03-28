@@ -46,7 +46,7 @@
     .keyboardName {
       margin-left: -6px;
       margin-top: 3px;
-      line-height: 48px;
+      line-height: 60px;
       font-size: 48px;
       font-weight: 900;
     }

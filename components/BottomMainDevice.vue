@@ -77,8 +77,7 @@
 
 <style lang="scss" scoped>
 .deviceSetting {
-  height: 0;
-  min-width: 250px;
+  padding: 1rem 0 2rem 0;
 }
 .textField {
   width: 500px;

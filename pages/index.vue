@@ -20,11 +20,7 @@
   </div>
 </template>
 
-<style lang="scss">
-body::-webkit-scrollbar {
-  display: none;
-}
-
+<style lang="scss" scoped>
 .main {
   background-color: $bgColor;
   width: 100vw;

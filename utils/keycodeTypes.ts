@@ -1,20 +1,23 @@
-export type BaseKeycodeKind =
-  | 'BASIC'
-  | 'MOD'
-  | 'KEYPAD'
-  | 'QMK'
-  | 'SYSTEM'
-  | 'PC'
-  | 'MEDIA'
-  | 'MOUSE'
-  | 'LED'
+export const BaseKeycodeKind = [
+  'BASIC',
+  'MOD',
+  'KEYPAD',
+  'QMK',
+  'SYSTEM',
+  'PC',
+  'MEDIA',
+  'MOUSE',
+  'LED',
+] as const
+
+export type BaseKeycodeKindType = typeof BaseKeycodeKind[number]
 
 export interface BaseKeycode {
   qmk: string
   raw: number
   legend: string
   altLegend?: string
-  kind: BaseKeycodeKind
+  kind: BaseKeycodeKindType
 }
 
 export type ModKey =
@@ -145,6 +148,7 @@ export type KeycodeKind =
   | 'UNKNOWN'
   | 'BASIC'
   | 'SPECIAL'
+  | 'FUNCTION'
   | 'ACTION'
   | 'MACRO'
   | 'LAYER_TAP'

@@ -1,8 +1,29 @@
 <template>
-  <div v-if="isVisible" class="keyContainer" :style="outerStyle" @click="click">
-    <div ref="keyRef" class="keyBorder" :class="borderClass">
-      <div v-if="!keycode" style="white-space: pre">{{ label }}</div>
-      <component :is="keyComponent" v-else :keycode="keycode" />
+  <div v-if="isVisible" class="keyContainer" :style="outerStyle">
+    <div
+      ref="keyRef"
+      class="keyBody"
+      :class="borderClass"
+      @drop="drop"
+      @dragenter.prevent
+      @dragover.prevent
+    >
+      <div
+        class="event"
+        :draggable="keycode"
+        @click="click"
+        @dragover="dragOver"
+        @dragleave="dragLeave"
+        @dragstart="dragStart"
+        @dragend="dragEnd"
+      >
+        <div
+          v-if="!keycode"
+          class="label"
+          v-html="labelWithoutKeycodeHtml"
+        ></div>
+        <component :is="keyComponent" v-else :keycode="keycode" />
+      </div>
     </div>
   </div>
 </template>
@@ -13,8 +34,7 @@
   z-index: 1000;
   padding: 1px;
   user-select: none;
-  .keyBorder {
-    display: flex;
+  .keyBody {
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -28,6 +48,20 @@
     }
     &.openingSetting {
       background-color: lighten($successColor, 25%);
+    }
+    &.dragOver {
+      border: 3px solid $successColor;
+    }
+    &.dragging {
+      border: 3px solid $subColor;
+    }
+    .event {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .label {
+      margin-left: 0.2rem;
     }
   }
 }
@@ -44,17 +78,7 @@ import { KeyLayout } from '@/models/keyboardLayout'
 import { KeycodeTypes } from '@/utils/keycodeTypes'
 import { useConsts } from '@/stores/useConsts'
 import { useKeySettingPopup } from '@/stores/useKeySettingPopup'
-
-import UnknownKey from '@/components/keys/UnknownKey.vue'
-import BasicKey from '@/components/keys/BasicKey.vue'
-import SpecialKey from '@/components/keys/SpecialKey.vue'
-import FunctionKey from '@/components/keys/FunctionKey.vue'
-import MacroKey from '@/components/keys/MacroKey.vue'
-import LayerTapKey from '@/components/keys/LayerTapKey.vue'
-import LayerModKey from '@/components/keys/LayerModKey.vue'
-import LayerKey from '@/components/keys/LayerKey.vue'
-import ModTapKey from '@/components/keys/ModTapKey.vue'
-import OneshotModKey from '@/components/keys/OneshotModKey.vue'
+import { getKeyComponent } from '@/models/keytop'
 
 export default defineComponent({
   props: {
@@ -77,6 +101,8 @@ export default defineComponent({
   setup(_props, _context) {
     const keyRef = ref<HTMLDivElement>()
     const isOpeningSetting = ref(false)
+    const isDragOver = ref(false)
+    const isDragging = ref(false)
 
     const { KeyConsts, calcKeySize } = useConsts()
     const { popupWidth, openKeySetting } = useKeySettingPopup()
@@ -107,48 +133,19 @@ export default defineComponent({
     const borderClass = computed(() => ({
       disabled: isDisabled.value,
       openingSetting: isOpeningSetting.value,
+      dragOver: isDragOver.value,
+      dragging: isDragging.value,
     }))
 
-    const label = computed(
+    const labelWithoutKeycodeHtml = computed(
       () =>
         `${_props.keyLayout.labels[0]}` +
         (_props.keyLayout.layoutOption
-          ? `\n${_props.keyLayout.layoutOption?.layout},${_props.keyLayout.layoutOption?.value}`
+          ? `<br />${_props.keyLayout.layoutOption?.layout},${_props.keyLayout.layoutOption?.value}`
           : '')
     )
 
-    const keyComponent = computed(() => {
-      switch (_props.keycode?.kind) {
-        case 'BASIC':
-          return BasicKey
-        case 'SPECIAL':
-          return SpecialKey
-        case 'FUNCTION':
-          return FunctionKey
-        case 'MACRO':
-          return MacroKey
-        case 'LAYER_TAP':
-          return LayerTapKey
-        case 'LAYER_MOD':
-          return LayerModKey
-        case 'LAYER_ON':
-        case 'LAYER_MOMENTARY':
-        case 'LAYER_DEFAULT':
-        case 'LAYER_TOGGLE':
-        case 'LAYER_ONESHOT':
-        case 'LAYER_TAPTOGGLE':
-          return LayerKey
-        case 'MOD_ONESHOT':
-          return OneshotModKey
-        case 'MOD_TAP':
-          return ModTapKey
-        case 'TAPDANCE':
-        case 'UNKNOWN':
-          return UnknownKey
-        default:
-          return undefined
-      }
-    })
+    const keyComponent = computed(() => getKeyComponent(_props.keycode.kind))
 
     const isVisible = computed(
       () => !_props.keyLayout.disabled && !_props.keyLayout.decal
@@ -180,17 +177,52 @@ export default defineComponent({
       }
     }
 
+    const dragStart = (event: DragEvent) => {
+      isDragging.value = true
+      if (event.dataTransfer)
+        event.dataTransfer.setData('keycode', JSON.stringify(_props.keycode))
+    }
+    const dragEnd = (event: DragEvent) => {
+      isDragging.value = false
+      if (event.dataTransfer) event.dataTransfer.setData('keycode', '')
+    }
+
+    const dragOver = () => {
+      isDragOver.value = true
+    }
+
+    const dragLeave = () => {
+      isDragOver.value = false
+    }
+
+    const drop = (event: DragEvent) => {
+      isDragOver.value = false
+      if (event.dataTransfer) {
+        const newKeycode = JSON.parse(event.dataTransfer.getData('keycode'))
+        if (newKeycode)
+          _context.emit('update-keycode', newKeycode, _props.keycodeIndex)
+      }
+      event.preventDefault()
+    }
+
     return {
       keyRef,
-      isOpeningSetting,
       outerStyle,
       borderClass,
-      label,
+      labelWithoutKeycodeHtml,
       keyComponent,
       isVisible,
       isDisabled,
       click,
+      dragStart,
+      dragEnd,
+      dragOver,
+      dragLeave,
+      drop,
     }
   },
 })
 </script>
+
+function getKeyComponent(kind: string): any { throw new Error('Function not
+implemented.') }

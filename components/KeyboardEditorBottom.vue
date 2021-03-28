@@ -7,9 +7,11 @@
       <BottomTab name="App" :selected="selectedTab" @click="clickTab" />
     </div>
     <div class="main">
-      <transition name="main-fade" mode="out-in">
-        <component :is="mainComponents" />
-      </transition>
+      <div style="height: 0">
+        <transition name="main-fade" mode="out-in">
+          <component :is="mainComponents" />
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +22,6 @@
   height: 100%;
   overflow-y: auto;
   display: flex;
-  align-items: stretch;
   flex-direction: row;
   .tabs {
     margin-top: 0.25rem;
@@ -33,8 +34,6 @@
     height: 100%;
     width: 100%;
     padding-left: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 2rem;
     .item {
       margin-bottom: 1rem;
       .header {
@@ -89,11 +88,17 @@ import BottomTab from '@/components/BottomTab.vue'
 import BottomMainDevice from '@/components/BottomMainDevice.vue'
 import BottomMainLayout from '@/components/BottomMainLayout.vue'
 import BottomMainApp from '@/components/BottomMainApp.vue'
+import BottomKeymapPicker from '~/components/BottomKeymapPicker.vue'
 
 export type BottomTabNames = 'Device' | 'Keymap' | 'Layout' | 'App'
 
 export default defineComponent({
-  components: { BottomTab, BottomMainDevice, BottomMainLayout },
+  components: {
+    BottomTab,
+    BottomMainDevice,
+    BottomMainLayout,
+    BottomKeymapPicker,
+  },
   setup(_props, _context) {
     const selectedTab = ref<BottomTabNames>('Device')
     const clickTab = (value: BottomTabNames) => {
@@ -107,8 +112,11 @@ export default defineComponent({
           return BottomMainLayout
         case 'App':
           return BottomMainApp
+        case 'Keymap':
+          return BottomKeymapPicker
+        default:
+          return undefined
       }
-      return undefined
     })
     return { selectedTab, clickTab, mainComponents }
   },

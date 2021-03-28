@@ -4,13 +4,13 @@ import {
   UnknownKeycode,
   SpecialKeycode,
   BaseKeycode,
-  BaseKeycodeKind,
+  BaseKeycodeKindType,
 } from '@/utils/keycodeTypes'
 
-const baseKeycodes: BaseKeycode[] = require('@/assets/data/BaseKeycodes.json')
+export const BaseKeycodes: BaseKeycode[] = require('@/assets/data/BaseKeycodes.json')
 
 function findBase(raw: number): BaseKeycode | undefined {
-  return baseKeycodes.find((keycode) => keycode.raw === raw)
+  return BaseKeycodes.find((keycode) => keycode.raw === raw)
 }
 
 function findSpecialKeycode(raw: number): SpecialKeycode | UnknownKeycode {
@@ -269,7 +269,7 @@ export function buildRawFromKeycode(keycode: KeycodeTypes) {
   }
 }
 
-export function getKeycodeList(kind?: BaseKeycodeKind): BaseKeycode[] {
-  if (!kind) return baseKeycodes as BaseKeycode[]
-  return baseKeycodes.filter((keycode) => keycode.kind === kind)
+export function getKeycodeList(kind?: BaseKeycodeKindType): BaseKeycode[] {
+  if (!kind) return BaseKeycodes as BaseKeycode[]
+  return BaseKeycodes.filter((keycode) => keycode.kind === kind)
 }
